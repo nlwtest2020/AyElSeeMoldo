@@ -67,12 +67,25 @@ PROGRAM_MAP = {
     # EXPENSES — ADMIN / OTHER
     # =====================
     526000: {"category": "staff_visas", "type": "expense"},
+    630000: {"category": "bank_charges", "type": "expense"},
     640100: {"category": "cultural_enrichment", "type": "expense"},
     653000: {"category": "conference_expenses", "type": "expense"},
+    674060: {"category": "dues_memberships", "type": "expense"},
     674110: {"category": "fines_penalties", "type": "expense"},
+    691000: {"category": "audit", "type": "expense"},
     693000: {"category": "bank_charges", "type": "expense"},
     694000: {"category": "advertising", "type": "expense"},
     697000: {"category": "consultants", "type": "expense"},
     697100: {"category": "administrative_support", "type": "expense"},
     698100: {"category": "indirect_costs", "type": "expense"},
+
+    # =====================
+    # EXPENSES — PAYROLL (ADDITIONAL)
+    # =====================
+    517630: {"category": "tax_withholding_expenses", "type": "expense"},
+
+    # =====================
+    # KNOWN ZEROING ERROR — IGNORE
+    # =====================
+    510000: {"category": "ignore", "type": "ignore"},
 }
