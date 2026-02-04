@@ -15,6 +15,7 @@ frames = []
 
 for sheet in xlsx.sheet_names:
     df = pd.read_excel(INPUT_FILE, sheet_name=sheet)
+    df.columns = df.columns.str.strip()  # Remove whitespace from column names
 
     df = df[list(KEEP_COLUMNS.keys())].rename(columns=KEEP_COLUMNS)
     df["source_sheet"] = sheet  # Revenue vs Expenses
