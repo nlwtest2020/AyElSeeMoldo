@@ -4,3 +4,6 @@ normalized.xlsx
 model_ready.xlsx
 __pycache__/
 fiscal_category_breakdown.xlsx
+
+# Raw data files
+/data/raw/
