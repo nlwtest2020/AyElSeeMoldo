@@ -2,3 +2,4 @@ venv/
 sanitized.xlsx
 normalized.xlsx
 model_ready.xlsx
+__pycache__/
