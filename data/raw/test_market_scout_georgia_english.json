@@ -1,0 +1,444 @@
+{
+  "meta": {
+    "country": "Georgia",
+    "country_code": "GE",
+    "pathway": "language",
+    "sub_category": "General English (Adults)",
+    "research_date": "2026-02-07",
+    "agent": "market_scout",
+    "status": "preliminary_test_run",
+    "search_languages_used": ["English", "Russian"],
+    "directories_checked": ["languageinternational.com", "eslbase.com", "languagecourse.net", "smapse.com"],
+    "total_search_queries": 10,
+    "data_completeness": 0.52,
+    "data_completeness_note": "Test run — many pricing fields unverified. Several school websites blocked automated fetch."
+  },
+  "competitors": [
+    {
+      "id": "ge-lang-001",
+      "name": "International House Tbilisi",
+      "name_local": "ინტერნეიშენალ ჰაუს თბილისი",
+      "website": "https://ihtbilisi.ge/en/",
+      "city": "Tbilisi",
+      "multi_city": false,
+      "year_established": 1989,
+      "type": "international_franchise",
+      "franchise_network": "International House World Organisation (IHWO)",
+      "pricing_tier": "premium",
+      "price_range_local": "475 GEL / 5-week intensive; regular term pricing behind contact form",
+      "price_range_usd": "~176 USD / 5-week intensive",
+      "formats": ["group", "individual", "in-person"],
+      "certifications": ["Cambridge Authorised Centre", "CELTA", "DELTA"],
+      "programs": [
+        "General English (Adults 16+)",
+        "Young Learners (7-15)",
+        "IELTS Preparation",
+        "TOEFL Preparation",
+        "Cambridge Exam Prep (FCE/CAE/CPE)",
+        "Teacher Training (CELTA, DELTA Module 1 & 2)",
+        "Summer Intensive"
+      ],
+      "social_presence": null,
+      "google_rating": null,
+      "source_urls": [
+        "https://ihtbilisi.ge/en/",
+        "https://ihworld.com/schools/countries/georgia/ih-tbilisi/",
+        "https://ihtbilisi.ge/en/fees/"
+      ],
+      "confidence": "high",
+      "notes": "Largest English school in Georgia. First IHWO affiliate in former Soviet Union (1989). Only authorised Cambridge Assessment centre in Georgia. The market leader — appears in every search and directory. Published 2025-2026 academic calendar."
+    },
+    {
+      "id": "ge-lang-002",
+      "name": "British Council Georgia",
+      "name_local": null,
+      "website": "https://www.britishcouncil.ge/en",
+      "city": "Tbilisi",
+      "multi_city": false,
+      "year_established": 2012,
+      "type": "international_institution",
+      "franchise_network": "British Council (UK Government)",
+      "pricing_tier": "premium",
+      "price_range_local": null,
+      "price_range_usd": null,
+      "formats": ["group", "individual", "online", "in-person"],
+      "certifications": ["IELTS Official Test Centre"],
+      "programs": [
+        "General English (Adults)",
+        "Business English",
+        "Young Learners (7-17)",
+        "IELTS Preparation",
+        "FCE / CAE Preparation",
+        "EnglishScore Tutors (1-on-1 online)",
+        "English Clubs (UK Government funded)"
+      ],
+      "social_presence": null,
+      "google_rating": null,
+      "source_urls": [
+        "https://www.britishcouncil.ge/en",
+        "https://www.britishcouncil.ge/en/english/adults",
+        "https://www.britishcouncil.ge/en/exam/ielts/dates-fees-locations"
+      ],
+      "confidence": "high",
+      "notes": "Official IELTS test administrator in Georgia. Teaching center operational since 2012. Offers both in-person and online (EnglishScore Tutors). UK Government-funded English Clubs in Georgia. Premium brand with institutional credibility."
+    },
+    {
+      "id": "ge-lang-003",
+      "name": "American Language Center (ALC) Tbilisi",
+      "name_local": null,
+      "website": "https://georgia.americancouncils.org/alc-tbilisi-en",
+      "city": "Tbilisi",
+      "multi_city": false,
+      "year_established": 2013,
+      "type": "international_institution",
+      "franchise_network": "American Councils for International Education",
+      "pricing_tier": "premium",
+      "price_range_local": null,
+      "price_range_usd": null,
+      "formats": ["group", "individual", "in-person"],
+      "certifications": null,
+      "programs": [
+        "General English",
+        "TOEFL Preparation",
+        "SAT Preparation",
+        "GRE Preparation",
+        "Georgian for foreigners",
+        "Russian",
+        "Persian"
+      ],
+      "social_presence": null,
+      "google_rating": null,
+      "source_urls": [
+        "https://georgia.americancouncils.org/alc-tbilisi-en"
+      ],
+      "confidence": "high",
+      "notes": "Partnership with American Councils Tbilisi. Native-speaker teachers. Strong test-prep focus (TOEFL, SAT, GRE). Located at Chavchavadze Ave. Appeals to university-bound students and professionals."
+    },
+    {
+      "id": "ge-lang-004",
+      "name": "EMCAN English Training Center",
+      "name_local": null,
+      "website": "https://www.emcaned.ge/",
+      "city": "Tbilisi",
+      "multi_city": false,
+      "year_established": null,
+      "type": "independent_local",
+      "franchise_network": null,
+      "pricing_tier": "mid",
+      "price_range_local": "320 GEL / 6-week course (max 5 students); 50 GEL discount for one-time payment",
+      "price_range_usd": "~119 USD / 6-week course",
+      "formats": ["group", "individual", "online", "in-person"],
+      "certifications": null,
+      "programs": [
+        "General English",
+        "Business English",
+        "IELTS Preparation",
+        "TOEFL Preparation",
+        "FCE / CAE / PTE / OET Preparation",
+        "GRE / GMAT / SAT Preparation"
+      ],
+      "social_presence": null,
+      "google_rating": null,
+      "source_urls": [
+        "https://www.emcaned.ge/",
+        "https://www.emcaned.ge/english/",
+        "https://www.emcaned.ge/toefl/"
+      ],
+      "confidence": "high",
+      "notes": "Widest test prep range in the market (IELTS, TOEFL, FCE, CAE, PTE, OET, GRE, GMAT, SAT). Small class sizes (max 5). Also serves Azerbaijan, Uzbekistan, Armenia via online. Located near Liberty Square/Rustaveli. Competitive pricing — most affordable verified provider."
+    },
+    {
+      "id": "ge-lang-005",
+      "name": "Goga Askurava Language Centre",
+      "name_local": null,
+      "website": null,
+      "city": "Tbilisi",
+      "multi_city": false,
+      "year_established": null,
+      "type": "independent_local",
+      "franchise_network": null,
+      "pricing_tier": "mid",
+      "price_range_local": null,
+      "price_range_usd": null,
+      "formats": ["group", "individual", "in-person"],
+      "certifications": null,
+      "programs": [
+        "General English",
+        "Georgian for foreigners",
+        "Russian"
+      ],
+      "social_presence": null,
+      "google_rating": {
+        "score": 5.0,
+        "review_count": null,
+        "note": "Listed on Google Maps with 5-star rating; review count not captured"
+      },
+      "source_urls": [
+        "https://www.google.com/maps/place/data=!4m2!3m1!1s0x40440ccdb269f261:0x8bf5866a232b9fd8",
+        "https://www.languageinternational.com/english-schools-tbilisi-65345"
+      ],
+      "confidence": "medium",
+      "notes": "Located on Chavchavadze Avenue (prime area). Uses simultaneous translation method — claims 3-4x faster vocabulary retention. Strong Google Maps rating. No website found — may rely on word of mouth and Google Maps listing."
+    },
+    {
+      "id": "ge-lang-006",
+      "name": "SpeakUp Language Center",
+      "name_local": "სფიქაფი",
+      "website": "https://speakup.ge/en/",
+      "city": "Tbilisi",
+      "multi_city": false,
+      "year_established": null,
+      "type": "independent_local",
+      "franchise_network": null,
+      "pricing_tier": "mid",
+      "price_range_local": "40 GEL trial lesson (credited to tuition if enrolled)",
+      "price_range_usd": "~15 USD trial lesson",
+      "formats": ["group", "individual", "online", "in-person"],
+      "certifications": null,
+      "programs": [
+        "Spoken English",
+        "Spoken Georgian (for foreigners)",
+        "Spoken Russian",
+        "Kids programs",
+        "Adult programs"
+      ],
+      "social_presence": null,
+      "google_rating": null,
+      "source_urls": [
+        "https://speakup.ge/en/",
+        "https://www.speakup.ge/en/welcome/"
+      ],
+      "confidence": "medium",
+      "notes": "Branding emphasizes spoken/conversational skills. Offers both online and offline. Trial lesson model is a good acquisition funnel. Also teaches Georgian to foreigners — captures expat market."
+    },
+    {
+      "id": "ge-lang-007",
+      "name": "The Language Laboratory",
+      "name_local": null,
+      "website": null,
+      "city": "Tbilisi",
+      "multi_city": false,
+      "year_established": null,
+      "type": "independent_local",
+      "franchise_network": null,
+      "pricing_tier": "mid",
+      "price_range_local": null,
+      "price_range_usd": null,
+      "formats": ["group", "in-person"],
+      "certifications": ["Certified teachers noted"],
+      "programs": [
+        "English",
+        "Other languages (up to 10 languages)"
+      ],
+      "social_presence": null,
+      "google_rating": null,
+      "source_urls": [
+        "https://www.languageinternational.com/english-schools-tbilisi-65345"
+      ],
+      "confidence": "low",
+      "notes": "Multi-language school (up to 10 languages). Claims certified teachers with many years of experience. Limited online footprint — single source only."
+    },
+    {
+      "id": "ge-lang-008",
+      "name": "Lingua House Language Center",
+      "name_local": null,
+      "website": null,
+      "city": "Tbilisi",
+      "multi_city": false,
+      "year_established": null,
+      "type": "independent_local",
+      "franchise_network": null,
+      "pricing_tier": "mid",
+      "price_range_local": null,
+      "price_range_usd": null,
+      "formats": ["group", "individual", "in-person"],
+      "certifications": null,
+      "programs": [
+        "TOEFL Preparation",
+        "SAT Preparation",
+        "FCE Preparation",
+        "Business English (lawyers, doctors, MPs)",
+        "Teen/pre-teen English",
+        "Georgian for foreigners"
+      ],
+      "social_presence": null,
+      "google_rating": null,
+      "source_urls": [
+        "https://groups.google.com/g/soc.culture.rep-of-georgia/c/sJ9Su6TUlds"
+      ],
+      "confidence": "low",
+      "notes": "Located at 25 Abashidze St. Appears to serve high-profile clients (MPs, doctors, lawyers). Source is an older Google Groups post — may need recency verification. Staff includes a USA Fulbright Scholar."
+    },
+    {
+      "id": "ge-lang-009",
+      "name": "Languages & Tourism Centre Georgia (GLT)",
+      "name_local": null,
+      "website": "https://georgiancourses.com/",
+      "city": "Tbilisi",
+      "multi_city": false,
+      "year_established": 2010,
+      "type": "independent_local",
+      "franchise_network": null,
+      "pricing_tier": "mid",
+      "price_range_local": null,
+      "price_range_usd": null,
+      "formats": ["group", "individual", "in-person"],
+      "certifications": null,
+      "programs": [
+        "English",
+        "Georgian for foreigners",
+        "Russian",
+        "Persian",
+        "Georgian Cooking Class"
+      ],
+      "social_presence": null,
+      "google_rating": null,
+      "source_urls": [
+        "https://georgiancourses.com/",
+        "https://www.languagecourse.net/school-languages-and-tourism-centre-georgia-tbilisi.php3"
+      ],
+      "confidence": "medium",
+      "notes": "Operating since 2010. Positions as #1 private school for teaching Georgian to foreigners. International student base. Also offers cultural experiences (cooking class). Tourist/expat focus may mean English courses are secondary."
+    },
+    {
+      "id": "ge-lang-010",
+      "name": "Preply Tutors (Tbilisi-based)",
+      "name_local": null,
+      "website": "https://preply.com/en/Tbilisi/english-native-speakers",
+      "city": "Tbilisi",
+      "multi_city": true,
+      "year_established": null,
+      "type": "platform_marketplace",
+      "franchise_network": "Preply (global tutoring platform)",
+      "pricing_tier": "budget",
+      "price_range_local": "Varies by tutor; typically 25-60 GEL/hour",
+      "price_range_usd": "~9-22 USD/hour",
+      "formats": ["individual", "online"],
+      "certifications": ["Varies by tutor — some CELTA/TEFL, many uncertified"],
+      "programs": [
+        "General English (all levels)",
+        "Conversational English",
+        "Business English",
+        "Test Prep (tutor-dependent)"
+      ],
+      "social_presence": null,
+      "google_rating": null,
+      "source_urls": [
+        "https://preply.com/en/Tbilisi/english-native-speakers"
+      ],
+      "confidence": "high",
+      "notes": "Not a school but a significant market force. Aggregates freelance tutors. Wide price range. No quality floor — buyer must vet. Represents the informal/gig economy segment of the market."
+    },
+    {
+      "id": "ge-lang-011",
+      "name": "Apprentus Tutors (Tbilisi-based)",
+      "name_local": null,
+      "website": "https://www.apprentus.com/en/toefl-test-preparation-lessons/Tbilisi-Georgia",
+      "city": "Tbilisi",
+      "multi_city": true,
+      "year_established": null,
+      "type": "platform_marketplace",
+      "franchise_network": "Apprentus (global tutoring platform)",
+      "pricing_tier": "budget",
+      "price_range_local": null,
+      "price_range_usd": null,
+      "formats": ["individual", "online", "in-person"],
+      "certifications": ["Varies by tutor"],
+      "programs": [
+        "General English",
+        "TOEFL Preparation",
+        "IELTS Preparation"
+      ],
+      "social_presence": null,
+      "google_rating": null,
+      "source_urls": [
+        "https://www.apprentus.com/en/toefl-test-preparation-lessons/Tbilisi-Georgia"
+      ],
+      "confidence": "medium",
+      "notes": "Another tutor marketplace serving Tbilisi. Less prominent than Preply locally. Offers home tuition and online options."
+    }
+  ],
+  "landscape": {
+    "total_found": 11,
+    "tier_distribution": {
+      "budget": 2,
+      "mid": 6,
+      "premium": 3
+    },
+    "maturity_level": "developing",
+    "maturity_justification": "11 identifiable providers with clear tier separation. Three major international brands present (IH, British Council, American Councils). Most established schools have professional websites. However, several mid-tier providers lack websites or have minimal online presence. Pricing data is inconsistent — some publish fees, others require direct contact. The market shows signs of professionalizing but hasn't reached full maturity.",
+    "market_gaps": [
+      "No provider found specializing exclusively in industry-specific English (medical, legal, tech)",
+      "Limited verified evening/weekend scheduling — most schools don't publish schedules publicly",
+      "No subscription or unlimited-access pricing model observed",
+      "No prominent online-only local school — online segment is dominated by global platforms (Preply, Apprentus)",
+      "Corporate/B2B English training appears underserved — only British Council and EMCAN mention it explicitly"
+    ],
+    "dominant_players": [
+      {
+        "id": "ge-lang-001",
+        "name": "International House Tbilisi",
+        "why": "Longest operating (since 1989), largest school, only Cambridge Authorised Centre, CELTA/DELTA provider, appears in every search result and directory"
+      },
+      {
+        "id": "ge-lang-002",
+        "name": "British Council Georgia",
+        "why": "Strongest institutional brand, official IELTS test centre, UK Government backing, both online and in-person, free community English Clubs"
+      }
+    ],
+    "price_bands": {
+      "budget_range_usd": "9-15/hour (private tutors via platforms)",
+      "mid_range_usd": "15-25/hour (local schools, group rates implied from course fees)",
+      "premium_range_usd": "25-45/hour (estimated for IH, British Council, ALC individual lessons)",
+      "note": "Most schools price by course/term, not hourly. Per-hour rates are derived estimates. Budget segment is dominated by freelance tutors on platforms."
+    }
+  },
+  "regulatory": {
+    "business_license": "Education license from Ministry of Education required for accredited programs. Private language tutoring appears largely unregulated.",
+    "teacher_qualifications": "No mandated qualifications identified for private English instruction. International certifications (CELTA, DELTA, TEFL) used as market differentiators, not legal requirements.",
+    "accreditation": "Voluntary. National Center for Educational Quality Enhancement handles accreditation. IH Tbilisi is the only Cambridge-authorized centre.",
+    "foreign_ownership": "No restrictions identified. Foreign entities can register LLCs in Georgia. Georgia ranks high on ease of doing business indices.",
+    "tax_treatment": "Education services may be VAT-exempt — needs verification from Georgian tax code.",
+    "language_of_instruction": "No restrictions identified for private language institutions.",
+    "confidence": "low",
+    "note": "Regulatory data is inferred from general Georgia business environment knowledge. No primary regulatory sources were accessed in this test run. Full run should check Ministry of Education website and Georgian legal databases.",
+    "sources": []
+  },
+  "research_log": {
+    "searches_performed": [
+      {"query": "English language schools Tbilisi Georgia 2025 2026", "language": "English", "source": "WebSearch", "results_useful": 7},
+      {"query": "курсы английского языка Тбилиси лучшие", "language": "Russian", "source": "WebSearch", "results_useful": 4},
+      {"query": "IELTS TOEFL preparation center Tbilisi Georgia", "language": "English", "source": "WebSearch", "results_useful": 5},
+      {"query": "British Council Georgia Tbilisi English courses programs", "language": "English", "source": "WebSearch", "results_useful": 6},
+      {"query": "Tbilisi English courses price per hour GEL adult 2025", "language": "English", "source": "WebSearch", "results_useful": 5},
+      {"query": "language center Tbilisi site:facebook.com OR site:google.com", "language": "English", "source": "WebSearch", "results_useful": 2},
+      {"query": "Tbilisi English school ELC GLT Lingua SpeakUp", "language": "English", "source": "WebSearch", "results_useful": 3},
+      {"query": "IH Tbilisi fees GEL 2025 general English adult course price", "language": "English", "source": "WebSearch", "results_useful": 2},
+      {"query": "Georgetown English Plus Educate Georgia GLT English courses", "language": "English", "source": "WebSearch", "results_useful": 2},
+      {"query": "smapse Tbilisi English language schools top 7 list price", "language": "English", "source": "WebSearch", "results_useful": 1}
+    ],
+    "fetch_attempts": [
+      {"url": "https://www.languageinternational.com/english-schools-tbilisi-65345", "status": "403 blocked"},
+      {"url": "https://www.eslbase.com/schools/georgia/", "status": "403 blocked"},
+      {"url": "https://ihtbilisi.ge/en/fees/", "status": "403 blocked"},
+      {"url": "https://www.emcaned.ge/english/", "status": "403 blocked"},
+      {"url": "https://ihtbilisi.ge/en/inglisuris-zogadi-kursi/", "status": "403 blocked"}
+    ],
+    "dead_ends": [
+      "Most school websites returned 403 on automated fetch — pricing details could not be scraped",
+      "smapse.com lists only 1 English language school in Tbilisi (IH) — not useful as a directory",
+      "Georgian-language searches were not executed in this test run — would require native script queries",
+      "Facebook/Instagram/Telegram searches were not executed — would need platform-specific tools",
+      "MyCity.ge, SS.ge directories were not searchable via web search"
+    ],
+    "follow_up_needed": [
+      "Manual visit to IH Tbilisi /fees/ page to capture full term pricing",
+      "Manual visit to British Council Georgia for course fees",
+      "Georgian-language Google searches for schools not visible in English/Russian results",
+      "Facebook group search: 'English courses Tbilisi' and Georgian equivalent",
+      "Google Maps search to capture ratings, review counts, and discover unlisted schools",
+      "Verify whether Lingua House is still operating (source was an older post)",
+      "Check if there are Batumi/Kutaisi branches of any Tbilisi providers"
+    ]
+  }
+}
