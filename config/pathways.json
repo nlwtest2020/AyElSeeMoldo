@@ -1,28 +1,56 @@
 {
   "pathways": [
     {
-      "id": "market_sizing",
-      "name": "Market Sizing",
-      "description": "Estimate total addressable market, serviceable market, and growth projections",
-      "steps": ["data_collection", "validation", "analysis", "report"]
+      "id": "language",
+      "name": "Language Instruction",
+      "sub_categories": [
+        "General English (Adults)",
+        "General English (Children/Teens)",
+        "Test Prep (TOEFL/IELTS/SAT)",
+        "Business English (B2B Corporate)",
+        "Local Languages (Georgian/Armenian/Romanian for foreigners)"
+      ],
+      "research_questions": [
+        "Who are the top 10 providers?",
+        "What's the price range per hour?",
+        "Group vs individual pricing?",
+        "What certifications do teachers have?",
+        "Is there B2B corporate market?"
+      ]
     },
     {
-      "id": "competitive_landscape",
-      "name": "Competitive Landscape",
-      "description": "Identify and analyze key competitors, market share, and positioning",
-      "steps": ["data_collection", "competitor_profiling", "gap_analysis", "report"]
+      "id": "skills",
+      "name": "Professional Skills Development",
+      "sub_categories": [
+        "Professional Networking & Communication",
+        "Technology Bootcamps (AI/Coding/Digital)",
+        "Leadership & Management Training",
+        "Career Development Programs"
+      ],
+      "research_questions": [
+        "Does this market exist locally?",
+        "What formats (weekend/evening/intensive)?",
+        "Who are the customers?",
+        "What's the price elasticity?",
+        "Are there international players?"
+      ]
     },
     {
-      "id": "regulatory_review",
-      "name": "Regulatory Review",
-      "description": "Assess regulatory environment, compliance requirements, and barriers to entry",
-      "steps": ["data_collection", "regulation_mapping", "risk_assessment", "report"]
-    },
-    {
-      "id": "consumer_insights",
-      "name": "Consumer Insights",
-      "description": "Analyze consumer behavior, preferences, and demand drivers",
-      "steps": ["data_collection", "segmentation", "trend_analysis", "report"]
+      "id": "open_discovery",
+      "name": "Open Opportunity Discovery",
+      "discovery_areas": [
+        "Executive/Enterprise Programs (sponsored overseas education)",
+        "Youth Leadership Camps",
+        "Professional Certifications",
+        "Study Abroad Consulting",
+        "Cultural Exchange Programs"
+      ],
+      "research_questions": [
+        "What gaps exist in the market?",
+        "What works in similar markets?",
+        "Who would pay premium prices?",
+        "What partnerships could unlock opportunities?"
+      ]
     }
   ]
 }
