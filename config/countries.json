@@ -1,34 +1,239 @@
 {
   "countries": [
     {
-      "code": "US",
-      "name": "United States",
-      "region": "North America",
-      "enabled": true
+      "name": "Georgia",
+      "code": "GE",
+      "capital": "Tbilisi",
+      "major_cities": [
+        "Batumi",
+        "Kutaisi",
+        "Rustavi",
+        "Zugdidi"
+      ],
+      "languages": [
+        "Georgian",
+        "Russian",
+        "English"
+      ],
+      "currency": {
+        "code": "GEL",
+        "name": "Georgian Lari",
+        "usd_exchange_rate": 2.7,
+        "rate_note": "Approximate as of early 2026"
+      },
+      "search_terms": {
+        "georgian": [
+          "სასწავლო ცენტრი",
+          "ინგლისური კურსები",
+          "ენის სკოლა",
+          "განათლება",
+          "ტრენინგი",
+          "კურსები"
+        ],
+        "russian": [
+          "учебный центр",
+          "курсы английского",
+          "языковая школа",
+          "образование",
+          "обучение",
+          "курсы"
+        ],
+        "english": [
+          "training center",
+          "language school",
+          "English courses",
+          "education",
+          "professional training"
+        ]
+      },
+      "known_directories": [
+        {
+          "name": "MyCity.ge",
+          "url": "https://www.mycity.ge",
+          "type": "classifieds"
+        },
+        {
+          "name": "SS.ge",
+          "url": "https://ss.ge",
+          "type": "classifieds"
+        },
+        {
+          "name": "Jobs.ge",
+          "url": "https://jobs.ge",
+          "type": "jobs_and_training"
+        }
+      ],
+      "facebook_marketplace_active": true,
+      "notes": "Strong tech sector in Tbilisi; Batumi growing as a tourism and education hub."
     },
     {
-      "code": "GB",
-      "name": "United Kingdom",
-      "region": "Europe",
-      "enabled": true
+      "name": "Armenia",
+      "code": "AM",
+      "capital": "Yerevan",
+      "major_cities": [
+        "Gyumri",
+        "Vanadzor",
+        "Vagharshapat",
+        "Kapan",
+        "Hrazdan",
+        "Abovyan"
+      ],
+      "languages": [
+        "Armenian",
+        "Russian",
+        "English"
+      ],
+      "currency": {
+        "code": "AMD",
+        "name": "Armenian Dram",
+        "usd_exchange_rate": 387.0,
+        "rate_note": "Approximate as of early 2026"
+      },
+      "search_terms": {
+        "armenian": [
+          "կրթություն",
+          "ուսուցում",
+          "դասընթացներ",
+          "ուսումնական կենտրոն",
+          "լեզվի դպրոց",
+          "անգլերեն դասընթացներ"
+        ],
+        "russian": [
+          "учебный центр",
+          "курсы английского языка",
+          "языковая школа",
+          "образование",
+          "обучение",
+          "курсы"
+        ],
+        "english": [
+          "training center",
+          "language school",
+          "English courses",
+          "education",
+          "professional training"
+        ]
+      },
+      "known_directories": [
+        {
+          "name": "List.am",
+          "url": "https://list.am",
+          "type": "classifieds_marketplace"
+        },
+        {
+          "name": "KAYQER.am",
+          "url": "https://kayqer.am/en/education/courses/",
+          "type": "education_directory"
+        },
+        {
+          "name": "AUA Extension",
+          "url": "https://extension.aua.am",
+          "type": "university_courses"
+        },
+        {
+          "name": "Armenian Educational Portal",
+          "url": "https://www.armedu.am",
+          "type": "government_education"
+        },
+        {
+          "name": "Education.am",
+          "url": "https://education.am",
+          "type": "education_directory"
+        },
+        {
+          "name": "Microsoft Innovation Center Armenia",
+          "url": "https://mic.am",
+          "type": "it_training"
+        }
+      ],
+      "facebook_marketplace_active": false,
+      "primary_marketplace": "list.am",
+      "notes": "List.am is the dominant marketplace. High Facebook adoption (80% of population) but Marketplace not confirmed active for services. Russian widely spoken (~65-70% proficiency)."
     },
     {
-      "code": "DE",
-      "name": "Germany",
-      "region": "Europe",
-      "enabled": true
-    },
-    {
-      "code": "JP",
-      "name": "Japan",
-      "region": "Asia-Pacific",
-      "enabled": true
-    },
-    {
-      "code": "BR",
-      "name": "Brazil",
-      "region": "Latin America",
-      "enabled": true
+      "name": "Moldova",
+      "code": "MD",
+      "capital": "Chișinău",
+      "major_cities": [
+        "Tiraspol",
+        "Bălți",
+        "Tighina",
+        "Cahul"
+      ],
+      "languages": [
+        "Romanian",
+        "Russian",
+        "English"
+      ],
+      "currency": {
+        "code": "MDL",
+        "name": "Moldovan Leu",
+        "usd_exchange_rate": 16.84,
+        "rate_note": "Approximate as of early 2026"
+      },
+      "search_terms": {
+        "romanian": [
+          "centru de instruire",
+          "cursuri de limba engleză",
+          "școală de limbi străine",
+          "educație",
+          "formare profesională",
+          "cursuri",
+          "perfecționare profesională"
+        ],
+        "russian": [
+          "учебный центр",
+          "курсы английского языка",
+          "языковая школа",
+          "образование",
+          "обучение",
+          "курсы",
+          "повышение квалификации"
+        ],
+        "english": [
+          "training center",
+          "language school",
+          "English courses",
+          "education",
+          "professional training",
+          "professional development"
+        ]
+      },
+      "known_directories": [
+        {
+          "name": "999.md",
+          "url": "https://999.md",
+          "type": "classifieds_marketplace"
+        },
+        {
+          "name": "Rabota.md",
+          "url": "https://rabota.md",
+          "type": "jobs_and_training"
+        },
+        {
+          "name": "JobList.md",
+          "url": "https://joblist.md",
+          "type": "jobs_and_training"
+        },
+        {
+          "name": "American Language Center (ALC)",
+          "url": "https://alc.md",
+          "type": "language_school"
+        },
+        {
+          "name": "Heritage International School",
+          "url": "https://www.heritage.md",
+          "type": "international_school"
+        },
+        {
+          "name": "SIME Education Portal",
+          "url": "https://sime.md",
+          "type": "government_education_data"
+        }
+      ],
+      "facebook_marketplace_active": true,
+      "primary_marketplace": "999.md",
+      "notes": "999.md is the dominant local classifieds platform. High internet penetration (80%). Facebook overtook Russian social networks (Odnoklassniki) around 2017-2018. Romanian is official language but Russian widely used in business and urban areas."
     }
   ]
 }
