@@ -1,0 +1,174 @@
+{
+  "competitor": "American Language Center (ALC) Tbilisi",
+  "research_date": "2026-02-07",
+  "intelligence_grade": "C",
+  "intelligence_grade_justification": "Limited data richness. ALC does not publish pricing online. No Facebook reviews found. No Instagram account specific to Georgia office. Course details confirmed but pricing is entirely opaque — contact required for all fees.",
+
+  "company_profile": {
+    "legal_name": "American Language Center Tbilisi",
+    "parent_organization": "American Councils for International Education",
+    "established": 2013,
+    "address": "35A Ilia Chavchavadze Ave., Lane 1, Building 6, Entrance II, Floor II, Tbilisi, Georgia 0162",
+    "phone": null,
+    "email": null,
+    "websites": [
+      "https://www.alctbilisi.ge/",
+      "https://georgia.americancouncils.org/alc-tbilisi-en"
+    ],
+    "type": "international_institution",
+    "teachers": "Native-speaker teachers (American primarily)",
+    "employee_count": null,
+    "note": "Partnership between American Councils Tbilisi and local entity. Two separate websites exist."
+  },
+
+  "offerings": {
+    "general_english": {
+      "available": true,
+      "format": "Individual course settings",
+      "levels": null,
+      "schedule": null,
+      "price_gel": null,
+      "confidence": "low — no details found"
+    },
+    "toefl_preparation": {
+      "available": true,
+      "format": null,
+      "price_gel": null,
+      "note": "Confirmed offering — core product. No pricing found.",
+      "confidence": "medium"
+    },
+    "sat_preparation": {
+      "available": true,
+      "format": null,
+      "price_gel": null,
+      "confidence": "medium"
+    },
+    "gre_preparation": {
+      "available": true,
+      "format": null,
+      "price_gel": null,
+      "confidence": "medium"
+    },
+    "georgian_for_foreigners": {
+      "available": true,
+      "confidence": "medium"
+    },
+    "russian": {
+      "available": true,
+      "confidence": "medium"
+    },
+    "persian": {
+      "available": true,
+      "confidence": "medium"
+    },
+    "college_counselling": {
+      "available": true,
+      "description": "ALC provides college counselling services alongside test prep",
+      "note": "Unique offering — combines test prep with university application support",
+      "confidence": "medium"
+    },
+    "opit_program": {
+      "name": "Overseas Professional and Intercultural Training (OPIT)",
+      "parent": "American Councils",
+      "description": "Professional exchange/training program",
+      "note": "Separate from language teaching but part of same organization"
+    }
+  },
+
+  "pricing_intelligence": {
+    "all_courses": {
+      "price_gel": null,
+      "price_usd": null,
+      "confidence": "not_found",
+      "note": "NO pricing information found on either website or in any search result. ALC appears to operate on a contact-for-pricing model. One tangential data point: a related event cost 50 GEL per participant including materials and lunch."
+    },
+    "pricing_model": "Opaque — requires direct inquiry",
+    "vs_ih_tbilisi": "Unknown — cannot compare without pricing data",
+    "assessment": "The complete absence of public pricing is itself a signal: either (a) they are a premium provider who screens clients, (b) pricing varies significantly by program, or (c) they are grant-funded and pricing is not their primary revenue model."
+  },
+
+  "social_media_intelligence": {
+    "instagram": {
+      "georgia_specific": null,
+      "parent_org": {
+        "handle": "@ac.global",
+        "followers": 12000,
+        "following": 1222,
+        "posts": 1202
+      },
+      "assessment": "No Georgia-specific Instagram account found. Parent org has 12K followers globally."
+    },
+    "facebook": {
+      "page_exists": "Unclear",
+      "reviews": "Not found in any search",
+      "note": "Very limited social media footprint for the Tbilisi operation"
+    },
+    "digital_presence_score": "3/10 — Two websites (confusing), no social media, no content marketing, no online booking"
+  },
+
+  "reviews_intelligence": {
+    "google_maps": null,
+    "facebook": null,
+    "other_platforms": null,
+    "student_testimonials": null,
+    "assessment": "Zero publicly accessible reviews found. This is a significant red flag for customer intelligence — either very small operation, or reviews exist on platforms not indexed by search."
+  },
+
+  "positioning": {
+    "target_segments": [
+      "University-bound students (TOEFL, SAT, GRE)",
+      "Professionals seeking US-aligned credentials",
+      "International community in Tbilisi needing multiple languages",
+      "Students seeking college counselling for US universities"
+    ],
+    "value_propositions": [
+      "Native American speakers",
+      "US institutional backing (American Councils)",
+      "Test prep specialization (TOEFL, SAT, GRE)",
+      "College counselling bundled with test prep",
+      "Multi-language capability (English, Georgian, Russian, Persian)"
+    ],
+    "brand_positioning": "Premium niche — US-aligned test prep and college counselling",
+    "differentiation": "Only provider combining test prep + college counselling. American accent/culture focus vs British (IH/BC)."
+  },
+
+  "competitive_analysis": {
+    "strengths": [
+      "Unique niche: TOEFL + SAT + GRE + college counselling under one roof",
+      "American Councils institutional backing — credibility for US university applicants",
+      "Native American speaker teachers — appeals to US-oriented students",
+      "Multi-language offerings — serves diverse Tbilisi expat community",
+      "Prime location on Chavchavadze Avenue"
+    ],
+    "weaknesses": [
+      "Zero public pricing — maximum friction for price-shopping customers",
+      "No online presence beyond basic websites",
+      "Two confusing websites (alctbilisi.ge and georgia.americancouncils.org)",
+      "No reviews found anywhere — no social proof",
+      "No Instagram, minimal Facebook — invisible to younger demographics",
+      "Narrow product range — no kids programs, no corporate training visible"
+    ],
+    "strategic_vulnerabilities": [
+      "EMCAN offers the same test prep range (TOEFL, SAT, GRE) at published prices — direct competitor",
+      "Preply tutors offer TOEFL/SAT prep from $3/hr — massive price advantage",
+      "Complete digital invisibility means they lose every customer who researches online first",
+      "If American Councils funding changes, the operation may be fragile"
+    ]
+  },
+
+  "marketing_tactics": {
+    "trial_offer": "Not found",
+    "referral_program": "Not found",
+    "promotions": "Not found",
+    "online_booking": false,
+    "content_marketing": "None observed",
+    "ads_observed": "None found",
+    "assessment": "Appears to operate entirely through institutional channels and word-of-mouth. No observable marketing activities."
+  },
+
+  "sources": [
+    {"url": "https://www.alctbilisi.ge/", "type": "website"},
+    {"url": "https://georgia.americancouncils.org/alc-tbilisi-en", "type": "website"},
+    {"url": "https://www.instagram.com/ac.global/", "type": "social_media"}
+  ]
+}

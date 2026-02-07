@@ -1,0 +1,276 @@
+{
+  "competitor": "Beka's School",
+  "research_date": "2026-02-07",
+  "intelligence_grade": "A-",
+  "intelligence_grade_justification": "Exceptionally rich data. Strong media coverage (Georgia Today, OC Media). Detailed corporate profile. Cambridge partnership confirmed. Pricing partially found in Georgian-language content. Social media metrics strong. Only gap is complete pricing matrix for all course types.",
+
+  "company_profile": {
+    "legal_name": "Beka's School",
+    "name_local": "ბექას სკოლა",
+    "founded": 2016,
+    "founders": [
+      {"name": "Beka Berikashvili", "role": "Director and Founder", "education": "MA from University at Albany, SUNY", "background": "Former freelance graphic designer turned English teacher"},
+      {"name": "Natali Kenkadze", "role": "Co-founder, General Manager", "background": "Previous experience in education and business management"}
+    ],
+    "address": "18 Galaktion Tabidze St., 3rd Floor, Tbilisi, Georgia",
+    "website": "https://bekas.school/",
+    "type": "independent_local",
+    "employee_count": "35-40 (including 25+ native English-speaking teachers)",
+    "teacher_nationalities": ["United States", "United Kingdom", "South Africa", "Georgia"],
+    "teacher_certifications": ["CELTA", "TEFL"],
+    "students_taught": "12,000+ total (since 2016)",
+    "current_active_students": "450+",
+    "corporate_clients": "80+ (local and international)",
+    "notable_clients": ["McDonald's", "UNDP", "Bank of Georgia"],
+    "origin_story": "Started in 2016 with 2 teachers in Vake neighborhood. Beka initially taught students at his home with an American teacher for about a year before formalizing."
+  },
+
+  "offerings": {
+    "general_english": {
+      "description": "Covers all aspects: speaking, listening, reading, writing, grammar, vocabulary",
+      "duration": "3 months (54 hours total)",
+      "frequency": "3x per week, 1.5 hour sessions",
+      "methodology": "Split teaching: Georgian teachers handle grammar/vocabulary in Georgian, native speakers handle conversational practice in English only",
+      "materials": "Cambridge 'Empower' textbook + Cambridge One online platform (Student's Book + Workbook + electronic textbook)",
+      "levels": "Beginner through Advanced",
+      "price_gel": null,
+      "delivery": ["In-person", "Online via Zoom"],
+      "confidence": "high on format, low on pricing"
+    },
+    "conversational_english": {
+      "description": "Speaking-focused course with native speaker teacher",
+      "group_size": "6-7 students",
+      "frequency": "3x per week, 1.5 hour sessions",
+      "levels": ["B1", "B1+", "B2", "C1"],
+      "teacher": "Native speaker only",
+      "full_course_price_gel": 1050,
+      "full_course_price_usd": 389,
+      "instalment": "0% interest instalments available",
+      "confidence": "high — found in Georgian-language content"
+    },
+    "express_speaking_english": {
+      "available": true,
+      "description": "Intensive conversational course",
+      "price_gel": null
+    },
+    "business_english": {
+      "available": true,
+      "format": "Individual and corporate group",
+      "corporate_features": [
+        "Tailored curriculum with industry-specific terminology",
+        "Lessons at client office or online",
+        "Monthly progress reports and attendance records",
+        "Custom course design available"
+      ],
+      "confidence": "high"
+    },
+    "english_grammar_course": {
+      "available": true,
+      "note": "Founder wrote a dedicated grammar textbook for Georgian speakers — highlights common mistakes Georgians make",
+      "confidence": "medium"
+    },
+    "daily_intensive": {
+      "available": true,
+      "description": "Daily lessons for those eager to progress quickly",
+      "price_gel": null
+    },
+    "kids_and_adults": {
+      "available": true,
+      "note": "Services designed for wide range of learners"
+    },
+    "cambridge_exam_prep": {
+      "status": "Coming soon",
+      "exams": ["B2 First (FCE)", "C1 Advanced (CAE)"],
+      "note": "Partnership with Cambridge enables this. Positioned as lifetime-valid alternative to IELTS/TOEFL (which expire after 2 years).",
+      "confidence": "high — confirmed in Dec 2025 OC Media article"
+    },
+    "english_online": {
+      "available": true,
+      "platform": "Zoom + Cambridge One",
+      "note": "Full course delivery available online"
+    },
+    "corporate_training": {
+      "clients_count": "80+",
+      "notable_clients": ["McDonald's", "UNDP", "Bank of Georgia", "major banks", "NGOs", "startups"],
+      "features": [
+        "Custom curriculum per company",
+        "On-site or online delivery",
+        "Monthly attendance and progress reports",
+        "Industry-specific terminology training"
+      ],
+      "note": "This is a MAJOR differentiator — no other competitor has 80+ corporate clients documented. B2B is a core revenue stream."
+    },
+    "free_programs": {
+      "english_clubs": "Weekly English clubs (Thursdays, 7-8:30 PM) — free, open to public",
+      "activities": ["Discussion clubs", "Film screenings", "Board games", "Theater", "Presentations"],
+      "partner": "NGO 'International Center for Peace and Integration' (ICPI)",
+      "volunteers": "European Solidarity Corps programme volunteers",
+      "scholarship_program": "Open for anyone who can't afford courses",
+      "note": "Community engagement strategy — builds brand loyalty and pipeline"
+    },
+    "media_presence": {
+      "tv_column": "Regular segment on Formula TV morning show — Beka gives English tips on air",
+      "published_textbook": "English grammar textbook for Georgian speakers"
+    }
+  },
+
+  "pricing_intelligence": {
+    "conversational_english_full_course": {
+      "price_gel": 1050,
+      "price_usd": 389,
+      "duration": "3 months (estimated from format: 3x/wk, 1.5hr)",
+      "total_hours": 54,
+      "price_per_hour_gel": 19.4,
+      "price_per_hour_usd": 7.2,
+      "instalment": "0% interest available",
+      "confidence": "high — from Georgian-language web content"
+    },
+    "general_english_full_course": {
+      "price_gel": null,
+      "estimated_range_gel": "900-1100 (based on conversational pricing and 3-month duration)",
+      "confidence": "low — estimated"
+    },
+    "pricing_model": "Per-course with 0% instalment option. Not monthly subscription.",
+    "vs_ih_tbilisi": "Beka's 1050 GEL/3mo = 350 GEL/mo equivalent — same as IH monthly rate. But Beka's uses 25 native speakers vs IH's mix. Value proposition is native-speaker access at IH-equivalent pricing.",
+    "vs_british_council": "Beka's 19.4 GEL/hr vs BC from 12-31 GEL/hr. Comparable. But Beka's includes native speaker for every class — BC doesn't guarantee this.",
+    "vs_emcan": "Beka's ~1050 GEL/3mo vs EMCAN 320 GEL/6wk. EMCAN is cheaper per course but shorter duration. Beka's offers more total hours and native speakers."
+  },
+
+  "social_media_intelligence": {
+    "instagram": {
+      "handle": "@bekas.school",
+      "followers": 25000,
+      "following": 52,
+      "posts": 650,
+      "assessment": "STRONGEST social media in Tbilisi English market by far. 25K followers dwarfs IH (697), BC (4.1K), and all others. Active posting. This is their primary acquisition channel."
+    },
+    "facebook": {
+      "page_exists": true,
+      "uses_pixel_and_custom_audiences": true,
+      "note": "Active Facebook advertising confirmed via tracking pixels"
+    },
+    "linkedin": {
+      "followers": 1367,
+      "assessment": "Moderate for B2B signaling"
+    },
+    "tiktok": {
+      "handle": "@bekas_school",
+      "note": "Presence confirmed — targeting younger demographic"
+    },
+    "youtube": {
+      "exists": true,
+      "note": "Linked from Linktree"
+    },
+    "linktree": "https://linktr.ee/bekas.school",
+    "website_quality": "7/10 — Modern design, Georgian-language primary (signals local focus), course details available, no online booking confirmed",
+    "digital_sophistication": "8/10 — Multi-platform presence, Facebook Pixel for retargeting, TikTok for Gen Z, Linktree aggregation, TV appearances"
+  },
+
+  "reviews_intelligence": {
+    "google_maps": null,
+    "facebook": "Not captured — page not fetchable",
+    "media_coverage": [
+      {"outlet": "Georgia Today", "date": "June 2023", "type": "Founder interview"},
+      {"outlet": "Georgia Today", "date": "October 2023", "type": "Feature article"},
+      {"outlet": "OC Media", "date": "December 2025", "type": "Feature on AI integration and Cambridge partnership"}
+    ],
+    "yell_ge": {
+      "listed": true,
+      "url": "https://www.yell.ge/company.php?lan=eng&id=136163"
+    },
+    "assessment": "No standard review platform data captured, BUT extensive positive media coverage from credible outlets serves as social proof. The OC Media and Georgia Today articles function as earned media endorsements."
+  },
+
+  "positioning": {
+    "target_segments": [
+      "Young Georgian professionals (25-35) wanting career English with native speakers",
+      "Corporations and NGOs needing team English training (B2B — 80+ clients)",
+      "Social media-savvy learners who discover through Instagram/TikTok",
+      "Budget-constrained learners (free clubs, scholarship program)",
+      "Students wanting Cambridge-certified English (new offering)"
+    ],
+    "value_propositions": [
+      "25+ native English speakers from US, UK, South Africa",
+      "Split methodology: grammar in Georgian, conversation in English only",
+      "Cambridge Educational Partner — global academic standards",
+      "80+ corporate clients including McDonald's, UNDP, Bank of Georgia",
+      "12,000+ students taught since 2016",
+      "Free community clubs and scholarships",
+      "TV presence (Formula morning show) — local celebrity brand",
+      "0% instalment plans",
+      "Cambridge One digital platform for materials"
+    ],
+    "brand_positioning": "Mid-premium local champion — 'the modern Georgian English school'",
+    "differentiation": "Local founder story + native speakers + Cambridge partnership + dominant social media + strong B2B. The only school that feels like a brand rather than an institution."
+  },
+
+  "competitive_analysis": {
+    "strengths": [
+      "25K Instagram followers — 6x British Council, 36x IH Tbilisi. Owns the social media channel.",
+      "80+ corporate clients — dominant B2B position. No other school comes close.",
+      "Cambridge Educational Partner — credibility rival to IH's Cambridge Authorised Centre",
+      "25+ native speakers — largest native teacher pool in the market",
+      "Split teaching methodology — unique pedagogical approach with practical logic",
+      "Strong founder narrative — Beka's personal brand amplifies school brand (TV, textbook, MA from US)",
+      "Community programs (free clubs, scholarships) — builds loyalty and word-of-mouth",
+      "Multi-platform digital marketing (Instagram, Facebook Pixel, TikTok, YouTube, Linktree)",
+      "0% instalment plans — removes payment friction",
+      "Young, fast-growing brand (2016-present) — agile vs incumbents"
+    ],
+    "weaknesses": [
+      "No IELTS/TOEFL exam prep currently — major gap for test-prep seekers",
+      "Not a Cambridge Authorised Exam Centre (IH holds this) — cannot administer exams",
+      "Not an IELTS test centre (BC holds this)",
+      "Pricing not publicly listed in English — friction for foreign customers",
+      "No CELTA/DELTA teacher training — can't compete in that segment",
+      "Founded 2016 — less brand legacy vs IH (1989) and BC (1993)"
+    ],
+    "strategic_vulnerabilities": [
+      "Cambridge partnership is new — not yet proven in exam prep execution",
+      "Heavy dependence on native speaker teachers — recruitment pipeline must be maintained",
+      "B2B concentration risk — losing a few large corporate clients would hurt revenue",
+      "If IH or BC invested in social media, Beka's digital advantage could erode",
+      "Instalment pricing (1050 GEL) looks expensive vs EMCAN (320 GEL) on face value, even though Beka's offers more hours"
+    ]
+  },
+
+  "marketing_tactics": {
+    "trial_offer": "Not found explicitly — but free clubs serve as free trial equivalent",
+    "referral_program": "Not found",
+    "promotions": "0% instalment plans on full courses",
+    "online_booking": "Unknown — likely via website contact form",
+    "content_marketing": "TV column on Formula morning show, published grammar textbook, active Instagram content",
+    "facebook_advertising": "Confirmed — Facebook Pixel and Web Custom Audiences active",
+    "community_building": "Free weekly English clubs, European volunteer program, scholarship fund",
+    "earned_media": "Georgia Today (2x), OC Media — unpaid press coverage"
+  },
+
+  "customer_targeting_profile": {
+    "primary_persona": {
+      "name": "Social-Media-Savvy Professional",
+      "age_range": "22-32",
+      "income": "1200-2500 GEL/month",
+      "motivation": "Wants conversational fluency with native speakers for career growth",
+      "discovery": "Instagram, TikTok, word-of-mouth",
+      "willingness_to_pay": "1050 GEL in instalments"
+    },
+    "secondary_persona": {
+      "name": "Corporate HR Manager",
+      "motivation": "Needs English training for team, wants progress reports and accountability",
+      "decision_factors": ["On-site delivery", "Monthly reports", "Custom curriculum", "Native speakers"],
+      "budget": "Company-funded — less price sensitive"
+    }
+  },
+
+  "sources": [
+    {"url": "https://bekas.school/", "type": "website"},
+    {"url": "https://www.instagram.com/bekas.school/", "type": "social_media"},
+    {"url": "https://ge.linkedin.com/company/bekas-school", "type": "social_media"},
+    {"url": "https://linktr.ee/bekas.school", "type": "social_media"},
+    {"url": "https://www.yell.ge/company.php?lan=eng&id=136163", "type": "directory"},
+    {"url": "https://georgia.worldplaces.me", "type": "directory"},
+    {"url": "Georgia Today June 2023", "type": "media"},
+    {"url": "Georgia Today October 2023", "type": "media"},
+    {"url": "OC Media December 2025", "type": "media"}
+  ]
+}

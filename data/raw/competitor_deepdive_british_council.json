@@ -1,0 +1,227 @@
+{
+  "competitor": "British Council Georgia",
+  "research_date": "2026-02-07",
+  "intelligence_grade": "B+",
+  "intelligence_grade_justification": "Strong data on offerings and pricing model. Credit-based system well documented. Exact credit package prices not fully captured (dynamic page). Social media and review data partial.",
+
+  "company_profile": {
+    "legal_name": "British Council Georgia",
+    "parent_organization": "British Council (UK Government cultural relations body)",
+    "established_in_georgia": 1993,
+    "address": "Tbilisi, Georgia",
+    "website": "https://www.britishcouncil.ge/en",
+    "type": "international_institution",
+    "employee_count": "Not captured — global org with 10,000+ worldwide",
+    "funding": "UK Government funded"
+  },
+
+  "offerings": {
+    "general_english_adults": {
+      "brand_name": "MyClass",
+      "description": "Modular English course — students buy credit packages, redeem against modules and Flex lessons",
+      "levels": "5 levels based on CEFR",
+      "format": "Modules of 6x 90-minute lessons (6 credits per module). Flex lessons for additional practice.",
+      "schedule": "Bookable — can schedule a lesson any time before it starts. Cancellation up to 24 hours keeps credit.",
+      "credit_packages": "20, 40, or 60 credits — bulk discounts apply",
+      "pricing_starting": "31 GEL per 1.5 hours (entry level)",
+      "pricing_per_hour": "From 12 GEL/hour with larger packages",
+      "pricing_usd_per_hour": "From 4.4 USD/hour",
+      "instalment_plans": "Available from 260 GEL",
+      "modular_courses": "New 20-credit prebooked timetable courses also available",
+      "certificates": "Digital certificate and badge for every module completed",
+      "teachers": "CELTA/DELTA qualified, internationally experienced",
+      "language_policy": "English-only in classroom",
+      "confidence": "high"
+    },
+    "ielts_preparation": {
+      "available": true,
+      "format": "In-person at Tbilisi teaching centre",
+      "price_gel": null,
+      "note": "Course pricing not publicly listed — contact required",
+      "ielts_test_administration": "British Council is the official IELTS test administrator in Georgia",
+      "online_alternative": {
+        "name": "IELTS Coach",
+        "format": "48 live online classes covering all 4 sections",
+        "packages": [
+          {"name": "Express", "credits": 10, "price_usd": 175},
+          {"name": "Standard", "credits": null, "price_usd": null},
+          {"name": "Intensive", "credits": 50, "price_usd": 681}
+        ],
+        "validity": "3 months from purchase"
+      },
+      "confidence": "medium"
+    },
+    "business_english": {
+      "available": true,
+      "format": "Part of MyClass modular system",
+      "price_gel": null,
+      "note": "Uses same credit-based pricing as general English"
+    },
+    "young_learners": {
+      "primary_plus": {
+        "ages": "6-10",
+        "description": "Six-level course designed by British Council",
+        "full_year_price_gel": null,
+        "period": "8 Dec 2025 – 30 Jun 2026",
+        "note": "Exact fee not captured in search results"
+      },
+      "secondary_plus": {
+        "ages": "11-17",
+        "full_year_price_gel": 1950,
+        "discount_full_payment": 250,
+        "family_member_discount": 100,
+        "net_price_full_payment_gel": 1700,
+        "net_price_usd": 630,
+        "confidence": "high"
+      },
+      "secondary_plus_online": {
+        "ages": "11-17",
+        "full_year_price_gel": 2250,
+        "family_member_discount": 150,
+        "confidence": "high"
+      }
+    },
+    "english_online": {
+      "platform": "English Online (britishcouncil.org)",
+      "packages": ["Gold", "Platinum"],
+      "trial": "Free 7-day trial with 2 free class credits",
+      "formats": ["Group classes", "Private classes (1 credit = group, 2 credits = private)"],
+      "confidence": "medium"
+    },
+    "english_clubs": {
+      "description": "Community English practice sessions",
+      "price": "Free (UK Government funded)",
+      "note": "Part of Learning Hubs initiative"
+    },
+    "exam_preparation_cambridge": {
+      "available": "Likely (offered at other BC centres), not explicitly confirmed for Georgia",
+      "note": "BC Greece offers FCE/CAE prep — Georgia likely similar"
+    },
+    "free_resources": {
+      "description": "Wide range of free online resources for adults, teens, and children",
+      "note": "No free courses, only supplementary materials"
+    }
+  },
+
+  "pricing_intelligence": {
+    "adult_group_entry_level": {
+      "price_gel_per_90min": 31,
+      "price_usd_per_90min": 11.5,
+      "price_gel_per_hour": 20.7,
+      "price_usd_per_hour": 7.7,
+      "confidence": "high — stated on website"
+    },
+    "adult_group_bulk_package": {
+      "price_gel_per_hour": "from 12",
+      "price_usd_per_hour": "from 4.4",
+      "note": "Achieved with larger credit packages (40 or 60 credits)",
+      "confidence": "high — stated on website"
+    },
+    "secondary_plus_annual": {
+      "price_gel": 1950,
+      "price_gel_discounted": 1700,
+      "price_usd_discounted": 630,
+      "confidence": "high"
+    },
+    "secondary_plus_online_annual": {
+      "price_gel": 2250,
+      "price_usd": 833,
+      "confidence": "high"
+    },
+    "instalment_minimum": {
+      "price_gel": 260,
+      "confidence": "high"
+    },
+    "pricing_model": "Credit-based — buy packages of 20/40/60 credits, redeem against modules and Flex. Bulk discounts. Instalments available. No hidden registration fees.",
+    "vs_ih_tbilisi": "BC starts at 31 GEL/1.5hr vs IH at 350 GEL/month (3x/wk = ~29 GEL/1.5hr). Comparable entry pricing, but BC's bulk packages can go as low as 12 GEL/hr — significantly cheaper than IH at scale.",
+    "referral_program": "Refer a friend: you get 5 free credits, friend gets 50% off first month"
+  },
+
+  "social_media_intelligence": {
+    "instagram": {
+      "handle": "@gebritish",
+      "followers": 4111,
+      "following": 110,
+      "posts": 1903,
+      "assessment": "Moderate presence. 4.1K followers with consistent posting (1903 posts). Much stronger than IH Tbilisi (697) but below Beka's School (25K)."
+    },
+    "facebook": {
+      "page_exists": true,
+      "followers": null,
+      "note": "Active — encouraged on website. Linktree links to FB page. Follower count not captured."
+    },
+    "linktree": "linktr.ee/geBritish — links to Instagram, Facebook, courses, MOOCs, Rate Us",
+    "note_british_centre": "Separate entity 'British Centre Georgia' (@britishcentregeorgia) has 17K followers — NOT the same as British Council"
+  },
+
+  "reviews_intelligence": {
+    "google_maps": null,
+    "facebook": null,
+    "other": "Linktree includes a 'Rate Us' option — suggests they actively collect reviews",
+    "teacher_quality": "CELTA/DELTA qualified, internationally experienced, communicative method"
+  },
+
+  "positioning": {
+    "target_segments": [
+      "Working professionals wanting flexible scheduling",
+      "Parents investing in children's long-term English education (annual programs)",
+      "IELTS test takers (captive audience — BC administers the test)",
+      "Budget-conscious adults who benefit from bulk credit discounts",
+      "Self-directed learners who want modular, mix-and-match courses"
+    ],
+    "value_propositions": [
+      "Official IELTS test administrator in Georgia",
+      "UK Government backed — maximum institutional credibility",
+      "Flexible credit-based system — pay for what you use",
+      "No hidden fees — transparent pricing model",
+      "Digital certificates for every module",
+      "Free 7-day trial for online courses",
+      "CELTA/DELTA qualified teachers exclusively"
+    ],
+    "brand_positioning": "Premium institutional — 'the trusted global standard'",
+    "differentiation_from_ih": "Flexibility (credit system vs fixed schedule), IELTS test monopoly, lower per-hour rates at bulk"
+  },
+
+  "competitive_analysis": {
+    "strengths": [
+      "IELTS test administration monopoly — students who test with BC often prep with BC",
+      "Credit-based flexible pricing — unique in market, appeals to busy professionals",
+      "Bulk pricing as low as 12 GEL/hr — cheapest premium provider",
+      "UK Government backing — unmatched institutional credibility",
+      "Free 7-day online trial — low acquisition barrier",
+      "Referral program (5 free credits) — word-of-mouth engine",
+      "Strong content ecosystem (free online resources, English Clubs)"
+    ],
+    "weaknesses": [
+      "Credit system complexity — harder to understand than simple monthly pricing",
+      "No CELTA/DELTA teacher training (IH's territory)",
+      "No Cambridge exam centre (IH's territory)",
+      "Website pricing requires deep navigation",
+      "Social media weaker than Beka's School"
+    ],
+    "strategic_vulnerabilities": [
+      "Dependent on IELTS relevance — if Duolingo English Test gains traction, IELTS monopoly weakens",
+      "Credit system may confuse price-sensitive customers who want simple monthly billing",
+      "No visible B2B corporate program — Beka's School dominates this",
+      "Annual kids programs (1950 GEL) are high commitment — parents may prefer monthly"
+    ]
+  },
+
+  "marketing_tactics": {
+    "trial_offer": "Free 7-day trial for online courses (2 free class credits)",
+    "referral_program": "Refer a friend: 5 free credits for referrer, 50% off first month for friend",
+    "promotions": "Bulk credit discounts (more you buy, more you save)",
+    "online_booking": "Credit purchase appears available online",
+    "content_marketing": "Free online resources, English Clubs, MOOCs",
+    "ads_observed": "Not captured — Facebook Ad Library not checked"
+  },
+
+  "sources": [
+    {"url": "https://www.britishcouncil.ge/en", "type": "website"},
+    {"url": "https://www.britishcouncil.ge/en/english/adults/classes/programmes-pricing", "type": "pricing"},
+    {"url": "https://www.britishcouncil.ge/en/english/children/secondary-plus-course", "type": "kids_pricing"},
+    {"url": "https://www.britishcouncil.ge/en/english/adults/myclass/timetable-prices", "type": "pricing"},
+    {"url": "https://www.instagram.com/gebritish/", "type": "social_media"},
+    {"url": "https://linktr.ee/geBritish", "type": "social_media"}
+  ]
+}

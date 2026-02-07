@@ -1,0 +1,236 @@
+{
+  "competitor": "Preply (Platform Model)",
+  "research_date": "2026-02-07",
+  "intelligence_grade": "A",
+  "intelligence_grade_justification": "Excellent data availability — public company with extensive coverage. Pricing model fully transparent. Commission structure documented. Funding/valuation confirmed. Review data abundant (20K+ Trustpilot reviews). Georgian market specifics available.",
+
+  "company_profile": {
+    "legal_name": "Preply Inc.",
+    "founded": 2012,
+    "founders": ["Kirill Bigai", "Serve Lukyanov", "Dmytro Voloshyn"],
+    "headquarters": "Global (originally Ukraine, now US-based)",
+    "type": "platform_marketplace",
+    "business_model": "Two-sided marketplace connecting tutors with students. Subscription + per-lesson model. AI-powered study assistance alongside human tutoring.",
+    "funding": {
+      "total_raised": "$299M+",
+      "latest_round": "Series D, January 2026",
+      "latest_amount": "$150M",
+      "valuation": "$1.2B (unicorn status)",
+      "lead_investor": "WestCap",
+      "other_investors": ["European Bank for Reconstruction and Development", "Horizon Capital", "Indico Capital Partners"],
+      "placement_agent": "Goldman Sachs International",
+      "profitability": "EBITDA positive as of 2025"
+    },
+    "previous_funding_rounds": [
+      {"year": 2013, "amount": "$180K", "type": "Angel"},
+      {"year": 2016, "amount": "$1.3M", "investors": ["Techstars", "SMRK VC"]},
+      {"year": 2023, "amount": "$70M", "type": "Series C Extension", "lead": "Horizon Capital"}
+    ],
+    "scale": {
+      "english_tutors_globally": 38122,
+      "average_tutor_rating": 4.92,
+      "total_student_reviews": 378214,
+      "georgian_language_tutors": 43,
+      "georgian_tutor_rating": 4.99
+    }
+  },
+
+  "platform_model": {
+    "how_it_works": "Students browse tutor profiles, book trial lesson, then purchase lesson packages. Tutors set own prices. Preply handles payment processing, scheduling, and AI study tools.",
+    "commission_structure": {
+      "trial_lesson": "100% commission — tutor receives $0 from trial",
+      "subsequent_lessons_tiers": [
+        {"hours_taught": "0-19", "commission": "33%", "net_on_30_rate": 20.10},
+        {"hours_taught": "20-49", "commission": "28%", "net_on_30_rate": 21.60},
+        {"hours_taught": "50-199", "commission": "25%", "net_on_30_rate": 22.50},
+        {"hours_taught": "200-399", "commission": "22%", "net_on_30_rate": 23.40},
+        {"hours_taught": "400+", "commission": "18%", "net_on_30_rate": 24.60}
+      ],
+      "note": "Highest commission in industry. iTalki/Verbling/Lingoda charge 15-20%. But Preply invests heavily in student acquisition.",
+      "time_to_lowest_tier": "~5 months at 20 hrs/week to reach 400+ hours",
+      "effective_rate_example": "New tutor at $25/hr rate actually earns ~$15.08/hr after trial lessons and commission"
+    },
+    "lesson_packages": "Students can buy packages with 5-10% discount (discount comes from tutor's earnings, not Preply's commission)",
+    "cancellation_policy": "<4 hours notice = tutor gets 100% payment. Within policy window = tutor gets nothing.",
+    "payout_methods": ["Wise", "Payoneer", "PayPal", "Skrill"],
+    "minimum_payout": "$30",
+    "scheduling": "24/7 — students book based on tutor availability across timezones"
+  },
+
+  "offerings_georgia_market": {
+    "general_english": {
+      "price_range_usd": "$3-100 per 50-minute lesson",
+      "average_price_usd": "$14/hour",
+      "native_speaker_premium": "Higher — native speakers typically $15-40/hr",
+      "non_native_from_georgia": "As low as $3-8/hr",
+      "confidence": "high"
+    },
+    "ielts_prep": {
+      "available": true,
+      "price_range": "From $3/lesson",
+      "note": "Specialized IELTS tutors available — wide quality range"
+    },
+    "toefl_prep": {
+      "available": true,
+      "dedicated_page": "https://preply.com/en/Tbilisi/english-native-speakers"
+    },
+    "business_english": {
+      "available": true,
+      "note": "Tutor-dependent — search by specialization"
+    },
+    "kids_english": {
+      "available": true,
+      "note": "Some tutors specialize in children"
+    },
+    "georgian_language_tutors": {
+      "count": 43,
+      "rating": 4.99,
+      "reviews": 416,
+      "note": "Small pool but exceptionally rated"
+    }
+  },
+
+  "pricing_intelligence": {
+    "budget_tier": {
+      "range_usd": "$3-10/hour",
+      "what_you_get": "Non-native speakers, often from Eastern Europe/Asia. Basic conversation practice. Limited test prep expertise. May lack formal teaching credentials.",
+      "typical_tutor": "University student or part-time teacher from a low-cost country"
+    },
+    "mid_tier": {
+      "range_usd": "$10-20/hour",
+      "what_you_get": "Experienced non-native speakers or newer native speakers. Can handle structured courses. Some TEFL/TESOL certified.",
+      "typical_tutor": "TEFL-certified teacher with 1-3 years experience"
+    },
+    "premium_tier": {
+      "range_usd": "$20-40/hour",
+      "what_you_get": "Experienced native speakers, CELTA/DELTA certified. Specialized in test prep or business English. Professional teachers.",
+      "typical_tutor": "Professional teacher with 5+ years, CELTA, specific exam prep experience"
+    },
+    "ultra_premium": {
+      "range_usd": "$40-100/hour",
+      "what_you_get": "Top-rated tutors with extensive reviews. University professors, published authors, exam coaches.",
+      "note": "Very few at this range — most cluster $15-30"
+    },
+    "vs_ih_tbilisi": {
+      "ih_group_per_hour": "$7-9 (group)",
+      "ih_individual_per_hour": "$17-18",
+      "preply_equivalent": "$14 average (individual)",
+      "assessment": "Preply is CHEAPER than IH for individual lessons ($14 avg vs $17-18). But IH group classes ($7-9/hr) beat Preply because they're group-subsidized. For students choosing between Preply 1-on-1 and IH group, the tradeoff is: individual attention (Preply) vs in-person community and certification (IH)."
+    },
+    "vs_bekas_school": {
+      "bekas_per_hour": "$7.2 (group with native speaker)",
+      "assessment": "Beka's group classes with native speakers are 2x cheaper than average Preply individual lessons. But Preply offers scheduling flexibility and 1-on-1."
+    }
+  },
+
+  "social_media_intelligence": {
+    "global_presence": "Massive — multi-million dollar marketing budget as a unicorn startup",
+    "app_store": {
+      "ios": "Available, requires iOS 15.1+, also on macOS and visionOS",
+      "android": "Available on Google Play",
+      "ratings": "Very positive user reviews",
+      "note": "App described as 'so organized', 'very user friendly', 'nothing compares to Preply'"
+    },
+    "trustpilot": {
+      "rating": "3.9-4.1 out of 5",
+      "review_count": 20070,
+      "note": "Rating varies by source — between 3.9 and 4.1. High volume of reviews provides statistical significance."
+    },
+    "georgia_specific_marketing": "Not found — Preply targets globally, not Georgia-specific"
+  },
+
+  "reviews_intelligence": {
+    "trustpilot": {
+      "rating": "3.9-4.1/5",
+      "review_count": 20070,
+      "positive_themes": [
+        "Professional tutors tailored to individual needs",
+        "Extremely useful app to learn any language",
+        "Great variety and choice of teachers",
+        "Clean, easy to use platform",
+        "Flexible scheduling"
+      ],
+      "negative_themes": [
+        "100% commission on trial lessons frustrates tutors",
+        "Tutor quality is inconsistent — no quality floor",
+        "Refund process can be difficult",
+        "Some tutors cancel frequently",
+        "Commission rate is highest in industry"
+      ]
+    },
+    "student_testimonials": [
+      "He's one of the best, and honestly, I can recommend him to everyone",
+      "An excellent language teacher. She is patient and kind and explains vocabulary and grammar very well",
+      "Very easy to use as a learner, very well integrated, no billing mistakes"
+    ]
+  },
+
+  "positioning": {
+    "target_segments": [
+      "Budget-conscious self-directed learners",
+      "Professionals with irregular schedules needing flexibility",
+      "Students in smaller cities without local schools",
+      "IELTS/TOEFL students wanting affordable 1-on-1 prep",
+      "Anyone wanting to try before committing (trial lessons)"
+    ],
+    "value_propositions": [
+      "From $3/lesson — lowest price point in market",
+      "38,000+ English tutors — maximum choice",
+      "1-on-1 attention at group class prices",
+      "24/7 scheduling across timezones",
+      "AI-powered study tools alongside human tutoring",
+      "Mobile app for learning anywhere",
+      "Trial lesson to test tutor fit"
+    ],
+    "brand_positioning": "Budget-to-mid marketplace — 'democratized access to tutoring'",
+    "differentiation": "Price, flexibility, and scale. No physical presence. No certification value."
+  },
+
+  "competitive_analysis": {
+    "strengths": [
+      "$1.2B unicorn — massive resources for technology and marketing",
+      "Lowest price floor in market ($3/hr) — captures entire budget segment",
+      "38,000+ tutors — effectively unlimited supply",
+      "24/7 availability — no schedule constraints",
+      "AI tools complement human teaching — tech advantage over traditional schools",
+      "Trial lesson model — low commitment entry point",
+      "Mobile app — meets students where they are",
+      "Global scale means constant product improvement"
+    ],
+    "weaknesses": [
+      "No quality floor — anyone can be a tutor. Student must vet quality themselves.",
+      "No certification value — no Cambridge, IELTS, or recognized certificates",
+      "No classroom community — isolated 1-on-1 experience",
+      "No physical presence — can't serve students who prefer in-person",
+      "100% trial commission destroys tutor goodwill — affects quality of tutors who stay",
+      "33% commission for new tutors means advertised rates don't reflect tutor earnings — creates pressure to raise prices",
+      "Trustpilot rating (3.9) is lower than expected for a market leader",
+      "No Georgia-specific marketing — Georgian students must navigate global platform"
+    ],
+    "strategic_vulnerabilities": [
+      "Quality perception gap — schools like IH/BC/Beka's signal quality through credentials; Preply cannot",
+      "No exam administration capability — students still need physical test centres",
+      "Tutor retention risk — high commission drives best tutors to competing platforms or private practice",
+      "AI disruption could commoditize basic tutoring — Preply's own AI tools may cannibalize human tutor demand",
+      "Local schools offering online could capture students who want 'best of both worlds'"
+    ]
+  },
+
+  "marketing_tactics": {
+    "trial_offer": "Trial lesson with every new tutor (tutor receives $0 — Preply's acquisition cost)",
+    "referral_program": "Exists globally — details not captured for Georgia",
+    "lesson_packages": "5-10% discount on bulk lesson purchases",
+    "online_booking": true,
+    "content_marketing": "Extensive blog, SEO optimized for '[language] tutors [city]' queries",
+    "app_marketing": "ASO (App Store Optimization) across 20+ localizations"
+  },
+
+  "sources": [
+    {"url": "https://preply.com/en/Tbilisi/english-tutors", "type": "marketplace"},
+    {"url": "https://preply.com/en/Tbilisi/english-native-speakers", "type": "marketplace"},
+    {"url": "https://preply.com/en/online/georgian-tutors", "type": "marketplace"},
+    {"url": "https://www.trustpilot.com/review/preply.com", "type": "reviews"},
+    {"url": "https://apps.apple.com/us/app/preply-language-learning-app/id1352790442", "type": "app"},
+    {"url": "Crunchbase/TechCrunch", "type": "funding_data"}
+  ]
+}

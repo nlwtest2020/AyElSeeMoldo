@@ -1,0 +1,218 @@
+{
+  "meta": {
+    "analysis": "Comparative Competitive Analysis — General English (Adults) in Tbilisi, Georgia",
+    "competitors_analyzed": 6,
+    "research_date": "2026-02-07",
+    "currency_rate": "1 USD = 2.7 GEL"
+  },
+
+  "pricing_matrix": {
+    "group_classes_per_hour_usd": {
+      "ih_tbilisi":        {"price": 7.2,  "format": "Group (class size unspecified), 3x/wk monthly", "confidence": "high"},
+      "british_council":   {"price": 4.4,  "format": "Group (bulk 60-credit package), modular", "confidence": "high", "note": "Range 4.4-13.8 depending on package size"},
+      "emcan":             {"price": 8.9,  "format": "Group (max 5), 6-week course", "confidence": "high"},
+      "bekas_school":      {"price": 7.2,  "format": "Group (6-7), 3x/wk, native speaker", "confidence": "high"},
+      "alc_tbilisi":       {"price": null, "format": "Unknown", "confidence": "not_found"},
+      "preply":            {"price": null, "format": "No group classes — 1-on-1 only", "confidence": "n/a"}
+    },
+    "individual_lessons_per_hour_usd": {
+      "ih_tbilisi":        {"price": 17.5, "format": "1-on-1, 3x or 2x/wk monthly", "confidence": "high"},
+      "british_council":   {"price": null, "format": "Available via credit system — price unknown", "confidence": "low"},
+      "emcan":             {"price": null, "format": "Likely available — not listed", "confidence": "not_found"},
+      "bekas_school":      {"price": null, "format": "Available for individuals and corporate", "confidence": "low"},
+      "alc_tbilisi":       {"price": null, "format": "Individual course settings available", "confidence": "not_found"},
+      "preply":            {"price": 14.0, "format": "1-on-1 online, avg rate", "confidence": "high", "range": "$3-100"}
+    },
+    "online_per_hour_usd": {
+      "ih_tbilisi":        {"price": 7.2,  "available": true, "platform": "Zoom", "note": "Same pricing as in-person"},
+      "british_council":   {"price": 4.4,  "available": true, "platform": "English Online platform", "note": "Free 7-day trial"},
+      "emcan":             {"price": 8.9,  "available": true, "platform": "Not specified", "note": "Serves AZ, UZ, AM online"},
+      "bekas_school":      {"price": 7.2,  "available": true, "platform": "Zoom + Cambridge One"},
+      "alc_tbilisi":       {"price": null, "available": "unknown"},
+      "preply":            {"price": 14.0, "available": true, "platform": "Preply app/web", "note": "Online-only model"}
+    },
+    "test_prep_ielts_usd": {
+      "ih_tbilisi":        {"price_total": 178, "duration": "6 weeks", "per_hour": 6.6},
+      "british_council":   {"price_total": null, "note": "Available — price not public. Online IELTS Coach from $175"},
+      "emcan":             {"price_total": null, "note": "Available — price not public"},
+      "bekas_school":      {"price_total": null, "note": "NOT currently offered. Moving to Cambridge exams instead."},
+      "alc_tbilisi":       {"price_total": null, "note": "Not confirmed as offering"},
+      "preply":            {"price_total": "From $3/lesson", "note": "Wide quality variance"}
+    },
+    "kids_teens_annual_usd": {
+      "ih_tbilisi":        {"monthly_gel": "280-350", "annual_estimate_usd": "1244-1556"},
+      "british_council":   {"annual_gel": 1950, "annual_usd": 722, "note": "Secondary Plus; discount to 1700 GEL for full payment"},
+      "emcan":             {"course_gel": "240-280", "note": "4-5 week courses, not annual"},
+      "bekas_school":      {"available": true, "price": null},
+      "alc_tbilisi":       {"available": false},
+      "preply":            {"available": true, "price": "From $3/lesson"}
+    }
+  },
+
+  "strategic_differentiation_map": {
+    "description": "Two-axis positioning: Premium←→Budget (Y) and International←→Local (X)",
+    "positions": {
+      "ih_tbilisi": {
+        "x_axis": "International (IHWO network, Cambridge authorized)",
+        "y_axis": "Premium (institutional pricing, legacy brand)",
+        "quadrant": "International Premium",
+        "moat": "Only Cambridge Authorised Centre + only CELTA/DELTA provider in Georgia"
+      },
+      "british_council": {
+        "x_axis": "International (UK Government)",
+        "y_axis": "Premium brand, but budget-accessible at bulk pricing",
+        "quadrant": "International Premium (with budget pathway)",
+        "moat": "Official IELTS test administrator + UK Govt credibility + credit system flexibility"
+      },
+      "alc_tbilisi": {
+        "x_axis": "International (American Councils)",
+        "y_axis": "Premium (implied — opaque pricing)",
+        "quadrant": "International Premium (niche)",
+        "moat": "US-aligned test prep + college counselling bundle. Very narrow."
+      },
+      "emcan": {
+        "x_axis": "Local (independent)",
+        "y_axis": "Mid-market (most affordable verified school)",
+        "quadrant": "Local Mid-Market",
+        "moat": "8 exam types + smallest class sizes (max 5) + regional online expansion"
+      },
+      "bekas_school": {
+        "x_axis": "Local (independent, but Cambridge partnership bridges to international)",
+        "y_axis": "Mid-Premium (equivalent pricing to IH, premium teacher quality)",
+        "quadrant": "Local Premium",
+        "moat": "25 native speakers + 80 corporate clients + 25K Instagram + Cambridge partner + founder brand"
+      },
+      "preply": {
+        "x_axis": "Global platform (no local presence)",
+        "y_axis": "Budget (floor at $3/hr)",
+        "quadrant": "Global Budget",
+        "moat": "$1.2B funding + 38K tutors + AI tools + mobile app"
+      }
+    }
+  },
+
+  "digital_sophistication_scorecard": {
+    "scale": "1-10",
+    "scores": {
+      "ih_tbilisi": {
+        "website": 6,
+        "social_media": 2,
+        "content_marketing": 1,
+        "online_booking": 3,
+        "overall": 3,
+        "notes": "697 Instagram followers is embarrassing for market leader. No blog. No online booking. Website functional but dated."
+      },
+      "british_council": {
+        "website": 7,
+        "social_media": 5,
+        "content_marketing": 6,
+        "online_booking": 7,
+        "overall": 6,
+        "notes": "4.1K Instagram. Credit purchase online. Free resources as content marketing. Linktree aggregation. Referral program. Best institutional digital presence."
+      },
+      "alc_tbilisi": {
+        "website": 3,
+        "social_media": 1,
+        "content_marketing": 0,
+        "online_booking": 0,
+        "overall": 1,
+        "notes": "Two confusing websites. No social media. No marketing. Digital ghost."
+      },
+      "emcan": {
+        "website": 6,
+        "social_media": 3,
+        "content_marketing": 1,
+        "online_booking": 2,
+        "overall": 3,
+        "notes": "Functional website with dedicated pages per exam. Instagram exists. Mobile app mentioned. No content marketing."
+      },
+      "bekas_school": {
+        "website": 7,
+        "social_media": 9,
+        "content_marketing": 7,
+        "online_booking": 4,
+        "overall": 8,
+        "notes": "25K Instagram. TikTok. YouTube. Facebook Pixel active. TV column. Published textbook. Linktree. By far the most digitally sophisticated school."
+      },
+      "preply": {
+        "website": 9,
+        "social_media": 8,
+        "content_marketing": 9,
+        "online_booking": 10,
+        "overall": 9,
+        "notes": "Unicorn-grade platform. Full online booking. Extensive SEO blog. App on iOS/Android. ASO across 20+ locales. But no Georgia-specific effort."
+      }
+    },
+    "ranking": [
+      {"rank": 1, "name": "Preply", "score": 9, "note": "Global platform advantage — unfair comparison to local schools"},
+      {"rank": 2, "name": "Beka's School", "score": 8, "note": "Best digital presence among LOCAL schools by a wide margin"},
+      {"rank": 3, "name": "British Council", "score": 6, "note": "Solid institutional digital, but outgunned by Beka's locally"},
+      {"rank": 4, "name": "IH Tbilisi", "score": 3, "note": "Shocking underinvestment for market leader. Major vulnerability."},
+      {"rank": 5, "name": "EMCAN", "score": 3, "note": "Functional but invisible. No brand building."},
+      {"rank": 6, "name": "ALC Tbilisi", "score": 1, "note": "Effectively does not exist online. Institutional relic."}
+    ]
+  },
+
+  "market_gaps_across_all_competitors": [
+    {
+      "gap": "Industry-specific English (medical, legal, tech, finance)",
+      "who_partially_covers": "Beka's School (corporate custom curriculum), EMCAN (OET for medical)",
+      "opportunity": "HIGH — growing tech sector in Tbilisi creates demand for tech English. No one owns this niche."
+    },
+    {
+      "gap": "Subscription/unlimited access model",
+      "who_partially_covers": "British Council (credit packages come closest)",
+      "opportunity": "MEDIUM — a 'Netflix of English' model could disrupt course-based pricing"
+    },
+    {
+      "gap": "Online-only local school (not a platform like Preply)",
+      "who_partially_covers": "No one — all local schools are primarily in-person with online as add-on",
+      "opportunity": "MEDIUM — could serve Batumi, Kutaisi, rural Georgia without physical expansion"
+    },
+    {
+      "gap": "Evening and weekend intensive programs for working professionals",
+      "who_partially_covers": "Preply (24/7 scheduling). Local schools don't publish weekend schedules.",
+      "opportunity": "MEDIUM — professionals who can't attend weekday classes have few local options"
+    },
+    {
+      "gap": "B2B corporate training at scale",
+      "who_partially_covers": "Beka's School (80+ clients — dominant). Others barely present.",
+      "opportunity": "HIGH for anyone except Beka's — 80 clients is still a small fraction of Tbilisi's corporate market"
+    },
+    {
+      "gap": "Cambridge exam preparation (B2 First, C1 Advanced)",
+      "who_partially_covers": "IH Tbilisi (existing), Beka's School (launching via Cambridge partnership)",
+      "opportunity": "MEDIUM — Beka's is about to enter this. Could create head-to-head competition with IH."
+    },
+    {
+      "gap": "Content-led brand building (YouTube, podcast, blog)",
+      "who_partially_covers": "Beka's School (TV column, textbook). Others: essentially nothing.",
+      "opportunity": "HIGH — first school to create a strong YouTube/TikTok English learning channel for Georgian speakers could own organic discovery"
+    },
+    {
+      "gap": "Mobile-first learning experience",
+      "who_partially_covers": "Preply (app). EMCAN (mentions mobile app). Others: none.",
+      "opportunity": "MEDIUM — younger demographic expects mobile-first. Local schools haven't adapted."
+    }
+  ],
+
+  "competitive_landscape_summary": {
+    "market_structure": "Developing oligopoly. Three international brands (IH, BC, ALC) hold institutional credibility. One rising local champion (Beka's) is closing the gap fast. One specialist (EMCAN) serves the test-prep niche. One global platform (Preply) captures budget/flexibility seekers.",
+    "power_dynamics": [
+      "IH Tbilisi holds the Cambridge certification moat but is digitally weak",
+      "British Council holds the IELTS testing moat and offers the best bulk pricing",
+      "Beka's School is the fastest-growing and most digitally sophisticated — the one to watch",
+      "EMCAN quietly serves the test-prep assembly line at the lowest verified price",
+      "ALC is a niche US-oriented player that barely exists online",
+      "Preply captures everyone the traditional schools can't serve (budget, flexible schedule, no local access)"
+    ],
+    "market_maturity": "Developing — transitioning to Mature. Clear tier differentiation. International players established. Local champion emerging. Price bands forming. Digital marketing becoming a differentiator.",
+    "predicted_evolution": [
+      "Beka's Cambridge partnership will create direct competition with IH for exam prep",
+      "The school that invests in content marketing first will capture organic growth",
+      "B2B corporate training is underpenetrated — room for a second serious player behind Beka's",
+      "Online-only local offering is an open opportunity — no one has claimed it",
+      "AI integration (Beka's already moving) will become table stakes within 2 years"
+    ]
+  }
+}

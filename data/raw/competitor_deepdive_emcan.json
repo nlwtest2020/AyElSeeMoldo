@@ -1,0 +1,212 @@
+{
+  "competitor": "EMCAN English Training Center",
+  "research_date": "2026-02-07",
+  "intelligence_grade": "B",
+  "intelligence_grade_justification": "Good data on core offerings and some verified pricing. Test prep range well documented. Kids/teens pricing found. However, test prep course-specific pricing not captured (only General English). Social media data thin.",
+
+  "company_profile": {
+    "legal_name": "EMCAN English Training Center (also: Emcan Educational Institute)",
+    "website": "https://www.emcaned.ge/",
+    "secondary_domain": "https://emcaned.com/",
+    "address": "Tbilisi, near Liberty Square/Rustaveli area",
+    "established": null,
+    "years_of_expertise": "15+ years claimed",
+    "type": "independent_local",
+    "employee_count": null,
+    "glassdoor_reviews": 2
+  },
+
+  "offerings": {
+    "general_english_adults": {
+      "duration_weeks": 6,
+      "max_class_size": 5,
+      "session_hours": 1.5,
+      "price_gel": 320,
+      "price_usd": 119,
+      "discount_one_time_payment": 50,
+      "net_price_gel": 270,
+      "net_price_usd": 100,
+      "price_per_hour_gel": "22-27 (net vs gross, ~12-18 sessions)",
+      "price_per_hour_usd": "8-10",
+      "confidence": "high"
+    },
+    "english_kids_7_to_12": {
+      "duration_weeks": 4,
+      "max_class_size": 5,
+      "session_hours": 1.5,
+      "price_gel": 240,
+      "discount_one_time_payment": 30,
+      "net_price_gel": 210,
+      "confidence": "high"
+    },
+    "english_teens_13_to_18": {
+      "duration_weeks": 5,
+      "max_class_size": 5,
+      "session_hours": 1.5,
+      "price_gel": 280,
+      "discount_one_time_payment": 40,
+      "net_price_gel": 240,
+      "confidence": "high"
+    },
+    "test_prep_ielts": {
+      "available": true,
+      "price_gel": null,
+      "note": "IELTS is a core offering — featured prominently on website"
+    },
+    "test_prep_toefl": {
+      "available": true,
+      "price_gel": null,
+      "note": "Dedicated TOEFL page exists"
+    },
+    "test_prep_cambridge": {
+      "fce": true,
+      "cae": true,
+      "price_gel": null
+    },
+    "test_prep_pte": {
+      "available": true,
+      "note": "Rare offering in Tbilisi market — differentiator"
+    },
+    "test_prep_oet": {
+      "available": true,
+      "note": "Medical English test — very niche. May attract healthcare professionals"
+    },
+    "test_prep_gre": {
+      "available": true,
+      "price_gel": null
+    },
+    "test_prep_gmat": {
+      "available": true,
+      "price_gel": null
+    },
+    "test_prep_sat": {
+      "available": true,
+      "dedicated_page": "https://www.emcaned.ge/digital-sat-prep/",
+      "price_gel": null
+    },
+    "business_english": {
+      "available": true,
+      "price_gel": null
+    },
+    "online_courses": {
+      "available": true,
+      "regions_served": ["Azerbaijan", "Uzbekistan", "Armenia"],
+      "note": "EMCAN has expanded beyond Georgia market via online delivery"
+    }
+  },
+
+  "pricing_intelligence": {
+    "general_english_6wk_course": {
+      "price_gel": 320,
+      "price_gel_discounted": 270,
+      "price_usd": 119,
+      "price_usd_discounted": 100,
+      "confidence": "high"
+    },
+    "kids_4wk_course": {
+      "price_gel": 240,
+      "price_gel_discounted": 210,
+      "confidence": "high"
+    },
+    "teens_5wk_course": {
+      "price_gel": 280,
+      "price_gel_discounted": 240,
+      "confidence": "high"
+    },
+    "test_prep_courses": {
+      "price_gel": null,
+      "note": "Prices not publicly listed for any test prep course. Likely similar range (300-400 GEL) based on course structure. Contact required.",
+      "confidence": "low — estimated"
+    },
+    "pricing_model": "Per-course fixed fee with upfront payment discount. Not monthly subscription.",
+    "vs_ih_tbilisi": "EMCAN 320 GEL/6wk vs IH 350 GEL/month (3x/wk). EMCAN is slightly cheaper on face value, but IH is monthly recurring vs EMCAN's fixed term. EMCAN's max 5 students is smaller than IH's typical groups. EMCAN offers better value per student for small group attention.",
+    "vs_british_council": "EMCAN 320 GEL/6wk vs BC from 31 GEL/1.5hr. BC's credit system can be cheaper per hour at bulk, but EMCAN's all-inclusive fixed price is simpler."
+  },
+
+  "social_media_intelligence": {
+    "instagram": {
+      "handle": "@emcantbilisi",
+      "followers": null,
+      "note": "Account exists — follower count not captured"
+    },
+    "facebook": {
+      "page_exists": null,
+      "note": "Not confirmed in search results"
+    },
+    "website_quality": "6/10 — Functional, clear course pages, dedicated page per test type. Not modern design. Mobile-friendly. No online booking system visible.",
+    "content_marketing": "Minimal — website serves as brochure, no blog"
+  },
+
+  "reviews_intelligence": {
+    "google_maps": null,
+    "glassdoor": {
+      "review_count": 2,
+      "note": "Employee reviews, not student reviews"
+    },
+    "student_reviews": null,
+    "assessment": "Very few publicly accessible reviews. The school's reputation is not well-indexed online."
+  },
+
+  "positioning": {
+    "target_segments": [
+      "Test prep students (IELTS/TOEFL/SAT/GRE/GMAT) — primary audience",
+      "Healthcare professionals (OET prep — unique niche)",
+      "Budget-conscious adults wanting small class sizes",
+      "Regional online students (Azerbaijan, Uzbekistan, Armenia)",
+      "Kids and teens (secondary offering)"
+    ],
+    "value_propositions": [
+      "Widest test prep range in Georgia (8 different exams)",
+      "Smallest class sizes (max 5 students)",
+      "Most affordable verified pricing among brick-and-mortar schools",
+      "Upfront payment discounts (50 GEL off)",
+      "PTE and OET — only provider in market for these niche exams",
+      "15+ years of expertise",
+      "Regional online reach beyond Georgia"
+    ],
+    "brand_positioning": "Mid-market specialist — test prep factory with small classes",
+    "differentiation": "Test prep breadth (8 exams) and tiny class sizes (max 5). No other school covers PTE, OET, AND academic tests."
+  },
+
+  "competitive_analysis": {
+    "strengths": [
+      "Unmatched test prep breadth — 8 different exams under one roof",
+      "Smallest class sizes in market (max 5) — premium attention at mid-market price",
+      "Only PTE and OET provider in Georgia — monopoly on medical English testing prep",
+      "Competitive pricing with upfront discounts — appeals to price-sensitive students",
+      "Online expansion to 3 neighboring countries — growth beyond local market",
+      "Dedicated SAT page — strong SEO for university-bound students"
+    ],
+    "weaknesses": [
+      "Test prep pricing not public — friction for comparison shoppers",
+      "Weak brand recognition — doesn't appear in top-of-mind searches",
+      "Minimal social media presence",
+      "No institutional backing (vs IH/BC/ALC)",
+      "No teacher credentials publicly highlighted",
+      "Small operation — capacity limited"
+    ],
+    "strategic_vulnerabilities": [
+      "IH Tbilisi's Cambridge authorization gives them exam credibility EMCAN can't match",
+      "British Council's IELTS test administration creates natural pipeline away from EMCAN",
+      "Preply undercuts on price for individual test prep tutoring",
+      "Beka's School's Cambridge partnership could eat into Cambridge exam prep",
+      "No corporate training program — missing B2B revenue"
+    ]
+  },
+
+  "marketing_tactics": {
+    "trial_offer": "Not found",
+    "referral_program": "Not found",
+    "promotions": "Upfront payment discount (50 GEL off adult course, 30-40 GEL off kids/teens)",
+    "online_booking": false,
+    "content_marketing": "None observed",
+    "mobile_app": "Mentioned — 'mobile app access' as a feature"
+  },
+
+  "sources": [
+    {"url": "https://www.emcaned.ge/", "type": "website"},
+    {"url": "https://www.emcaned.ge/english/", "type": "pricing"},
+    {"url": "https://www.emcaned.ge/digital-sat-prep/", "type": "offering"},
+    {"url": "https://emcaned.com/", "type": "secondary_website"}
+  ]
+}
