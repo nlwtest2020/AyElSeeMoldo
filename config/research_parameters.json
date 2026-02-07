@@ -1,0 +1,23 @@
+{
+  "parameters": {
+    "data_sources": {
+      "primary": ["surveys", "interviews", "field_observations"],
+      "secondary": ["industry_reports", "government_databases", "academic_publications", "trade_associations"]
+    },
+    "validation": {
+      "min_sources_required": 2,
+      "confidence_threshold": 0.75,
+      "cross_reference_enabled": true
+    },
+    "output": {
+      "formats": ["json", "csv", "xlsx"],
+      "default_format": "json",
+      "include_metadata": true
+    },
+    "agents": {
+      "max_concurrent": 5,
+      "timeout_seconds": 300,
+      "retry_attempts": 3
+    }
+  }
+}

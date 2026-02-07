@@ -1,0 +1,28 @@
+{
+  "pathways": [
+    {
+      "id": "market_sizing",
+      "name": "Market Sizing",
+      "description": "Estimate total addressable market, serviceable market, and growth projections",
+      "steps": ["data_collection", "validation", "analysis", "report"]
+    },
+    {
+      "id": "competitive_landscape",
+      "name": "Competitive Landscape",
+      "description": "Identify and analyze key competitors, market share, and positioning",
+      "steps": ["data_collection", "competitor_profiling", "gap_analysis", "report"]
+    },
+    {
+      "id": "regulatory_review",
+      "name": "Regulatory Review",
+      "description": "Assess regulatory environment, compliance requirements, and barriers to entry",
+      "steps": ["data_collection", "regulation_mapping", "risk_assessment", "report"]
+    },
+    {
+      "id": "consumer_insights",
+      "name": "Consumer Insights",
+      "description": "Analyze consumer behavior, preferences, and demand drivers",
+      "steps": ["data_collection", "segmentation", "trend_analysis", "report"]
+    }
+  ]
+}

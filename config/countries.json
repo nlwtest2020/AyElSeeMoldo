@@ -1,0 +1,34 @@
+{
+  "countries": [
+    {
+      "code": "US",
+      "name": "United States",
+      "region": "North America",
+      "enabled": true
+    },
+    {
+      "code": "GB",
+      "name": "United Kingdom",
+      "region": "Europe",
+      "enabled": true
+    },
+    {
+      "code": "DE",
+      "name": "Germany",
+      "region": "Europe",
+      "enabled": true
+    },
+    {
+      "code": "JP",
+      "name": "Japan",
+      "region": "Asia-Pacific",
+      "enabled": true
+    },
+    {
+      "code": "BR",
+      "name": "Brazil",
+      "region": "Latin America",
+      "enabled": true
+    }
+  ]
+}
