@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Research Parallel Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+
+    <header>
+        <h1>Market Research Parallel Analyzer</h1>
+        <p>Upload research for Moldova, Georgia &amp; Armenia &mdash; discover shared opportunities, audience profiles &amp; campaign ideas.</p>
+    </header>
+
+    <!-- Upload -->
+    <form id="uploadForm" enctype="multipart/form-data">
+        <div class="upload-grid">
+            <div class="upload-card" id="card-moldova">
+                <div class="flag">&#x1F1F2;&#x1F1E9;</div>
+                <h3>Moldova</h3>
+                <p class="subtitle">.docx or .xlsx</p>
+                <label for="file-moldova">Choose File</label>
+                <input type="file" id="file-moldova" name="moldova" accept=".docx,.xlsx">
+                <div class="file-name" id="name-moldova"></div>
+            </div>
+
+            <div class="upload-card" id="card-georgia">
+                <div class="flag">&#x1F1EC;&#x1F1EA;</div>
+                <h3>Georgia</h3>
+                <p class="subtitle">.docx or .xlsx</p>
+                <label for="file-georgia">Choose File</label>
+                <input type="file" id="file-georgia" name="georgia" accept=".docx,.xlsx">
+                <div class="file-name" id="name-georgia"></div>
+            </div>
+
+            <div class="upload-card" id="card-armenia">
+                <div class="flag">&#x1F1E6;&#x1F1F2;</div>
+                <h3>Armenia</h3>
+                <p class="subtitle">.docx or .xlsx</p>
+                <label for="file-armenia">Choose File</label>
+                <input type="file" id="file-armenia" name="armenia" accept=".docx,.xlsx">
+                <div class="file-name" id="name-armenia"></div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn-analyze" id="btnAnalyze">Analyze &amp; Find Parallels</button>
+    </form>
+
+    <div class="error-box" id="errorBox"></div>
+
+    <div class="spinner" id="spinner">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <p style="margin-top:1rem;color:var(--muted);font-size:.85rem;">Analyzing documents&hellip;</p>
+    </div>
+
+    <!-- Results -->
+    <div id="results">
+
+        <!-- Market Summaries -->
+        <h2 class="section-title">Market Summaries</h2>
+        <div class="summary-grid" id="summaries"></div>
+
+        <!-- Parallels -->
+        <h2 class="section-title">Cross-Market Parallels</h2>
+        <div id="parallels"></div>
+
+        <!-- Audience Profiles -->
+        <h2 class="section-title">Audience Profiles</h2>
+        <div id="profiles"></div>
+
+        <!-- Campaign Ideas -->
+        <h2 class="section-title">Social Media Campaign Ideas</h2>
+        <div id="campaigns"></div>
+    </div>
+
+</div>
+
+<script>
+/* ── File input feedback ───────────────────────────── */
+["moldova", "georgia", "armenia"].forEach(market => {
+    const input = document.getElementById(`file-${market}`);
+    input.addEventListener("change", () => {
+        const card = document.getElementById(`card-${market}`);
+        const nameEl = document.getElementById(`name-${market}`);
+        if (input.files.length) {
+            card.classList.add("has-file");
+            nameEl.textContent = input.files[0].name;
+        } else {
+            card.classList.remove("has-file");
+            nameEl.textContent = "";
+        }
+    });
+});
+
+/* ── Form submit ───────────────────────────────────── */
+document.getElementById("uploadForm").addEventListener("submit", async e => {
+    e.preventDefault();
+
+    const btn     = document.getElementById("btnAnalyze");
+    const spinner = document.getElementById("spinner");
+    const errBox  = document.getElementById("errorBox");
+    const results = document.getElementById("results");
+
+    errBox.classList.remove("visible");
+    results.classList.remove("visible");
+    btn.disabled = true;
+    spinner.classList.add("active");
+
+    const fd = new FormData();
+    ["moldova", "georgia", "armenia"].forEach(m => {
+        const f = document.getElementById(`file-${m}`).files[0];
+        if (f) fd.append(m, f);
+    });
+
+    try {
+        const res  = await fetch("/analyze", { method: "POST", body: fd });
+        const data = await res.json();
+
+        if (!data.success) {
+            errBox.innerHTML = data.errors.map(e => `<p>${e}</p>`).join("");
+            errBox.classList.add("visible");
+            return;
+        }
+
+        renderResults(data);
+        results.classList.add("visible");
+
+        if (data.errors && data.errors.length) {
+            errBox.innerHTML = data.errors.map(e => `<p>Warning: ${e}</p>`).join("");
+            errBox.classList.add("visible");
+        }
+    } catch (err) {
+        errBox.innerHTML = `<p>Network error: ${err.message}</p>`;
+        errBox.classList.add("visible");
+    } finally {
+        btn.disabled = false;
+        spinner.classList.remove("active");
+    }
+});
+
+/* ── Render helpers ────────────────────────────────── */
+const esc = s => {
+    const d = document.createElement("div");
+    d.textContent = s;
+    return d.innerHTML;
+};
+
+function renderResults(data) {
+    // Summaries
+    const sumEl = document.getElementById("summaries");
+    sumEl.innerHTML = data.market_summaries.map(m => `
+        <div class="summary-card">
+            <h4>${esc(m.market)}</h4>
+            <div class="stat">${m.word_count.toLocaleString()} meaningful tokens extracted</div>
+            <p style="font-size:.82rem;margin-bottom:.4rem;color:var(--muted);">Top themes:</p>
+            <div class="tag-list">
+                ${m.top_themes.map(([t, s]) => `<span class="tag">${esc(t.replace("_"," "))} (${s})</span>`).join("")}
+            </div>
+            <p style="font-size:.82rem;margin:.6rem 0 .3rem;color:var(--muted);">Key phrases:</p>
+            <div class="tag-list">
+                ${m.key_phrases.map(p => `<span class="tag blue">${esc(p)}</span>`).join("")}
+            </div>
+        </div>
+    `).join("");
+
+    // Parallels
+    const parEl = document.getElementById("parallels");
+    const opps = data.parallels.opportunities || [];
+    if (opps.length === 0) {
+        parEl.innerHTML = `<p style="color:var(--muted)">No strong parallels detected. Try uploading more detailed documents.</p>`;
+    } else {
+        parEl.innerHTML = opps.map(o => `
+            <div class="parallel-card">
+                <h4>${esc(o.theme)}</h4>
+                <div class="markets">Markets: ${o.markets.map(m => esc(m.charAt(0).toUpperCase()+m.slice(1))).join(", ")}</div>
+                <p>${esc(o.description)}</p>
+            </div>
+        `).join("");
+    }
+
+    // Overlapping phrases
+    const op = data.parallels.overlapping_phrases || [];
+    if (op.length) {
+        parEl.innerHTML += `
+            <h3 style="margin:1.5rem 0 .75rem;font-size:1rem;">Overlapping Key Phrases</h3>
+            <div class="tag-list" style="margin-bottom:1rem;">
+                ${op.map(p => `<span class="tag green">${esc(p.phrase)} (${p.markets.map(m=>m.charAt(0).toUpperCase()+m.slice(1)).join(", ")})</span>`).join("")}
+            </div>
+        `;
+    }
+
+    // Profiles
+    const profEl = document.getElementById("profiles");
+    profEl.innerHTML = data.profiles.map(p => `
+        <div class="profile-card">
+            <h4>${esc(p.profile_name)}</h4>
+            <div class="meta">
+                <strong>Languages:</strong> ${esc(p.languages)} &nbsp;|&nbsp;
+                <strong>Platforms:</strong> ${p.preferred_platforms.map(pl => esc(pl)).join(", ")}
+            </div>
+            <p>${esc(p.description)}</p>
+            <div class="context">${esc(p.cultural_context)}</div>
+        </div>
+    `).join("");
+
+    // Campaigns
+    const campEl = document.getElementById("campaigns");
+    campEl.innerHTML = data.campaigns.map(c => `
+        <div class="campaign-card">
+            <h4>${esc(c.name)}</h4>
+            <span class="platform">${esc(c.platform)}</span>
+            <div class="format">${esc(c.format)}</div>
+            <p>${esc(c.description)}</p>
+            <div class="cta">CTA: ${esc(c.cta)}</div>
+            <div class="tag-list" style="margin-top:.5rem;">
+                ${c.hashtags.map(h => `<span class="tag orange">${esc(h)}</span>`).join("")}
+            </div>
+        </div>
+    `).join("");
+}
+</script>
+</body>
+</html>

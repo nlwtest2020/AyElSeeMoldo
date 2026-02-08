@@ -1,0 +1,307 @@
+/* ─── Base ───────────────────────────────────────────── */
+:root {
+    --bg:        #0f1117;
+    --surface:   #1a1d27;
+    --card:      #222636;
+    --border:    #2e3347;
+    --text:      #e2e4ed;
+    --muted:     #8b8fa3;
+    --accent:    #6c5ce7;
+    --accent-lt: #a29bfe;
+    --green:     #00b894;
+    --orange:    #fdcb6e;
+    --red:       #e17055;
+    --blue:      #74b9ff;
+    --radius:    10px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* ─── Layout ─────────────────────────────────────────── */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+header {
+    text-align: center;
+    padding: 3rem 0 2rem;
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, var(--accent-lt), var(--blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+header p {
+    color: var(--muted);
+    margin-top: .5rem;
+    font-size: .95rem;
+}
+
+/* ─── Upload Section ─────────────────────────────────── */
+.upload-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+    margin: 2rem 0;
+}
+
+.upload-card {
+    background: var(--card);
+    border: 2px dashed var(--border);
+    border-radius: var(--radius);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: border-color .2s, box-shadow .2s;
+    position: relative;
+}
+
+.upload-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 20px rgba(108, 92, 231, .15);
+}
+
+.upload-card.has-file {
+    border-color: var(--green);
+    border-style: solid;
+}
+
+.upload-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: .25rem;
+}
+
+.upload-card .flag {
+    font-size: 2rem;
+    margin-bottom: .5rem;
+}
+
+.upload-card .subtitle {
+    color: var(--muted);
+    font-size: .82rem;
+    margin-bottom: 1rem;
+}
+
+.upload-card input[type="file"] {
+    display: none;
+}
+
+.upload-card label {
+    display: inline-block;
+    padding: .55rem 1.5rem;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: .85rem;
+    font-weight: 600;
+    transition: background .2s;
+}
+
+.upload-card label:hover {
+    background: #5a4bd6;
+}
+
+.file-name {
+    margin-top: .75rem;
+    font-size: .8rem;
+    color: var(--green);
+    word-break: break-all;
+}
+
+/* ─── Button ─────────────────────────────────────────── */
+.btn-analyze {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    margin: 1.5rem auto;
+    padding: .85rem;
+    background: linear-gradient(135deg, var(--accent), #5a4bd6);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity .2s;
+}
+
+.btn-analyze:disabled {
+    opacity: .4;
+    cursor: not-allowed;
+}
+
+.btn-analyze:hover:not(:disabled) {
+    opacity: .9;
+}
+
+/* ─── Spinner ────────────────────────────────────────── */
+.spinner {
+    display: none;
+    text-align: center;
+    padding: 3rem 0;
+}
+
+.spinner.active { display: block; }
+
+.spinner .dot {
+    display: inline-block;
+    width: 12px; height: 12px;
+    margin: 0 4px;
+    background: var(--accent-lt);
+    border-radius: 50%;
+    animation: bounce .6s infinite alternate;
+}
+.spinner .dot:nth-child(2) { animation-delay: .2s; }
+.spinner .dot:nth-child(3) { animation-delay: .4s; }
+
+@keyframes bounce {
+    to { transform: translateY(-12px); opacity: .4; }
+}
+
+/* ─── Results ────────────────────────────────────────── */
+#results { display: none; }
+#results.visible { display: block; }
+
+.section-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 2.5rem 0 1rem;
+    padding-bottom: .5rem;
+    border-bottom: 2px solid var(--border);
+}
+
+/* Market summary cards */
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+}
+
+.summary-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    border-left: 4px solid var(--accent);
+}
+
+.summary-card h4 {
+    margin-bottom: .5rem;
+    font-size: 1.05rem;
+}
+
+.summary-card .stat {
+    font-size: .82rem;
+    color: var(--muted);
+    margin-bottom: .75rem;
+}
+
+.tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem;
+}
+
+.tag {
+    display: inline-block;
+    padding: .2rem .65rem;
+    background: rgba(108,92,231,.15);
+    color: var(--accent-lt);
+    border-radius: 20px;
+    font-size: .75rem;
+}
+
+.tag.green  { background: rgba(0,184,148,.15); color: var(--green); }
+.tag.orange { background: rgba(253,203,110,.15); color: var(--orange); }
+.tag.blue   { background: rgba(116,185,255,.15); color: var(--blue); }
+
+/* Parallels */
+.parallel-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-left: 4px solid var(--green);
+}
+
+.parallel-card h4 { color: var(--green); margin-bottom: .4rem; }
+.parallel-card .markets { font-size: .82rem; color: var(--muted); margin-bottom: .5rem; }
+
+/* Profiles */
+.profile-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-left: 4px solid var(--blue);
+}
+
+.profile-card h4 { color: var(--blue); margin-bottom: .3rem; }
+.profile-card .meta { font-size: .82rem; color: var(--muted); margin-bottom: .5rem; }
+.profile-card .context {
+    font-size: .82rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-top: .5rem;
+    border-top: 1px solid var(--border);
+    padding-top: .5rem;
+}
+
+/* Campaigns */
+.campaign-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-left: 4px solid var(--orange);
+}
+
+.campaign-card h4 { color: var(--orange); margin-bottom: .25rem; }
+.campaign-card .platform {
+    display: inline-block;
+    padding: .15rem .6rem;
+    background: rgba(253,203,110,.12);
+    color: var(--orange);
+    border-radius: 20px;
+    font-size: .72rem;
+    font-weight: 600;
+    margin-bottom: .5rem;
+}
+.campaign-card .format { font-size: .82rem; color: var(--muted); margin-bottom: .5rem; }
+.campaign-card .cta {
+    font-size: .85rem;
+    font-weight: 600;
+    margin-top: .5rem;
+}
+
+/* Error */
+.error-box {
+    background: rgba(225,112,85,.12);
+    border: 1px solid var(--red);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    color: var(--red);
+    margin: 1rem 0;
+    display: none;
+}
+.error-box.visible { display: block; }
+
+/* Responsive */
+@media (max-width: 600px) {
+    header h1 { font-size: 1.4rem; }
+    .container { padding: 1rem; }
+}
