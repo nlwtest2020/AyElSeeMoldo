@@ -8,4 +8,6 @@ fiscal_category_breakdown.xlsx
 # Raw data files
 /data/raw/
 geo_revenue_trend.png
+geo_revenue_trend_gel.png
+mod_revenue_trend.png
 growth_targets.csv
