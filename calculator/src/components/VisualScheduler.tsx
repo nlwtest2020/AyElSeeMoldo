@@ -130,7 +130,11 @@ export function VisualScheduler({ grid, onChange }: Props) {
                         onDrop={e => {
                           e.preventDefault();
                           setDragOver(null);
-                          if (draggingType && !slot) setSlot(key, draggingType, room.maxCapacity);
+                          if (draggingType && !slot) {
+                            // Private = 1 student (1-on-1), OE = room capacity
+                            const count = draggingType === 'private' ? 1 : room.maxCapacity;
+                            setSlot(key, draggingType, count);
+                          }
                         }}
                       >
                         {slot ? (
@@ -165,7 +169,8 @@ function FilledCell({ slot, maxCapacity, onRemove, onIncrease, onDecrease }: {
   onDecrease: () => void;
 }) {
   const cfg = TYPE_CONFIG[slot.classType];
-  const pct = (slot.studentCount / maxCapacity) * 100;
+  const isPrivate = slot.classType === 'private';
+  const pct = isPrivate ? 100 : (slot.studentCount / maxCapacity) * 100;
 
   return (
     <div className={`rounded-lg p-2 ${cfg.color} min-w-[90px]`}>
@@ -175,12 +180,18 @@ function FilledCell({ slot, maxCapacity, onRemove, onIncrease, onDecrease }: {
       </div>
       <div className="flex items-center gap-1 mb-1">
         <Users className="w-3 h-3 text-white/80" />
-        <span className="text-white text-xs font-semibold">{slot.studentCount}</span>
-        <span className="text-white/60 text-xs">/{maxCapacity}</span>
-        <div className="ml-auto flex flex-col gap-0.5">
-          <button onClick={onIncrease} className="text-white/80 hover:text-white leading-none text-xs">▲</button>
-          <button onClick={onDecrease} className="text-white/80 hover:text-white leading-none text-xs">▼</button>
-        </div>
+        {isPrivate ? (
+          <span className="text-white text-xs font-semibold">1-on-1</span>
+        ) : (
+          <>
+            <span className="text-white text-xs font-semibold">{slot.studentCount}</span>
+            <span className="text-white/60 text-xs">/{maxCapacity}</span>
+            <div className="ml-auto flex flex-col gap-0.5">
+              <button onClick={onIncrease} className="text-white/80 hover:text-white leading-none text-xs">▲</button>
+              <button onClick={onDecrease} className="text-white/80 hover:text-white leading-none text-xs">▼</button>
+            </div>
+          </>
+        )}
       </div>
       <div className="h-1.5 bg-black/20 rounded-full overflow-hidden">
         <div className="h-full bg-white/70 rounded-full" style={{ width: `${pct}%` }} />

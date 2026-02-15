@@ -88,7 +88,6 @@ export const MONTHLY_OTHER = 165;    // Phone, email, ads (~3.3% historical)
 
 // ── VARIABLE COST RATES (scale with activity) ────────────────────────────────
 export const IDC_RATE = 0.12;        // 12% of direct costs (indirect costs)
-export const FRINGE_RATE = 0.05;     // 5% of teacher costs (benefits)
 
 // ── OFF-SITE INPUTS ──────────────────────────────────────────────────────────
 export interface OffSiteInputs {
@@ -124,8 +123,7 @@ export interface SectionResult {
 
 export interface CostBreakdown {
   teacher: number;      // Base teacher pay
-  salarySurcharge: number; // +40% for salaried
-  fringe: number;       // 5% of teacher (scales)
+  salarySurcharge: number; // +40% for salaried (includes fringe/benefits)
   idc: number;          // 12% of direct costs (scales)
   rent: number;         // $3400 fixed
   admin: number;        // $650 fixed

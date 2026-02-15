@@ -1,5 +1,5 @@
 import {
-  TEACHER_BASE_RATE, SALARIED_SURCHARGE, FRINGE_RATE, IDC_RATE,
+  TEACHER_BASE_RATE, SALARIED_SURCHARGE, IDC_RATE,
   MONTHLY_RENT, MONTHLY_ADMIN, MONTHLY_OTHER,
   CORP_RATES, INST_RATES, PRIVATE_RATES, OE_RATES,
 } from '../types';
@@ -12,14 +12,12 @@ export function CalcBreakdown() {
       {/* Teacher Costs */}
       <Block title="Teacher Pay">
         <Row k="Base rate" v={`$${TEACHER_BASE_RATE}/hr`} />
-        <Row k="Salaried surcharge" v={`+${SALARIED_SURCHARGE * 100}% (benefits, taxes)`} />
-        <Row k="Fringe" v={`+${FRINGE_RATE * 100}% of payroll`} />
+        <Row k="Salaried surcharge" v={`+${SALARIED_SURCHARGE * 100}% (includes benefits, taxes)`} />
       </Block>
 
       {/* Variable Costs */}
       <Block title="Variable Costs (scale with activity)">
         <Row k="IDC" v={`${IDC_RATE * 100}% of direct costs`} />
-        <Row k="Fringe" v={`${FRINGE_RATE * 100}% of teacher payroll`} />
       </Block>
 
       {/* Fixed Costs */}

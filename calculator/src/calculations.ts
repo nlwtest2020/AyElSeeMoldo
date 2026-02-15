@@ -3,7 +3,7 @@ import {
   ROOMS, TIME_SLOTS, DAY_PATTERNS,
   CORP_RATES, INST_RATES, PRIVATE_RATES, OE_RATES,
   MONTHLY_RENT, MONTHLY_ADMIN, MONTHLY_OTHER,
-  SALARIED_SURCHARGE, IDC_RATE, FRINGE_RATE,
+  SALARIED_SURCHARGE, IDC_RATE,
   slotKey, slotMonthlyHours,
 } from './types';
 
@@ -80,11 +80,8 @@ export function calculate(grid: ScheduleGrid, inputs: OffSiteInputs): MonthlyRes
   // Salaried surcharge (scales with teacher hours, only for salaried %)
   const salarySurchargeAmt = totalTeacherBase * (inputs.salaryMixPercent / 100) * SALARIED_SURCHARGE;
 
-  // Total teacher cost after surcharge
+  // Total teacher cost after surcharge (surcharge includes fringe/benefits)
   const totalTeacherCost = totalTeacherBase + salarySurchargeAmt;
-
-  // Fringe: 5% of total teacher cost (scales with payroll)
-  const fringeCost = totalTeacherCost * FRINGE_RATE;
 
   // IDC: 12% of direct costs (teacher + rent) - scales with activity
   const directCosts = totalTeacherCost + MONTHLY_RENT;
@@ -97,12 +94,11 @@ export function calculate(grid: ScheduleGrid, inputs: OffSiteInputs): MonthlyRes
   const costs: CostBreakdown = {
     teacher: totalTeacherBase,
     salarySurcharge: salarySurchargeAmt,
-    fringe: fringeCost,
     idc: idcCost,
     rent: MONTHLY_RENT,
     admin: adminCost,
     other: otherCost,
-    total: totalTeacherCost + fringeCost + idcCost + MONTHLY_RENT + adminCost + otherCost,
+    total: totalTeacherCost + idcCost + MONTHLY_RENT + adminCost + otherCost,
   };
 
   // ── SECTION-LEVEL TEACHER COSTS (with salary multiplier applied) ──────────

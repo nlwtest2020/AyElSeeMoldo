@@ -166,9 +166,8 @@ export function RevenueCalculator({ inputs, results, onChange }: Props) {
             <div className="text-xs text-emerald-400 font-semibold uppercase tracking-wide">Variable (scales with activity)</div>
             <StatRow label="Teacher Pay (base)" value={fmt$(results.costs.teacher)} />
             {results.costs.salarySurcharge > 0 && (
-              <StatRow label="Salaried Surcharge (+40%)" value={fmt$(results.costs.salarySurcharge)} sub />
+              <StatRow label="Salaried Surcharge (+40% incl. benefits)" value={fmt$(results.costs.salarySurcharge)} sub />
             )}
-            <StatRow label="Fringe (5% of payroll)" value={fmt$(results.costs.fringe)} sub />
             <StatRow label="IDC (12% of direct)" value={fmt$(results.costs.idc)} sub />
 
             {/* Fixed Costs */}
