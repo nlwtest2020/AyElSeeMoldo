@@ -30,12 +30,11 @@ export const DAY_PATTERNS: { pattern: DayPattern; label: string }[] = [
   { pattern: 'tue-thu', label: 'Tue/Thu' },
 ];
 
-// Each day pattern = 2 days/week × 4.33 weeks/month = 8.66 sessions/month
-export const WEEKS_PER_MONTH = 4.33;
+// Simplified: 4 weeks/month (6 hrs/week = 24 hrs/month standard)
+export const WEEKS_PER_MONTH = 4;
 export const DAYS_PER_PATTERN = 2;
-export const SESSIONS_PER_MONTH = DAYS_PER_PATTERN * WEEKS_PER_MONTH; // 8.66
+export const SESSIONS_PER_MONTH = DAYS_PER_PATTERN * WEEKS_PER_MONTH; // 8
 
-// Total max capacity: 55 students/slot × 8 slots = 440
 export const MAX_CAPACITY = ROOMS.reduce((s, r) => s + r.maxCapacity, 0) *
   TIME_SLOTS.length * DAY_PATTERNS.length;
 
@@ -55,33 +54,41 @@ export interface ScheduledSlot {
 
 export type ScheduleGrid = Record<string, ScheduledSlot>;
 
-// ── RATES ─────────────────────────────────────────────────────────────────────
-export const MONTHLY_RENT = 3400;
-export const SALARY_SURCHARGE = 0.40;
+// ── COST RATES ───────────────────────────────────────────────────────────────
+// Base teacher rate: $17/hr
+export const TEACHER_BASE_RATE = 17;
+export const SALARIED_SURCHARGE = 0.40; // +40% for salaried teachers
 
-export const CORP_RATES  = { effRev: 34.92, teacherCost: 15.15 };
-export const INST_RATES  = { effRev: 34.62, teacherCost: 20.16 };
-export const PRIVATE_RATES = { revenue: 30.00, teacherCost: 14.73 };
+// Revenue per student per hour for Open Enrollment
+export const OE_STUDENT_RATE = 4.63; // ~$27.78/hr at 6 students, scales up
 
+// Revenue/teacher rates by program type (hourly)
+export const CORP_RATES  = { revenue: 34.92, teacherCost: TEACHER_BASE_RATE };
+export const INST_RATES  = { revenue: 34.62, teacherCost: TEACHER_BASE_RATE * 1.18 }; // higher for institutional
+export const PRIVATE_RATES = { revenue: 30.00, teacherCost: TEACHER_BASE_RATE };
+
+// Open Enrollment: revenue scales with students, teacher cost is flat $17/hr
 export const OE_RATES: Record<number, { rev: number; teacher: number }> = {
-  6:  { rev: 27.78, teacher: 11.20 },
-  7:  { rev: 32.41, teacher: 11.20 },
-  8:  { rev: 37.04, teacher: 11.20 },
-  9:  { rev: 41.67, teacher: 11.20 },
-  10: { rev: 46.30, teacher: 11.20 },
-  11: { rev: 50.93, teacher: 11.20 },
-  12: { rev: 55.56, teacher: 11.20 },
-  13: { rev: 60.19, teacher: 11.20 },
-  14: { rev: 64.82, teacher: 11.20 },
-  15: { rev: 69.45, teacher: 11.20 },
+  6:  { rev: 27.78, teacher: TEACHER_BASE_RATE },
+  7:  { rev: 32.41, teacher: TEACHER_BASE_RATE },
+  8:  { rev: 37.04, teacher: TEACHER_BASE_RATE },
+  9:  { rev: 41.67, teacher: TEACHER_BASE_RATE },
+  10: { rev: 46.30, teacher: TEACHER_BASE_RATE },
+  11: { rev: 50.93, teacher: TEACHER_BASE_RATE },
+  12: { rev: 55.56, teacher: TEACHER_BASE_RATE },
+  13: { rev: 60.19, teacher: TEACHER_BASE_RATE },
+  14: { rev: 64.82, teacher: TEACHER_BASE_RATE },
+  15: { rev: 69.45, teacher: TEACHER_BASE_RATE },
 };
 
-// Historical overhead as % of total expenses (MOD 5yr avg FY20-25)
-export const OVERHEAD = {
-  indirect:  0.119,   // Indirect costs (698100)
-  fringe:    0.053,   // Fringe benefits (517550)
-  other:     0.033,   // Telephone + email + advertising
-};
+// ── FIXED COSTS (monthly, don't scale with activity) ─────────────────────────
+export const MONTHLY_RENT = 3400;
+export const MONTHLY_ADMIN = 650;    // ~13% historical, fixed overhead
+export const MONTHLY_OTHER = 165;    // Phone, email, ads (~3.3% historical)
+
+// ── VARIABLE COST RATES (scale with activity) ────────────────────────────────
+export const IDC_RATE = 0.12;        // 12% of direct costs (indirect costs)
+export const FRINGE_RATE = 0.05;     // 5% of teacher costs (benefits)
 
 // ── OFF-SITE INPUTS ──────────────────────────────────────────────────────────
 export interface OffSiteInputs {
@@ -115,16 +122,27 @@ export interface SectionResult {
   students: number;
 }
 
+export interface CostBreakdown {
+  teacher: number;      // Base teacher pay
+  salarySurcharge: number; // +40% for salaried
+  fringe: number;       // 5% of teacher (scales)
+  idc: number;          // 12% of direct costs (scales)
+  rent: number;         // $3400 fixed
+  admin: number;        // $650 fixed
+  other: number;        // $165 fixed
+  total: number;
+}
+
 export interface MonthlyResults {
   oe:      SectionResult & { classes: number; avgStudents: number; seatCount: number };
   priv:    SectionResult;
   corp:    SectionResult;
   inst:    SectionResult;
-  rent:    number;
-  overhead: { indirect: number; fringe: number; other: number; total: number };
+  costs:   CostBreakdown;
   totalRevenue: number;
   totalCosts:   number;
   netProfit:    number;
   profitMargin: number;
   totalStudents: number;
+  totalHours: number;
 }

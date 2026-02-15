@@ -1,5 +1,5 @@
 import type { OffSiteInputs, MonthlyResults } from '../types';
-import { CORP_RATES, INST_RATES, PRIVATE_RATES, OE_RATES, MONTHLY_RENT } from '../types';
+import { CORP_RATES, INST_RATES, PRIVATE_RATES, OE_RATES, TEACHER_BASE_RATE } from '../types';
 import { fmt$ } from '../calculations';
 import { Building2, GraduationCap, User, BookOpen, DollarSign, TrendingUp, TrendingDown, ChevronDown, ChevronUp } from 'lucide-react';
 import { useState } from 'react';
@@ -21,11 +21,11 @@ function ProfitBadge({ margin }: { margin: number }) {
   );
 }
 
-function StatRow({ label, value, accent }: { label: string; value: string; accent?: boolean }) {
+function StatRow({ label, value, sub }: { label: string; value: string; sub?: boolean }) {
   return (
-    <div className="flex justify-between text-sm py-1">
-      <span className="text-gray-500">{label}</span>
-      <span className={`font-semibold ${accent ? 'text-emerald-600' : 'text-gray-800'}`}>{value}</span>
+    <div className={`flex justify-between text-sm py-1 ${sub ? 'pl-4 text-xs' : ''}`}>
+      <span className={sub ? 'text-gray-500' : 'text-gray-400'}>{label}</span>
+      <span className={`font-semibold ${sub ? 'text-gray-400' : 'text-gray-200'}`}>{value}</span>
     </div>
   );
 }
@@ -77,7 +77,7 @@ export function RevenueCalculator({ inputs, results, onChange }: Props) {
             <NumInput value={inputs.corpHoursPerMonth} onChange={v => set('corpHoursPerMonth', v)} />
           </Field>
         </div>
-        <ResultBlock r={results.corp} rateNote={`$${CORP_RATES.effRev}/hr revenue | $${CORP_RATES.teacherCost}/hr base cost`} />
+        <ResultBlock r={results.corp} rateNote={`$${CORP_RATES.revenue}/hr revenue | $${TEACHER_BASE_RATE}/hr base teacher`} />
       </Section>
 
       {/* Institutional */}
@@ -90,7 +90,7 @@ export function RevenueCalculator({ inputs, results, onChange }: Props) {
             <NumInput value={inputs.instHoursPerMonth} onChange={v => set('instHoursPerMonth', v)} />
           </Field>
         </div>
-        <ResultBlock r={results.inst} rateNote={`$${INST_RATES.effRev}/hr revenue | $${INST_RATES.teacherCost}/hr base cost`} />
+        <ResultBlock r={results.inst} rateNote={`$${INST_RATES.revenue}/hr revenue | $${INST_RATES.teacherCost.toFixed(0)}/hr teacher`} />
       </Section>
 
       {/* Private */}
@@ -105,7 +105,7 @@ export function RevenueCalculator({ inputs, results, onChange }: Props) {
         </div>
         <ResultBlock
           r={results.priv}
-          rateNote={`$${PRIVATE_RATES.revenue}/hr revenue | $${PRIVATE_RATES.teacherCost}/hr base cost | Rent: ${fmt$(results.priv.rentShare)}/mo`}
+          rateNote={`$${PRIVATE_RATES.revenue}/hr revenue | $${TEACHER_BASE_RATE}/hr teacher | Rent: ${fmt$(results.priv.rentShare)}/mo`}
         />
       </Section>
 
@@ -117,12 +117,12 @@ export function RevenueCalculator({ inputs, results, onChange }: Props) {
           <>
             <div className="flex flex-wrap gap-4 text-sm text-gray-600 mb-3">
               <span>{results.oe.classes} classes</span>
-              <span>Avg {results.oe.avgStudents.toFixed(1)} students/class → {results.oe.seatCount}-seat rate</span>
+              <span>Avg {results.oe.avgStudents.toFixed(1)} students/class</span>
               <span>{Math.round(results.oe.hours)} hrs/mo</span>
             </div>
             <ResultBlock
               r={results.oe}
-              rateNote={`$${oeRate.rev}/hr rev | $${oeRate.teacher}/hr teacher | Rent: ${fmt$(results.oe.rentShare)}/mo`}
+              rateNote={`$${oeRate.rev}/hr rev | $${TEACHER_BASE_RATE}/hr teacher | Rent: ${fmt$(results.oe.rentShare)}/mo`}
             />
           </>
         )}
@@ -151,35 +151,43 @@ export function RevenueCalculator({ inputs, results, onChange }: Props) {
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-3 space-y-1">
-          <StatRow label="Teacher Costs" value={fmt$(results.corp.teacherCost + results.inst.teacherCost + results.oe.teacherCost + results.priv.teacherCost)} />
-          <StatRow label={`Rent (fixed $${MONTHLY_RENT}/mo)`} value={fmt$(results.rent)} />
-          <StatRow label={`Overhead (indirect + fringe + other)`} value={fmt$(results.overhead.total)} />
-          <div className="flex justify-between text-sm pt-2 border-t border-white/10">
-            <span className="font-semibold text-gray-300">Margin</span>
-            <span className={`font-bold text-lg ${results.profitMargin >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
-              {results.profitMargin.toFixed(1)}%
-            </span>
-          </div>
-        </div>
-
-        {/* Overhead breakdown toggle */}
+        {/* Cost breakdown toggle */}
         <button
           onClick={() => setShowBreakdown(!showBreakdown)}
-          className="mt-4 w-full flex items-center justify-center gap-2 text-xs text-gray-400 hover:text-gray-200 transition-colors"
+          className="w-full flex items-center justify-center gap-2 text-xs text-gray-400 hover:text-gray-200 transition-colors py-2"
         >
           {showBreakdown ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
-          {showBreakdown ? 'Hide' : 'Show'} overhead breakdown
+          {showBreakdown ? 'Hide' : 'Show'} cost breakdown
         </button>
+
         {showBreakdown && (
-          <div className="mt-3 bg-white/5 rounded-lg p-3 space-y-1 text-xs text-gray-400">
-            <div className="flex justify-between"><span>Indirect Costs (11.9%)</span><span>{fmt$(results.overhead.indirect)}</span></div>
-            <div className="flex justify-between"><span>Fringe Benefits (5.3%)</span><span>{fmt$(results.overhead.fringe)}</span></div>
-            <div className="flex justify-between"><span>Other Fixed — phone, email, ads (3.3%)</span><span>{fmt$(results.overhead.other)}</span></div>
-            <div className="flex justify-between pt-1 border-t border-white/10 text-gray-300">
-              <span>Total Overhead</span><span>{fmt$(results.overhead.total)}</span>
+          <div className="mt-3 space-y-2 text-sm border-t border-white/10 pt-3">
+            {/* Variable Costs */}
+            <div className="text-xs text-emerald-400 font-semibold uppercase tracking-wide">Variable (scales with activity)</div>
+            <StatRow label="Teacher Pay (base)" value={fmt$(results.costs.teacher)} />
+            {results.costs.salarySurcharge > 0 && (
+              <StatRow label="Salaried Surcharge (+40%)" value={fmt$(results.costs.salarySurcharge)} sub />
+            )}
+            <StatRow label="Fringe (5% of payroll)" value={fmt$(results.costs.fringe)} sub />
+            <StatRow label="IDC (12% of direct)" value={fmt$(results.costs.idc)} sub />
+
+            {/* Fixed Costs */}
+            <div className="text-xs text-amber-400 font-semibold uppercase tracking-wide mt-3">Fixed (monthly)</div>
+            <StatRow label="Rent" value={fmt$(results.costs.rent)} />
+            <StatRow label="Admin" value={fmt$(results.costs.admin)} />
+            <StatRow label="Other (phone, email, ads)" value={fmt$(results.costs.other)} />
+
+            {/* Total */}
+            <div className="flex justify-between text-sm pt-3 border-t border-white/10">
+              <span className="font-semibold text-gray-300">Total Costs</span>
+              <span className="font-bold text-white">{fmt$(results.costs.total)}</span>
             </div>
-            <p className="text-gray-500 mt-2 leading-relaxed">Based on MOD 5-year historical average (FY20-25). These percentages represent non-teacher overhead as a share of total expenses.</p>
+            <div className="flex justify-between text-sm pt-1">
+              <span className="font-semibold text-gray-300">Margin</span>
+              <span className={`font-bold text-lg ${results.profitMargin >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+                {results.profitMargin.toFixed(1)}%
+              </span>
+            </div>
           </div>
         )}
       </div>

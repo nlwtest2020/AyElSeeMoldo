@@ -1,20 +1,17 @@
-import type { ScheduleGrid, OffSiteInputs, MonthlyResults } from './types';
+import type { ScheduleGrid, OffSiteInputs, MonthlyResults, CostBreakdown } from './types';
 import {
   ROOMS, TIME_SLOTS, DAY_PATTERNS,
   CORP_RATES, INST_RATES, PRIVATE_RATES, OE_RATES,
-  MONTHLY_RENT, SALARY_SURCHARGE, OVERHEAD,
+  MONTHLY_RENT, MONTHLY_ADMIN, MONTHLY_OTHER,
+  SALARIED_SURCHARGE, IDC_RATE, FRINGE_RATE,
   slotKey, slotMonthlyHours,
 } from './types';
 
-export function getSurcharge(pct: number): number {
-  return 1 + (pct / 100) * SALARY_SURCHARGE;
-}
-
 export function calculate(grid: ScheduleGrid, inputs: OffSiteInputs): MonthlyResults {
-  const mx = getSurcharge(inputs.salaryMixPercent);
+  const salaryMult = 1 + (inputs.salaryMixPercent / 100) * SALARIED_SURCHARGE;
 
   // ── OPEN ENROLLMENT (from scheduler) ─────────────────────────────────────
-  let oeRev = 0, oeTeacher = 0, oeHours = 0, oeStudents = 0, oeClasses = 0;
+  let oeRev = 0, oeTeacherBase = 0, oeHours = 0, oeStudents = 0, oeClasses = 0;
   for (const room of ROOMS) {
     for (const dp of DAY_PATTERNS) {
       for (const ts of TIME_SLOTS) {
@@ -23,9 +20,9 @@ export function calculate(grid: ScheduleGrid, inputs: OffSiteInputs): MonthlyRes
         const hrs = slotMonthlyHours(ts.slot);
         const seat = Math.max(6, Math.min(15, s.studentCount));
         const rate = OE_RATES[seat];
-        oeRev     += hrs * rate.rev;
-        oeTeacher += hrs * rate.teacher * mx;
-        oeHours   += hrs;
+        oeRev += hrs * rate.rev;
+        oeTeacherBase += hrs * rate.teacher;
+        oeHours += hrs;
         oeStudents += s.studentCount;
         oeClasses++;
       }
@@ -42,56 +39,84 @@ export function calculate(grid: ScheduleGrid, inputs: OffSiteInputs): MonthlyRes
         const s = grid[slotKey(room.id, dp.pattern, ts.slot)];
         if (!s || s.classType !== 'private') continue;
         const hrs = slotMonthlyHours(ts.slot);
-        privRevSched     += hrs * PRIVATE_RATES.revenue;
-        privTeacherSched += hrs * PRIVATE_RATES.teacherCost * mx;
-        privHoursSched   += hrs;
+        privRevSched += hrs * PRIVATE_RATES.revenue;
+        privTeacherSched += hrs * PRIVATE_RATES.teacherCost;
+        privHoursSched += hrs;
         privStudentsSched += s.studentCount;
       }
     }
   }
 
   // ── PRIVATE (manual off-site / additional) ────────────────────────────────
-  const privManualHours   = inputs.privateStudents * inputs.privateHoursPerMonth;
-  const privManualRev     = privManualHours * PRIVATE_RATES.revenue;
-  const privManualTeacher = privManualHours * PRIVATE_RATES.teacherCost * mx;
+  const privManualHours = inputs.privateStudents * inputs.privateHoursPerMonth;
+  const privManualRev = privManualHours * PRIVATE_RATES.revenue;
+  const privManualTeacher = privManualHours * PRIVATE_RATES.teacherCost;
 
-  const privRev     = privRevSched + privManualRev;
-  const privTeacher = privTeacherSched + privManualTeacher;
-  const privHours   = privHoursSched + privManualHours;
+  const privRev = privRevSched + privManualRev;
+  const privTeacherBase = privTeacherSched + privManualTeacher;
+  const privHours = privHoursSched + privManualHours;
   const privStudents = privStudentsSched + inputs.privateStudents;
 
   // ── CORPORATE ─────────────────────────────────────────────────────────────
-  const corpRev     = inputs.corpHoursPerMonth * CORP_RATES.effRev;
-  const corpTeacher = inputs.corpHoursPerMonth * CORP_RATES.teacherCost * mx;
+  const corpRev = inputs.corpHoursPerMonth * CORP_RATES.revenue;
+  const corpTeacherBase = inputs.corpHoursPerMonth * CORP_RATES.teacherCost;
 
   // ── INSTITUTIONAL ─────────────────────────────────────────────────────────
-  const instRev     = inputs.instHoursPerMonth * INST_RATES.effRev;
-  const instTeacher = inputs.instHoursPerMonth * INST_RATES.teacherCost * mx;
+  const instRev = inputs.instHoursPerMonth * INST_RATES.revenue;
+  const instTeacherBase = inputs.instHoursPerMonth * INST_RATES.teacherCost;
 
-  // ── RENT (allocated to on-site facility hours: OE + Private) ─────────────
-  const facilityHours = oeHours + privHours;
-  const oeRentShare   = facilityHours > 0 ? (oeHours   / facilityHours) * MONTHLY_RENT : 0;
-  const privRentShare = facilityHours > 0 ? (privHours / facilityHours) * MONTHLY_RENT : 0;
+  // ── TOTAL HOURS ───────────────────────────────────────────────────────────
+  const totalHours = oeHours + privHours + inputs.corpHoursPerMonth + inputs.instHoursPerMonth;
 
-  // ── OVERHEAD (applied to direct costs, from historical %) ─────────────────
-  // Direct costs = teacher + rent ≈ 65% of total expenses historically
-  // So overhead = direct × (overhead% / 65%)
-  const directCosts = (oeTeacher + privTeacher + corpTeacher + instTeacher) + MONTHLY_RENT;
-  const scale = 1 / 0.65;
-  const oHead = {
-    indirect: OVERHEAD.indirect * directCosts * scale,
-    fringe:   OVERHEAD.fringe   * directCosts * scale,
-    other:    OVERHEAD.other    * directCosts * scale,
-    total:    (OVERHEAD.indirect + OVERHEAD.fringe + OVERHEAD.other) * directCosts * scale,
+  // ── RENT (allocated to on-site facility hours: OE + Private on-site) ──────
+  const facilityHours = oeHours + privHoursSched;
+  const oeRentShare = facilityHours > 0 ? (oeHours / facilityHours) * MONTHLY_RENT : 0;
+  const privRentShare = facilityHours > 0 ? (privHoursSched / facilityHours) * MONTHLY_RENT : 0;
+
+  // ── COST BREAKDOWN ────────────────────────────────────────────────────────
+  // Base teacher costs (before salaried surcharge)
+  const totalTeacherBase = oeTeacherBase + privTeacherBase + corpTeacherBase + instTeacherBase;
+
+  // Salaried surcharge (scales with teacher hours, only for salaried %)
+  const salarySurchargeAmt = totalTeacherBase * (inputs.salaryMixPercent / 100) * SALARIED_SURCHARGE;
+
+  // Total teacher cost after surcharge
+  const totalTeacherCost = totalTeacherBase + salarySurchargeAmt;
+
+  // Fringe: 5% of total teacher cost (scales with payroll)
+  const fringeCost = totalTeacherCost * FRINGE_RATE;
+
+  // IDC: 12% of direct costs (teacher + rent) - scales with activity
+  const directCosts = totalTeacherCost + MONTHLY_RENT;
+  const idcCost = directCosts * IDC_RATE;
+
+  // Fixed costs (don't scale)
+  const adminCost = MONTHLY_ADMIN;
+  const otherCost = MONTHLY_OTHER;
+
+  const costs: CostBreakdown = {
+    teacher: totalTeacherBase,
+    salarySurcharge: salarySurchargeAmt,
+    fringe: fringeCost,
+    idc: idcCost,
+    rent: MONTHLY_RENT,
+    admin: adminCost,
+    other: otherCost,
+    total: totalTeacherCost + fringeCost + idcCost + MONTHLY_RENT + adminCost + otherCost,
   };
 
-  // ── SECTION PROFITS ───────────────────────────────────────────────────────
-  const oeTotal  = oeTeacher  + oeRentShare;
+  // ── SECTION-LEVEL TEACHER COSTS (with salary multiplier applied) ──────────
+  const oeTeacher = oeTeacherBase * salaryMult;
+  const privTeacher = privTeacherBase * salaryMult;
+  const corpTeacher = corpTeacherBase * salaryMult;
+  const instTeacher = instTeacherBase * salaryMult;
+
+  // ── SECTION PROFITS (direct costs only, before overhead allocation) ───────
+  const oeTotal = oeTeacher + oeRentShare;
   const privTotal = privTeacher + privRentShare;
 
   const totalRevenue = oeRev + privRev + corpRev + instRev;
-  const totalCosts   = (oeTeacher + privTeacher + corpTeacher + instTeacher) + MONTHLY_RENT + oHead.total;
-  const netProfit    = totalRevenue - totalCosts;
+  const netProfit = totalRevenue - costs.total;
   const profitMargin = totalRevenue > 0 ? (netProfit / totalRevenue) * 100 : 0;
 
   return {
@@ -116,15 +141,18 @@ export function calculate(grid: ScheduleGrid, inputs: OffSiteInputs): MonthlyRes
       profit: instRev - instTeacher, margin: instRev > 0 ? ((instRev - instTeacher) / instRev) * 100 : 0,
       hours: inputs.instHoursPerMonth, students: inputs.instGroups,
     },
-    rent: MONTHLY_RENT,
-    overhead: oHead,
-    totalRevenue, totalCosts, netProfit, profitMargin,
+    costs,
+    totalRevenue,
+    totalCosts: costs.total,
+    netProfit,
+    profitMargin,
     totalStudents: oeStudents + privStudents + (inputs.corpGroups * 4) + (inputs.instGroups * 6),
+    totalHours,
   };
 }
 
 export function fmt$(v: number): string {
   return new Intl.NumberFormat('en-US', {
-    style: 'currency', currency: 'USD', minimumFractionDigits: 2,
+    style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0,
   }).format(v);
 }

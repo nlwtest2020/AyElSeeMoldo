@@ -74,7 +74,7 @@ export default function App() {
 
       <footer className="border-t border-gray-200 bg-white mt-12">
         <div className="max-w-screen-2xl mx-auto px-6 py-4 text-xs text-gray-400 text-center">
-          Language Training Revenue & Capacity Calculator • Overhead rates from MOD 5-year historical average (FY20-25)
+          Language Training Revenue & Capacity Calculator
         </div>
       </footer>
     </div>
