@@ -103,12 +103,12 @@ export interface OffSiteInputs {
 }
 
 export const DEFAULT_OFFSITE: OffSiteInputs = {
-  corpGroups: 4,
-  corpHoursPerMonth: 8,
-  instGroups: 2,
-  instHoursPerMonth: 6,
-  privateStudents: 9,
-  privateHoursPerMonth: 54,  // total hours, not per-student
+  corpGroups: 0,
+  corpHoursPerMonth: 0,
+  instGroups: 0,
+  instHoursPerMonth: 0,
+  privateStudents: 0,
+  privateHoursPerMonth: 0,
   salaryMixPercent: 0,
 };
 
