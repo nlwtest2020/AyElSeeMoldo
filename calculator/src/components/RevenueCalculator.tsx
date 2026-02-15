@@ -1,5 +1,5 @@
 import type { OffSiteInputs, MonthlyResults } from '../types';
-import { CORP_RATES, INST_RATES, PRIVATE_RATES, OE_RATES, TEACHER_BASE_RATE } from '../types';
+import { CORP_RATES, INST_RATES, PRIVATE_RATES, OE_RATES, TEACHER_RATES } from '../types';
 import { fmt$ } from '../calculations';
 import { Building2, GraduationCap, User, BookOpen, DollarSign, TrendingUp, TrendingDown, ChevronDown, ChevronUp } from 'lucide-react';
 import { useState } from 'react';
@@ -77,7 +77,7 @@ export function RevenueCalculator({ inputs, results, onChange }: Props) {
             <NumInput value={inputs.corpHoursPerMonth} onChange={v => set('corpHoursPerMonth', v)} />
           </Field>
         </div>
-        <ResultBlock r={results.corp} rateNote={`$${CORP_RATES.revenue}/hr revenue | $${TEACHER_BASE_RATE}/hr base teacher`} />
+        <ResultBlock r={results.corp} rateNote={`$${CORP_RATES.revenue}/hr revenue | $${TEACHER_RATES.corporate}/hr teacher`} />
       </Section>
 
       {/* Institutional */}
@@ -90,7 +90,7 @@ export function RevenueCalculator({ inputs, results, onChange }: Props) {
             <NumInput value={inputs.instHoursPerMonth} onChange={v => set('instHoursPerMonth', v)} />
           </Field>
         </div>
-        <ResultBlock r={results.inst} rateNote={`$${INST_RATES.revenue}/hr revenue | $${INST_RATES.teacherCost.toFixed(0)}/hr teacher`} />
+        <ResultBlock r={results.inst} rateNote={`$${INST_RATES.revenue}/hr revenue | $${TEACHER_RATES.institutional}/hr teacher`} />
       </Section>
 
       {/* Private */}
@@ -105,7 +105,7 @@ export function RevenueCalculator({ inputs, results, onChange }: Props) {
         </div>
         <ResultBlock
           r={results.priv}
-          rateNote={`$${PRIVATE_RATES.revenue}/hr revenue | $${TEACHER_BASE_RATE}/hr teacher | Rent: ${fmt$(results.priv.rentShare)}/mo`}
+          rateNote={`$${PRIVATE_RATES.revenue}/hr revenue | $${TEACHER_RATES.private}/hr teacher | Rent: ${fmt$(results.priv.rentShare)}/mo`}
         />
       </Section>
 
@@ -122,7 +122,7 @@ export function RevenueCalculator({ inputs, results, onChange }: Props) {
             </div>
             <ResultBlock
               r={results.oe}
-              rateNote={`$${oeRate.rev}/hr rev | $${TEACHER_BASE_RATE}/hr teacher | Rent: ${fmt$(results.oe.rentShare)}/mo`}
+              rateNote={`$${oeRate.rev}/hr rev | $${TEACHER_RATES.openEnrollment}/hr teacher | Rent: ${fmt$(results.oe.rentShare)}/mo`}
             />
           </>
         )}

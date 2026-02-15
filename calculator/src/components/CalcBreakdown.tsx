@@ -1,5 +1,5 @@
 import {
-  TEACHER_BASE_RATE, SALARIED_SURCHARGE, IDC_RATE,
+  TEACHER_RATES, SALARIED_SURCHARGE, IDC_RATE,
   MONTHLY_RENT, MONTHLY_ADMIN, MONTHLY_OTHER,
   CORP_RATES, INST_RATES, PRIVATE_RATES, OE_RATES,
 } from '../types';
@@ -10,8 +10,11 @@ export function CalcBreakdown() {
       <h2 className="text-lg font-bold text-gray-900">Cost Structure</h2>
 
       {/* Teacher Costs */}
-      <Block title="Teacher Pay">
-        <Row k="Base rate" v={`$${TEACHER_BASE_RATE}/hr`} />
+      <Block title="Teacher Pay (per hour)">
+        <Row k="Corporate" v={`$${TEACHER_RATES.corporate}`} />
+        <Row k="Institutional" v={`$${TEACHER_RATES.institutional}`} />
+        <Row k="Private" v={`$${TEACHER_RATES.private}`} />
+        <Row k="Open Enrollment" v={`$${TEACHER_RATES.openEnrollment}`} />
         <Row k="Salaried surcharge" v={`+${SALARIED_SURCHARGE * 100}% (includes benefits, taxes)`} />
       </Block>
 

@@ -55,30 +55,32 @@ export interface ScheduledSlot {
 export type ScheduleGrid = Record<string, ScheduledSlot>;
 
 // ── COST RATES ───────────────────────────────────────────────────────────────
-// Base teacher rate: $17/hr
-export const TEACHER_BASE_RATE = 17;
+// Teacher rates by program type (hourly, before salaried surcharge)
+export const TEACHER_RATES = {
+  corporate: 13.58,
+  institutional: 17.00,
+  private: 14.73,
+  openEnrollment: 10.03,
+};
 export const SALARIED_SURCHARGE = 0.40; // +40% for salaried teachers
 
-// Revenue per student per hour for Open Enrollment
-export const OE_STUDENT_RATE = 4.63; // ~$27.78/hr at 6 students, scales up
-
 // Revenue/teacher rates by program type (hourly)
-export const CORP_RATES  = { revenue: 34.92, teacherCost: TEACHER_BASE_RATE };
-export const INST_RATES  = { revenue: 34.62, teacherCost: TEACHER_BASE_RATE * 1.18 }; // higher for institutional
-export const PRIVATE_RATES = { revenue: 30.00, teacherCost: TEACHER_BASE_RATE };
+export const CORP_RATES  = { revenue: 34.92, teacherCost: TEACHER_RATES.corporate };
+export const INST_RATES  = { revenue: 34.62, teacherCost: TEACHER_RATES.institutional };
+export const PRIVATE_RATES = { revenue: 30.00, teacherCost: TEACHER_RATES.private };
 
-// Open Enrollment: revenue scales with students, teacher cost is flat $17/hr
+// Open Enrollment: revenue scales with students, teacher cost is flat
 export const OE_RATES: Record<number, { rev: number; teacher: number }> = {
-  6:  { rev: 27.78, teacher: TEACHER_BASE_RATE },
-  7:  { rev: 32.41, teacher: TEACHER_BASE_RATE },
-  8:  { rev: 37.04, teacher: TEACHER_BASE_RATE },
-  9:  { rev: 41.67, teacher: TEACHER_BASE_RATE },
-  10: { rev: 46.30, teacher: TEACHER_BASE_RATE },
-  11: { rev: 50.93, teacher: TEACHER_BASE_RATE },
-  12: { rev: 55.56, teacher: TEACHER_BASE_RATE },
-  13: { rev: 60.19, teacher: TEACHER_BASE_RATE },
-  14: { rev: 64.82, teacher: TEACHER_BASE_RATE },
-  15: { rev: 69.45, teacher: TEACHER_BASE_RATE },
+  6:  { rev: 27.78, teacher: TEACHER_RATES.openEnrollment },
+  7:  { rev: 32.41, teacher: TEACHER_RATES.openEnrollment },
+  8:  { rev: 37.04, teacher: TEACHER_RATES.openEnrollment },
+  9:  { rev: 41.67, teacher: TEACHER_RATES.openEnrollment },
+  10: { rev: 46.30, teacher: TEACHER_RATES.openEnrollment },
+  11: { rev: 50.93, teacher: TEACHER_RATES.openEnrollment },
+  12: { rev: 55.56, teacher: TEACHER_RATES.openEnrollment },
+  13: { rev: 60.19, teacher: TEACHER_RATES.openEnrollment },
+  14: { rev: 64.82, teacher: TEACHER_RATES.openEnrollment },
+  15: { rev: 69.45, teacher: TEACHER_RATES.openEnrollment },
 };
 
 // ── FIXED COSTS (monthly, don't scale with activity) ─────────────────────────
