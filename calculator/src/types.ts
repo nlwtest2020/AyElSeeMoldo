@@ -83,8 +83,8 @@ export const OE_RATES: Record<number, { rev: number; teacher: number }> = {
 
 // ── FIXED COSTS (monthly, don't scale with activity) ─────────────────────────
 export const MONTHLY_RENT = 3400;
-export const MONTHLY_ADMIN = 650;    // ~13% historical, fixed overhead
-export const MONTHLY_OTHER = 165;    // Phone, email, ads (~3.3% historical)
+export const MONTHLY_ADMIN = 5740;   // Admin overhead (fixed)
+export const MONTHLY_OTHER = 165;    // Phone, email, ads
 
 // ── VARIABLE COST RATES (scale with activity) ────────────────────────────────
 export const IDC_RATE = 0.12;        // 12% of direct costs (indirect costs)
