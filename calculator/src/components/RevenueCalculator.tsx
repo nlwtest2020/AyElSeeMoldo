@@ -174,7 +174,7 @@ export function RevenueCalculator({ inputs, results, onChange }: Props) {
             <div className="text-xs text-amber-400 font-semibold uppercase tracking-wide mt-3">Fixed (monthly)</div>
             <StatRow label="Rent" value={fmt$(results.costs.rent)} />
             <StatRow label="Admin" value={fmt$(results.costs.admin)} />
-            <StatRow label="Other (phone, email, ads)" value={fmt$(results.costs.other)} />
+            <StatRow label="Other (utilities, Zoom, supplies)" value={fmt$(results.costs.other)} />
 
             {/* Total */}
             <div className="flex justify-between text-sm pt-3 border-t border-white/10">

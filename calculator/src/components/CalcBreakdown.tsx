@@ -24,7 +24,7 @@ export function CalcBreakdown() {
       <Block title="Fixed Monthly Costs">
         <Row k="Rent" v={`$${MONTHLY_RENT.toLocaleString()}`} />
         <Row k="Admin" v={`$${MONTHLY_ADMIN}`} />
-        <Row k="Other (phone, email, ads)" v={`$${MONTHLY_OTHER}`} />
+        <Row k="Other (utilities, Zoom, supplies)" v={`$${MONTHLY_OTHER.toLocaleString()}`} />
       </Block>
 
       {/* Revenue Rates */}
