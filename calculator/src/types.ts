@@ -1,11 +1,8 @@
-// ==========================================
-// ROOM & SCHEDULING CONFIGURATION
-// ==========================================
-
+// ── ROOM & SCHEDULE ──────────────────────────────────────────────────────────
 export type RoomId = 'small1' | 'small2' | 'large1' | 'large2' | 'conference';
 export type DayPattern = 'mon-wed' | 'tue-thu';
 export type TimeSlot = 0 | 1 | 2 | 3;
-export type ClassType = 'corporate' | 'institutional' | 'openEnrollment' | 'private';
+export type OnSiteType = 'openEnrollment' | 'private';
 
 export interface Room {
   id: RoomId;
@@ -14,61 +11,59 @@ export interface Room {
 }
 
 export const ROOMS: Room[] = [
-  { id: 'small1', name: 'Small 1', maxCapacity: 8 },
-  { id: 'small2', name: 'Small 2', maxCapacity: 8 },
-  { id: 'large1', name: 'Large 1', maxCapacity: 12 },
-  { id: 'large2', name: 'Large 2', maxCapacity: 12 },
-  { id: 'conference', name: 'Conference', maxCapacity: 15 },
+  { id: 'small1',    name: 'Small 1',    maxCapacity: 8  },
+  { id: 'small2',    name: 'Small 2',    maxCapacity: 8  },
+  { id: 'large1',    name: 'Large 1',    maxCapacity: 12 },
+  { id: 'large2',    name: 'Large 2',    maxCapacity: 12 },
+  { id: 'conference',name: 'Conference', maxCapacity: 15 },
 ];
 
 export const TIME_SLOTS: { slot: TimeSlot; label: string; hours: number }[] = [
-  { slot: 0, label: '9:00 – 11:00', hours: 2 },
-  { slot: 1, label: '12:00 – 14:15', hours: 2.25 },
-  { slot: 2, label: '16:00 – 18:15', hours: 2.25 },
-  { slot: 3, label: '18:30 – 20:45', hours: 2.25 },
+  { slot: 0, label: '9:00 – 11:00',   hours: 2.00 },
+  { slot: 1, label: '12:00 – 14:15',  hours: 2.25 },
+  { slot: 2, label: '16:00 – 18:15',  hours: 2.25 },
+  { slot: 3, label: '18:30 – 20:45',  hours: 2.25 },
 ];
 
-export const DAY_PATTERNS: { pattern: DayPattern; label: string; daysPerWeek: number }[] = [
-  { pattern: 'mon-wed', label: 'Mon/Wed', daysPerWeek: 2 },
-  { pattern: 'tue-thu', label: 'Tue/Thu', daysPerWeek: 2 },
+export const DAY_PATTERNS: { pattern: DayPattern; label: string }[] = [
+  { pattern: 'mon-wed', label: 'Mon/Wed' },
+  { pattern: 'tue-thu', label: 'Tue/Thu' },
 ];
 
-// Total weekly slots: 5 rooms × 4 time slots × 2 day patterns = 40 slots
-export const TOTAL_WEEKLY_SLOTS = ROOMS.length * TIME_SLOTS.length * DAY_PATTERNS.length;
+// Each day pattern = 2 days/week × 4.33 weeks/month = 8.66 sessions/month
+export const WEEKS_PER_MONTH = 4.33;
+export const DAYS_PER_PATTERN = 2;
+export const SESSIONS_PER_MONTH = DAYS_PER_PATTERN * WEEKS_PER_MONTH; // 8.66
 
-// Max capacity per week: sum of all room capacities × slots per room
-export const MAX_WEEKLY_CAPACITY = ROOMS.reduce((sum, room) => sum + room.maxCapacity, 0) * TIME_SLOTS.length * DAY_PATTERNS.length;
+// Total max capacity: 55 students/slot × 8 slots = 440
+export const MAX_CAPACITY = ROOMS.reduce((s, r) => s + r.maxCapacity, 0) *
+  TIME_SLOTS.length * DAY_PATTERNS.length;
 
-// ==========================================
-// REVENUE RATES BY CLASS TYPE
-// ==========================================
-
-export const CORP_RATES = {
-  instrPrice: 32.00,      // Base instruction price per hour
-  matEval: 2.9194,        // Materials & evaluation per hour
-  effRev: 34.92,          // Effective revenue per hour (instrPrice + matEval)
-  teacherCost: 15.15,     // Teacher cost per hour (base, before surcharge)
-};
-
-export const INST_RATES = {
-  instrPrice: 32.00,
-  matEval: 2.6212,
-  effRev: 34.62,
-  teacherCost: 20.16,
-};
-
-export const PRIVATE_RATES = {
-  studentPrice: 30.00,    // Price per student per hour
-  teacherCost: 14.73,
-};
-
-// Open Enrollment rates vary by class size (6-15 students)
-export interface OERateEntry {
-  rev: number;            // Revenue per hour
-  teacher: number;        // Teacher cost per hour
+export function slotKey(roomId: RoomId, day: DayPattern, ts: TimeSlot): string {
+  return `${roomId}|${day}|${ts}`;
 }
 
-export const OE_RATES: Record<number, OERateEntry> = {
+export function slotMonthlyHours(ts: TimeSlot): number {
+  return TIME_SLOTS[ts].hours * SESSIONS_PER_MONTH;
+}
+
+// ── SCHEDULED SLOT ───────────────────────────────────────────────────────────
+export interface ScheduledSlot {
+  classType: OnSiteType;
+  studentCount: number;
+}
+
+export type ScheduleGrid = Record<string, ScheduledSlot>;
+
+// ── RATES ─────────────────────────────────────────────────────────────────────
+export const MONTHLY_RENT = 3400;
+export const SALARY_SURCHARGE = 0.40;
+
+export const CORP_RATES  = { effRev: 34.92, teacherCost: 15.15 };
+export const INST_RATES  = { effRev: 34.62, teacherCost: 20.16 };
+export const PRIVATE_RATES = { revenue: 30.00, teacherCost: 14.73 };
+
+export const OE_RATES: Record<number, { rev: number; teacher: number }> = {
   6:  { rev: 27.78, teacher: 11.20 },
   7:  { rev: 32.41, teacher: 11.20 },
   8:  { rev: 37.04, teacher: 11.20 },
@@ -81,152 +76,55 @@ export const OE_RATES: Record<number, OERateEntry> = {
   15: { rev: 69.45, teacher: 11.20 },
 };
 
-// ==========================================
-// FIXED COSTS (Monthly)
-// ==========================================
-
-export const MONTHLY_RENT = 3400;
-
-// Historical overhead percentages (from MOD 5-year average FY20-25)
-// These are percentages of total expenses that represent fixed overhead
-export const FIXED_OVERHEAD = {
-  indirectCosts: 0.119,      // 11.9% - Indirect costs (698100)
-  fringeBenefits: 0.053,     // 5.3% - Fringe benefits (517550)
-  telephone: 0.015,          // 1.5% - Telephone (673000)
-  emailInternet: 0.006,      // 0.6% - Email & Internet (673600)
-  advertising: 0.012,        // 1.2% - Advertising (694000)
+// Historical overhead as % of total expenses (MOD 5yr avg FY20-25)
+export const OVERHEAD = {
+  indirect:  0.119,   // Indirect costs (698100)
+  fringe:    0.053,   // Fringe benefits (517550)
+  other:     0.033,   // Telephone + email + advertising
 };
 
-// Total fixed overhead as % of variable costs
-// If direct costs (teacher + rent) are X, total overhead adds ~25% on top
-export const FIXED_OVERHEAD_RATE = Object.values(FIXED_OVERHEAD).reduce((a, b) => a + b, 0);
-
-// ==========================================
-// VARIABLE COSTS (Scale with students/hours)
-// ==========================================
-
-// These are included in the per-hour teacher rates above, but here for reference
-export const VARIABLE_COST_CATEGORIES = {
-  consultantsAndTuition: 0.309,  // 30.9% - Teacher payments (697000 + 667000)
-  honoraria: 0.170,              // 17.0% - Non-salaried payments (518000)
-  salariesNonUS: 0.167,          // 16.7% - Staff salaries (510100)
-  supplies: 0.031,               // 3.1% - Supplies (680000)
-};
-
-// ==========================================
-// SALARY MIX SURCHARGE
-// ==========================================
-
-// Salaried teachers cost 40% more than consultants
-export const SALARY_SURCHARGE_RATE = 0.40;
-
-export function getSurchargeMultiplier(salaryMixPercent: number): number {
-  return 1 + (salaryMixPercent / 100) * SALARY_SURCHARGE_RATE;
-}
-
-// ==========================================
-// SCENARIO SNAPSHOT TYPES
-// ==========================================
-
-export interface ClassAllocation {
-  classType: ClassType;
-  roomId: RoomId;
-  dayPattern: DayPattern;
-  timeSlot: TimeSlot;
-  studentCount: number;
-}
-
-export interface ScenarioInputs {
-  // Open Enrollment
-  oeClasses: number;
-  oeStudentsPerClass: number;
-  oeHoursPerWeek: number;
-
-  // Private Lessons
-  privateStudents: number;
-  privateHoursPerStudent: number;
-
-  // Corporate (off-site, no rent allocation)
+// ── OFF-SITE INPUTS ──────────────────────────────────────────────────────────
+export interface OffSiteInputs {
   corpGroups: number;
-  corpParticipantsPerGroup: number;
   corpHoursPerMonth: number;
-
-  // Institutional (off-site, no rent allocation)
   instGroups: number;
-  instParticipantsPerGroup: number;
   instHoursPerMonth: number;
-
-  // Global settings
+  privateStudents: number;
+  privateHoursPerMonth: number;
   salaryMixPercent: number;
 }
 
-export interface ScenarioResults {
-  // Revenue breakdown
-  oeRevenue: number;
-  privateRevenue: number;
-  corpRevenue: number;
-  instRevenue: number;
-  totalRevenue: number;
-
-  // Cost breakdown
-  oeTeacherCost: number;
-  privateTeacherCost: number;
-  corpTeacherCost: number;
-  instTeacherCost: number;
-  totalTeacherCost: number;
-
-  // Rent allocation (OE + Private only)
-  oeRentShare: number;
-  privateRentShare: number;
-  totalRent: number;
-
-  // Overhead costs
-  indirectCosts: number;
-  fringeBenefits: number;
-  otherFixed: number;
-  totalOverhead: number;
-
-  // Summary
-  totalCosts: number;
-  netProfit: number;
-  profitMargin: number;
-
-  // Capacity metrics
-  totalStudents: number;
-  totalInstructionHours: number;
-  capacityUtilization: number;
-
-  // Per-student metrics
-  revenuePerStudent: number;
-  costPerStudent: number;
-  profitPerStudent: number;
-}
-
-export interface Snapshot {
-  name: string;
-  inputs: ScenarioInputs;
-  results: ScenarioResults;
-}
-
-// ==========================================
-// DEFAULT VALUES
-// ==========================================
-
-export const DEFAULT_INPUTS: ScenarioInputs = {
-  oeClasses: 10,
-  oeStudentsPerClass: 8,
-  oeHoursPerWeek: 6,
-
-  privateStudents: 9,
-  privateHoursPerStudent: 6,
-
+export const DEFAULT_OFFSITE: OffSiteInputs = {
   corpGroups: 4,
-  corpParticipantsPerGroup: 4,
   corpHoursPerMonth: 8,
-
   instGroups: 2,
-  instParticipantsPerGroup: 6,
   instHoursPerMonth: 6,
-
+  privateStudents: 9,
+  privateHoursPerMonth: 6,
   salaryMixPercent: 0,
 };
+
+// ── MONTHLY RESULTS ──────────────────────────────────────────────────────────
+export interface SectionResult {
+  revenue: number;
+  teacherCost: number;
+  rentShare: number;
+  profit: number;
+  margin: number;
+  hours: number;
+  students: number;
+}
+
+export interface MonthlyResults {
+  oe:      SectionResult & { classes: number; avgStudents: number; seatCount: number };
+  priv:    SectionResult;
+  corp:    SectionResult;
+  inst:    SectionResult;
+  rent:    number;
+  overhead: { indirect: number; fringe: number; other: number; total: number };
+  totalRevenue: number;
+  totalCosts:   number;
+  netProfit:    number;
+  profitMargin: number;
+  totalStudents: number;
+}
