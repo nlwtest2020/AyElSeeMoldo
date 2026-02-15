@@ -106,7 +106,7 @@ export const DEFAULT_OFFSITE: OffSiteInputs = {
   instGroups: 2,
   instHoursPerMonth: 6,
   privateStudents: 9,
-  privateHoursPerMonth: 6,
+  privateHoursPerMonth: 54,  // total hours, not per-student
   salaryMixPercent: 0,
 };
 

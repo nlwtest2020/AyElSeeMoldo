@@ -99,7 +99,7 @@ export function RevenueCalculator({ inputs, results, onChange }: Props) {
           <Field label="Students">
             <NumInput value={inputs.privateStudents} onChange={v => set('privateStudents', v)} />
           </Field>
-          <Field label="Hours/Month (each)">
+          <Field label="Hours/Month (total)">
             <NumInput value={inputs.privateHoursPerMonth} onChange={v => set('privateHoursPerMonth', v)} />
           </Field>
         </div>

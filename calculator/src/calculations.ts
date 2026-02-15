@@ -48,7 +48,8 @@ export function calculate(grid: ScheduleGrid, inputs: OffSiteInputs): MonthlyRes
   }
 
   // ── PRIVATE (manual off-site / additional) ────────────────────────────────
-  const privManualHours = inputs.privateStudents * inputs.privateHoursPerMonth;
+  // Hours is total (like corp/inst), not per-student
+  const privManualHours = inputs.privateHoursPerMonth;
   const privManualRev = privManualHours * PRIVATE_RATES.revenue;
   const privManualTeacher = privManualHours * PRIVATE_RATES.teacherCost;
 
