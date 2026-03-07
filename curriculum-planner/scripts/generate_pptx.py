@@ -1,382 +1,420 @@
 #!/usr/bin/env python3
 """
-Stage 4: Generate a branded PowerPoint presentation from a lesson plan.
+Generate branded PPTX presentations for each session by copying the ALC
+template and modifying slides in-place.
 
 Usage:
-    python scripts/generate_pptx.py output/lesson_plan.md templates/<template>.pptx
+    python scripts/generate_pptx.py
 
-Output:
-    output/day_slides.pptx
-
-The generator reads the lesson plan markdown, extracts slide content,
-and populates the branded template while preserving its formatting.
+Reads:  output/parsed_curriculum.json
+        templates/ALC_Curriculum_Template.pptx
+Output: output/Session_1_Slides.pptx (etc.)
 """
 
-import re
+import json
+import shutil
 import sys
-from pathlib import Path
 from copy import deepcopy
+from pathlib import Path
 
+from lxml import etree
 from pptx import Presentation
-from pptx.util import Inches, Pt, Emu
-from pptx.enum.text import PP_ALIGN, MSO_ANCHOR
+from pptx.util import Pt
+
+SCRIPT_DIR = Path(__file__).parent.parent
+OUTPUT_DIR = SCRIPT_DIR / "output"
+TEMPLATE_PATH = SCRIPT_DIR / "templates" / "ALC_Curriculum_Template.pptx"
+PARSED_PATH = OUTPUT_DIR / "parsed_curriculum.json"
+
+# Template slide indices (0-based)
+SLIDE_TITLE = 0
+SLIDE_MODULE = 1
+SLIDE_OBJECTIVES = 2
+SLIDE_VOCABULARY = 3
+SLIDE_ACTIVITY = 4
+SLIDE_ASSESSMENT = 5
+SLIDE_CLOSING = 6
 
 
-def parse_lesson_plan(md_path):
-    """Parse the lesson plan markdown into structured slide content."""
-    with open(md_path, "r") as f:
-        content = f.read()
-
-    slides = []
-
-    # Extract title
-    title_match = re.search(r'^#\s+(.+)', content, re.MULTILINE)
-    title = title_match.group(1).strip() if title_match else "Lesson"
-
-    slides.append({
-        "type": "title",
-        "title": title,
-        "subtitle": "",
-    })
-
-    # Extract SWBATs / Objectives
-    swbats = []
-    objectives_match = re.search(
-        r'(?:##\s*(?:Standards|Objectives|SWBATs|Learning Objectives).*?\n)(.*?)(?=\n##\s|\Z)',
-        content, re.DOTALL | re.IGNORECASE
-    )
-    if objectives_match:
-        obj_text = objectives_match.group(1)
-        for line in obj_text.strip().split("\n"):
-            cleaned = line.strip().lstrip("•-*0123456789.) ")
-            if cleaned and len(cleaned) > 5:
-                swbats.append(cleaned)
-
-    if swbats:
-        slides.append({
-            "type": "objectives",
-            "title": "Learning Objectives",
-            "items": swbats,
-        })
-
-    # Extract lesson sequence sections
-    sequence_match = re.search(
-        r'(?:##\s*(?:Lesson Sequence|Schedule|Agenda|Timeline).*?\n)(.*?)(?=\n##\s(?!#)|\Z)',
-        content, re.DOTALL | re.IGNORECASE
-    )
-
-    if sequence_match:
-        sequence_text = sequence_match.group(1)
-        # Split into subsections by ### headers
-        sections = re.split(r'\n###\s+', sequence_text)
-        for section in sections:
-            if not section.strip():
-                continue
-
-            lines = section.strip().split("\n")
-            section_title = lines[0].strip().rstrip("#").strip()
-            section_body = "\n".join(lines[1:]).strip()
-
-            # Determine slide type from content
-            slide_type = classify_section(section_title, section_body)
-
-            if slide_type == "activity":
-                # Extract activity steps
-                steps = extract_bullet_items(section_body)
-                time_match = re.search(r'(\d+)\s*min', section_body, re.IGNORECASE)
-                time_limit = f"{time_match.group(1)} minutes" if time_match else ""
-                slides.append({
-                    "type": "activity",
-                    "title": section_title,
-                    "items": steps if steps else [section_body],
-                    "time_limit": time_limit,
-                })
-            elif slide_type == "discussion":
-                prompts = extract_bullet_items(section_body)
-                slides.append({
-                    "type": "discussion",
-                    "title": section_title,
-                    "items": prompts if prompts else [section_body],
-                })
-            elif slide_type == "cfu":
-                questions = extract_bullet_items(section_body)
-                slides.append({
-                    "type": "cfu",
-                    "title": "Check for Understanding",
-                    "items": questions if questions else [section_body],
-                })
-            else:
-                # Content slide - break long content into multiple slides
-                items = extract_bullet_items(section_body)
-                if not items:
-                    items = [p.strip() for p in section_body.split("\n\n") if p.strip()]
-
-                # Chunk into groups of 4-6 items per slide
-                for i in range(0, max(len(items), 1), 5):
-                    chunk = items[i:i + 5]
-                    slides.append({
-                        "type": "content",
-                        "title": section_title,
-                        "items": chunk if chunk else [section_body[:200]],
-                    })
-    else:
-        # Fallback: split by ## headers
-        sections = re.split(r'\n##\s+', content)
-        for section in sections[1:]:  # Skip content before first ##
-            lines = section.strip().split("\n")
-            section_title = lines[0].strip()
-            section_body = "\n".join(lines[1:]).strip()
-
-            if any(skip in section_title.lower() for skip in ["materials", "preparation", "reflection", "assessment plan"]):
-                continue
-
-            items = extract_bullet_items(section_body)
-            slide_type = classify_section(section_title, section_body)
-
-            slides.append({
-                "type": slide_type,
-                "title": section_title,
-                "items": items if items else [section_body[:300]],
-            })
-
-    # Add summary slide
-    slides.append({
-        "type": "summary",
-        "title": "Key Takeaways",
-        "items": swbats[:6] if swbats else ["Review today's learning objectives"],
-    })
-
-    return slides
-
-
-def classify_section(title, body):
-    """Classify a section into a slide type based on keywords."""
-    text = (title + " " + body).lower()
-
-    if any(w in text for w in ["activity", "practice", "exercise", "task", "you do", "group work", "pair work", "hands-on"]):
-        return "activity"
-    if any(w in text for w in ["discussion", "discuss", "turn and talk", "think-pair-share", "debrief"]):
-        return "discussion"
-    if any(w in text for w in ["check for understanding", "cfu", "exit ticket", "assessment", "quiz", "poll"]):
-        return "cfu"
-    if any(w in text for w in ["transition", "break", "movement"]):
-        return "transition"
-    return "content"
-
-
-def extract_bullet_items(text):
-    """Extract bulleted or numbered list items from text."""
-    items = []
-    for line in text.split("\n"):
-        cleaned = line.strip()
-        if not cleaned:
-            continue
-        # Match bullet or numbered items
-        match = re.match(r'^(?:[-*+]|\d+[.)]\s)', cleaned)
-        if match:
-            item = cleaned[match.end():].strip()
-            if item:
-                items.append(item)
-        elif cleaned.startswith("**") and cleaned.endswith("**"):
-            items.append(cleaned.strip("* "))
-    return items
-
-
-def get_template_layouts(prs):
-    """Analyze the template to find available slide layouts."""
-    layouts = {}
-    for i, layout in enumerate(prs.slide_layouts):
-        name = layout.name.lower()
-        layouts[i] = {
-            "name": layout.name,
-            "placeholders": [(ph.placeholder_format.idx, ph.name, ph.width, ph.height)
-                             for ph in layout.placeholders],
-        }
-    return layouts
-
-
-def find_best_layout(prs, slide_type):
-    """Find the best matching slide layout for a given slide type."""
-    layouts = prs.slide_layouts
-
-    # Map slide types to preferred layout keywords
-    preferences = {
-        "title": ["title slide", "title", "cover"],
-        "objectives": ["title and content", "content", "body", "text"],
-        "content": ["title and content", "content", "body", "text", "two content"],
-        "activity": ["title and content", "content", "body", "text"],
-        "discussion": ["section header", "title only", "title and content"],
-        "cfu": ["title and content", "content", "body", "text"],
-        "transition": ["section header", "title only", "blank"],
-        "summary": ["title and content", "content", "body", "text"],
-    }
-
-    preferred = preferences.get(slide_type, ["title and content", "content"])
-
-    # Try to find a matching layout
-    for keyword in preferred:
-        for layout in layouts:
-            if keyword in layout.name.lower():
-                return layout
-
-    # Fallback: use layout 0 for title, layout 1 for everything else
-    if slide_type == "title" and len(layouts) > 0:
-        return layouts[0]
-    if len(layouts) > 1:
-        return layouts[1]
-    return layouts[0]
-
-
-def add_slide(prs, slide_data):
-    """Add a slide to the presentation based on slide data and template layout."""
-    layout = find_best_layout(prs, slide_data["type"])
-    slide = prs.slides.add_slide(layout)
-
-    # Find title and body placeholders
-    title_ph = None
-    body_ph = None
-    for ph in slide.placeholders:
-        if ph.placeholder_format.idx == 0:  # Title
-            title_ph = ph
-        elif ph.placeholder_format.idx == 1:  # Body/Subtitle
-            body_ph = ph
-        elif ph.placeholder_format.idx >= 2 and body_ph is None:
-            body_ph = ph
-
-    # Set title
-    if title_ph is not None:
-        title_ph.text = slide_data.get("title", "")
-        # Preserve template font but ensure readable size
-        for para in title_ph.text_frame.paragraphs:
+def set_shape_text(shape, text):
+    """Replace ALL text in a shape while preserving first-run formatting."""
+    if not shape.has_text_frame:
+        return
+    tf = shape.text_frame
+    if tf.paragraphs and tf.paragraphs[0].runs:
+        tf.paragraphs[0].runs[0].text = text
+        for run in tf.paragraphs[0].runs[1:]:
+            run.text = ""
+        for para in tf.paragraphs[1:]:
             for run in para.runs:
-                if run.font.size and run.font.size < Pt(18):
-                    run.font.size = Pt(24)
+                run.text = ""
+    else:
+        tf.text = text
 
-    # Set body content
-    items = slide_data.get("items", [])
-    if body_ph is not None and items:
-        tf = body_ph.text_frame
-        tf.clear()
 
-        # Add time limit for activity slides
-        if slide_data["type"] == "activity" and slide_data.get("time_limit"):
-            p = tf.paragraphs[0] if tf.paragraphs else tf.add_paragraph()
-            p.text = f"Time: {slide_data['time_limit']}"
-            p.font.bold = True
-            p.font.size = Pt(16)
-            p.space_after = Pt(8)
+def duplicate_slide(prs, source_index):
+    """Duplicate an existing slide in the presentation. Returns the new slide."""
+    source = prs.slides[source_index]
+    layout = source.slide_layout
+    new_slide = prs.slides.add_slide(layout)
 
-        for i, item in enumerate(items):
-            if i == 0 and not (slide_data["type"] == "activity" and slide_data.get("time_limit")):
-                p = tf.paragraphs[0] if tf.paragraphs else tf.add_paragraph()
+    # Remove default shapes
+    for shape in list(new_slide.shapes):
+        sp = shape._element
+        sp.getparent().remove(sp)
+
+    # Copy all shapes from source
+    for shape in source.shapes:
+        new_slide.shapes._spTree.append(deepcopy(shape._element))
+
+    return new_slide
+
+
+def build_session_pptx(session, output_path):
+    """Build a PPTX for one session by copying template and modifying in-place."""
+    # Copy template file
+    shutil.copy2(str(TEMPLATE_PATH), str(output_path))
+    prs = Presentation(str(output_path))
+
+    num = session["session_num"]
+    title = session["title"]
+    subtitle = session["subtitle"]
+    schedule = session["schedule"]
+    swbats = session["swbats"]
+    activities = [b for b in schedule if not b.get("is_break")]
+
+    # Parse subtitle parts
+    parts = subtitle.split("|") if subtitle else ["", "", ""]
+    day_part = parts[0].strip() if len(parts) > 0 else ""
+    time_part = parts[1].strip() if len(parts) > 1 else ""
+
+    # === SLIDE 1: TITLE ===
+    slide = prs.slides[SLIDE_TITLE]
+    for shape in slide.shapes:
+        if not shape.has_text_frame:
+            continue
+        text = shape.text_frame.text.strip()
+        tl = text.lower()
+        if "business english" in tl:
+            paras = shape.text_frame.paragraphs
+            if len(paras) >= 2 and paras[0].runs and paras[1].runs:
+                paras[0].runs[0].text = "AI & Digital Workflows"
+                paras[1].runs[0].text = "Bootcamp"
+        elif "b1 intermediate" in tl or "contact hours" in tl:
+            set_shape_text(shape, f"Session {num}: {title}  |  7 Contact Hours")
+
+    # === SLIDE 2: MODULE HEADER ===
+    slide = prs.slides[SLIDE_MODULE]
+    for shape in slide.shapes:
+        if not shape.has_text_frame:
+            continue
+        text = shape.text_frame.text.strip()
+        if "MODULE" in text:
+            set_shape_text(shape, f"SESSION {num:02d}")
+        elif "FUTURE SKILLS" in text or "INNOVATION" in text:
+            set_shape_text(shape, title.upper())
+        elif "Sessions" in text or "Hours" in text:
+            set_shape_text(shape, f"{day_part}  |  {time_part}")
+
+    # === SLIDE 3: LEARNING OBJECTIVES ===
+    slide = prs.slides[SLIDE_OBJECTIVES]
+    clean_swbats = [s.split("(LO")[0].strip().rstrip(" ;,") for s in swbats]
+
+    obj_texts = []
+    bullet_shapes = []
+    for shape in slide.shapes:
+        if not shape.has_text_frame:
+            continue
+        text = shape.text_frame.text.strip()
+        if text == "▸":
+            bullet_shapes.append(shape)
+        elif "Module" in text and len(text) < 60:
+            set_shape_text(shape, f"Session {num}: {title}")
+        elif len(text) > 10 and 900000 < shape.top < 4800000:
+            obj_texts.append(shape)
+
+    obj_texts.sort(key=lambda s: s.top)
+    bullet_shapes.sort(key=lambda s: s.top)
+    for i, shape in enumerate(obj_texts):
+        set_shape_text(shape, clean_swbats[i] if i < len(clean_swbats) else "")
+    for i, shape in enumerate(bullet_shapes):
+        if i >= len(clean_swbats):
+            set_shape_text(shape, "")
+
+    # === SLIDE 4: KEY VOCABULARY ===
+    slide = prs.slides[SLIDE_VOCABULARY]
+    vocab = get_session_vocabulary(num)
+
+    left_terms = []
+    right_contexts = []
+    for shape in slide.shapes:
+        if not shape.has_text_frame:
+            continue
+        text = shape.text_frame.text.strip()
+        if text in ("KEY VOCABULARY", "TERMS", "IN CONTEXT", "ALC"):
+            continue
+        if "Module" in text and len(text) < 60:
+            set_shape_text(shape, f"Session {num}: {title}")
+            continue
+        if shape.top > 1000000 and shape.top < 4800000:
+            if shape.left < 4500000:
+                left_terms.append(shape)
             else:
-                p = tf.add_paragraph()
-            p.text = item
-            p.level = 0
+                right_contexts.append(shape)
 
-            # Style based on slide type
-            if slide_data["type"] == "discussion":
-                p.font.size = Pt(20)
-                p.alignment = PP_ALIGN.LEFT
-            elif slide_data["type"] == "cfu":
-                p.font.size = Pt(18)
-                if i == 0:
-                    p.font.bold = True
+    left_terms.sort(key=lambda s: s.top)
+    right_contexts.sort(key=lambda s: s.top)
+
+    for i, shape in enumerate(left_terms):
+        if i < len(vocab):
+            paras = shape.text_frame.paragraphs
+            if len(paras) >= 2 and paras[0].runs and paras[1].runs:
+                paras[0].runs[0].text = vocab[i][0]
+                paras[1].runs[0].text = vocab[i][1]
             else:
-                p.font.size = Pt(16)
+                set_shape_text(shape, f"{vocab[i][0]}\n{vocab[i][1]}")
+        else:
+            set_shape_text(shape, "")
 
-            p.space_after = Pt(6)
+    for i, shape in enumerate(right_contexts):
+        if i < len(vocab) and len(vocab[i]) > 2:
+            set_shape_text(shape, f'"{vocab[i][2]}"')
+        else:
+            set_shape_text(shape, "")
 
-    elif not body_ph and items:
-        # No body placeholder - add a text box
-        left = Inches(0.75)
-        top = Inches(1.75)
-        width = Inches(8.5)
-        height = Inches(5.0)
-        txBox = slide.shapes.add_textbox(left, top, width, height)
-        tf = txBox.text_frame
-        tf.word_wrap = True
+    # === SLIDE 5: FIRST ACTIVITY (modify in-place) ===
+    major_activities = [b for b in activities if int(b["duration"].replace(" min", "")) >= 25]
+    if major_activities:
+        populate_activity_slide(prs.slides[SLIDE_ACTIVITY], major_activities[0], session)
 
-        for i, item in enumerate(items):
-            p = tf.paragraphs[0] if i == 0 else tf.add_paragraph()
-            p.text = item
-            p.font.size = Pt(16)
-            p.space_after = Pt(6)
+    # === SLIDE 6: ASSESSMENT ===
+    slide = prs.slides[SLIDE_ASSESSMENT]
+    for shape in slide.shapes:
+        if shape.has_text_frame:
+            text = shape.text_frame.text.strip()
+            if "Module" in text and len(text) < 60:
+                set_shape_text(shape, f"Session {num}: {title}")
+        if shape.has_table:
+            criteria = build_assessment_criteria(num)
+            for ri in range(1, len(shape.table.rows)):
+                if ri - 1 < len(criteria):
+                    for ci, cell in enumerate(shape.table.rows[ri].cells):
+                        if ci < len(criteria[ri - 1]):
+                            for para in cell.text_frame.paragraphs:
+                                if para.runs:
+                                    para.runs[0].text = criteria[ri - 1][ci]
+                                else:
+                                    para.text = criteria[ri - 1][ci]
 
-    return slide
+    # === SLIDE 7: CLOSING ===
+    next_titles = {
+        1: "Session 2: Research, Write, Create",
+        2: "Session 3: Automate & Strategize",
+        3: "Session 4: Ship It & Own It",
+        4: "Bootcamp Complete — Build Your Future with AI",
+    }
+    slide = prs.slides[SLIDE_CLOSING]
+    for shape in slide.shapes:
+        if shape.has_text_frame:
+            text = shape.text_frame.text.strip()
+            if "Module 02" in text or "Writing Slack" in text:
+                set_shape_text(shape, next_titles.get(num, ""))
 
+    # === ADD EXTRA ACTIVITY SLIDES ===
+    # Duplicate the activity slide (now modified) for additional activities
+    extra_activities = major_activities[1:6]  # up to 5 more
+    for block in extra_activities:
+        new_slide = duplicate_slide(prs, SLIDE_ACTIVITY)
+        populate_activity_slide(new_slide, block, session)
 
-def generate_pptx(slides, template_path, output_path):
-    """Generate the PowerPoint file from slide data using the branded template."""
-    prs = Presentation(template_path)
-
-    # Remove any existing slides from the template (keep only layouts)
-    # We need to work around python-pptx limitations for slide removal
-    # by building a new presentation using the template's slide masters
-    while len(prs.slides) > 0:
-        rId = prs.slides._sldIdLst[0].rId
-        prs.part.drop_rel(rId)
-        del prs.slides._sldIdLst[0]
-
-    # Add slides
-    for slide_data in slides:
-        add_slide(prs, slide_data)
-
-    prs.save(output_path)
+    prs.save(str(output_path))
     return len(prs.slides)
 
 
+def populate_activity_slide(slide, block, session):
+    """Fill an activity slide with content from a schedule block."""
+    num = session["session_num"]
+    title = session["title"]
+    steps = extract_steps(block.get("delivery", ""))
+
+    # Collect all text shapes with their current text
+    text_shapes = []
+    for shape in slide.shapes:
+        if shape.has_text_frame:
+            text_shapes.append((shape, shape.text_frame.text.strip()))
+
+    # Sort by position
+    text_shapes.sort(key=lambda x: (x[0].top, x[0].left))
+
+    # Identify shapes in the title zone (1M-1.8M top) with width > 5M
+    title_zone = [(s, t) for s, t in text_shapes
+                  if 1000000 <= s.top < 1800000 and s.width > 5000000 and t]
+    title_zone.sort(key=lambda x: x[0].top)
+
+    for shape, text in text_shapes:
+        top = shape.top
+        left = shape.left
+
+        # Banner format/duration (top right)
+        if top < 900000 and left > 3000000:
+            fmt = block.get("format", "").split(".")[0].split("→")[0].strip()
+            set_shape_text(shape, f"{fmt}  •  {block['duration']}")
+
+        # Activity title area - first in zone = title, second = description
+        elif 1000000 <= top < 1800000 and shape.width > 5000000:
+            if title_zone and shape is title_zone[0][0]:
+                set_shape_text(shape, block["activity"])
+            elif len(title_zone) > 1 and shape is title_zone[1][0]:
+                desc = block.get("delivery", "")[:120]
+                if len(block.get("delivery", "")) > 120:
+                    desc = desc.rsplit(" ", 1)[0] + "..."
+                set_shape_text(shape, desc)
+
+        # Steps area
+        elif 2300000 <= top < 4300000:
+            if text.isdigit():
+                pass
+            elif left > 1000000 and len(text) > 5:
+                step_idx = None
+                for other, other_text in text_shapes:
+                    if (other_text.isdigit() and
+                        abs(other.top - shape.top) < 50000):
+                        step_idx = int(other_text) - 1
+                        break
+                if step_idx is not None and step_idx < len(steps):
+                    set_shape_text(shape, steps[step_idx])
+                elif step_idx is not None:
+                    set_shape_text(shape, "")
+
+        # Teacher tip
+        elif 4300000 <= top < 4800000:
+            tip = block.get("instructor_note", "")
+            if not tip:
+                tip = block.get("pacing", "")[:150] if block.get("pacing") else ""
+            if tip:
+                set_shape_text(shape, f"💡 Teacher tip: {tip[:200]}")
+            else:
+                set_shape_text(shape, "")
+
+        # Footer
+        elif top >= 4800000 and "ALC" not in text and "AMERICAN" not in text:
+            set_shape_text(shape, f"Session {num}: {title}")
+
+
+def extract_steps(delivery_text):
+    """Extract actionable steps from a delivery description."""
+    if not delivery_text:
+        return []
+    sentences = delivery_text.replace(". ", ".\n").split("\n")
+    steps = []
+    for s in sentences:
+        s = s.strip()
+        if s and len(s) > 15 and not s.startswith("This "):
+            steps.append(s)
+        if len(steps) >= 4:
+            break
+    return steps
+
+
+def get_session_vocabulary(session_num):
+    """Return vocabulary terms for each session."""
+    return {
+        1: [
+            ("CRAFT", "Context, Role, Audience, Format, Tone",
+             "Use CRAFT to structure every prompt for better output."),
+            ("chain-of-thought", "Breaking tasks into step-by-step subtasks",
+             "Think step by step: audience → messaging → channels."),
+            ("token", "Smallest unit of text an LLM processes",
+             "'Unbelievable' might be split into 3 tokens."),
+            ("temperature", "Controls randomness (0=precise, 1=creative)",
+             "Lower temperature for consistent, factual responses."),
+        ],
+        2: [
+            ("hallucination", "AI generates plausible but fabricated info",
+             "Always fact-check — AI confidently cites fake sources."),
+            ("source triangulation", "Verifying across multiple tools/sources",
+             "Same question through Claude, Perplexity, and NotebookLM."),
+            ("AI collaboration", "Using AI at specific stages, not full replacement",
+             "Best as brainstormer, outliner, or editor — not ghostwriter."),
+            ("trust rubric", "Checklist for evaluating AI output reliability",
+             "Cites sources? Verifiable? Holds up across tools?"),
+        ],
+        3: [
+            ("trigger", "Event that starts an automation",
+             "When I receive an email with 'invoice' in the subject…"),
+            ("workflow automation", "Connecting tools for multi-step tasks",
+             "Email trigger → AI extraction → spreadsheet update."),
+            ("AI agent", "Program that plans, executes, iterates autonomously",
+             "Reads your email, drafts replies, schedules follow-ups."),
+            ("MCP", "Model Context Protocol — AI-to-software bridge",
+             "Lets Claude talk to your calendar and documents."),
+        ],
+        4: [
+            ("capstone", "Culminating project showing integrated skills",
+             "Solve a real problem using multiple AI tools."),
+            ("portfolio", "Curated collection of work artifacts",
+             "Playbook, analysis, automation docs, and capstone."),
+            ("Making Of", "Documentation of process and AI's role",
+             "What did AI do well? What did you fix or override?"),
+            ("peer review", "Structured evaluation using a rubric",
+             "Does it solve a real problem? Is AI usage transparent?"),
+        ],
+    }.get(session_num, [])
+
+
+def build_assessment_criteria(session_num):
+    """Build assessment rubric rows for each session."""
+    return {
+        1: [
+            ["Prompt quality", "Generic, no structure", "Uses CRAFT elements", "Polished, iterated prompts"],
+            ["Tool awareness", "Can't distinguish tools", "Names differences", "Selects right tool for task"],
+            ["Critical thinking", "Accepts all AI output", "Questions some output", "Identifies bias & errors"],
+            ["Portfolio artifact", "Incomplete Playbook", "5 basic prompts", "7+ tested prompts w/ rubrics"],
+        ],
+        2: [
+            ["Fact-checking", "Accepts AI claims", "Spots obvious errors", "Systematic verification"],
+            ["Research skills", "Single-tool use", "Uses multiple tools", "Triangulates 3+ sources"],
+            ["Writing voice", "Full AI replacement", "Some personal voice", "Clear human-AI collaboration"],
+            ["Data analysis", "Raw AI output only", "Summarizes findings", "Insights w/ supporting evidence"],
+        ],
+        3: [
+            ["Automation", "No working build", "Guided build works", "Independent build + iteration"],
+            ["Workflow design", "No clear structure", "Basic trigger-action", "Multi-step w/ human checks"],
+            ["Career positioning", "Vague aspirations", "Names AI skills", "Specific, actionable strategy"],
+            ["Teaching ability", "Cannot explain", "Basic explanation", "Clear, accurate teach-back"],
+        ],
+        4: [
+            ["Capstone quality", "Incomplete project", "Functional but basic", "Solves real problem"],
+            ["Portfolio", "Missing artifacts", "All items present", "Curated w/ Making Of docs"],
+            ["Peer review", "Surface-level", "Uses rubric criteria", "Actionable, specific feedback"],
+            ["Action plan", "No commitments", "General goals", "Specific, time-bound actions"],
+        ],
+    }.get(session_num, [])
+
+
 def main():
-    if len(sys.argv) < 3:
-        print("Usage: python scripts/generate_pptx.py output/lesson_plan.md templates/<template>.pptx")
+    OUTPUT_DIR.mkdir(exist_ok=True)
+
+    if not PARSED_PATH.exists():
+        print(f"Error: {PARSED_PATH} not found. Run parse_docx.py first.")
         sys.exit(1)
 
-    lesson_plan_path = Path(sys.argv[1])
-    template_path = Path(sys.argv[2])
-
-    if not lesson_plan_path.exists():
-        print(f"Error: Lesson plan not found: {lesson_plan_path}")
+    if not TEMPLATE_PATH.exists():
+        print(f"Error: Template not found: {TEMPLATE_PATH}")
         sys.exit(1)
 
-    if not template_path.exists():
-        print(f"Error: Template not found: {template_path}")
-        sys.exit(1)
+    with open(PARSED_PATH) as f:
+        curriculum = json.load(f)
 
-    script_dir = Path(__file__).parent.parent
-    output_dir = script_dir / "output"
-    output_dir.mkdir(exist_ok=True)
-    output_path = output_dir / "day_slides.pptx"
+    for session in curriculum["sessions"]:
+        num = session["session_num"]
+        filename = f"Session_{num}_Slides.pptx"
+        output_path = OUTPUT_DIR / filename
 
-    print(f"Lesson plan: {lesson_plan_path}")
-    print(f"Template: {template_path}")
+        slide_count = build_session_pptx(session, output_path)
+        print(f"Generated: {output_path} ({slide_count} slides)")
 
-    # Parse lesson plan into slide structure
-    slides = parse_lesson_plan(lesson_plan_path)
-    print(f"Slides planned: {len(slides)}")
-
-    # Print slide outline
-    for i, slide in enumerate(slides, 1):
-        type_label = slide["type"].upper()
-        title = slide.get("title", "")
-        items_count = len(slide.get("items", []))
-        print(f"  [{i:2d}] {type_label:12s} | {title}")
-        if items_count:
-            print(f"       {items_count} items")
-
-    # Generate the presentation
-    slide_count = generate_pptx(slides, template_path, output_path)
-    print(f"\nGenerated: {output_path}")
-    print(f"Total slides: {slide_count}")
-
-    # Analyze template for reference
-    print("\n--- Template Analysis ---")
-    prs = Presentation(template_path)
-    layouts = get_template_layouts(prs)
-    for idx, info in layouts.items():
-        ph_names = [f"{name} (idx={pidx})" for pidx, name, w, h in info["placeholders"]]
-        print(f"  Layout {idx}: {info['name']}")
-        if ph_names:
-            print(f"    Placeholders: {', '.join(ph_names)}")
+    print(f"\nAll {len(curriculum['sessions'])} presentations generated.")
 
 
 if __name__ == "__main__":
