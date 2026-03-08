@@ -9,7 +9,7 @@
 
 ### Learning Targets to Research
 
-#### SWBAT 1: Session 1 Contribution
+#### SWBAT 1: Identify misleading charts and explain what makes a visualization trustworthy vs. deceptive (LO #1, #5)
 
 **Platform URLs & Tutorials:**
 - [ ] _Search: relevant platform documentation_
@@ -24,7 +24,7 @@
 **Real-World Examples (region/audience-relevant):**
 - 
 
-#### SWBAT 2: By the end of Session 1, students should be able to:
+#### SWBAT 2: Use 4 spreadsheet functions (SORT, FILTER, SUMIF/COUNTIF) to answer business questions (LO #2)
 
 **Platform URLs & Tutorials:**
 - [ ] _Search: relevant platform documentation_
@@ -39,7 +39,7 @@
 **Real-World Examples (region/audience-relevant):**
 - 
 
-#### SWBAT 3: Identify misleading charts and explain what makes a visualization trustworthy vs. deceptive (LO #1, #5)
+#### SWBAT 3: Clean a messy dataset by removing duplicates, fixing formatting, and handling blanks (LO #2)
 
 **Platform URLs & Tutorials:**
 - [ ] _Search: relevant platform documentation_
@@ -54,7 +54,7 @@
 **Real-World Examples (region/audience-relevant):**
 - 
 
-#### SWBAT 4: Use 4 spreadsheet functions (SORT, FILTER, SUMIF/COUNTIF) to answer business questions (LO #2)
+#### SWBAT 4: Build 5 pivot tables answering different analytical questions (LO #4)
 
 **Platform URLs & Tutorials:**
 - [ ] _Search: relevant platform documentation_
@@ -69,7 +69,7 @@
 **Real-World Examples (region/audience-relevant):**
 - 
 
-#### SWBAT 5: Clean a messy dataset by removing duplicates, fixing formatting, and handling blanks (LO #2)
+#### SWBAT 5: Create 3 appropriate chart types and evaluate which tells the story best (LO #1, #3)
 
 **Platform URLs & Tutorials:**
 - [ ] _Search: relevant platform documentation_
@@ -84,37 +84,7 @@
 **Real-World Examples (region/audience-relevant):**
 - 
 
-#### SWBAT 6: Build 5 pivot tables answering different analytical questions (LO #4)
-
-**Platform URLs & Tutorials:**
-- [ ] _Search: relevant platform documentation_
-- [ ] _Search: beginner tutorials for this concept_
-
-**Best Practices for Teaching This Concept:**
-- 
-
-**Common Misconceptions:**
-- 
-
-**Real-World Examples (region/audience-relevant):**
-- 
-
-#### SWBAT 7: Create 3 appropriate chart types and evaluate which tells the story best (LO #1, #3)
-
-**Platform URLs & Tutorials:**
-- [ ] _Search: relevant platform documentation_
-- [ ] _Search: beginner tutorials for this concept_
-
-**Best Practices for Teaching This Concept:**
-- 
-
-**Common Misconceptions:**
-- 
-
-**Real-World Examples (region/audience-relevant):**
-- 
-
-#### SWBAT 8: Write a 3-sentence data brief in English: finding + significance + recommendation (LO #6, #7)
+#### SWBAT 6: Write a 3-sentence data brief in English: finding + significance + recommendation (LO #6, #7)
 
 **Platform URLs & Tutorials:**
 - [ ] _Search: relevant platform documentation_
@@ -139,23 +109,7 @@
 **Worked Example Ideas:**
 - 
 
-#### Pacing: Examples + discussion =. Poll + responses =. Reframe + bootcamp overview =. Logistics =.
-
-**Relevant Resources:**
-- 
-
-**Worked Example Ideas:**
-- 
-
 #### “What’s Wrong with This Chart?”
-
-**Relevant Resources:**
-- 
-
-**Worked Example Ideas:**
-- 
-
-#### Pacing: 8 charts ×each (show, vote, deconstruct) =. Setup + intro =. Wrap-up key principles =.
 
 **Relevant Resources:**
 - 
@@ -171,7 +125,7 @@
 **Worked Example Ideas:**
 - 
 
-#### Data Cleaning — The Ugly Truth
+#### Break
 
 **Relevant Resources:**
 - 
@@ -179,7 +133,31 @@
 **Worked Example Ideas:**
 - 
 
-#### Pacing: Intro to common problems =. Guided cleaning walkthrough =. Students clean their own dataset =. Verification check =.
+#### Real Data, Real Questions
+
+**Relevant Resources:**
+- 
+
+**Worked Example Ideas:**
+- 
+
+#### Spreadsheet Power-Up (4 Functions)
+
+**Relevant Resources:**
+- 
+
+**Worked Example Ideas:**
+- 
+
+#### Lunch
+
+**Relevant Resources:**
+- 
+
+**Worked Example Ideas:**
+- 
+
+#### Data Cleaning — The Ugly Truth
 
 **Relevant Resources:**
 - 
@@ -211,23 +189,7 @@
 **Worked Example Ideas:**
 - 
 
-#### Pacing: Teach principles + chart type selection =. Students create 3 charts =. Peer comparison (swap screens, rate 1–5 on clarity) =. Transition =.
-
-**Relevant Resources:**
-- 
-
-**Worked Example Ideas:**
-- 
-
 #### AI-Assisted Pattern Spotting
-
-**Relevant Resources:**
-- 
-
-**Worked Example Ideas:**
-- 
-
-#### Pacing: Upload + first prompt =. Compare AI vs. own findings =. Document discrepancies =. 2–3 students share a discrepancy =.
 
 **Relevant Resources:**
 - 
@@ -243,7 +205,7 @@
 **Worked Example Ideas:**
 - 
 
-#### Pacing: Write 3-sentence brief =. Read aloud to partner + feedback =. Start Playbook (10 terms) =. Transition =.
+#### Day 1 Wrap
 
 **Relevant Resources:**
 - 
@@ -251,7 +213,7 @@
 **Worked Example Ideas:**
 - 
 
-#### Day 1 Wrap
+#### Buffer / Overflow
 
 **Relevant Resources:**
 - 
@@ -265,7 +227,7 @@
 
 ### Learning Targets to Research
 
-#### SWBAT 1: Session 2 Contribution
+#### SWBAT 1: Use VLOOKUP, INDEX-MATCH, and conditional formatting for analytical questions (LO #2)
 
 **Platform URLs & Tutorials:**
 - [ ] _Search: relevant platform documentation_
@@ -280,7 +242,7 @@
 **Real-World Examples (region/audience-relevant):**
 - 
 
-#### SWBAT 2: By the end of Session 2, students should be able to:
+#### SWBAT 2: Build an interactive dashboard in Looker Studio that passes the 5-second test (LO #3)
 
 **Platform URLs & Tutorials:**
 - [ ] _Search: relevant platform documentation_
@@ -295,7 +257,7 @@
 **Real-World Examples (region/audience-relevant):**
 - 
 
-#### SWBAT 3: Use VLOOKUP, INDEX-MATCH, and conditional formatting for analytical questions (LO #2)
+#### SWBAT 3: Tell a data story using the Setup→Conflict→Resolution narrative arc (LO #7)
 
 **Platform URLs & Tutorials:**
 - [ ] _Search: relevant platform documentation_
@@ -310,7 +272,7 @@
 **Real-World Examples (region/audience-relevant):**
 - 
 
-#### SWBAT 4: Build an interactive dashboard in Looker Studio that passes the 5-second test (LO #3)
+#### SWBAT 4: Write a 1-page data-driven memo with a recommendation that an executive can act on (LO #6)
 
 **Platform URLs & Tutorials:**
 - [ ] _Search: relevant platform documentation_
@@ -325,7 +287,7 @@
 **Real-World Examples (region/audience-relevant):**
 - 
 
-#### SWBAT 5: Tell a data story using the Setup→Conflict→Resolution narrative arc (LO #7)
+#### SWBAT 5: Identify 5 common data fallacies and distinguish correlation from causation (LO #5)
 
 **Platform URLs & Tutorials:**
 - [ ] _Search: relevant platform documentation_
@@ -340,37 +302,7 @@
 **Real-World Examples (region/audience-relevant):**
 - 
 
-#### SWBAT 6: Write a 1-page data-driven memo with a recommendation that an executive can act on (LO #6)
-
-**Platform URLs & Tutorials:**
-- [ ] _Search: relevant platform documentation_
-- [ ] _Search: beginner tutorials for this concept_
-
-**Best Practices for Teaching This Concept:**
-- 
-
-**Common Misconceptions:**
-- 
-
-**Real-World Examples (region/audience-relevant):**
-- 
-
-#### SWBAT 7: Identify 5 common data fallacies and distinguish correlation from causation (LO #5)
-
-**Platform URLs & Tutorials:**
-- [ ] _Search: relevant platform documentation_
-- [ ] _Search: beginner tutorials for this concept_
-
-**Best Practices for Teaching This Concept:**
-- 
-
-**Common Misconceptions:**
-- 
-
-**Real-World Examples (region/audience-relevant):**
-- 
-
-#### SWBAT 8: Explain basic GDPR principles relevant to data they collect and analyze (LO #9)
+#### SWBAT 6: Explain basic GDPR principles relevant to data they collect and analyze (LO #9)
 
 **Platform URLs & Tutorials:**
 - [ ] _Search: relevant platform documentation_
@@ -403,23 +335,7 @@
 **Worked Example Ideas:**
 - 
 
-#### Pacing: VLOOKUP (teach with diagram + follow along) =. INDEX-MATCH (teach as upgrade + practice) =. Conditional formatting =. Troubleshooting buffer =.
-
-**Relevant Resources:**
-- 
-
-**Worked Example Ideas:**
-- 
-
 #### From Spreadsheet to Dashboard  |✆
-
-**Relevant Resources:**
-- 
-
-**Worked Example Ideas:**
-- 
-
-#### Pacing: Interface orientation =. Guided build =. Save + verify =.
 
 **Relevant Resources:**
 - 
@@ -443,14 +359,6 @@
 **Worked Example Ideas:**
 - 
 
-#### Pacing: Design principles =. Examples (good vs. bad dashboards) =. Interaction: rewrite one headline on own dashboard =. Operational vs. strategic =. Transition =.
-
-**Relevant Resources:**
-- 
-
-**Worked Example Ideas:**
-- 
-
 #### Build Your Dashboard
 
 **Relevant Resources:**
@@ -459,23 +367,7 @@
 **Worked Example Ideas:**
 - 
 
-#### Pacing: Build =. Save + prepare for gallery walk =.
-
-**Relevant Resources:**
-- 
-
-**Worked Example Ideas:**
-- 
-
 #### Dashboard Gallery Walk + 5-Second Test  |✆
-
-**Relevant Resources:**
-- 
-
-**Worked Example Ideas:**
-- 
-
-#### Pacing: Setup + explain rotation =. 5 stations × 3.= 17.. Transition to lunch = 0..
 
 **Relevant Resources:**
 - 
@@ -499,13 +391,69 @@
 **Worked Example Ideas:**
 - 
 
+#### “Explain It Like I’m the CEO”
+
+**Relevant Resources:**
+- 
+
+**Worked Example Ideas:**
+- 
+
+#### Break
+
+**Relevant Resources:**
+- 
+
+**Worked Example Ideas:**
+- 
+
+#### The Data-Driven Memo
+
+**Relevant Resources:**
+- 
+
+**Worked Example Ideas:**
+- 
+
+#### Data Fallacy Spotter
+
+**Relevant Resources:**
+- 
+
+**Worked Example Ideas:**
+- 
+
+#### Correlation vs. Causation Workshop
+
+**Relevant Resources:**
+- 
+
+**Worked Example Ideas:**
+- 
+
+#### GDPR & Data Privacy Basics
+
+**Relevant Resources:**
+- 
+
+**Worked Example Ideas:**
+- 
+
+#### Day 2 Wrap + Mid-Week Assignment
+
+**Relevant Resources:**
+- 
+
+**Worked Example Ideas:**
+- 
+
 
 ---
 ## Session 3: “Advanced Analysis & Persuasive Presentation”
 
 ### Learning Targets to Research
 
-#### SWBAT 1: Session 3 Contribution
+#### SWBAT 1: Add context to data using benchmarking, trending, and segmentation (LO #4)
 
 **Platform URLs & Tutorials:**
 - [ ] _Search: relevant platform documentation_
@@ -520,7 +468,7 @@
 **Real-World Examples (region/audience-relevant):**
 - 
 
-#### SWBAT 2: By the end of Session 3, students should be able to:
+#### SWBAT 2: Build a 6-month forecast using accessible methods (LO #4)
 
 **Platform URLs & Tutorials:**
 - [ ] _Search: relevant platform documentation_
@@ -535,7 +483,7 @@
 **Real-World Examples (region/audience-relevant):**
 - 
 
-#### SWBAT 3: Add context to data using benchmarking, trending, and segmentation (LO #4)
+#### SWBAT 3: Define actionable KPIs that distinguish vanity from value (LO #4)
 
 **Platform URLs & Tutorials:**
 - [ ] _Search: relevant platform documentation_
@@ -550,7 +498,7 @@
 **Real-World Examples (region/audience-relevant):**
 - 
 
-#### SWBAT 4: Build a 6-month forecast using accessible methods (LO #4)
+#### SWBAT 4: Present data findings under adversarial stakeholder questioning (LO #7)
 
 **Platform URLs & Tutorials:**
 - [ ] _Search: relevant platform documentation_
@@ -565,7 +513,7 @@
 **Real-World Examples (region/audience-relevant):**
 - 
 
-#### SWBAT 5: Define actionable KPIs that distinguish vanity from value (LO #4)
+#### SWBAT 5: Read and write basic SQL queries (LO #2 stretch)
 
 **Platform URLs & Tutorials:**
 - [ ] _Search: relevant platform documentation_
@@ -580,37 +528,7 @@
 **Real-World Examples (region/audience-relevant):**
 - 
 
-#### SWBAT 6: Present data findings under adversarial stakeholder questioning (LO #7)
-
-**Platform URLs & Tutorials:**
-- [ ] _Search: relevant platform documentation_
-- [ ] _Search: beginner tutorials for this concept_
-
-**Best Practices for Teaching This Concept:**
-- 
-
-**Common Misconceptions:**
-- 
-
-**Real-World Examples (region/audience-relevant):**
-- 
-
-#### SWBAT 7: Read and write basic SQL queries (LO #2 stretch)
-
-**Platform URLs & Tutorials:**
-- [ ] _Search: relevant platform documentation_
-- [ ] _Search: beginner tutorials for this concept_
-
-**Best Practices for Teaching This Concept:**
-- 
-
-**Common Misconceptions:**
-- 
-
-**Real-World Examples (region/audience-relevant):**
-- 
-
-#### SWBAT 8: Write SMART indicators for EU-style reporting (LO #6)
+#### SWBAT 6: Write SMART indicators for EU-style reporting (LO #6)
 
 **Platform URLs & Tutorials:**
 - [ ] _Search: relevant platform documentation_
@@ -643,22 +561,6 @@
 **Worked Example Ideas:**
 - 
 
-#### Format: Full group,each.
-
-**Relevant Resources:**
-- 
-
-**Worked Example Ideas:**
-- 
-
-#### Pacing: 15–18 students ×= 30–. Instructor commentary on patterns = 2–. Keep a visible timer. Students who go overare cut.
-
-**Relevant Resources:**
-- 
-
-**Worked Example Ideas:**
-- 
-
 #### Benchmarking & Context
 
 **Relevant Resources:**
@@ -668,14 +570,6 @@
 - 
 
 #### Forecasting for Non-Statisticians
-
-**Relevant Resources:**
-- 
-
-**Worked Example Ideas:**
-- 
-
-#### Pacing: Teach 3 methods =. Guided build using template (trend extrapolation) =. Independent build (scenario modeling) =. Transition =.
 
 **Relevant Resources:**
 - 
@@ -707,14 +601,6 @@
 **Worked Example Ideas:**
 - 
 
-#### Pacing: 8–9 students × 3.pitch +Q&A + 30 sec transition) = 28–31..
-
-**Relevant Resources:**
-- 
-
-**Worked Example Ideas:**
-- 
-
 #### Lunch
 
 **Relevant Resources:**
@@ -732,14 +618,6 @@
 - 
 
 #### Mock Stakeholder Panel — Round 2
-
-**Relevant Resources:**
-- 
-
-**Worked Example Ideas:**
-- 
-
-#### Pacing: 9–10 students × 3.= 31.5–. Buffer = 5–.
 
 **Relevant Resources:**
 - 
@@ -809,7 +687,7 @@
 
 ### Learning Targets to Research
 
-#### SWBAT 1: Session 4 Contribution
+#### SWBAT 1: Present a complete data analysis to a real audience with confidence in English (LO #7)
 
 **Platform URLs & Tutorials:**
 - [ ] _Search: relevant platform documentation_
@@ -824,7 +702,7 @@
 **Real-World Examples (region/audience-relevant):**
 - 
 
-#### SWBAT 2: By the end of Session 4, students should be able to:
+#### SWBAT 2: Defend methodology and conclusions under live questioning (LO #7)
 
 **Platform URLs & Tutorials:**
 - [ ] _Search: relevant platform documentation_
@@ -839,7 +717,7 @@
 **Real-World Examples (region/audience-relevant):**
 - 
 
-#### SWBAT 3: Present a complete data analysis to a real audience with confidence in English (LO #7)
+#### SWBAT 3: Assemble a professional data portfolio demonstrating the full analysis pipeline (LO #3, #6)
 
 **Platform URLs & Tutorials:**
 - [ ] _Search: relevant platform documentation_
@@ -854,7 +732,7 @@
 **Real-World Examples (region/audience-relevant):**
 - 
 
-#### SWBAT 4: Defend methodology and conclusions under live questioning (LO #7)
+#### SWBAT 4: Articulate their data literacy growth from Day 1 to Day 4 (metacognition)
 
 **Platform URLs & Tutorials:**
 - [ ] _Search: relevant platform documentation_
@@ -869,82 +747,7 @@
 **Real-World Examples (region/audience-relevant):**
 - 
 
-#### SWBAT 5: Assemble a professional data portfolio demonstrating the full analysis pipeline (LO #3, #6)
-
-**Platform URLs & Tutorials:**
-- [ ] _Search: relevant platform documentation_
-- [ ] _Search: beginner tutorials for this concept_
-
-**Best Practices for Teaching This Concept:**
-- 
-
-**Common Misconceptions:**
-- 
-
-**Real-World Examples (region/audience-relevant):**
-- 
-
-#### SWBAT 6: Articulate their data literacy growth from Day 1 to Day 4 (metacognition)
-
-**Platform URLs & Tutorials:**
-- [ ] _Search: relevant platform documentation_
-- [ ] _Search: beginner tutorials for this concept_
-
-**Best Practices for Teaching This Concept:**
-- 
-
-**Common Misconceptions:**
-- 
-
-**Real-World Examples (region/audience-relevant):**
-- 
-
-#### SWBAT 7: Position data skills professionally on LinkedIn (career readiness)
-
-**Platform URLs & Tutorials:**
-- [ ] _Search: relevant platform documentation_
-- [ ] _Search: beginner tutorials for this concept_
-
-**Best Practices for Teaching This Concept:**
-- 
-
-**Common Misconceptions:**
-- 
-
-**Real-World Examples (region/audience-relevant):**
-- 
-
-#### SWBAT 8: Cumulative Progression
-
-**Platform URLs & Tutorials:**
-- [ ] _Search: relevant platform documentation_
-- [ ] _Search: beginner tutorials for this concept_
-
-**Best Practices for Teaching This Concept:**
-- 
-
-**Common Misconceptions:**
-- 
-
-**Real-World Examples (region/audience-relevant):**
-- 
-
-#### SWBAT 9: Summary of All Timing Adjustments
-
-**Platform URLs & Tutorials:**
-- [ ] _Search: relevant platform documentation_
-- [ ] _Search: beginner tutorials for this concept_
-
-**Best Practices for Teaching This Concept:**
-- 
-
-**Common Misconceptions:**
-- 
-
-**Real-World Examples (region/audience-relevant):**
-- 
-
-#### SWBAT 10: Total bootcamp duration standardized to 28 contact hours across 4 sessions. Sessions 1–2 extended from 5:30 to 5:45. Session 1 gains a 30-minute buffer block for tool troubleshooting. All other adjustments are internal rebalancing.
+#### SWBAT 5: Position data skills professionally on LinkedIn (career readiness)
 
 **Platform URLs & Tutorials:**
 - [ ] _Search: relevant platform documentation_
@@ -962,14 +765,6 @@
 ### Activity-Specific Research
 
 #### Data Challenge (Final)
-
-**Relevant Resources:**
-- 
-
-**Worked Example Ideas:**
-- 
-
-#### Delivery: Final retrieval challenge. Full analysis: pivot table, chart, 3-sentence English brief in. Compare to Days 2 and 3. Growth should be visible.
 
 **Relevant Resources:**
 - 
@@ -1010,14 +805,6 @@
 - 
 
 #### Final Polish
-
-**Relevant Resources:**
-- 
-
-**Worked Example Ideas:**
-- 
-
-#### Delivery: Incorporate feedback. Rehearse team presentation.max per team, timer enforced.
 
 **Relevant Resources:**
 - 
@@ -1066,6 +853,22 @@
 - 
 
 #### “What’s Next”
+
+**Relevant Resources:**
+- 
+
+**Worked Example Ideas:**
+- 
+
+#### Final Self-Assessment + Retrospective
+
+**Relevant Resources:**
+- 
+
+**Worked Example Ideas:**
+- 
+
+#### Certificates + Close
 
 **Relevant Resources:**
 - 

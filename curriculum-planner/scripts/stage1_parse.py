@@ -53,6 +53,18 @@ TIME_RE = re.compile(
 
 DURATION_RE = re.compile(r"\(?\s*(\d+)\s*min(?:ute)?s?\s*\)?", re.IGNORECASE)
 
+# Pattern for schedule blocks hiding in evidence: "HH:MM–HH:MM | Name | NN min"
+EVIDENCE_SCHEDULE_RE = re.compile(
+    r"(\d{1,2}:\d{2})\s*[-–—]\s*(\d{1,2}:\d{2})\s*\|\s*(.+?)\s*\|\s*(\d+)\s*min",
+    re.IGNORECASE,
+)
+
+# Non-SWBAT lines to filter out
+SWBAT_NOISE_RE = re.compile(
+    r"^(session\s+\d+\s+contribution|by the end of session\s+\d+.*should be able to:?|cumulative progression|summary of all timing adjustments)",
+    re.IGNORECASE,
+)
+
 
 def _heading_level(paragraph) -> int:
     """Return the heading level (1-9) or 0 if not a heading."""
@@ -95,6 +107,185 @@ def _classify_format(text: str) -> str:
         if keyword in text_lower:
             return label
     return "Whole Class"
+
+
+def _is_pacing_subblock(activity_name: str) -> bool:
+    """Check if this block is a pacing sub-block that should merge with parent."""
+    lower = activity_name.lower().strip()
+    return lower.startswith("pacing:") or lower.startswith("pacing ")
+
+
+def _merge_pacing_blocks(blocks: list[dict]) -> list[dict]:
+    """Merge pacing sub-blocks into their parent activity blocks."""
+    merged = []
+    for block in blocks:
+        name = block.get("activity_name", "")
+        if _is_pacing_subblock(name) and merged:
+            parent = merged[-1]
+            # Extract pacing info from the sub-block name
+            pacing_text = name
+            if not parent.get("pacing"):
+                parent["pacing"] = pacing_text
+            else:
+                parent["pacing"] += " " + pacing_text
+            # Merge any delivery instructions or notes
+            if block.get("delivery_instructions"):
+                parent["delivery_instructions"] = (
+                    parent.get("delivery_instructions", "") + " " +
+                    block["delivery_instructions"]
+                ).strip()
+            if block.get("instructor_notes"):
+                parent["instructor_notes"] = (
+                    parent.get("instructor_notes", "") + " " +
+                    block["instructor_notes"]
+                ).strip()
+        else:
+            merged.append(block)
+    return merged
+
+
+def _sort_blocks_chronologically(blocks: list[dict]) -> list[dict]:
+    """Sort schedule blocks by time, handling AM schedule (10-12) before PM (1-5)."""
+    def _time_sort_key(b):
+        t = b.get("time", "")
+        m = re.match(r"(\d{1,2}):(\d{2})", t)
+        if not m:
+            return 9999
+        hour = int(m.group(1))
+        minute = int(m.group(2))
+        # Assume hours 1-9 are PM (13:00-21:00), 10-12 are AM
+        if hour < 10:
+            hour += 12
+        return hour * 60 + minute
+    blocks.sort(key=_time_sort_key)
+    return blocks
+
+
+def _merge_orphan_delivery_blocks(blocks: list[dict]) -> list[dict]:
+    """Merge orphan blocks whose names start with 'Delivery:' or 'Format:' into the previous block."""
+    merged = []
+    for block in blocks:
+        name = block.get("activity_name", "").strip()
+        lower_name = name.lower()
+        is_orphan = (
+            (lower_name.startswith("delivery:") or lower_name.startswith("format:"))
+            and merged
+            and not block.get("time")
+        )
+        if is_orphan:
+            parent = merged[-1]
+            # The "name" is actually delivery instructions
+            content = name
+            if block.get("delivery_instructions"):
+                content += " " + block["delivery_instructions"]
+            parent["delivery_instructions"] = (
+                parent.get("delivery_instructions", "") + " " + content
+            ).strip()
+            if block.get("pacing") and not parent.get("pacing"):
+                parent["pacing"] = block["pacing"]
+            if block.get("instructor_notes"):
+                parent["instructor_notes"] = (
+                    parent.get("instructor_notes", "") + " " + block["instructor_notes"]
+                ).strip()
+        else:
+            merged.append(block)
+    return merged
+
+
+def _recover_schedule_from_evidence(session: dict):
+    """Move schedule blocks hiding in evidence_statements back to schedule_blocks."""
+    remaining_evidence = []
+    recovered_blocks = []
+    i = 0
+    evidence = session["evidence_statements"]
+
+    while i < len(evidence):
+        line = evidence[i]
+        m = EVIDENCE_SCHEDULE_RE.match(line)
+        if m:
+            time_range = f"{m.group(1)}–{m.group(2)}"
+            activity_name = m.group(3).strip().rstrip("✆ ")
+            duration = int(m.group(4))
+
+            block = {
+                "time": time_range,
+                "activity_name": activity_name,
+                "duration": duration,
+                "format": _classify_format(activity_name),
+                "delivery_instructions": "",
+                "pacing": "",
+                "instructor_notes": "",
+            }
+
+            # Collect subsequent non-schedule lines as delivery/pacing/notes
+            i += 1
+            while i < len(evidence):
+                next_line = evidence[i]
+                # Stop if we hit another schedule block
+                if EVIDENCE_SCHEDULE_RE.match(next_line):
+                    break
+                lower = next_line.lower().strip()
+                if lower.startswith("pacing:"):
+                    block["pacing"] = next_line.strip()
+                elif lower.startswith("instructor note"):
+                    block["instructor_notes"] += next_line.strip() + " "
+                elif lower.startswith("format:") or lower.startswith("bloom"):
+                    block["delivery_instructions"] += next_line.strip() + " "
+                elif lower.startswith("delivery:"):
+                    block["delivery_instructions"] += next_line.strip() + " "
+                elif _extract_time_range(next_line) or EVIDENCE_SCHEDULE_RE.match(next_line):
+                    break
+                else:
+                    block["delivery_instructions"] += next_line.strip() + " "
+                i += 1
+
+            block["delivery_instructions"] = block["delivery_instructions"].strip()
+            block["instructor_notes"] = block["instructor_notes"].strip()
+            recovered_blocks.append(block)
+        else:
+            # Check if it's a non-schedule delivery/pacing line that belongs to the
+            # last recovered block
+            lower = line.lower().strip()
+            if recovered_blocks and (
+                lower.startswith("delivery:") or
+                lower.startswith("format:") or
+                lower.startswith("bloom") or
+                lower.startswith("pacing:")
+            ):
+                last = recovered_blocks[-1]
+                if lower.startswith("pacing:"):
+                    last["pacing"] = line.strip()
+                else:
+                    last["delivery_instructions"] = (
+                        last["delivery_instructions"] + " " + line.strip()
+                    ).strip()
+                i += 1
+            else:
+                remaining_evidence.append(line)
+                i += 1
+
+    if recovered_blocks:
+        # Insert recovered blocks into schedule in chronological order
+        all_blocks = session["schedule_blocks"] + recovered_blocks
+        session["schedule_blocks"] = _sort_blocks_chronologically(all_blocks)
+
+    session["evidence_statements"] = remaining_evidence
+
+
+def _clean_swbats(session: dict):
+    """Remove non-SWBAT noise lines from the SWBATs list."""
+    cleaned = []
+    for swbat in session["swbats"]:
+        swbat = swbat.strip()
+        if not swbat:
+            continue
+        if SWBAT_NOISE_RE.match(swbat):
+            continue
+        # Also skip lines that are just metadata (timing adjustments, etc.)
+        if "timing adjustment" in swbat.lower() or "contact hours" in swbat.lower():
+            continue
+        cleaned.append(swbat)
+    session["swbats"] = cleaned
 
 
 # ---------------------------------------------------------------------------
@@ -230,6 +421,14 @@ def parse_docx(path: Path) -> list[dict]:
     _flush_section()
     if current_session:
         sessions.append(current_session)
+
+    # Post-processing: recover lost blocks, merge pacing/orphans, sort, clean SWBATs
+    for session in sessions:
+        _recover_schedule_from_evidence(session)
+        session["schedule_blocks"] = _merge_pacing_blocks(session["schedule_blocks"])
+        session["schedule_blocks"] = _merge_orphan_delivery_blocks(session["schedule_blocks"])
+        session["schedule_blocks"] = _sort_blocks_chronologically(session["schedule_blocks"])
+        _clean_swbats(session)
 
     return sessions
 
