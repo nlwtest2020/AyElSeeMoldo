@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """
-Generate branded DOCX lesson plans for each session using the ALC template.
+Generate professional DOCX teaching guides for each session.
+
+Produces scannable, EL Education-style lesson plans with clear teacher/student
+actions, pacing notes, and embedded assessment checkpoints.
 
 Usage:
     python scripts/generate_lesson_plans.py
@@ -11,104 +14,257 @@ Output: output/Session_1_Lesson_Plan.docx (etc.)
 """
 
 import json
+import re
 import sys
-from copy import deepcopy
 from pathlib import Path
 
 from docx import Document
-from docx.shared import Pt, Inches, RGBColor, Cm
+from docx.shared import Pt, RGBColor, Cm, Inches
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.enum.table import WD_TABLE_ALIGNMENT
 from docx.oxml.ns import qn
-
+from lxml import etree
 
 SCRIPT_DIR = Path(__file__).parent.parent
 OUTPUT_DIR = SCRIPT_DIR / "output"
 TEMPLATE_PATH = SCRIPT_DIR / "templates" / "ALC_Lesson_Plan_Template.docx"
 PARSED_PATH = OUTPUT_DIR / "parsed_curriculum.json"
 
-
-def clone_template_styles(template_doc):
-    """Extract formatting info from the template for reuse."""
-    styles = {}
-    # Get heading style from first heading
-    for para in template_doc.paragraphs:
-        if para.style.name == "Heading 1":
-            styles["heading1"] = {
-                "font_name": para.runs[0].font.name if para.runs else None,
-                "font_size": para.runs[0].font.size if para.runs else None,
-                "bold": para.runs[0].font.bold if para.runs else True,
-                "color": para.runs[0].font.color.rgb if para.runs and para.runs[0].font.color.type else None,
-            }
-            break
-    return styles
+# ALC Brand Colors
+ALC_DARK_BLUE = RGBColor(0x24, 0x35, 0x54)
+ALC_ACCENT_BLUE = RGBColor(0x2E, 0x74, 0xB5)
+ALC_WHITE = RGBColor(0xFF, 0xFF, 0xFF)
+ALC_LIGHT_GRAY = RGBColor(0x7F, 0x7F, 0x7F)
+BREAK_BG = "D9E2F3"  # light blue-gray for breaks
+HEADER_BG = "243554"  # dark blue for block headers
+TIP_BG = "FFF2CC"  # warm yellow for teacher tips
+CHECK_BG = "E2EFDA"  # soft green for CFU checks
 
 
-def copy_table_style(src_table, dst_table):
-    """Copy table styling from source to destination."""
-    # Copy table-level properties
-    tbl = dst_table._tbl
-    src_tbl = src_table._tbl
-
-    # Copy table properties (borders, shading, etc.)
-    src_tblPr = src_tbl.find(qn('w:tblPr'))
-    dst_tblPr = tbl.find(qn('w:tblPr'))
-    if src_tblPr is not None and dst_tblPr is not None:
-        for child in list(dst_tblPr):
-            dst_tblPr.remove(child)
-        for child in src_tblPr:
-            dst_tblPr.append(deepcopy(child))
+def set_cell_shading(cell, color_hex):
+    """Apply background shading to a table cell."""
+    tc = cell._tc
+    tcPr = tc.get_or_add_tcPr()
+    # Remove existing shading
+    existing = tcPr.findall(qn('w:shd'))
+    for e in existing:
+        tcPr.remove(e)
+    shading = etree.SubElement(tcPr, qn('w:shd'))
+    shading.set(qn('w:fill'), color_hex)
+    shading.set(qn('w:val'), 'clear')
+    shading.set(qn('w:color'), 'auto')
 
 
-def apply_cell_format(cell, text, bold=False, font_size=None, font_name=None, color=None):
-    """Apply formatting to a table cell."""
-    cell.text = ""
-    p = cell.paragraphs[0]
-    run = p.add_run(text)
+def set_cell_borders(cell, top=None, bottom=None, left=None, right=None):
+    """Set borders on a table cell. Each border is a dict with sz, color, val."""
+    tc = cell._tc
+    tcPr = tc.get_or_add_tcPr()
+    borders = tcPr.find(qn('w:tcBorders'))
+    if borders is None:
+        borders = etree.SubElement(tcPr, qn('w:tcBorders'))
+    for side, props in [('top', top), ('bottom', bottom), ('left', left), ('right', right)]:
+        if props:
+            el = borders.find(qn(f'w:{side}'))
+            if el is None:
+                el = etree.SubElement(borders, qn(f'w:{side}'))
+            el.set(qn('w:val'), props.get('val', 'single'))
+            el.set(qn('w:sz'), str(props.get('sz', 4)))
+            el.set(qn('w:color'), props.get('color', '000000'))
+            el.set(qn('w:space'), '0')
+
+
+def remove_table_borders(table):
+    """Remove all borders from a table."""
+    tbl = table._tbl
+    tblPr = tbl.find(qn('w:tblPr'))
+    if tblPr is None:
+        tblPr = etree.SubElement(tbl, qn('w:tblPr'))
+    borders = tblPr.find(qn('w:tblBorders'))
+    if borders is None:
+        borders = etree.SubElement(tblPr, qn('w:tblBorders'))
+    for side in ['top', 'left', 'bottom', 'right', 'insideH', 'insideV']:
+        el = borders.find(qn(f'w:{side}'))
+        if el is None:
+            el = etree.SubElement(borders, qn(f'w:{side}'))
+        el.set(qn('w:val'), 'none')
+        el.set(qn('w:sz'), '0')
+        el.set(qn('w:color'), 'auto')
+        el.set(qn('w:space'), '0')
+
+
+def add_formatted_run(paragraph, text, bold=False, italic=False, size=None,
+                      color=None, font_name=None):
+    """Add a formatted run to a paragraph."""
+    run = paragraph.add_run(text)
     if bold:
         run.font.bold = True
-    if font_size:
-        run.font.size = font_size
-    if font_name:
-        run.font.name = font_name
+    if italic:
+        run.font.italic = True
+    if size:
+        run.font.size = size
     if color:
         run.font.color.rgb = color
+    if font_name:
+        run.font.name = font_name
+    return run
 
+
+def add_section_heading(doc, text, level=2):
+    """Add a styled section heading."""
+    p = doc.add_heading(text, level=level)
+    if p.runs:
+        p.runs[0].font.color.rgb = ALC_DARK_BLUE
+    return p
+
+
+def set_paragraph_spacing(paragraph, before=0, after=0):
+    """Set paragraph spacing in points."""
+    pf = paragraph.paragraph_format
+    pf.space_before = Pt(before)
+    pf.space_after = Pt(after)
+
+
+# ---------------------------------------------------------------------------
+# GRR Phase Inference
+# ---------------------------------------------------------------------------
+
+def infer_grr_phase(format_text):
+    """Infer Gradual Release of Responsibility phase from format description."""
+    if not format_text:
+        return ""
+    ft = format_text.lower()
+
+    phases = []
+    # Check for I Do indicators
+    if any(w in ft for w in ["instructor-led", "teacher-led", "lecture",
+                              "interactive lecture", "demo", "direct instruction"]):
+        phases.append("I Do")
+    # Check for We Do indicators
+    if any(w in ft for w in ["guided", "worked example", "full-group",
+                              "full group", "debrief", "discussion"]):
+        phases.append("We Do")
+    # Check for You Do Together indicators
+    if any(w in ft for w in ["pair", "pairs", "small group", "collaborative",
+                              "group work", "partner"]):
+        phases.append("You Do Together")
+    # Check for You Do Alone indicators
+    if any(w in ft for w in ["individual", "independent", "solo",
+                              "self-assessment", "reflection"]):
+        phases.append("You Do")
+
+    if not phases:
+        return ""
+    return " \u2192 ".join(phases)
+
+
+# ---------------------------------------------------------------------------
+# Delivery Text Parsing
+# ---------------------------------------------------------------------------
+
+def parse_delivery_text(delivery):
+    """Split delivery text into teacher actions and student actions."""
+    if not delivery:
+        return [], []
+
+    # Split into sentences (handle periods followed by spaces, but not decimals)
+    sentences = re.split(r'(?<=[.!?])\s+(?=[A-Z"])', delivery)
+
+    teacher_actions = []
+    student_actions = []
+
+    for sentence in sentences:
+        s = sentence.strip()
+        if not s:
+            continue
+        s_lower = s.lower()
+
+        # Student action indicators
+        if (s_lower.startswith("students ") or
+            s_lower.startswith("each student") or
+            s_lower.startswith("each pair") or
+            s_lower.startswith("learners ") or
+            (s_lower.startswith("they ") and student_actions)):
+            student_actions.append(s)
+        # Teacher action indicators or default
+        else:
+            teacher_actions.append(s)
+
+    return teacher_actions, student_actions
+
+
+def extract_quoted_phrases(text):
+    """Extract quoted phrases from text (teacher scripting)."""
+    return re.findall(r'\u201c([^\u201d]+)\u201d|"([^"]+)"', text)
+
+
+# ---------------------------------------------------------------------------
+# CFU Generation
+# ---------------------------------------------------------------------------
+
+def generate_cfu(activity_name, blooms, delivery):
+    """Generate a check-for-understanding prompt based on the activity."""
+    activity_lower = activity_name.lower()
+
+    # Activity-specific checks
+    if "prompt" in activity_lower or "craft" in activity_lower:
+        return "Can students articulate why their revised prompt produced better output?"
+    if "comparison" in activity_lower or "tool" in activity_lower:
+        return "Can students name at least one specific difference between tool outputs?"
+    if "how ai" in activity_lower or "works" in activity_lower:
+        return "Can students explain in their own words what a token is and why it matters?"
+    if "research" in activity_lower or "fact" in activity_lower:
+        return "Are students checking sources, or accepting AI output at face value?"
+    if "automat" in activity_lower or "workflow" in activity_lower:
+        return "Can students identify the trigger, action, and output in their workflow?"
+    if "capstone" in activity_lower or "portfolio" in activity_lower:
+        return "Does the student's project solve a real problem using AI tools?"
+    if "welcome" in activity_lower or "norms" in activity_lower:
+        return "Are students engaged and clear on expectations for the day?"
+    if "reflection" in activity_lower or "closing" in activity_lower:
+        return "Can students name one specific thing they learned and one question they still have?"
+
+    # Bloom's-level based fallback
+    if blooms:
+        blooms_lower = blooms.lower()
+        if "create" in blooms_lower or "evaluate" in blooms_lower:
+            return "Are student outputs showing original thinking, not just AI copy-paste?"
+        if "analyze" in blooms_lower:
+            return "Can students explain the reasoning behind their choices?"
+        if "apply" in blooms_lower:
+            return "Are students successfully completing the task independently?"
+
+    return "Quick pulse check: thumbs up if confident, sideways if unsure, down if lost."
+
+
+# ---------------------------------------------------------------------------
+# Document Building
+# ---------------------------------------------------------------------------
 
 def generate_lesson_plan(session, template_doc):
-    """Generate a single lesson plan DOCX from session data and template."""
+    """Generate a professional teaching guide DOCX for one session."""
     doc = Document()
 
-    # Copy default styles from template if available
-    try:
-        style = doc.styles["Normal"]
-        template_style = template_doc.styles["Normal"]
-        if template_style.font.name:
-            style.font.name = template_style.font.name
-        if template_style.font.size:
-            style.font.size = template_style.font.size
-    except KeyError:
-        pass
+    # Set default font
+    style = doc.styles["Normal"]
+    style.font.name = "Calibri"
+    style.font.size = Pt(10)
+
+    # Configure heading styles
+    for level in range(1, 4):
+        try:
+            h_style = doc.styles[f"Heading {level}"]
+            h_style.font.name = "Calibri"
+            h_style.font.color.rgb = ALC_DARK_BLUE
+        except KeyError:
+            pass
 
     num = session["session_num"]
     title = session["title"]
     subtitle = session["subtitle"]
+    schedule = session["schedule"]
+    swbats = session["swbats"]
 
-    # --- HEADING ---
-    heading = doc.add_heading(f"Session {num}: {title}", level=1)
-
-    # Subtitle
-    if subtitle:
-        p = doc.add_paragraph(subtitle)
-        p.style = doc.styles["Normal"]
-        for run in p.runs:
-            run.font.size = Pt(11)
-            run.font.italic = True
-
-    doc.add_paragraph()  # spacer
-
-    # --- METADATA TABLE ---
-    # Extract metadata from subtitle
+    # Parse subtitle
     day_info = ""
     time_info = ""
     theme_info = ""
@@ -121,44 +277,96 @@ def generate_lesson_plan(session, template_doc):
         if len(parts) >= 3:
             theme_info = parts[2].strip().replace("Theme:", "").strip()
 
-    # Count non-break blocks
-    instruction_blocks = [b for b in session["schedule"] if not b.get("is_break")]
-    total_instruction_min = sum(int(b["duration"].replace(" min", "")) for b in instruction_blocks)
+    instruction_blocks = [b for b in schedule if not b.get("is_break")]
+    total_min = sum(int(b["duration"].replace(" min", "")) for b in instruction_blocks)
 
-    meta_rows = [
+    # ======================================================================
+    # SECTION 1: HEADER
+    # ======================================================================
+    heading = doc.add_heading(f"Session {num}: {title}", level=1)
+    set_paragraph_spacing(heading, before=0, after=4)
+
+    # Metadata table (borderless)
+    meta_data = [
         ("Course", "AI & Digital Workflows Bootcamp"),
-        ("Session", f"Session {num}: {title}"),
         ("Day / Time", f"{day_info}  |  {time_info}" if day_info else ""),
         ("Theme", theme_info),
-        ("Duration", f"{total_instruction_min} minutes instruction ({len(instruction_blocks)} blocks)"),
-        ("Materials", "Slides, laptop/tablet per student, Claude & ChatGPT access, printed templates"),
+        ("Duration", f"{total_min} min instruction  |  {len(instruction_blocks)} activity blocks"),
+        ("Materials",
+         "Slides deck, laptop/tablet per student, Claude & ChatGPT access, "
+         "printed templates, whiteboard/markers"),
     ]
 
-    meta_table = doc.add_table(rows=len(meta_rows), cols=2)
+    meta_table = doc.add_table(rows=len(meta_data), cols=2)
+    remove_table_borders(meta_table)
     meta_table.alignment = WD_TABLE_ALIGNMENT.LEFT
-    for i, (label, value) in enumerate(meta_rows):
-        apply_cell_format(meta_table.cell(i, 0), label, bold=True, font_size=Pt(10))
-        apply_cell_format(meta_table.cell(i, 1), value, font_size=Pt(10))
-    # Set column widths
-    for row in meta_table.rows:
-        row.cells[0].width = Cm(4)
-        row.cells[1].width = Cm(12)
+    for i, (label, value) in enumerate(meta_data):
+        cell_label = meta_table.cell(i, 0)
+        cell_value = meta_table.cell(i, 1)
+        cell_label.text = ""
+        cell_value.text = ""
+        p = cell_label.paragraphs[0]
+        add_formatted_run(p, label, bold=True, size=Pt(10), color=ALC_DARK_BLUE)
+        p = cell_value.paragraphs[0]
+        add_formatted_run(p, value, size=Pt(10))
+        cell_label.width = Cm(3)
+        cell_value.width = Cm(13)
 
     doc.add_paragraph()
 
-    # --- LEARNING OBJECTIVES ---
-    doc.add_paragraph("LEARNING OBJECTIVES", style="Heading 2")
-    p = doc.add_paragraph("By the end of this session, students will be able to:")
-    for swbat in session["swbats"]:
+    # ======================================================================
+    # SECTION 2: LEARNING TARGETS
+    # ======================================================================
+    add_section_heading(doc, "LEARNING TARGETS")
+
+    p = doc.add_paragraph()
+    add_formatted_run(p, "By the end of this session, students will be able to:",
+                      italic=True, size=Pt(10), color=ALC_LIGHT_GRAY)
+    set_paragraph_spacing(p, after=4)
+
+    for i, swbat in enumerate(swbats):
+        # Clean up LO references
+        clean = re.sub(r'\s*\(LO[^)]*\)', '', swbat).strip().rstrip(" ;,")
         p = doc.add_paragraph()
-        run = p.add_run(f"▸  {swbat}")
-        run.font.size = Pt(10)
+        add_formatted_run(p, f"{i + 1}. ", bold=True, size=Pt(10), color=ALC_ACCENT_BLUE)
+        add_formatted_run(p, clean, size=Pt(10))
+        set_paragraph_spacing(p, before=2, after=2)
 
     doc.add_paragraph()
 
-    # --- SESSION SCHEDULE ---
-    # Split into morning and afternoon blocks
-    schedule = session["schedule"]
+    # ======================================================================
+    # SECTION 3: ASSESSMENT AT A GLANCE
+    # ======================================================================
+    add_section_heading(doc, "ASSESSMENT AT A GLANCE")
+
+    evidence = session.get("evidence", "")
+    if evidence:
+        p = doc.add_paragraph()
+        add_formatted_run(p, "Look for: ", bold=True, size=Pt(10))
+        add_formatted_run(p, evidence, size=Pt(10))
+        set_paragraph_spacing(p, after=4)
+
+    assess_items = [
+        ("Formative",
+         "Observe student work during each activity block. "
+         "Check outputs match expectations in delivery notes."),
+        ("Self-Assessment",
+         "Students rate confidence (1\u20135) for each learning target at session close."),
+        ("Exit Ticket",
+         "See Closing section for specific questions."),
+    ]
+    for label, desc in assess_items:
+        p = doc.add_paragraph()
+        add_formatted_run(p, f"{label}: ", bold=True, size=Pt(10), color=ALC_DARK_BLUE)
+        add_formatted_run(p, desc, size=Pt(10))
+        set_paragraph_spacing(p, before=1, after=1)
+
+    doc.add_paragraph()
+
+    # ======================================================================
+    # SECTION 4: LESSON FLOW
+    # ======================================================================
+    # Split into morning/afternoon
     morning_blocks = []
     afternoon_blocks = []
     lunch_seen = False
@@ -166,140 +374,334 @@ def generate_lesson_plan(session, template_doc):
     for block in schedule:
         if "lunch" in block["activity"].lower():
             lunch_seen = True
-            morning_blocks.append(block)  # include lunch as divider
+            morning_blocks.append(block)
             continue
         if not lunch_seen:
             morning_blocks.append(block)
         else:
             afternoon_blocks.append(block)
 
-    # Morning block
+    # Morning
     if morning_blocks:
-        first = morning_blocks[0]
-        last_morning = [b for b in morning_blocks if not b.get("is_break")]
-        doc.add_paragraph(
-            f"MORNING BLOCK ({first['start_time']}–{morning_blocks[-1]['end_time']})",
-            style="Heading 2"
-        )
-        add_schedule_table(doc, morning_blocks)
+        first_time = morning_blocks[0]["start_time"]
+        last_time = morning_blocks[-1]["end_time"]
+        add_section_heading(doc, f"MORNING BLOCK  ({first_time}\u2013{last_time})")
+        for block in morning_blocks:
+            add_activity_block(doc, block, session)
 
-    doc.add_paragraph()
-
-    # Afternoon block
+    # Afternoon
     if afternoon_blocks:
-        doc.add_paragraph(
-            f"AFTERNOON BLOCK ({afternoon_blocks[0]['start_time']}–{afternoon_blocks[-1]['end_time']})",
-            style="Heading 2"
-        )
-        add_schedule_table(doc, afternoon_blocks)
+        doc.add_paragraph()
+        first_time = afternoon_blocks[0]["start_time"]
+        last_time = afternoon_blocks[-1]["end_time"]
+        add_section_heading(doc, f"AFTERNOON BLOCK  ({first_time}\u2013{last_time})")
+        for block in afternoon_blocks:
+            add_activity_block(doc, block, session)
 
     doc.add_paragraph()
 
-    # --- TEACHER NOTES ---
-    doc.add_paragraph("TEACHER NOTES", style="Heading 2")
+    # ======================================================================
+    # SECTION 5: DIFFERENTIATION
+    # ======================================================================
+    add_section_heading(doc, "DIFFERENTIATION NOTES")
 
-    # Collect instructor notes from blocks
-    notes_written = False
-    for block in schedule:
-        if block.get("is_break"):
-            continue
-        if block.get("instructor_note"):
-            p = doc.add_paragraph()
-            run = p.add_run(f"{block['activity']}: ")
-            run.font.bold = True
-            run.font.size = Pt(10)
-            run = p.add_run(block["instructor_note"])
-            run.font.size = Pt(10)
-            notes_written = True
-
-    if not notes_written:
-        doc.add_paragraph("See delivery notes in schedule table above.", style="Normal")
-
-    doc.add_paragraph()
-
-    # --- ASSESSMENT ---
-    doc.add_paragraph("ASSESSMENT", style="Heading 2")
-
-    if session.get("evidence"):
+    diff_notes = get_differentiation_notes(num)
+    for label, note in diff_notes:
         p = doc.add_paragraph()
-        run = p.add_run("Evidence to look for: ")
-        run.font.bold = True
-        run.font.size = Pt(10)
-        run = p.add_run(session["evidence"])
-        run.font.size = Pt(10)
+        add_formatted_run(p, f"{label}: ", bold=True, size=Pt(10), color=ALC_DARK_BLUE)
+        add_formatted_run(p, note, size=Pt(10))
+        set_paragraph_spacing(p, before=2, after=2)
 
-    # Map SWBATs to assessment methods based on Bloom's levels in schedule
-    p = doc.add_paragraph()
-    run = p.add_run("Formative: ")
-    run.font.bold = True
-    run.font.size = Pt(10)
-    run = p.add_run(
-        "Teacher observation during activities. Monitor student outputs at each "
-        "hands-on block. Use delivery notes and pacing guidance to check quality."
-    )
-    run.font.size = Pt(10)
+    doc.add_paragraph()
 
+    # ======================================================================
+    # SECTION 6: CLOSING & EXIT TICKET
+    # ======================================================================
+    add_section_heading(doc, "CLOSING & EXIT TICKET")
+
+    exit_questions = get_exit_ticket_questions(num)
     p = doc.add_paragraph()
-    run = p.add_run("Self-Assessment: ")
-    run.font.bold = True
-    run.font.size = Pt(10)
-    run = p.add_run(
-        "Students complete confidence ratings (1–5) for each learning objective "
-        "at the end of the session."
-    )
-    run.font.size = Pt(10)
+    add_formatted_run(p, "Ask students to write brief answers to:",
+                      italic=True, size=Pt(10))
+    set_paragraph_spacing(p, after=4)
+
+    for i, question in enumerate(exit_questions):
+        p = doc.add_paragraph()
+        add_formatted_run(p, f"{i + 1}. ", bold=True, size=Pt(10))
+        add_formatted_run(p, question, size=Pt(10))
+        set_paragraph_spacing(p, before=2, after=2)
+
+    doc.add_paragraph()
+
+    # ======================================================================
+    # SECTION 7: TEACHER REFLECTION
+    # ======================================================================
+    add_section_heading(doc, "POST-SESSION REFLECTION")
+
+    prompts = [
+        "What worked well today?",
+        "What would I adjust for next time?",
+        "Which students need follow-up or additional support?",
+        "Did timing work? Where did I run long or short?",
+    ]
+    for prompt in prompts:
+        p = doc.add_paragraph()
+        add_formatted_run(p, f"\u25a2  {prompt}", size=Pt(10), color=ALC_LIGHT_GRAY)
+        set_paragraph_spacing(p, before=2, after=6)
+        # Add blank line for writing
+        doc.add_paragraph()
 
     return doc
 
 
-def add_schedule_table(doc, blocks):
-    """Add a schedule table for a set of time blocks."""
-    table = doc.add_table(rows=1 + len(blocks), cols=3)
-    table.alignment = WD_TABLE_ALIGNMENT.LEFT
+def add_activity_block(doc, block, session):
+    """Render a single activity block as a visually distinct section."""
+    is_break = block.get("is_break", False)
+    activity = block["activity"]
+    start = block["start_time"]
+    end = block["end_time"]
+    duration = block["duration"]
 
-    # Header row
-    headers = ["Time", "Activity", "Details & Instructions"]
-    for i, header in enumerate(headers):
-        apply_cell_format(table.cell(0, i), header, bold=True, font_size=Pt(9))
+    # --- BREAK: simple divider ---
+    if is_break:
+        table = doc.add_table(rows=1, cols=1)
+        remove_table_borders(table)
+        cell = table.cell(0, 0)
+        set_cell_shading(cell, BREAK_BG)
+        cell.text = ""
+        p = cell.paragraphs[0]
+        p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        add_formatted_run(p, f"{start}\u2013{end}  |  {activity}  |  {duration}",
+                          bold=True, size=Pt(10), color=ALC_DARK_BLUE)
+        set_paragraph_spacing(p, before=4, after=4)
+        return
 
-    for i, block in enumerate(blocks):
-        row_idx = i + 1
-        time_str = f"{block['start_time']}–{block['end_time']}"
-        activity = block["activity"]
+    format_str = block.get("format", "")
+    blooms = block.get("blooms", "")
+    delivery = block.get("delivery", "")
+    pacing = block.get("pacing", "")
+    instructor_note = block.get("instructor_note", "")
+    grr = infer_grr_phase(format_str)
 
-        # Build details
-        details_parts = []
-        if block.get("format"):
-            details_parts.append(f"Format: {block['format']}")
-        if block.get("blooms"):
-            details_parts.append(f"Bloom's: {block['blooms']}")
-        if block.get("delivery"):
-            # Truncate very long delivery notes for the table
-            delivery = block["delivery"]
-            if len(delivery) > 400:
-                delivery = delivery[:397] + "..."
-            details_parts.append(delivery)
-        if block.get("pacing"):
-            pacing = block["pacing"]
-            if len(pacing) > 300:
-                pacing = pacing[:297] + "..."
-            details_parts.append(f"Pacing: {pacing}")
+    # --- BLOCK HEADER (dark blue bar) ---
+    header_table = doc.add_table(rows=1, cols=1)
+    remove_table_borders(header_table)
+    cell = header_table.cell(0, 0)
+    set_cell_shading(cell, HEADER_BG)
+    cell.text = ""
 
-        details = "\n".join(details_parts)
+    # Line 1: Time | Activity | Duration
+    p = cell.paragraphs[0]
+    add_formatted_run(p, f"{start}\u2013{end}", bold=True, size=Pt(11), color=ALC_WHITE)
+    add_formatted_run(p, f"    {activity}", bold=True, size=Pt(11), color=ALC_WHITE)
+    add_formatted_run(p, f"    ({duration})", size=Pt(10), color=ALC_WHITE)
 
-        if block.get("is_break"):
-            details = ""
+    # Line 2: Format | Bloom's | GRR
+    meta_parts = []
+    if format_str:
+        # Shorten format for display
+        fmt_short = format_str.split(".")[0].strip()
+        if len(fmt_short) > 60:
+            fmt_short = fmt_short[:57] + "..."
+        meta_parts.append(fmt_short)
+    if blooms:
+        meta_parts.append(f"Bloom's: {blooms}")
+    if grr:
+        meta_parts.append(f"GRR: {grr}")
 
-        apply_cell_format(table.cell(row_idx, 0), time_str, font_size=Pt(9))
-        apply_cell_format(table.cell(row_idx, 1), activity, bold=True, font_size=Pt(9))
-        apply_cell_format(table.cell(row_idx, 2), details, font_size=Pt(8))
+    if meta_parts:
+        p = cell.add_paragraph()
+        add_formatted_run(p, "  |  ".join(meta_parts), size=Pt(9), color=ALC_WHITE,
+                          italic=True)
+        set_paragraph_spacing(p, before=0, after=2)
 
-    # Set column widths
-    for row in table.rows:
-        row.cells[0].width = Cm(3)
-        row.cells[1].width = Cm(4)
-        row.cells[2].width = Cm(10)
+    # --- BLOCK BODY (content table) ---
+    body_table = doc.add_table(rows=1, cols=1)
+    remove_table_borders(body_table)
+    # Add left border for visual connection
+    set_cell_borders(body_table.cell(0, 0),
+                     left={'sz': 12, 'color': HEADER_BG, 'val': 'single'})
+    body_cell = body_table.cell(0, 0)
+    body_cell.text = ""
 
+    # Parse delivery into teacher/student actions
+    teacher_actions, student_actions = parse_delivery_text(delivery)
+
+    # TEACHER DOES
+    if teacher_actions:
+        p = body_cell.paragraphs[0]
+        add_formatted_run(p, "TEACHER DOES", bold=True, size=Pt(10),
+                          color=ALC_ACCENT_BLUE)
+        set_paragraph_spacing(p, before=6, after=2)
+
+        for action in teacher_actions:
+            p = body_cell.add_paragraph()
+            # Check for quoted teacher scripting
+            quotes = extract_quoted_phrases(action)
+            if quotes:
+                add_formatted_run(p, "\u2022  ", size=Pt(10))
+                # Split around quotes to format them differently
+                remaining = action
+                for q_group in quotes:
+                    q = q_group[0] or q_group[1]
+                    parts = remaining.split(f'\u201c{q}\u201d', 1)
+                    if len(parts) == 1:
+                        parts = remaining.split(f'"{q}"', 1)
+                    if len(parts) > 1:
+                        add_formatted_run(p, parts[0], size=Pt(10))
+                        add_formatted_run(p, f'\u201c{q}\u201d', size=Pt(10), italic=True)
+                        remaining = parts[1] if len(parts) > 1 else ""
+                    else:
+                        add_formatted_run(p, remaining, size=Pt(10))
+                        remaining = ""
+                if remaining:
+                    add_formatted_run(p, remaining, size=Pt(10))
+            else:
+                add_formatted_run(p, f"\u2022  {action}", size=Pt(10))
+            set_paragraph_spacing(p, before=1, after=1)
+
+    # STUDENTS DO
+    if student_actions:
+        p = body_cell.add_paragraph()
+        add_formatted_run(p, "STUDENTS DO", bold=True, size=Pt(10),
+                          color=ALC_ACCENT_BLUE)
+        set_paragraph_spacing(p, before=6, after=2)
+
+        for action in student_actions:
+            p = body_cell.add_paragraph()
+            add_formatted_run(p, f"\u2022  {action}", size=Pt(10))
+            set_paragraph_spacing(p, before=1, after=1)
+
+    # If no student actions were parsed but delivery exists, add a note
+    if delivery and not student_actions and not teacher_actions:
+        p = body_cell.paragraphs[0]
+        add_formatted_run(p, delivery, size=Pt(10))
+
+    # PACING
+    if pacing:
+        p = body_cell.add_paragraph()
+        add_formatted_run(p, "\u23f1 PACING:  ", bold=True, size=Pt(9),
+                          color=ALC_LIGHT_GRAY)
+        add_formatted_run(p, pacing, size=Pt(9), color=ALC_LIGHT_GRAY)
+        set_paragraph_spacing(p, before=6, after=2)
+
+    # TEACHER TIP
+    if instructor_note:
+        # Use a mini-table for the tip background
+        tip_table_in_cell = body_cell.add_paragraph()
+        add_formatted_run(tip_table_in_cell, "\U0001f4a1 TEACHER TIP:  ", bold=True,
+                          size=Pt(9), color=RGBColor(0x80, 0x60, 0x00))
+        add_formatted_run(tip_table_in_cell, instructor_note, size=Pt(9), italic=True,
+                          color=RGBColor(0x80, 0x60, 0x00))
+        set_paragraph_spacing(tip_table_in_cell, before=4, after=2)
+
+    # CHECK FOR UNDERSTANDING
+    cfu = generate_cfu(activity, blooms, delivery)
+    p = body_cell.add_paragraph()
+    add_formatted_run(p, "\u2713 CHECK:  ", bold=True, size=Pt(9),
+                      color=RGBColor(0x2D, 0x7D, 0x2D))
+    add_formatted_run(p, cfu, size=Pt(9), color=RGBColor(0x2D, 0x7D, 0x2D),
+                      italic=True)
+    set_paragraph_spacing(p, before=4, after=6)
+
+    # Small spacer after the block
+    spacer = doc.add_paragraph()
+    set_paragraph_spacing(spacer, before=0, after=2)
+
+
+# ---------------------------------------------------------------------------
+# Session-specific content
+# ---------------------------------------------------------------------------
+
+def get_differentiation_notes(session_num):
+    """Return differentiation notes for each session."""
+    return {
+        1: [
+            ("Struggling learners",
+             "Provide a printed CRAFT template with fill-in-the-blank fields. "
+             "Pair with a stronger partner during tool comparison. "
+             "Offer a simplified prompt to start with."),
+            ("Advanced learners",
+             "Challenge them to chain multiple prompts together. "
+             "Ask them to test edge cases (e.g., prompts that break the model). "
+             "Have them document patterns they notice for the class."),
+            ("Language support",
+             "Allow prompts in students' first language, then translate. "
+             "Provide key vocabulary list (token, temperature, prompt, output) "
+             "with simple definitions."),
+        ],
+        2: [
+            ("Struggling learners",
+             "Provide a fact-checking checklist. Pre-select simpler research topics. "
+             "Pair with a partner for source triangulation exercise."),
+            ("Advanced learners",
+             "Ask them to find a case where AI hallucination is subtle and hard to detect. "
+             "Have them create their own trust rubric criteria."),
+            ("Language support",
+             "Allow use of translation tools alongside AI research tools. "
+             "Provide sentence frames for analysis writing."),
+        ],
+        3: [
+            ("Struggling learners",
+             "Provide a pre-built automation template to modify rather than build from scratch. "
+             "Use a step-by-step visual guide for workflow setup."),
+            ("Advanced learners",
+             "Challenge them to add error handling or branching logic. "
+             "Ask them to document their workflow for a non-technical audience."),
+            ("Language support",
+             "Provide workflow vocabulary in context. "
+             "Allow screen-recording of process instead of written documentation."),
+        ],
+        4: [
+            ("Struggling learners",
+             "Offer a capstone project template with sections pre-labeled. "
+             "Allow a simpler scope (2 AI tools instead of 3+). "
+             "Pair with a peer reviewer who gives encouraging, specific feedback."),
+            ("Advanced learners",
+             "Ask them to present their capstone process, not just the product. "
+             "Challenge them to mentor a struggling peer. "
+             "Have them write a 'Making Of' that could be published."),
+            ("Language support",
+             "Allow bilingual portfolio artifacts. "
+             "Provide rubric in simplified language with examples."),
+        ],
+    }.get(session_num, [
+        ("All learners", "Adjust pacing and grouping based on student needs."),
+    ])
+
+
+def get_exit_ticket_questions(session_num):
+    """Return exit ticket questions tied to SWBATs for each session."""
+    return {
+        1: [
+            "Name the 5 elements of the CRAFT framework and explain why one of them matters most to you.",
+            "Give one specific example of when you'd choose Claude over ChatGPT (or vice versa), and why.",
+            "What is one thing you learned today that changes how you'll use AI going forward?",
+        ],
+        2: [
+            "Describe your process for fact-checking an AI-generated claim. What steps do you take?",
+            "What is source triangulation, and why does using multiple AI tools matter?",
+            "Rate your confidence (1-5) in distinguishing AI-generated text that needs human editing.",
+        ],
+        3: [
+            "Draw or describe a simple automation workflow with a trigger, an action, and an output.",
+            "What is one task in your daily work that could be automated? Sketch the workflow.",
+            "Explain MCP (Model Context Protocol) in one sentence to a non-technical colleague.",
+        ],
+        4: [
+            "What problem does your capstone project solve, and which AI tools did you use?",
+            "What is one thing AI did well in your project, and one thing you had to fix or override?",
+            "Name one specific, time-bound action you will take in the next 2 weeks to use AI at work.",
+        ],
+    }.get(session_num, [
+        "What is the most important thing you learned today?",
+        "What question do you still have?",
+    ])
+
+
+# ---------------------------------------------------------------------------
+# Main
+# ---------------------------------------------------------------------------
 
 def main():
     OUTPUT_DIR.mkdir(exist_ok=True)
@@ -309,13 +711,15 @@ def main():
         sys.exit(1)
 
     if not TEMPLATE_PATH.exists():
-        print(f"Error: Template not found: {TEMPLATE_PATH}")
-        sys.exit(1)
+        print(f"Warning: Template not found: {TEMPLATE_PATH}. Using default styles.")
 
     with open(PARSED_PATH) as f:
         curriculum = json.load(f)
 
-    template_doc = Document(TEMPLATE_PATH)
+    # Load template for style reference (optional)
+    template_doc = None
+    if TEMPLATE_PATH.exists():
+        template_doc = Document(TEMPLATE_PATH)
 
     for session in curriculum["sessions"]:
         num = session["session_num"]
