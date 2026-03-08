@@ -56,7 +56,8 @@ DURATION_RE = re.compile(r"\(?\s*(\d+)\s*min(?:ute)?s?\s*\)?", re.IGNORECASE)
 
 def _heading_level(paragraph) -> int:
     """Return the heading level (1-9) or 0 if not a heading."""
-    style_name = (paragraph.style.name or "").lower()
+    style_name = (paragraph.style.name if paragraph.style else "") or ""
+    style_name = style_name.lower()
     if style_name.startswith("heading"):
         try:
             return int(style_name.replace("heading", "").strip())

@@ -1,0 +1,728 @@
+[
+  {
+    "session_number": 1,
+    "title": "“See It & Question It”",
+    "subtitle": "",
+    "swbats": [
+      "Session 1 Contribution",
+      "By the end of Session 1, students should be able to:",
+      "Identify misleading charts and explain what makes a visualization trustworthy vs. deceptive (LO #1, #5)",
+      "Use 4 spreadsheet functions (SORT, FILTER, SUMIF/COUNTIF) to answer business questions (LO #2)",
+      "Clean a messy dataset by removing duplicates, fixing formatting, and handling blanks (LO #2)",
+      "Build 5 pivot tables answering different analytical questions (LO #4)",
+      "Create 3 appropriate chart types and evaluate which tells the story best (LO #1, #3)",
+      "Write a 3-sentence data brief in English: finding + significance + recommendation (LO #6, #7)"
+    ],
+    "schedule_blocks": [
+      {
+        "time": "10:00–10:20",
+        "activity_name": "Welcome + “You Already Use Data”",
+        "duration": 20,
+        "format": "Whole Class",
+        "delivery_instructions": "Format: Full group, interactive. Bloom’s: Hook Delivery: Exchange rates, price comparisons, Instagram analytics, sports stats—prove students are already data-literate. Poll: “Who’s been asked to ‘look at the data’ at work and had no idea where to start?” Most hands go up. Reframe: “This bootcamp formalizes something you already do.” The goal is to disarm anxiety before it activates. ",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "",
+        "activity_name": "Pacing: Examples + discussion =. Poll + responses =. Reframe + bootcamp overview =. Logistics =.",
+        "duration": 8,
+        "format": "Discussion",
+        "delivery_instructions": "",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "10:20–10:50",
+        "activity_name": "“What’s Wrong with This Chart?”",
+        "duration": 30,
+        "format": "Whole Class",
+        "delivery_instructions": "Format: Full group, interactive voting. Bloom’s: Evaluate Delivery: 8 real-world visualizations—half honest, half misleading (truncated axes, cherry-picked timeframes, missing context, correlation presented as causation). Students vote: trustworthy or misleading? Deconstruct each. This teaches the critical eye before any tools. Key message: the ability to spot a bad chart is more valuable than the ability to make a good one. ",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "",
+        "activity_name": "Pacing: 8 charts ×each (show, vote, deconstruct) =. Setup + intro =. Wrap-up key principles =.",
+        "duration": 3,
+        "format": "Whole Class",
+        "delivery_instructions": "",
+        "pacing": "",
+        "instructor_notes": "Instructor note: Pre-prepare the 8 charts with regional examples where possible (Armenian GDP charts from news, Moldovan election data, Georgian tourism stats). Familiar data makes the exercise feel relevant, not academic. "
+      },
+      {
+        "time": "10:50–11:15",
+        "activity_name": "Data Literacy Framework + Five Questions",
+        "duration": 25,
+        "format": "Whole Class",
+        "delivery_instructions": "Format: Interactive lecture + exercise. Bloom’s: Understand ",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "1:45–2:15",
+        "activity_name": "Data Cleaning — The Ugly Truth",
+        "duration": 30,
+        "format": "Whole Class",
+        "delivery_instructions": "Format: Hands-on, guided. Bloom’s: Apply Delivery: Duplicates, blanks, inconsistent formatting, outliers, typos. Students clean a deliberately messy version of their dataset. Teach each cleaning technique by encountering the problem: “Why does this SUMIF return the wrong number? Because ‘Tbilisi’ and ‘ Tbilisi’ (with a space) are different values.” This is the work nobody talks about but everyone has to do. ",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "",
+        "activity_name": "Pacing: Intro to common problems =. Guided cleaning walkthrough =. Students clean their own dataset =. Verification check =.",
+        "duration": 5,
+        "format": "Whole Class",
+        "delivery_instructions": "",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "2:15–3:00",
+        "activity_name": "Pivot Table Mastery  |✆",
+        "duration": 45,
+        "format": "Whole Class",
+        "delivery_instructions": "",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "3:00–3:15",
+        "activity_name": "Break",
+        "duration": 15,
+        "format": "Whole Class",
+        "delivery_instructions": "",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "3:15–3:55",
+        "activity_name": "Visualization Fundamentals",
+        "duration": 40,
+        "format": "Whole Class",
+        "delivery_instructions": "Format: Hands-on + peer review. Bloom’s: Apply + Evaluate Delivery: When to use bar vs. line vs. scatter (rule: almost never use a pie chart). Design principles: label axes, no 3D, intentional colors, most important number in the title. Students create 3 charts from their pivot table data. Peer comparison: which tells the story best? ",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "",
+        "activity_name": "Pacing: Teach principles + chart type selection =. Students create 3 charts =. Peer comparison (swap screens, rate 1–5 on clarity) =. Transition =.",
+        "duration": 12,
+        "format": "Whole Class",
+        "delivery_instructions": "",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "3:55–4:25",
+        "activity_name": "AI-Assisted Pattern Spotting",
+        "duration": 30,
+        "format": "Whole Class",
+        "delivery_instructions": "Format: Hands-on, individual. Bloom’s: Analyze + Evaluate Delivery: Upload cleaned data to Claude or ChatGPT. Ask: “What are the 3 most interesting patterns in this data?” Compare AI insights to your own pivot table findings. Where was AI helpful? Where was it wrong or superficial? Document discrepancies. Critical skill: knowing when to trust AI’s analysis and when to verify manually. ",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "",
+        "activity_name": "Pacing: Upload + first prompt =. Compare AI vs. own findings =. Document discrepancies =. 2–3 students share a discrepancy =.",
+        "duration": 5,
+        "format": "Whole Class",
+        "delivery_instructions": "",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "4:25–4:45",
+        "activity_name": "Day 1 Data Brief  |✆",
+        "duration": 20,
+        "format": "Whole Class",
+        "delivery_instructions": "Format: Individual writing + pair delivery. Bloom’s: Create Delivery: 3-sentence summary of one finding in English: “The data shows [what happened]. This matters because [why]. I recommend [what to do next].” Read aloud to partner. Start the Data English Playbook with Session 1 vocabulary. ",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "",
+        "activity_name": "Pacing: Write 3-sentence brief =. Read aloud to partner + feedback =. Start Playbook (10 terms) =. Transition =.",
+        "duration": 7,
+        "format": "Whole Class",
+        "delivery_instructions": "",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "4:45–5:15",
+        "activity_name": "Day 1 Wrap",
+        "duration": 30,
+        "format": "Whole Class",
+        "delivery_instructions": "",
+        "pacing": "",
+        "instructor_notes": ""
+      }
+    ],
+    "evidence_statements": [
+      "Delivery: Four levels: Read → Work → Analyze → Communicate. Five questions every analysis starts with: What happened? Why? What will happen? What should we do? How will we know? Practice: given a business scenario, which question are you answering? Self-assessment: where are you on the four levels right now?",
+      "Pacing: Teach framework = 8 min. Five questions = 5 min. Practice exercise = 7 min. Self-assessment = 3 min. Transition = 2 min.",
+      "11:15–11:30  |  Break  |  15 min",
+      "11:30–12:05  |  Real Data, Real Questions  |  35 min ✆",
+      "Format: Small groups (4–5 students).",
+      "Bloom’s: Analyze",
+      "Delivery: Distribute 3 region-specific datasets (local e-commerce sales, NGO beneficiary tracking, university enrollment). Groups spend 20 minutes with raw data. Don’t analyze yet—just look. What do you notice? What questions does it raise? What’s confusing? What’s missing? Report back to the full group. This is the first time students interact with real data as curious investigators, not anxious students.",
+      "Pacing: Distribute datasets + orient = 5 min. Exploration = 20 min. Report-back: 3–4 groups × 2 min = 6–8 min. Transition = 2 min.",
+      "12:05–12:45  |  Spreadsheet Power-Up (4 Functions)  |  40 min",
+      "Format: Hands-on, follow-along.",
+      "Bloom’s: Apply",
+      "Delivery: SORT, FILTER, SUMIF/COUNTIF. Each taught by answering a real question from the dataset: “How much revenue came from repeat customers?” “Which region had the highest dropout rate?” Follow along in Google Sheets. VLOOKUP is deliberately saved for Session 2 to reduce cognitive load.",
+      "Pacing: SORT (teach + follow along) = 8 min. FILTER = 8 min. SUMIF/COUNTIF = 10 min (slightly more complex). Free practice with own questions = 8 min. Troubleshooting buffer = 6 min.",
+      "Instructor note: Budget for 3–5 students getting stuck at each step. Have the formula projected on screen AND written on a physical whiteboard. Walk the room during follow-along. If possible, assign a TA for groups >15.",
+      "12:45–1:45  |  Lunch  |  60 min",
+      "Delivery: Data confidence self-assessment (1–5 across 4 dimensions: reading data, cleaning data, analyzing data, communicating data). This is the baseline. Mid-week assignment preview: walk through the 5-step structured assignment on screen. Emphasize: you must use real professional data, not public samples. Show the documentation template.",
+      "Pacing: Self-assessment = 5 min. 2–3 students share reflections = 5 min. Mid-week assignment walkthrough = 12 min. Questions + logistics = 8 min.",
+      "5:15–5:45  |  Buffer / Overflow  |  30 min ✆",
+      "Evidence the instructor looks for: Students build pivot tables without step-by-step guidance by the 4th and 5th tables. Chart peer reviews identify specific design issues (not just “looks good”). Data briefs lead with the finding, not the methodology. AI comparison documents identify at least one AI error or oversimplification."
+    ]
+  },
+  {
+    "session_number": 2,
+    "title": "“Dashboard It & Tell It”",
+    "subtitle": "",
+    "swbats": [
+      "Session 2 Contribution",
+      "By the end of Session 2, students should be able to:",
+      "Use VLOOKUP, INDEX-MATCH, and conditional formatting for analytical questions (LO #2)",
+      "Build an interactive dashboard in Looker Studio that passes the 5-second test (LO #3)",
+      "Tell a data story using the Setup→Conflict→Resolution narrative arc (LO #7)",
+      "Write a 1-page data-driven memo with a recommendation that an executive can act on (LO #6)",
+      "Identify 5 common data fallacies and distinguish correlation from causation (LO #5)",
+      "Explain basic GDPR principles relevant to data they collect and analyze (LO #9)"
+    ],
+    "schedule_blocks": [
+      {
+        "time": "10:00–10:15",
+        "activity_name": "Data Challenge (Retrieval)",
+        "duration": 15,
+        "format": "Whole Class",
+        "delivery_instructions": "Delivery: Unfamiliar mini-dataset. Build a pivot table + chart + 1-sentence English insight in 10 minutes. No notes. This is the hardest retrieval exercise in any ALC bootcamp because it tests tool mechanics, analytical reasoning, and English communication simultaneously. ",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "10:15–10:50",
+        "activity_name": "Advanced Spreadsheet Functions",
+        "duration": 35,
+        "format": "Whole Class",
+        "delivery_instructions": "Format: Hands-on, follow-along. Bloom’s: Apply Delivery: VLOOKUP, INDEX-MATCH, conditional formatting. Each taught by answering a business question. VLOOKUP is notoriously confusing—teach it slowly with a visual diagram of how it searches. INDEX-MATCH presented as the “upgrade” for when VLOOKUP breaks. Conditional formatting: highlight cells that meet criteria (e.g., all sales below target in red). ",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "",
+        "activity_name": "Pacing: VLOOKUP (teach with diagram + follow along) =. INDEX-MATCH (teach as upgrade + practice) =. Conditional formatting =. Troubleshooting buffer =.",
+        "duration": 12,
+        "format": "Guided Practice",
+        "delivery_instructions": "",
+        "pacing": "",
+        "instructor_notes": "Instructor note: VLOOKUP will confuse 40–50% of the room. Use a physical analogy: “It’s like looking up a word in a dictionary—you search column A and return what’s in column B.” Have the syntax projected: =VLOOKUP(what you’re looking for, where to look, which column to return, FALSE). Walk the room during practice. "
+      },
+      {
+        "time": "10:50–11:30",
+        "activity_name": "From Spreadsheet to Dashboard  |✆",
+        "duration": 40,
+        "format": "Whole Class",
+        "delivery_instructions": "Format: Instructor-led demo + guided follow-along. Bloom’s: Apply Delivery: Part 1 (12 min): Looker Studio orientation. Everyone opens Looker Studio. Tour the interface: data sources panel, chart types, filter controls, sharing settings. This is pure orientation—no building yet. Part 2 (25 min): Build a dashboard together from scratch. Connect the cleaned dataset from Session 1. Add one bar chart, one line chart, one scorecard, and one filter. Instructor does each step, students follow. Part 3 (3 min): Save and verify everyone has a working dashboard. ",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "",
+        "activity_name": "Pacing: Interface orientation =. Guided build =. Save + verify =.",
+        "duration": 12,
+        "format": "Whole Class",
+        "delivery_instructions": "",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "11:30–11:45",
+        "activity_name": "Break",
+        "duration": 15,
+        "format": "Whole Class",
+        "delivery_instructions": "",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "11:45–12:10",
+        "activity_name": "Dashboard Design Principles",
+        "duration": 25,
+        "format": "Whole Class",
+        "delivery_instructions": "Format: Interactive lecture. Bloom’s: Understand + Evaluate Delivery: The “5-second test”: can someone understand the main message in 5 seconds? Visual hierarchy, “so what?” headlines (not “Sales by Region” but “Region X outperforms all others by 40%”), filter placement, color coding. Operational dashboards (daily monitoring) vs. strategic dashboards (quarterly insight). Insert interaction at midpoint: students look at their own dashboard and identify one headline they should rewrite. ",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "",
+        "activity_name": "Pacing: Design principles =. Examples (good vs. bad dashboards) =. Interaction: rewrite one headline on own dashboard =. Operational vs. strategic =. Transition =.",
+        "duration": 10,
+        "format": "Whole Class",
+        "delivery_instructions": "",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "12:10–12:50",
+        "activity_name": "Build Your Dashboard",
+        "duration": 40,
+        "format": "Whole Class",
+        "delivery_instructions": "Format: Individual, hands-on. Bloom’s: Create Delivery: Complete dashboard from your dataset. Minimum 4 visualizations, 1 filter, clear “so what?” headline per section. Focus: clarity over complexity. A simple dashboard answering a real question beats a complex one impressing nobody. ",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "",
+        "activity_name": "Pacing: Build =. Save + prepare for gallery walk =.",
+        "duration": 35,
+        "format": "Whole Class",
+        "delivery_instructions": "",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "12:50–1:10",
+        "activity_name": "Dashboard Gallery Walk + 5-Second Test  |✆",
+        "duration": 20,
+        "format": "Whole Class",
+        "delivery_instructions": "",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "",
+        "activity_name": "Pacing: Setup + explain rotation =. 5 stations × 3.= 17.. Transition to lunch = 0..",
+        "duration": 2,
+        "format": "Whole Class",
+        "delivery_instructions": "",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "1:10–2:10",
+        "activity_name": "Lunch",
+        "duration": 60,
+        "format": "Whole Class",
+        "delivery_instructions": "",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "2:10–2:40",
+        "activity_name": "Data Storytelling: The Narrative Arc",
+        "duration": 30,
+        "format": "Whole Class",
+        "delivery_instructions": "Format: Interactive lecture + individual outlining. Bloom’s: Analyze + Create ",
+        "pacing": "",
+        "instructor_notes": ""
+      }
+    ],
+    "evidence_statements": [
+      "Delivery: Data doesn’t speak for itself. Framework: Setup (context), Conflict (problem or surprise the data reveals), Resolution (what to do). Same structure as any story—but built from evidence. Students outline a data story from their dashboard using the framework.",
+      "Pacing: Teach framework + example = 12 min. Students outline data story = 12 min. 2 students share outlines = 4 min. Transition = 2 min.",
+      "2:40–3:10  |  “Explain It Like I’m the CEO”  |  30 min",
+      "Format: Pairs, role-play.",
+      "Bloom’s: Apply + Evaluate",
+      "Delivery: Present findings to a “busy executive” who interrupts: “So what?” / “What do you want me to do?” / “I have 2 minutes.” Adapt: cut detail, lead with insight, end with the ask. Switch roles. Debrief: What got cut? What survived? That’s what matters.",
+      "Pacing: Setup + rules = 3 min. Partner A presents + CEO interruptions = 5 min. Feedback = 2 min. Switch roles = 5 min + 2 min feedback. New partner, faster round = 8 min. Debrief = 5 min.",
+      "3:10–3:25  |  Break  |  15 min",
+      "3:25–4:05  |  The Data-Driven Memo  |  40 min",
+      "Format: Mini-lecture + individual writing.",
+      "Bloom’s: Create",
+      "Delivery: One-line recommendation at top. 3–4 supporting data points with charts. Risks and limitations. Next steps. Not a report—a decision document. The reader knows what to do from the first paragraph. Students write a 1-page memo in English.",
+      "Pacing: Teach structure + before/after example = 10 min. Students write memo = 25 min (dual-skill buffer for English writing). Quick pair check (“Can you act on this from the first paragraph?”) = 5 min.",
+      "4:05–4:20  |  Data Fallacy Spotter  |  15 min",
+      "Format: Full group, rapid exercise.",
+      "Bloom’s: Evaluate",
+      "Delivery: Beyond correlation/causation: survivorship bias, Simpson’s paradox, base rate neglect, anchoring. 5 examples, students identify the fallacy. Fast-paced. The critical thinking that separates data literacy from data naivety.",
+      "Pacing: 5 examples × 2.5 min each (present + vote + explain) = 12.5 min. Wrap-up = 2.5 min.",
+      "4:20–4:50  |  Correlation vs. Causation Workshop  |  30 min",
+      "Format: Group exercise.",
+      "Bloom’s: Evaluate",
+      "Delivery: 5 spurious correlations (funny) + 5 real business examples where correlation was mistaken for causation (and it cost money). Students analyze 3 claims from their own data: correlation or causation? How would you test it?",
+      "Pacing: Spurious correlations (fun, fast) = 5 min. Real business examples = 8 min. Students analyze 3 own-data claims = 10 min. Discussion = 5 min. Transition = 2 min.",
+      "4:50–5:10  |  GDPR & Data Privacy Basics  |  20 min",
+      "Format: Interactive lecture.",
+      "Bloom’s: Understand",
+      "Delivery: What GDPR means for data you collect and analyze. What can you share? What must you anonymize? When do you need consent? Essential for Moldova (EU accession) and anyone working with EU-funded projects.",
+      "Pacing: Core GDPR principles = 10 min. Practical scenarios (“Can you put this in your dashboard?”) = 7 min. Q&A = 3 min.",
+      "5:10–5:45  |  Day 2 Wrap + Mid-Week Assignment  |  35 min ✆",
+      "Pacing: Data confidence self-assessment (compare to Day 1) = 5 min. 2–3 students share growth observations = 5 min. Mid-week assignment walkthrough (5 steps, with template on screen) = 15 min. Questions + logistics = 10 min."
+    ]
+  },
+  {
+    "session_number": 3,
+    "title": "“Advanced Analysis & Persuasive Presentation”",
+    "subtitle": "",
+    "swbats": [
+      "Session 3 Contribution",
+      "By the end of Session 3, students should be able to:",
+      "Add context to data using benchmarking, trending, and segmentation (LO #4)",
+      "Build a 6-month forecast using accessible methods (LO #4)",
+      "Define actionable KPIs that distinguish vanity from value (LO #4)",
+      "Present data findings under adversarial stakeholder questioning (LO #7)",
+      "Read and write basic SQL queries (LO #2 stretch)",
+      "Write SMART indicators for EU-style reporting (LO #6)"
+    ],
+    "schedule_blocks": [
+      {
+        "time": "10:00–10:15",
+        "activity_name": "Data Challenge (Retrieval)",
+        "duration": 15,
+        "format": "Whole Class",
+        "delivery_instructions": "Delivery: New unfamiliar dataset. Pivot table + chart + English insight in 10 min. Compare to Session 2 challenge: speed and quality should both be visibly higher. The week gap makes this retrieval sprint especially important. ",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "10:15–10:50",
+        "activity_name": "“In the Wild” Debrief",
+        "duration": 35,
+        "format": "Whole Class",
+        "delivery_instructions": "",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "",
+        "activity_name": "Format: Full group,each.",
+        "duration": 2,
+        "format": "Group Work",
+        "delivery_instructions": "Bloom’s: Analyze + Evaluate Delivery: Students share mid-week projects. What data did you find? What story did it tell? What was hardest? With 15–18 students at 2 min each = 30–36 min. 35 min WORKS for this cohort size but requires strict time enforcement. ",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "",
+        "activity_name": "Pacing: 15–18 students ×= 30–. Instructor commentary on patterns = 2–. Keep a visible timer. Students who go overare cut.",
+        "duration": 2,
+        "format": "Whole Class",
+        "delivery_instructions": "",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "10:50–11:20",
+        "activity_name": "Benchmarking & Context",
+        "duration": 30,
+        "format": "Whole Class",
+        "delivery_instructions": "Delivery: A number means nothing without context. Benchmarking (vs. industry/historical averages), trending (getting better or worse?), segmentation (does the average hide important differences?). Students add context to their mid-week data: is this number good or bad? Compared to what? ",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "11:20–11:50",
+        "activity_name": "Forecasting for Non-Statisticians",
+        "duration": 30,
+        "format": "Whole Class",
+        "delivery_instructions": "Format: Hands-on. Bloom’s: Apply + Analyze Delivery: 3 accessible methods: trend extrapolation, scenario modeling (best/worst/most likely), unit economics projection. Students build a 6-month forecast in Google Sheets. Provide a template with formulas pre-built for the first method; students adjust inputs for their data and build the second method independently. ",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "",
+        "activity_name": "Pacing: Teach 3 methods =. Guided build using template (trend extrapolation) =. Independent build (scenario modeling) =. Transition =.",
+        "duration": 10,
+        "format": "Whole Class",
+        "delivery_instructions": "",
+        "pacing": "",
+        "instructor_notes": "Instructor note: The template is essential. Do not expect students to build forecast formulas from scratch. Provide a pre-built spreadsheet where they change the assumptions and see the projections update automatically. "
+      },
+      {
+        "time": "11:50–12:05",
+        "activity_name": "Break",
+        "duration": 15,
+        "format": "Whole Class",
+        "delivery_instructions": "",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "12:05–12:35",
+        "activity_name": "KPI Workshop",
+        "duration": 30,
+        "format": "Whole Class",
+        "delivery_instructions": "Delivery: Vanity metrics vs. actionable metrics. A good KPI: specific, measurable, matters for the decision, can be influenced by the team. Students define 3 KPIs for a real project in their context. ",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "12:35–1:05",
+        "activity_name": "Mock Stakeholder Panel — Round 1  |✆",
+        "duration": 30,
+        "format": "Whole Class",
+        "delivery_instructions": "Format: Presentations + adversarial Q&A. Bloom’s: Create + Evaluate Delivery: 2-minute “executive version” of data story: headline, 1 chart, recommendation. Panel challenges: “Where did you get this data?” “What are you not showing me?” “How confident are you?” 8–9 students present. ",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "",
+        "activity_name": "Pacing: 8–9 students × 3.pitch +Q&A + 30 sec transition) = 28–31..",
+        "duration": 5,
+        "format": "Whole Class",
+        "delivery_instructions": "",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "1:05–2:00",
+        "activity_name": "Lunch",
+        "duration": 55,
+        "format": "Whole Class",
+        "delivery_instructions": "",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "2:00–2:25",
+        "activity_name": "Presentation Autopsy",
+        "duration": 25,
+        "format": "Whole Class",
+        "delivery_instructions": "Delivery: Group analyzes Round 1. Common mistakes: too much data, not enough context, reading the chart aloud, the deadly “as you can see…” Concrete fixes for each. ",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "2:25–3:05",
+        "activity_name": "Mock Stakeholder Panel — Round 2",
+        "duration": 40,
+        "format": "Whole Class",
+        "delivery_instructions": "Format: Same format. Remaining 9–10 students. Bloom’s: Create + Evaluate Delivery: Same format. Every student has now presented and defended data under adversarial questioning at least once. Round 2 benefits from the Presentation Autopsy—students who watched Round 1 and learned from the analysis have a significant advantage. ",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "",
+        "activity_name": "Pacing: 9–10 students × 3.= 31.5–. Buffer = 5–.",
+        "duration": 5,
+        "format": "Whole Class",
+        "delivery_instructions": "",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "3:05–3:20",
+        "activity_name": "Break",
+        "duration": 15,
+        "format": "Whole Class",
+        "delivery_instructions": "",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "3:20–3:50",
+        "activity_name": "SQL Taster",
+        "duration": 30,
+        "format": "Whole Class",
+        "delivery_instructions": "Delivery: 30 minutes in a browser-based SQL playground. Not proficiency—demystification. Students run 3 basic queries: SELECT, WHERE, GROUP BY. They now understand what SQL does, where it lives, and why their data team speaks it. They can communicate with technical colleagues about data. ",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "3:50–4:20",
+        "activity_name": "EU/International Reporting Frameworks",
+        "duration": 30,
+        "format": "Whole Class",
+        "delivery_instructions": "Delivery: How EU-funded projects report impact data. Logical framework matrix. Writing SMART indicators that international evaluators accept. Students write 3 indicators for a project scenario. Differentiator no other data bootcamp offers. ",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "4:20–4:45",
+        "activity_name": "AI + Data Literacy",
+        "duration": 25,
+        "format": "Whole Class",
+        "delivery_instructions": "Delivery: How AI changes what “data literacy” means. Students who can prompt AI to analyze data need different skills: knowing what questions to ask, validating answers, spotting when AI hallucinates patterns. Quick exercise: same dataset, AI analysis vs. manual. Where do they diverge? ",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "4:45–5:15",
+        "activity_name": "Capstone Kickoff",
+        "duration": 30,
+        "format": "Whole Class",
+        "delivery_instructions": "Delivery: Present 4 capstone options. Students choose, form teams of 2–3 (recommended for collaborative dashboard work), begin planning. Provide a capstone planning template. ",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "5:15–5:30",
+        "activity_name": "Revised Dashboard Sprint  |✆",
+        "duration": 15,
+        "format": "Whole Class",
+        "delivery_instructions": "TIMING ADJUSTMENT: Reduced from 20 to 15 min. 15 min is sufficient for focused improvements (fix one misleading chart, strengthen one headline, add one contextual note). Students know Looker Studio well by now—orientation time is zero. ",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "5:30–5:45",
+        "activity_name": "Day 3 Wrap  |✆",
+        "duration": 15,
+        "format": "Whole Class",
+        "delivery_instructions": "",
+        "pacing": "",
+        "instructor_notes": ""
+      }
+    ],
+    "evidence_statements": [
+      "TIMING ADJUSTMENT: Expanded from 10 to 15 min. 10 min was too tight for self-assessment + Day 1 comparison + evening planning."
+    ]
+  },
+  {
+    "session_number": 4,
+    "title": "“Ship It & Own It”",
+    "subtitle": "Pacing Overview",
+    "swbats": [
+      "Session 4 Contribution",
+      "By the end of Session 4, students should be able to:",
+      "Present a complete data analysis to a real audience with confidence in English (LO #7)",
+      "Defend methodology and conclusions under live questioning (LO #7)",
+      "Assemble a professional data portfolio demonstrating the full analysis pipeline (LO #3, #6)",
+      "Articulate their data literacy growth from Day 1 to Day 4 (metacognition)",
+      "Position data skills professionally on LinkedIn (career readiness)",
+      "Cumulative Progression",
+      "Summary of All Timing Adjustments",
+      "Total bootcamp duration standardized to 28 contact hours across 4 sessions. Sessions 1–2 extended from 5:30 to 5:45. Session 1 gains a 30-minute buffer block for tool troubleshooting. All other adjustments are internal rebalancing."
+    ],
+    "schedule_blocks": [
+      {
+        "time": "10:00–10:15",
+        "activity_name": "Data Challenge (Final)",
+        "duration": 15,
+        "format": "Whole Class",
+        "delivery_instructions": "",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "",
+        "activity_name": "Delivery: Final retrieval challenge. Full analysis: pivot table, chart, 3-sentence English brief in. Compare to Days 2 and 3. Growth should be visible.",
+        "duration": 10,
+        "format": "Whole Class",
+        "delivery_instructions": "",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "10:15–11:15",
+        "activity_name": "Capstone Build Sprint",
+        "duration": 60,
+        "format": "Whole Class",
+        "delivery_instructions": "Delivery: Protected build time. Instructor rotates 1-on-1: analysis quality, dashboard clarity, memo recommendation strength, English presentation delivery. Triage students who are behind: help them scope down to something complete. ",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "11:15–11:45",
+        "activity_name": "“Data for Your LinkedIn”",
+        "duration": 30,
+        "format": "Whole Class",
+        "delivery_instructions": "Delivery: How to position data literacy professionally: profile language, describing data projects in interview-friendly terms, building a public portfolio of dashboards. Students rewrite LinkedIn summary to include data skills in English. ",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "11:45–12:00",
+        "activity_name": "Break",
+        "duration": 15,
+        "format": "Whole Class",
+        "delivery_instructions": "",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "12:00–12:30",
+        "activity_name": "Structured Peer Review",
+        "duration": 30,
+        "format": "Whole Class",
+        "delivery_instructions": "Delivery: Rubric separates 3 dimensions: analytical quality (methodology sound? conclusions supported?), visualization quality (5-second test?), English narrative (memo clear enough for executive to act on?). ",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "12:30–1:00",
+        "activity_name": "Final Polish",
+        "duration": 30,
+        "format": "Whole Class",
+        "delivery_instructions": "",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "",
+        "activity_name": "Delivery: Incorporate feedback. Rehearse team presentation.max per team, timer enforced.",
+        "duration": 5,
+        "format": "Whole Class",
+        "delivery_instructions": "",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "1:00–2:00",
+        "activity_name": "Lunch",
+        "duration": 60,
+        "format": "Whole Class",
+        "delivery_instructions": "",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "2:00–2:30",
+        "activity_name": "Portfolio Assembly  |✆",
+        "duration": 30,
+        "format": "Whole Class",
+        "delivery_instructions": "",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "2:30–3:10",
+        "activity_name": "Before & After Documentation  |✆",
+        "duration": 40,
+        "format": "Whole Class",
+        "delivery_instructions": "Delivery: 300-word reflection in English: what dataset you used, what questions you asked, what the data told you, what you recommended, what tools you used, what you’d do differently. Compare Day 1 Data Brief (3 sentences) to today’s analysis—the growth in analytical depth and English fluency should be visible. ",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "3:10–3:25",
+        "activity_name": "Break",
+        "duration": 15,
+        "format": "Whole Class",
+        "delivery_instructions": "",
+        "pacing": "",
+        "instructor_notes": ""
+      },
+      {
+        "time": "3:25–5:00",
+        "activity_name": "Capstone Showcase",
+        "duration": 95,
+        "format": "Whole Class",
+        "delivery_instructions": "Format: Team presentations + Q&A to real audience. Bloom’s: Create + Evaluate Delivery: Each team presents (5 min + 3 min Q&A + 2 min transition = 10 min per team). Invite real guests: team leads, finance directors, NGO program managers, data professionals, EU project coordinators. Real questions about methodology, conclusions, recommendations. In English. With 6–9 teams, this is 60–90 min, leaving 5–35 min buffer. ",
+        "pacing": "",
+        "instructor_notes": "Instructor note: The guest Q&A is where the bootcamp’s value becomes tangible. A finance director asking “How did you calculate this forecast?” and a student answering confidently in English—that’s the outcome the bootcamp promised. "
+      },
+      {
+        "time": "5:00–5:15",
+        "activity_name": "“What’s Next”",
+        "duration": 15,
+        "format": "Whole Class",
+        "delivery_instructions": "Delivery: 3 commitments: one data question you’ll answer at work this month, one dashboard you’ll build for your team, one data skill you’ll learn next (SQL? Python? Advanced visualization?). Share with accountability partner. ",
+        "pacing": "",
+        "instructor_notes": ""
+      }
+    ],
+    "evidence_statements": [
+      "5:15–5:35  |  Final Self-Assessment + Retrospective  |  20 min",
+      "Delivery: Data confidence rating (1–5 across 4 dimensions). Compare Day 1 → Day 4. Retrospective: what changed about how you see numbers? Anonymous feedback form.",
+      "5:35–5:45  |  Certificates + Close  |  10 min",
+      "Delivery: Certificates. Group photo. Alumni community setup—cross-country network for monthly data challenges and shared datasets. Introduce 90-day retention plan with monthly data jams."
+    ]
+  }
+]
