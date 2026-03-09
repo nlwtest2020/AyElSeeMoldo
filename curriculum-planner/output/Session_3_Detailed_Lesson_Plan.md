@@ -1,7 +1,7 @@
-# SESSION 3: "Automate & Strategize"
+# SESSION 3: "Advanced Analysis & Persuasive Presentation"
 
 **Saturday, Weekend 2 | 10:00 AM – 5:45 PM**
-**Theme:** Workflow automation, agentic AI concepts, and career positioning.
+**Theme:** Advanced techniques, real-world complexity, and presenting data under adversarial questioning.
 
 ---
 
@@ -9,28 +9,30 @@
 
 By the end of this session, students will be able to:
 
-1. **Map** their personal workflow and identify specific automation opportunities
-2. **Build** a working automation using Make or Zapier
-3. **Explain** agentic AI and MCP at a conceptual level to a non-technical person
-4. **Analyze** job postings for AI-replaceable vs. human-essential tasks
-5. **Articulate** their unique value proposition as an AI-skilled professional
-6. **Teach** an AI concept to a partner clearly and accurately
+1. **Add** context to data using benchmarking, trending, and segmentation (Bloom's: Analyze)
+2. **Build** a 6-month forecast using accessible methods (Bloom's: Apply → Create)
+3. **Define** actionable KPIs that distinguish vanity from value (Bloom's: Evaluate)
+4. **Present** data findings under adversarial stakeholder questioning (Bloom's: Evaluate)
+5. **Read and write** basic SQL queries (Bloom's: Apply — stretch goal)
+6. **Write** SMART indicators for EU-style reporting (Bloom's: Create)
 
 ---
 
 ## Materials & Setup
 
-- Laptop per student (with WiFi)
-- Accounts pre-created: Make.com (https://www.make.com), Google account
-- Pre-prepared concept cards for Teach-Back (print + cut)
-- Printed workflow audit template (1 per student)
-- Printed career strategy template (1 per student)
-- Pre-prepared test emails (for automation exercise)
-- Template Google Sheet (shared, pre-created)
-- 3 printed scenario briefs (for Workflow Design Challenge)
+- Laptops with WiFi (Google Sheets + Looker Studio access)
+- Students' mid-week assignment datasets and dashboards (brought from home)
+- Pre-prepared mini-dataset for the Data Challenge (new, unfamiliar)
+- Forecasting template in Google Sheets (pre-built with formulas — students change assumptions)
+- Browser-based SQL playground: SQLite Online (https://sqliteonline.com) or DB Fiddle (https://www.db-fiddle.com)
+- Pre-loaded SQL database with a simple 3-table dataset (customers, orders, products)
+- Printed KPI worksheet (1 per student)
+- Printed SMART indicator template (1 per student)
+- Printed capstone planning template (1 per team)
+- 4 capstone option briefs (printed, 1 set per student)
 - Slides deck (Session 3)
-- Whiteboard + markers, large sticky notes (for workflow diagrams)
-- Timer
+- Timer (visible — critical for the stakeholder panels)
+- Whiteboard + markers
 
 ---
 
@@ -38,826 +40,905 @@ By the end of this session, students will be able to:
 
 | Method | Description |
 |--------|-------------|
-| **Formative** | Working automations, workflow audit completeness, teach-back partner feedback |
-| **Self-Assessment** | Confidence rating (1–5) per learning target at close |
-| **Exit Ticket** | See closing section |
-| **Evidence** | Working automations trigger and complete correctly. Career strategy profiles contain specific, actionable commitments. Teach-back partners can answer follow-up questions. |
+| **Formative** | Observe forecasting builds, KPI definitions, SQL queries. Listen to stakeholder panel presentations for clarity under pressure. |
+| **Self-Assessment** | Data confidence rating compared to Days 1 and 2. |
+| **Exit Ticket** | 3 SMART indicators written for a project scenario. |
+| **Evidence to look for** | Forecasts use at least 2 methods (not just one). KPIs pass the "can the team influence this?" test. Every student has presented under adversarial Q&A at least once. SQL queries return correct results for SELECT/WHERE/GROUP BY. |
 
 ---
 
-## MORNING BLOCK (10:00–12:50)
+## MORNING BLOCK (10:00–1:05)
 
 ---
 
-### 10:00–10:15 | Retrieval Sprint (15 min)
+### 10:00–10:15 | Data Challenge (Retrieval) (15 min)
 
-**Format:** Pairs, no notes | **GRR Phase:** We Do
+**Format:** Individual, timed | **GRR Phase:** You Do Alone | **Bloom's:** Apply
 
 #### TEACHER DOES
 
-> **SAY:** "Welcome back! It's been a full week since Session 2. Let's see what stuck. Pair up — and remember, no notes, no phones. Just your brain."
+> **SAY:** "Day 3. Same drill — new dataset, 10 minutes, pivot table + chart + English insight. No notes. Let's see how much faster you are compared to Day 2."
 
-**Project questions one at a time:**
+- **Project the link** to a new mini-dataset (e.g., monthly tourism data for 3 Georgian cities — arrivals, revenue, seasonality).
 
-| # | Question | Answer |
-|---|----------|--------|
-| 1 | What does CRAFT stand for? | Context, Role, Audience, Format, Tone |
-| 2 | What is a hallucination in AI? | When AI confidently generates false information — made-up facts, dates, names |
-| 3 | What's the difference between NotebookLM and Perplexity? | NotebookLM analyzes your uploaded documents; Perplexity searches the live internet |
-| 4 | You used Claude for data analysis last week. What prompt structure gets the best analytical results? | Be specific about what you want: "3 most interesting findings" + specify the audience + request a specific format (bullet points, paragraph, table) |
-| 5 | What is chain-of-thought prompting? | Breaking a complex task into a sequence of smaller prompts where each builds on the previous output |
-| 6 | Name the key criteria from your Trust Rubric. | Does AI cite sources? Can I verify them? Does the answer hold up across tools? Does it change when I rephrase? Are statistics specific or vague? |
-| 7 | What did the Teachable Machine bias exercise teach us? | AI trained on biased data (one background, one condition) fails in new conditions. Training data determines AI behavior. |
+> **SAY:** "Go. Timer starts now."
 
-> Give pairs 1 minute per question, then reveal.
+- Circulate silently. Note improvements in speed and confidence vs. Day 2.
 
-> **SAY:** "Good. If some of these felt fuzzy, that's normal — it's been a week. That spacing actually helps your brain consolidate. Today builds on everything from the first weekend."
+> **SAY (at 10 min):** "Stop. How many finished all three?" Count hands. Compare to Day 2 count.
 
-#### Pacing
-
-| Segment | Time |
-|---------|------|
-| 7 questions × ~1.5 min each | ~11 min |
-| Transition | 4 min |
-
----
-
-### 10:15–10:40 | Teach-Back Round (25 min)
-
-**Format:** Pairs, structured teaching exercise | **GRR Phase:** You Do Together
-
-#### TEACHER DOES
-
-> **SAY:** "The bootcamp promises you'll be able to explain AI to non-experts. Let's practice right now. Each of you will draw a concept card and teach that concept to your partner — who will pretend they know nothing about it."
-
-**Concept cards (pre-prepared, cut, in a bag/envelope):**
-
-| Card | Key Points to Cover |
-|------|-------------------|
-| **CRAFT Framework** | 5 elements (Context, Role, Audience, Format, Tone). Why each matters. Show with a before/after example. |
-| **Chain-of-Thought Prompting** | Breaking complex tasks into steps. Each output feeds the next prompt. Give an example (marketing plan, research report). |
-| **Hallucination Detection** | What hallucinations are. Why they happen. How to fact-check (verify dates, check sources exist, triangulate). |
-| **How LLMs Work** | Tokens, next-token prediction, training data, temperature. Use the autocomplete analogy. |
-| **Prompt Iteration** | Why first prompts aren't enough. How to iterate (change specificity, add constraints, refine format). Show the iteration log concept. |
-| **Source Triangulation** | Why one AI tool isn't enough. Compare outputs across Claude, Perplexity, NotebookLM. Trust rubric criteria. |
-
-> **SAY:** "Draw a card. You have 2 minutes to prep (you can glance at notes), then 8 minutes to teach your concept to your partner. Your partner should ask questions — make it hard! Then you switch."
-
-- Setup + distribute cards: 3 min
-- Round 1: Partner A teaches → 8 min
-- Round 2: Partner B teaches → 8 min
-
-> **SAY (after both rounds):** "Quick debrief: What was hardest to explain? [Take 3–4 answers.] This is exactly the skill employers want — someone who can translate AI concepts for a non-technical team."
+> **SAY:** "Day 2, [X] people finished. Today, [Y] people finished. That's growth. The skill is becoming automatic — which is exactly what we want."
 
 #### STUDENTS DO
 
-- Draw a concept card
-- Prep for 2 min
-- Teach their concept to partner (8 min)
-- Switch and listen (8 min)
-- Share what was hardest to explain
+- Open unfamiliar dataset
+- Build pivot table + chart + 1-sentence English insight in 10 minutes
+- Compare own performance to Day 2
 
 #### Pacing
 
 | Segment | Time |
 |---------|------|
-| Setup + distribute cards | 3 min |
-| Round 1 (Partner A teaches) | 8 min |
-| Round 2 (Partner B teaches) | 8 min |
-| Debrief: "What was hardest?" | 4 min |
-| Transition | 2 min |
-
-#### Check for Understanding
-
-**Question (to the listener, not the teacher):** "Based on what your partner just taught you, explain [concept] in one sentence."
-**Expected:** A clear, accurate one-sentence summary.
-**If the listener can't:** The teaching wasn't clear enough. That's useful feedback for the student who taught.
-
----
-
-### 10:40–11:05 | "In the Wild" Share (25 min)
-
-**Format:** Breakout groups → Full group highlights | **GRR Phase:** We Do
-
-#### TEACHER DOES
-
-> **SAY:** "During the week, you were supposed to use AI for real tasks. Let's hear how it went. Break into groups of 4. Each person gets 3–4 minutes to share: What did you use AI for this week? What worked? What didn't?"
-
-- Form groups of 4 (or tables of 4).
-- Circulate and listen for standout stories.
-
-> **SAY (after 15 min):** "Who heard something great in their group? Let's share 2–3 highlights with everyone."
-
-- 2–3 groups share their best story.
-
-#### STUDENTS DO
-
-- Share their "in the wild" AI usage in small groups
-- Listen and ask questions
-- Nominate the best story to share with the full group
-
-#### Pacing
-
-| Segment | Time |
-|---------|------|
-| Breakout group sharing (4 people × 3-4 min) | 15 min |
-| 2–3 highlights to full group | 8 min |
-| Transition | 2 min |
-
----
-
-### 11:05–11:30 | Personal Workflow Audit (25 min)
-
-**Format:** Individual, structured template | **GRR Phase:** You Do
-
-#### TEACHER DOES
-
-> **SAY:** "Now let's get strategic. Before we can automate anything, we need to know what's worth automating. You're going to audit your own weekly workflow."
-
-**Project the template:**
-
-```
-PERSONAL WORKFLOW AUDIT
-
-Step 1: List 10–15 recurring weekly tasks
-Step 2: Categorize each:
-  (A) Repetitive/Automatable — same steps every time
-  (B) Information Bottleneck — waiting for info or searching for it
-  (C) Communication Overhead — emails, follow-ups, scheduling
-  (D) Procrastination Target — you avoid it because it's tedious
-Step 3: Rank your top 3 automation candidates
-```
-
-**Show a worked example:**
-
-```
-WORKED EXAMPLE: Marketing Coordinator in Yerevan
-
-TASK                              | CATEGORY | AUTO CANDIDATE?
-1. Send weekly team update email  | A + C    | ★★★
-2. Track social media metrics     | A + B    | ★★★
-3. Schedule client meetings       | C        | ★★
-4. Review blog drafts             | -        | ★ (needs human judgment)
-5. Create monthly report slides   | A        | ★★★
-6. Answer FAQ emails from clients | A + C    | ★★
-7. Update project status in sheet | A        | ★★
-8. Brainstorm campaign ideas      | -        | ★ (creative, human)
-9. Format invoices                | A        | ★★★
-10. Research competitor posts     | B        | ★★
-11. Proofread social media posts  | A        | ★★
-12. File receipts and expenses    | A        | ★★★
-
-TOP 3 AUTOMATION CANDIDATES:
-1. Format invoices (same format every time, just different numbers)
-2. Weekly team update email (same structure, just update the bullet points)
-3. Track social media metrics (pull numbers from platforms into a spreadsheet)
-```
-
-> **SAY:** "List your tasks first — 8 minutes. Then categorize — 7 minutes. Then rank your top 3 — 5 minutes. At the end, tell your partner your #1 automation candidate."
-
-#### STUDENTS DO
-
-- List 10–15 recurring tasks (8 min)
-- Categorize each (A/B/C/D) (7 min)
-- Rank top 3 automation candidates (5 min)
-- Share #1 candidate with partner (5 min)
-
-#### Pacing
-
-| Segment | Time |
-|---------|------|
-| List tasks | 8 min |
-| Categorize | 7 min |
-| Rank top 3 | 5 min |
-| Pair share | 5 min |
-
-#### Check for Understanding
-
-**Question:** "What makes a task a good automation candidate?"
-**Expected:** "It's repetitive, follows the same steps every time, and doesn't require creative judgment."
-**If >25% miss:** Point to the worked example: "Notice how 'brainstorm campaign ideas' is NOT a good candidate — it requires creativity. But 'format invoices' IS — it's the same format every time."
-
----
-
-### 11:30–11:45 | BREAK (15 min)
-
----
-
-### 11:45–12:25 | Workflow Automation 101 + Guided Build (40 min)
-
-**Format:** Interactive lecture interwoven with hands-on | **GRR Phase:** I Do → We Do
-
-#### TEACHER DOES
-
-> **SAY:** "You've identified what to automate. Now let's build one. We're going to use Make.com — it's a visual automation tool where you connect apps together like LEGO blocks."
-
-**DO NOT lecture for 20 minutes then ask students to build.** Teach while building:
-
-**Minutes 1–5: What is a trigger?**
-
-> **SAY:** "Open https://www.make.com and create a free account. Done? Good."
-> **SAY:** "Every automation starts with a trigger — something that kicks it off. 'When I receive an email,' 'When a new row is added to a spreadsheet,' 'When someone fills out a form.' Click 'Create a new scenario.' Now click the '+' button and search for 'Email.' This is your trigger."
-
-- Walk students through adding an Email trigger module.
-
-**Minutes 6–10: What is an action?**
-
-> **SAY:** "The trigger fires, and then what? An action happens. Click '+' again. Search for 'Google Sheets.' We're going to set it up so: when an email arrives, a row gets added to a Google Sheet."
-
-- Walk students through adding a Google Sheets action module.
-
-**Minutes 11–15: What is a condition?**
-
-> **SAY:** "But we don't want EVERY email going to our spreadsheet — only invoices. Click between the trigger and the action, and add a filter. Set it to: 'Subject contains invoice.' Now only emails with 'invoice' in the subject line will trigger the automation."
-
-**Minutes 16–30: Build the full automation together**
-
-> **SAY:** "Here's the complete automation we're building:"
-
-```
-AUTOMATION: Invoice Email → Google Sheet
-
-TRIGGER: When I receive an email with "invoice" in the subject line
-ACTION 1: Use AI (Claude/ChatGPT module) to extract: amount, due date, vendor name
-ACTION 2: Add a row to Google Sheet with: date received, vendor, amount, due date, status
-```
-
-- Walk through each step. Project your screen.
-- Use the pre-created template Google Sheet (columns: Date, Vendor, Amount, Due Date, Status).
-- Use pre-prepared test emails (send them from your own account so students can see the automation fire).
-
-**Minutes 31–40: Students test and troubleshoot**
-
-> **SAY:** "Now test yours. I'm sending a test email. If your automation works, you should see a new row appear in your Google Sheet within a minute."
-
-- Send the test email.
-- Circulate. Expect 3–5 students to hit authentication issues. Have screenshots of each step projected as backup.
-
-#### STUDENTS DO
-
-- Create Make.com account
-- Follow along step-by-step building the email→AI→Google Sheet automation
-- Test with the instructor's test email
-- Troubleshoot with instructor/TA help
-
-#### Pacing
-
-| Segment | Time |
-|---------|------|
-| Account setup + trigger concept | 5 min |
-| Action concept + add module | 5 min |
-| Condition/filter concept | 5 min |
-| Build complete automation together | 15 min |
-| Test and troubleshoot | 10 min |
+| Instructions + distribute link | 2 min |
+| Timed challenge | 10 min |
+| Debrief (compare to Day 2) | 3 min |
 
 #### Teacher Tip
 
-> Pre-create test emails and a template Google Sheet. Have screenshots of each step on backup slides. Expect authentication issues — Google OAuth can be fiddly. Have a TA or a prepared fallback (your own screen as demo).
-> **Resource:** Make.com beginner tutorial — Kevin Stratvert on YouTube. Zapier Academy free course: https://learn.zapier.com/path/zapier-basics-from-a-to-zap
-
-#### Check for Understanding
-
-**Question:** "What are the 3 parts of any automation?"
-**Expected:** "Trigger, action, and condition/filter."
-**If >25% miss:** Draw on whiteboard: Trigger → [Filter] → Action. "When X happens, if Y is true, do Z."
+> Track the numbers across days. On Day 4, you'll show the growth trajectory: "Day 2: 4 students finished. Day 3: 10 students. Day 4: 16 students." This is powerful evidence of learning.
 
 ---
 
-### 12:25–12:50 | Independent Automation Build (25 min)
+### 10:15–10:50 | "In the Wild" Debrief (35 min)
 
-**Format:** Individual | **GRR Phase:** You Do
+**Format:** Full group, 2 min each | **GRR Phase:** You Do Together → We Do | **Bloom's:** Evaluate
 
 #### TEACHER DOES
 
-> **SAY:** "Now build your own. Pick one task from your workflow audit — your #1 automation candidate — and build it in Make.com."
+> **SAY:** "Between Day 2 and today, you went out and found real data in the wild. Now tell us what you found."
 
-**3 automation ideas with starter steps:**
+> **SAY:** "Rules: 2 minutes max. Tell us: What data did you find? What story did it tell? What was the hardest part? I have a timer and I WILL cut you off at 2 minutes."
 
-```
-IDEA 1: Daily Digest Email
-Trigger: Schedule (every day at 9 AM)
-Action: Pull latest 5 entries from a Google Sheet
-Action: Send email summary to yourself
-→ Start by adding a Schedule trigger, then Google Sheets, then Email.
+- Start the visible timer. Call on students one by one.
 
-IDEA 2: Form Response → Notification
-Trigger: New Google Form response
-Action: Send Slack/email notification with the response details
-→ Start by creating a simple Google Form, then connect it in Make.
+- **After each presentation, give 15 seconds of feedback:**
+  - "Strong finding — the number was specific."
+  - "Good story arc — you had a clear conflict."
+  - "Next time, lead with the insight, not the process."
 
-IDEA 3: Social Media Content Tracker
-Trigger: New RSS feed item from a blog/news site
-Action: Use AI to summarize the article in 2 sentences
-Action: Add to Google Sheet for content ideas
-→ Start by finding an RSS feed URL, then add AI and Sheets modules.
-```
+- After all students have shared, highlight patterns:
 
-> **SAY:** "Choose your automation from your workflow audit, or pick one of these ideas. Build = 17 min. Test = 5 min. If you finish early, iterate or start a second one."
+> **SAY:** "I noticed three things across everyone's presentations: [1] Most of you found messy data — which means Day 1's cleaning lesson was relevant. [2] Several of you found surprises in the data — that's the conflict in your story. [3] A few of you are still leading with methodology instead of findings — we'll fix that today in the stakeholder panel."
 
 #### STUDENTS DO
 
-- Choose automation target from workflow audit (3 min)
-- Build in Make.com (17 min)
-- Test (5 min)
-
-#### Check for Understanding
-
-**Question:** "Walk me through your automation: what's the trigger, what's the action, and what's the output?"
-**Expected:** Students clearly describe all 3 parts.
-
----
-
-### 12:50–1:50 | LUNCH (60 min)
-
----
-
-## AFTERNOON BLOCK (1:50–5:45)
-
----
-
-### 1:50–2:20 | Agentic AI & MCP: What's Next (30 min)
-
-**Format:** Interactive lecture | **GRR Phase:** I Do → We Do
-
-#### TEACHER DOES
-
-> **SAY:** "This morning you built automations — 'when X happens, do Y.' But what if AI could do more than that? What if AI could plan, decide, and act on its own? That's agentic AI — and it's coming fast."
-
-**What are AI agents? (12 min)**
-
-> **SAY:** "An AI agent is a program that can: (1) receive a goal, (2) break it into steps, (3) execute those steps using tools, and (4) adjust if something goes wrong. It's like having an extremely capable intern who can use a computer."
-
-**Example 1:**
-> "Imagine you say: 'Plan a 3-day trip to Batumi for my family of 4 in July, budget $1,500.' A regular AI gives you text suggestions. An AI AGENT actually: searches flights, compares hotels, checks restaurant reviews, books reservations, and creates an itinerary — all autonomously."
-
-**Example 2:**
-> "Or: 'Process today's inbox.' An AI agent reads each email, drafts appropriate replies, flags urgent items, schedules follow-up tasks, and files everything — without you touching the keyboard."
-
-> **SAY:** "This isn't science fiction. Tools like this are being built right now. Some are available today — like ChatGPT's 'Operator' and Claude's 'Computer Use.'"
-
-**Pair discussion (3 min at the 15-minute mark):**
-> **SAY:** "Quick discussion with your partner: What task from your workflow audit would benefit most from an AI agent? Something that needs planning and decision-making, not just a simple trigger→action."
-
-**What is MCP? (10 min)**
-
-> **SAY:** "For AI agents to work, they need to connect to your tools — your email, your calendar, your spreadsheets, your databases. That's where MCP comes in."
-
-> **SAY:** "MCP stands for Model Context Protocol. Think of it as a universal adapter. Right now, if you want AI to access your Google Calendar, you need a specific plugin. If you want it to access your Slack, you need a different plugin. MCP is a standard — like USB-C — that lets any AI connect to any tool through one universal interface."
-
-**Analogy:**
-> "Before USB-C, every phone had a different charger. MCP is like USB-C for AI — one standard plug that works everywhere."
-
-> **Resource:** "If you want to learn more, Anthropic has a free MCP course at https://anthropic.skilljar.com/introduction-to-model-context-protocol and the official spec is at https://modelcontextprotocol.io"
-
-**Q&A (5 min)**
-
-#### STUDENTS DO
-
-- Listen to lecture, take notes
-- Pair discussion: which workflow audit task would benefit from an agent?
-- Ask questions
+- Present their mid-week project in 2 minutes: what data, what story, what was hard
+- Listen to peers and note interesting findings
+- Receive brief feedback from instructor
 
 #### Pacing
 
 | Segment | Time |
 |---------|------|
-| AI agents concept + examples | 12 min |
-| Pair discussion | 3 min |
-| MCP + implications | 10 min |
-| Q&A | 5 min |
-
-#### Check for Understanding
-
-**Question:** "Explain AI agents to a non-technical colleague in one sentence."
-**Expected:** "An AI agent is software that can take a goal, plan the steps, use tools to execute them, and adjust if something goes wrong — like an autonomous digital assistant."
-**If >25% miss:** Re-use the trip-planning example. "A regular AI gives you suggestions. An agent actually DOES the booking."
-
----
-
-### 2:20–3:10 | Workflow Design Challenge (50 min)
-
-**Format:** Teams of 3 | **GRR Phase:** You Do Together
-
-#### TEACHER DOES
-
-> **SAY:** "Time to think big. Your team is going to design a complete AI workflow for a real scenario — not just one automation, but a whole system. You'll design it on paper, then build the key piece."
-
-**Distribute scenario briefs (1 per team — assign by numbering off):**
-
-```
-SCENARIO 1: Startup Founder
-You run a 5-person startup in Tbilisi building a food delivery app.
-You personally handle: investor updates, hiring, social media,
-customer complaint escalation, and weekly team syncs.
-Design an AI workflow system that handles as many of these as possible.
-Which tasks does AI handle? Where does a human stay in the loop?
-
-SCENARIO 2: University Department
-You manage a university department in Yerevan that processes 500
-student applications per semester. Current process: applications
-arrive by email, are manually reviewed, scored on 5 criteria, and
-ranked. It takes 3 staff members 4 weeks.
-Design an AI workflow that cuts this to 1 week with 1 staff member.
-
-SCENARIO 3: Nonprofit Fundraiser
-You run fundraising for a nonprofit in Chișinău. You need to:
-identify potential donors, personalize outreach emails, track
-donation pledges, send thank-you notes, and generate quarterly
-impact reports.
-Design an AI-powered fundraising workflow.
-```
-
-> **SAY:** "Step 1: Read the scenario and discuss your approach (5 min). Step 2: Design the full workflow on paper — use the whiteboard or sticky notes. Show what triggers what, which AI tools handle which steps, and where humans stay in the loop (15 min). Step 3: Build the key piece — one critical automation or prompt chain from your workflow (20 min). Step 4: Prepare a 2-minute presentation (5 min)."
-
-- Circulate. Ask probing questions: "Where does a human need to review this?" "What happens when the AI makes a mistake?"
-
-**Team presentations (5 min):**
-- Each team presents their workflow. 2 min per team with brief Q&A.
-
-#### STUDENTS DO
-
-- Read scenario + discuss approach (5 min)
-- Design full workflow on paper/whiteboard (15 min)
-- Build the key piece in Make.com or as a prompt chain (20 min)
-- Prepare 2-min presentation (5 min)
-- Present (5 min total for 3 teams)
-
-#### Pacing
-
-| Segment | Time |
-|---------|------|
-| Read scenario + discuss | 5 min |
-| Design workflow on paper | 15 min |
-| Build key piece | 20 min |
-| Prepare presentation | 5 min |
-| 3 team presentations (~2 min each) | 5 min |
-
-#### Check for Understanding
-
-**Question:** "In your workflow, where did you keep a human in the loop, and why?"
-**Expected:** Students identify specific decision points that require human judgment — reviewing applications, approving outreach messages, handling edge cases.
-
----
-
-### 3:10–3:25 | BREAK (15 min)
-
----
-
-### 3:25–4:00 | Job Posting Autopsy (35 min)
-
-**Format:** Individual research + analysis | **GRR Phase:** You Do
-
-#### TEACHER DOES
-
-> **SAY:** "Let's get personal about your career. AI is changing every job. The question isn't IF your job will change, but HOW. Let's find out."
-
-> **SAY:** "Go to a job site — LinkedIn, djinni.co, staff.am, rabota.md, jobs.ge, whatever works in your country. Find 5 real job postings in your field. For each one, categorize every listed responsibility."
-
-**Project the analysis template:**
-
-```
-JOB POSTING AUTOPSY
-
-Job title: _________________
-Company: _________________
-Key responsibilities:
-
-RESPONSIBILITY                    | AI TODAY | HUMAN ONLY | HYBRID
-________________________________|_________|____________|_______
-1.                               |    □    |     □      |   □
-2.                               |    □    |     □      |   □
-3.                               |    □    |     □      |   □
-...
-
-3-YEAR PREDICTION:
-Tasks that will disappear: ____________
-New tasks that will appear: ____________
-Skills that become MORE valuable: ____________
-```
-
-**Show a worked example:**
-
-```
-Job: Marketing Manager at tech company in Tbilisi
-
-RESPONSIBILITY                         | AI    | HUMAN | HYBRID
-Write social media posts               |  ✓    |       |
-Develop brand strategy                 |       |   ✓   |
-Analyze campaign performance           |       |       |   ✓
-Manage client relationships            |       |   ✓   |
-Create presentation decks              |       |       |   ✓
-Write monthly reports                  |  ✓    |       |
-Design ad creatives                    |       |       |   ✓
-Coordinate with sales team             |       |   ✓   |
-
-3-YEAR PREDICTION:
-Disappear: Writing first-draft reports, basic social posts
-Appear: "AI workflow manager," "prompt engineer for marketing"
-More valuable: Strategic thinking, client relationships, creative direction
-```
-
-> **SAY:** "10 minutes to find 5 postings. 15 minutes to analyze and categorize. 5 minutes to write your 3-year prediction for one posting. Then share with your partner."
-
-#### STUDENTS DO
-
-- Find 5 job postings in their field (10 min)
-- Analyze and categorize each responsibility (15 min)
-- Write 3-year prediction for 1 posting (5 min)
-- Pair share (5 min)
-
-#### Pacing
-
-| Segment | Time |
-|---------|------|
-| Find 5 job postings | 10 min |
-| Analyze and categorize | 15 min |
-| Write 3-year prediction | 5 min |
-| Pair share | 5 min |
+| 15–18 students × 2 min each | 30–36 min |
+| Instructor commentary on patterns | 2–5 min |
 
 #### Teacher Tip
 
-> Have 5 pre-selected job postings per market (Armenia, Moldova, Georgia) as fallback for students who can't find relevant ones. Focus on roles in tech, marketing, education, finance, and administration.
+> Keep the timer ruthless. If a student hits 2 minutes, say "Thank you — great start. We'll hear more in the stakeholder panel." Students learn to be concise when the constraint is real.
 
 #### Check for Understanding
 
-**Question:** "What percentage of responsibilities in your job postings can AI do today?"
-**Expected:** Students give a specific percentage with reasoning — typically 20-40% full AI, 30-40% hybrid.
+**Observation:** Did students find real data? Did they apply Day 1–2 skills (cleaning, pivot tables, charts, briefs)? If any student didn't do the assignment, pair them with someone who did for the rest of the day.
 
 ---
 
-### 4:00–4:30 | "Be the AI Expert" Strategy Session (30 min)
+### 10:50–11:20 | Benchmarking & Context (30 min)
 
-**Format:** Interactive lecture + group discussion | **GRR Phase:** I Do → We Do
+**Format:** Interactive lecture + hands-on | **GRR Phase:** I Do → We Do → You Do | **Bloom's:** Analyze
 
 #### TEACHER DOES
 
-> **SAY:** "Here's the truth: most of your colleagues don't know what you now know. That's an advantage. Let me show you how to become the AI person on your team."
+> **SAY:** "A number by itself means nothing. Let me prove it."
 
-**Practical playbook (12 min):**
+- Write on whiteboard: **"Revenue: 50,000 MDL"**
 
-> **SAY:** "There are 4 steps to becoming your team's AI expert:"
+> **SAY:** "Is that good or bad? You can't tell. Now watch."
 
+- Add context lines:
 ```
-1. BUILD YOUR INTERNAL TOOLKIT
-   - Pick 3 AI tools that solve real problems at your company
-   - Test them on your own work for 2 weeks
-   - Document: the problem, the tool, the result, the time saved
-
-2. RUN A LUNCH-AND-LEARN
-   - Title it "I saved 5 hours this week with AI" (not "Introduction to AI")
-   - Show real results from your own work, not theory
-   - Teach ONE tool, ONE workflow, in 20 minutes
-   - Give people a prompt they can try immediately after
-
-3. HANDLE THE SKEPTICS
-   - Don't argue about whether AI is good or bad
-   - Show, don't tell: "Let me show you what I did with this report"
-   - Acknowledge risks honestly: "Yes, you need to fact-check AI output"
-
-4. HANDLE THE OVER-ENTHUSIASTIC
-   - "AI can't replace our client relationships"
-   - "AI is a tool, not a strategy"
-   - Ground conversations in specific use cases, not hype
+Revenue: 50,000 MDL
+Industry average: 35,000 MDL    → We're above average ✓
+Last quarter: 65,000 MDL        → We're declining ✗
+Top performer: 120,000 MDL      → We're far from the best ✗
 ```
 
-**Real examples (8 min):**
+> **SAY:** "Same number. Three different stories depending on the context. This is why we need benchmarking, trending, and segmentation."
 
-> **SAY:** "Let me share some real examples of people who did this:"
+**Technique 1: Benchmarking**
 
-1. "A 24-year-old marketing assistant in Bucharest started using ChatGPT to draft first versions of client proposals. Her manager noticed she was producing 3x more drafts. She documented her process, ran a team workshop, and within 6 months was promoted to Senior Associate."
+> **SAY:** "Benchmarking means comparing your number to a reference point — an industry average, a competitor, a national standard. It answers: 'How do we compare?'"
 
-2. "A university administrator in Yerevan used AI to cut application processing time from 3 weeks to 5 days. He presented the workflow to the department head, who asked him to implement it university-wide."
+- Demo: Add an "Industry Average" row to a pivot table. Calculate the difference.
 
-3. "A freelance translator in Tbilisi started offering 'AI-assisted translation with human quality assurance' — positioning herself as faster than traditional translation but more reliable than pure AI. Her client base tripled."
+**Technique 2: Trending**
 
-**Ethics integration (5 min):**
+> **SAY:** "Trending means looking at how a number changes over time. It answers: 'Are we getting better or worse?'"
 
-> **SAY:** "Three ethics rules you MUST follow as the AI expert:"
+- Demo: Create a line chart with 6 months of data. Add a trendline. "See that downward slope? One quarter's number might look fine — but the trend tells you it's declining."
 
-```
-1. CONFIDENTIALITY: Never paste sensitive company data into AI tools
-   unless your company has approved it. Client names, financial data,
-   employee info — keep it out of ChatGPT.
+**Technique 3: Segmentation**
 
-2. THE SYCOPHANCY PROBLEM: AI agrees with you even when you're wrong.
-   "Is this a good strategy?" → AI says "Great idea!" Always ask AI
-   to critique, not just confirm.
+> **SAY:** "Segmentation means breaking an average into groups. It answers: 'Does the average hide important differences?'"
 
-3. ACCESS INEQUALITY: Not everyone has equal access to AI tools. Some
-   colleagues may not have good internet, or may not speak English
-   well enough for English-optimized AI. Be aware of this.
-```
+- Demo: "Average customer revenue is 500 MDL. But new customers spend 200 MDL and repeat customers spend 800 MDL. The average lies. Segmentation reveals the real story."
 
-**Group Q&A (5 min)**
+> **SAY:** "Now add context to your own data. Pick one key finding from your dashboard. Add at least one benchmark, one trend observation, or one segmentation insight. You have 10 minutes."
 
 #### STUDENTS DO
 
-- Listen and take notes on the 4-step playbook
-- Ask questions
-- Think about which approach fits their situation
+- Watch the 3 techniques with examples
+- Add context layers to one finding from their own data (10 min)
+- **Good work:** "Our program completion rate is 37%. The sector average in Moldova is 45%. We're below benchmark and the trend is flat — we need to investigate."
+- **Needs coaching:** Stating a number without comparison → "Compared to what? Is 37% good or bad? Find a benchmark."
 
 #### Pacing
 
 | Segment | Time |
 |---------|------|
-| 4-step playbook framework | 12 min |
-| Real examples | 8 min |
-| Ethics (confidentiality, sycophancy, access) | 5 min |
-| Group Q&A | 5 min |
+| "50,000 MDL" demonstration | 4 min |
+| Benchmarking technique + demo | 5 min |
+| Trending technique + demo | 5 min |
+| Segmentation technique + demo | 4 min |
+| Students add context to own data | 10 min |
+| Transition | 2 min |
 
----
+#### Teacher Tip
 
-### 4:30–5:00 | Career AI Strategy (30 min)
-
-**Format:** Individual production | **GRR Phase:** You Do Alone
-
-#### TEACHER DOES
-
-> **SAY:** "Your last individual exercise today: draft your personal 'future-proof' professional profile. This becomes a portfolio artifact."
-
-**Project the template:**
-
-```
-MY AI-POWERED PROFESSIONAL PROFILE
-
-SECTION 1: AI-Complementary Skills I Have
-(What I do that AI CAN'T do — judgment, creativity, relationships, leadership)
-•
-•
-•
-
-SECTION 2: AI Tool Proficiency
-(What I can do WITH AI — list specific tools and what you use them for)
-•
-•
-•
-
-SECTION 3: Value I Offer Starting Next Week
-(3 specific, concrete actions I will take in the next 2 weeks)
-1.
-2.
-3.
-```
-
-**Show a worked example:**
-
-```
-MY AI-POWERED PROFESSIONAL PROFILE
-
-SECTION 1: AI-Complementary Skills I Have
-• I understand our local market — I know what resonates in Armenian culture
-  that no AI trained on English internet data would understand
-• I build trust with clients through face-to-face meetings and follow-ups
-• I can make judgment calls about which campaigns are on-brand and which aren't
-
-SECTION 2: AI Tool Proficiency
-• Claude: drafting client emails, summarizing meeting notes, brainstorming ideas
-• ChatGPT: data analysis (upload CSV, get insights), image generation for social
-• Perplexity: competitive research with cited sources
-• Make.com: automated weekly reports from Google Sheets
-
-SECTION 3: Value I Offer Starting Next Week
-1. Set up a Make.com automation for our weekly client status emails (saves 2 hrs/week)
-2. Run a 20-minute lunch-and-learn showing the team how to use Claude for email drafting
-3. Create a CRAFT prompt library for our 5 most common email types and share it in Slack
-```
-
-> **SAY:** "Section 1 = 8 min. Section 2 = 8 min. Section 3 = 8 min. Then pair review = 6 min."
-
-#### STUDENTS DO
-
-- Write all 3 sections of the professional profile
-- Pair review — partner gives feedback on specificity and credibility
-
-#### Pacing
-
-| Segment | Time |
-|---------|------|
-| Section 1 | 8 min |
-| Section 2 | 8 min |
-| Section 3 | 8 min |
-| Pair review | 6 min |
+> The "50,000 MDL" opening is the most memorable moment of this block. Students will remember that a number alone means nothing. Reference this throughout the day: "Where's your benchmark?"
 
 #### Check for Understanding
 
-**Question:** "Read me your 3 actions from Section 3. Are they specific and time-bound?"
-**Expected:** "Set up [specific automation] by [date]" not "learn more about AI."
+**Cold call:** "Diana, what context did you add to your finding? Is your number above or below the benchmark?"
+**If student didn't find a benchmark:** Help them Google one: "What's the industry average for [their metric]? Try statistica.md or a World Bank report."
+
+#### Differentiation
+
+- **Struggling learners:** Focus on just one technique (benchmarking — it's the most intuitive). Provide example benchmarks for common datasets.
+- **Advanced learners:** Add all three layers to their finding and write a 1-sentence summary that includes the benchmark, trend, and segment.
+- **Language support:** "Benchmark = punct de referință. Trend = tendință. Segment = segment."
 
 ---
 
-### 5:00–5:30 | Capstone Kickoff (30 min)
+### 11:20–11:50 | Forecasting for Non-Statisticians (30 min)
 
-**Format:** Instructor presentation → Individual/team planning | **GRR Phase:** I Do → You Do
+**Format:** Hands-on | **GRR Phase:** I Do → We Do → You Do | **Bloom's:** Apply → Create
 
 #### TEACHER DOES
 
-> **SAY:** "Tomorrow is your final day. You'll build, present, and showcase a capstone project. Let me show you the 4 options."
+> **SAY:** "You can now look backward (what happened) and sideways (how do we compare). Now let's look forward. Forecasting sounds scary — but I'm going to teach you 3 methods that anyone can use in a spreadsheet."
 
-**Project the 4 capstone options:**
+**Method 1: Trend Extrapolation**
 
-```
-OPTION 1: AI WORKFLOW SYSTEM
-Build a complete AI-powered workflow for a real problem at your
-workplace or school. Include at least 2 automations and 1 AI prompt
-chain. Document the before/after.
+> **SAY:** "The simplest forecast: assume the trend continues. If revenue grew 5% per month for the last 6 months, project that forward."
 
-OPTION 2: AI RESEARCH REPORT
-Use AI tools to produce a research report on a topic relevant to
-your field. Must include: source triangulation, hallucination checking,
-and a trust analysis. 1500–2000 words with citations.
+- **Demo in Google Sheets:** Show 6 months of data. Add a formula: `=previous_month * 1.05` for 6 more months.
 
-OPTION 3: AI-POWERED CREATIVE PORTFOLIO
-Create 3 professional-quality artifacts using AI tools: a presentation,
-a visual/image set, and a written piece. Each must include a "Making Of"
-document explaining how AI was used.
+> **SAY:** "When does this work? When the trend is stable and nothing big is changing. When does it fail? When there's a disruption — a pandemic, a new competitor, a policy change."
 
-OPTION 4: AI TRAINING WORKSHOP
-Design and prototype a 30-minute AI training session for your colleagues.
-Include: slides (built with Gamma), a hands-on exercise, and a
-participant handout. Be ready to deliver the first 5 minutes live.
-```
+**Method 2: Scenario Modeling (Best / Worst / Most Likely)**
 
-- Show 1–2 example capstones (or mock examples for the pilot).
+> **SAY:** "More realistic: build three scenarios."
 
-> **SAY:** "Choose your option. Form teams of 2–3 if you want to collaborate, or go solo. Then start planning using this template."
+- **Demo:** Copy the trend extrapolation. Create 3 versions:
+  - Best case: 8% growth
+  - Most likely: 5% growth
+  - Worst case: -2% decline
 
-**Project the planning template:**
-```
-CAPSTONE PLAN
-Option chosen: ___
-Team members: ___
-Project description (2 sentences): ___
-AI tools you'll use: ___
-What you'll build TONIGHT: ___
-What you'll present TOMORROW: ___
-```
+> **SAY:** "Now you have a range, not a single number. Decision-makers love ranges because they show you've thought about uncertainty."
 
-> **SAY:** "Start planning now. You have 15 minutes. Tonight is build time — arrive tomorrow with your capstone at least 70% complete. The morning is for polish, not starting from scratch."
+**Method 3: Unit Economics Projection**
+
+> **SAY:** "Most granular: forecast from the bottom up. How many customers × average order value × purchase frequency = revenue."
+
+- **Demo:** Quick example with numbers.
+
+> **SAY:** "Now open the forecasting template I've shared. It has the formulas pre-built. Your job: change the assumptions to match your data. Build a 6-month forecast using trend extrapolation. Then add scenario modeling. You have 18 minutes."
 
 #### STUDENTS DO
 
-- Review the 4 options
-- Choose one, form teams (5 min)
-- Fill out the planning template (12 min)
-- Ask questions (3 min)
+- Watch 3 methods demonstrated
+- Open pre-built forecasting template
+- Build a 6-month forecast using trend extrapolation (guided, 10 min)
+- Add scenario modeling (independent, 8 min)
+- **Good forecast:** Shows best/worst/most likely scenarios with clear assumptions stated
+- **Needs help:** Using arbitrary numbers instead of data-driven assumptions → "What was your actual growth rate last quarter? Use THAT as your base."
 
 #### Pacing
 
 | Segment | Time |
 |---------|------|
-| Present options + show examples | 10 min |
-| Choose + form teams | 5 min |
-| Planning with template | 12 min |
-| Logistics for tomorrow | 3 min |
+| Teach 3 methods | 10 min |
+| Guided build: trend extrapolation | 10 min |
+| Independent build: scenario modeling | 8 min |
+| Transition | 2 min |
+
+#### Teacher Tip
+
+> The template is essential. Do NOT expect students to build forecast formulas from scratch. Provide a pre-built spreadsheet where they only change the assumptions (growth rate, number of customers, average order). The learning objective is forecasting THINKING, not Excel gymnastics.
+
+#### Check for Understanding
+
+**Show Me:** "Show me your 3 scenarios. What growth rate did you use for best case? Where did that number come from?"
+**Reteach trigger:** If a student used made-up numbers → "Go back to your data. What was the ACTUAL growth rate? Use that as your base, then adjust up and down."
+
+---
+
+### 11:50–12:05 | Break (15 min)
+
+> ☕ **BREAK** — "After break: KPIs, then the stakeholder panel. Start thinking about your 2-minute pitch."
+
+---
+
+### 12:05–12:35 | KPI Workshop (30 min)
+
+**Format:** Interactive lecture + individual exercise | **GRR Phase:** I Do → We Do → You Do | **Bloom's:** Evaluate
+
+#### TEACHER DOES
+
+> **SAY:** "KPI stands for Key Performance Indicator. But most 'KPIs' people track are vanity metrics — numbers that look good but don't drive decisions."
+
+> **SAY:** "Let me show you the difference."
+
+**Project:**
+```
+VANITY METRICS (feel good, don't help):
+• Website visitors: 10,000/month — so what? Are they buying?
+• Social media followers: 5,000 — so what? Are they engaging?
+• Total revenue: growing — so what? Is profit growing too?
+
+ACTIONABLE KPIs (drive decisions):
+• Conversion rate: 3% of visitors buy → optimize the checkout page
+• Customer retention rate: 60% → invest in loyalty programs
+• Revenue per employee: 15,000 MDL → benchmark against industry
+```
+
+> **SAY:** "A good KPI passes 4 tests:"
+
+**Project the 4-test framework:**
+```
+1. SPECIFIC: Measures one thing, not everything
+2. MEASURABLE: You can actually calculate it with data you have
+3. ACTIONABLE: The team can influence it (not GDP or weather)
+4. DECISION-DRIVING: If this number changes, you'd change your strategy
+```
+
+> **SAY:** "Now define 3 KPIs for your project or organization. Use the worksheet. For each KPI, write: what it measures, how you calculate it, what the target is, and what you'd do if you missed the target."
+
+- Circulate. Watch for:
+  - Students who pick metrics they can't influence → "Can your team actually change this number? If not, it's not a KPI for you."
+  - Students who pick too many → "Pick the 3 most important. If everything is a priority, nothing is."
+
+> **SAY (after 12 min):** "Share one KPI with your partner. Partners: challenge it — does it pass all 4 tests?"
+
+#### STUDENTS DO
+
+- Learn vanity vs. actionable distinction
+- Learn the 4-test framework
+- Define 3 KPIs for their project (12 min)
+- Partner challenge: test each KPI against the 4 criteria (5 min)
+- Refine based on partner feedback
+
+#### Pacing
+
+| Segment | Time |
+|---------|------|
+| Vanity vs. actionable + examples | 7 min |
+| 4-test framework | 5 min |
+| Students define 3 KPIs | 12 min |
+| Partner challenge | 5 min |
+| Transition | 1 min |
+
+#### Teacher Tip
+
+> The partner challenge is where the real learning happens. Students often define KPIs that sound good but fail the "actionable" test. A partner saying "But can YOU influence Moldova's GDP?" forces a rewrite.
+
+#### Check for Understanding
+
+**Cold call:** "Giorgi, give me one of your KPIs. Class, does it pass the 4 tests?"
+**Expected:** KPI is specific, measurable, within the team's influence, and would trigger a decision if it changed.
+
+---
+
+### 12:35–1:05 | Mock Stakeholder Panel — Round 1 (30 min)
+
+**Format:** Presentations + adversarial Q&A | **GRR Phase:** You Do Alone (presenting) + We Do (Q&A) | **Bloom's:** Evaluate
+
+#### TEACHER DOES
+
+> **SAY:** "This is the moment. You're going to present your data to stakeholders who don't care about your process. They care about the answer."
+
+> **SAY:** "Rules: 2 minutes to pitch. Then 1 minute of tough questions. Format:"
+
+**Project:**
+```
+YOUR 2-MINUTE PITCH:
+1. One headline: what did you find? (10 seconds)
+2. One chart: the most important visual (30 seconds)
+3. Context: benchmark or trend (20 seconds)
+4. Recommendation: what should we do? (30 seconds)
+5. Confidence: how sure are you, and what's the risk? (30 seconds)
+```
+
+> **SAY:** "Panel questions will include:"
+
+**Project:**
+```
+"Where did you get this data?"
+"What are you NOT showing me?"
+"How confident are you in this number?"
+"What happens if you're wrong?"
+"Why should I trust this over my own experience?"
+```
+
+> **SAY:** "I'll be one panelist. I need 2 volunteers to be panelists with me. Your job: be skeptical, interrupt, push back."
+
+- Select 2 student panelists (rotate them for Round 2).
+- Call presenters one by one. Strict timer: 2 min pitch, 1 min Q&A, 30 sec transition.
+
+- **After each presenter, give 10-second feedback:** "Strong headline." "Lead with the chart next time." "Your recommendation was specific — good."
+
+#### STUDENTS DO
+
+- Present their data findings in 2 minutes (8–9 students)
+- Defend under adversarial questioning (1 min each)
+- Watch peers and take notes on what works
+- **Strong presentation:** "Revenue in our southern region dropped 15% while the north grew 8%. If we shift 20% of marketing spend south, our model shows recovery within 2 quarters. The risk: the decline could be seasonal, so I recommend a 3-month pilot before full reallocation."
+- **Needs coaching:** Reading off slides, leading with methodology, unable to answer "so what?"
+
+#### Pacing
+
+| Segment | Time |
+|---------|------|
+| Setup + explain rules | 2 min |
+| 8–9 students × 3.5 min (2 min pitch + 1 min Q&A + 30 sec transition) | 28–31.5 min |
+
+#### Teacher Tip
+
+> The adversarial Q&A is where confidence builds. Students who survive tough questions realize they know more than they thought. Be tough but fair — challenge the data, not the student.
+
+#### Check for Understanding
+
+**The presentation IS the assessment.** Note which students: lead with findings (good), include context (good), have a recommendation (good), handle tough questions (great) vs. freeze or ramble (needs coaching).
+
+---
+
+### 1:05–2:00 | Lunch (55 min)
+
+> 🍽 **LUNCH** — "Round 1 is done. After lunch: we'll analyze what went wrong, then Round 2. Every one of you will present today."
+
+---
+
+## AFTERNOON BLOCK (2:00–5:45)
+
+---
+
+### 2:00–2:25 | Presentation Autopsy (25 min)
+
+**Format:** Full group discussion | **GRR Phase:** We Do | **Bloom's:** Evaluate
+
+#### TEACHER DOES
+
+> **SAY:** "Let's debrief Round 1. I saw some great presentations and some common mistakes. Let's name them so Round 2 is better."
+
+**Project the common mistakes (with fixes):**
+
+```
+MISTAKE 1: Too much data
+  "I analyzed 500 rows and found 12 interesting things..."
+  FIX: Pick ONE insight. The most important one. Save the rest for questions.
+
+MISTAKE 2: Not enough context
+  "Revenue is 50,000 MDL."
+  FIX: "Revenue is 50,000 MDL — 15% above the industry benchmark."
+
+MISTAKE 3: Reading the chart aloud
+  "As you can see, the blue bars show revenue by region..."
+  FIX: The chart should speak for itself. Tell me what it MEANS, not what it shows.
+
+MISTAKE 4: The deadly "As you can see..."
+  FIX: Replace with "The key takeaway is..." or "This tells us that..."
+
+MISTAKE 5: No recommendation
+  "The data is interesting."
+  FIX: "Based on this, I recommend [specific action] by [specific date]."
+
+MISTAKE 6: Freezing under questions
+  FIX: "That's a great question. Based on the data, [answer]. If I had more time,
+  I'd also look at [related analysis]."
+```
+
+> **SAY:** "Which of these did YOU notice in Round 1? Let's discuss."
+
+- Open discussion. Let students call out what they observed. Add your own observations.
+
+> **SAY:** "Round 2 presenters: you now have an advantage. You've seen what works and what doesn't. Use it."
+
+#### STUDENTS DO
+
+- Review the 6 common mistakes
+- Identify which mistakes they saw in Round 1
+- Discuss fixes as a group
+- Round 2 presenters mentally revise their pitch
+
+#### Pacing
+
+| Segment | Time |
+|---------|------|
+| Present 6 mistakes + fixes | 12 min |
+| Group discussion: what they observed | 8 min |
+| Round 2 prep reminder | 3 min |
+| Transition | 2 min |
+
+#### Teacher Tip
+
+> Be specific but kind. "In Round 1, three presenters started with 'So I cleaned the data...' — in Round 2, I want every presenter to start with their headline finding. Can we agree on that?"
+
+---
+
+### 2:25–3:05 | Mock Stakeholder Panel — Round 2 (40 min)
+
+**Format:** Presentations + adversarial Q&A | **GRR Phase:** You Do Alone | **Bloom's:** Evaluate
+
+#### TEACHER DOES
+
+> **SAY:** "Round 2. Remaining presenters — you've seen Round 1 and the autopsy. Show us what you learned."
+
+- Same format: 2 min pitch + 1 min Q&A + 30 sec transition.
+- Rotate student panelists (use students who presented in Round 1 — they're now experts at asking tough questions).
+- 9–10 students present.
+
+> **SAY (after all presentations):** "Compare Round 1 and Round 2. What improved?"
+
+- Debrief briefly. Celebrate growth.
+
+#### STUDENTS DO
+
+- Present their data findings under adversarial Q&A (9–10 students)
+- Round 1 presenters serve as panelists
+- All students observe and compare quality across rounds
+
+#### Pacing
+
+| Segment | Time |
+|---------|------|
+| 9–10 students × 3.5 min | 31.5–35 min |
+| Cross-round comparison debrief | 5 min |
+
+#### Teacher Tip
+
+> Round 2 is almost always better than Round 1. Name this explicitly: "The Presentation Autopsy worked. You learned from watching each other. That's peer learning in action."
+
+#### Check for Understanding
+
+**Observe:** Do Round 2 presenters lead with findings (not methodology)? Do they include context? Do they have recommendations? If the majority do, the Autopsy block worked.
+
+---
+
+### 3:05–3:20 | Break (15 min)
+
+> ☕ **BREAK** — "After break: SQL, EU frameworks, AI + data, and capstone kickoff."
+
+---
+
+### 3:20–3:50 | SQL Taster (30 min)
+
+**Format:** Hands-on, guided | **GRR Phase:** I Do → We Do → You Do | **Bloom's:** Apply
+
+#### TEACHER DOES
+
+> **SAY:** "SQL — Structured Query Language. Every database in the world speaks it. You don't need to become an expert — but after this block, you'll know what SQL does, why it matters, and how to read a basic query."
+
+> **SAY:** "Open your browser. Go to sqliteonline.com. You'll see a pre-loaded database with 3 tables: Customers, Orders, and Products."
+
+- Wait for everyone to get in.
+
+**Query 1: SELECT (reading data)**
+
+> **SAY:** "The most basic SQL command: SELECT. It means 'show me this data.' Watch."
+
+- **Demo:**
+```sql
+SELECT name, email, city
+FROM customers;
+```
+
+> **SAY:** "That says: show me the name, email, and city from the customers table. Try it — type it in and hit Run."
+
+- Wait for everyone to see results.
+
+**Query 2: WHERE (filtering)**
+
+> **SAY:** "Now let's filter. Only customers from Chișinău."
+
+- **Demo:**
+```sql
+SELECT name, email
+FROM customers
+WHERE city = 'Chișinău';
+```
+
+> **SAY:** "WHERE is like the filter in Google Sheets. Same idea, different syntax. Try it — filter for a different city."
+
+**Query 3: GROUP BY (aggregating)**
+
+> **SAY:** "This is the SQL version of a pivot table."
+
+- **Demo:**
+```sql
+SELECT city, COUNT(*) as total_customers, SUM(total_spent) as revenue
+FROM customers
+GROUP BY city
+ORDER BY revenue DESC;
+```
+
+> **SAY:** "That says: group customers by city, count how many are in each city, and add up their spending. Then sort by revenue, highest first. This is a pivot table — in one line of code."
+
+> **SAY:** "Now try writing your own. Pick any question about the data and answer it with a query. You have 8 minutes."
+
+- Circulate. Help with syntax errors (missing semicolons, wrong quotes, misspelled column names).
+
+> **SAY (after 8 min):** "Who wrote a query that surprised them? Share it."
+
+- Call on 2–3 students.
+
+> **SAY:** "You now speak SQL. Basic SQL, but SQL. When someone says 'we need to pull this from the database,' you understand what that means. And if you want to go deeper, there are free courses online. But for this bootcamp, what you just learned is enough."
+
+#### STUDENTS DO
+
+- Open SQL playground
+- Run SELECT query (follow along)
+- Run WHERE query (follow along, then modify)
+- Run GROUP BY query (follow along, then modify)
+- Write their own query (8 min independent)
+- Share interesting findings
+- **Good query:** `SELECT product_category, AVG(order_value) as avg_order FROM orders GROUP BY product_category ORDER BY avg_order DESC;`
+- **Stuck:** Syntax error → Check for missing semicolons, wrong quotes, misspelled column names.
+
+#### Pacing
+
+| Segment | Time |
+|---------|------|
+| Intro + open SQL playground | 3 min |
+| SELECT demo + practice | 5 min |
+| WHERE demo + practice | 5 min |
+| GROUP BY demo + practice | 5 min |
+| Independent query writing | 8 min |
+| 2–3 students share | 4 min |
+
+#### Teacher Tip
+
+> The goal is demystification, not proficiency. If a student writes one working query, they've succeeded. Don't push for joins, subqueries, or anything advanced. This is a taster.
+
+#### Check for Understanding
+
+**Show Me:** "Show me one query you wrote and the results it returned." Student should be able to explain what the query does in plain English.
+**If a student is completely lost:** Pair them with someone who's got it. "Just watch and ask questions. You're building familiarity, not mastery."
+
+#### Differentiation
+
+- **Struggling learners:** Follow along only. Don't attempt independent queries — just successfully run the 3 guided ones.
+- **Advanced learners:** Try a JOIN: `SELECT customers.name, orders.total FROM customers JOIN orders ON customers.id = orders.customer_id;`
+- **Language support:** SQL is English-based, which helps. "SELECT = selectează. WHERE = unde. GROUP BY = grupează după."
+
+---
+
+### 3:50–4:20 | EU/International Reporting Frameworks (30 min)
+
+**Format:** Interactive lecture + exercise | **GRR Phase:** I Do → We Do → You Do | **Bloom's:** Apply → Create
+
+#### TEACHER DOES
+
+> **SAY:** "If you work with EU-funded projects — or if Moldova continues on its EU accession path — you need to know how international organizations measure impact. It's different from business KPIs."
+
+> **SAY:** "The tool is called a Logical Framework Matrix — or logframe. It's how every EU project reports results."
+
+**Project a simplified logframe:**
+
+```
+LEVEL          | INDICATOR              | TARGET    | DATA SOURCE
+━━━━━━━━━━━━━━┿━━━━━━━━━━━━━━━━━━━━━━━┿━━━━━━━━━━┿━━━━━━━━━━━━
+Impact         | Youth unemployment     | ↓ 5%      | National stats
+(long-term)    | rate in target region  |           |
+───────────────┼───────────────────────┼──────────┼────────────
+Outcome        | % of participants     | 70%       | Program records
+(medium-term)  | employed within 6 mo  |           |
+───────────────┼───────────────────────┼──────────┼────────────
+Output         | # of participants     | 200       | Attendance logs
+(short-term)   | completing training   |           |
+───────────────┼───────────────────────┼──────────┼────────────
+Activity       | # of training sessions| 40        | Schedule
+(what you do)  | delivered             |           |
+```
+
+> **SAY:** "Every indicator must be SMART:"
+
+**Project:**
+```
+S = Specific:    What exactly are you measuring?
+M = Measurable:  Can you put a number on it?
+A = Achievable:  Is the target realistic?
+R = Relevant:    Does it actually measure what matters?
+T = Time-bound:  By when?
+```
+
+**Bad vs. good indicators:**
+
+```
+BAD:  "Improve youth employment" — not specific, not measurable, not time-bound
+GOOD: "Increase the percentage of program graduates employed within 6 months
+       from 45% to 70% by December 2026"
+```
+
+> **SAY:** "Now write 3 SMART indicators for this scenario:"
+
+**Project scenario:** "You're running an EU-funded digital literacy program in rural Moldova. 150 participants over 12 months. Write an output indicator, an outcome indicator, and an impact indicator."
+
+#### STUDENTS DO
+
+- Learn the logframe structure (impact → outcome → output → activity)
+- Learn SMART criteria
+- Write 3 SMART indicators for the scenario (12 min)
+- Share 1 indicator with the class
+- **Good indicator:** "By December 2026, 120 out of 150 participants (80%) will demonstrate basic digital literacy as measured by a standardized assessment scoring ≥70%."
+- **Needs work:** "Participants will be more digitally literate." → Push: "How many? By when? How will you measure 'more literate'?"
+
+#### Pacing
+
+| Segment | Time |
+|---------|------|
+| Logframe structure | 8 min |
+| SMART criteria + good vs. bad examples | 5 min |
+| Students write 3 indicators | 12 min |
+| 2–3 students share | 3 min |
+| Transition | 2 min |
+
+#### Teacher Tip
+
+> This block is a differentiator for students working in NGOs, government, or EU-adjacent roles — which is many students in Moldova. Frame it as: "This is the language that gets projects funded. If your indicator isn't SMART, your donor will send it back."
+
+#### Check for Understanding
+
+**Partner review:** "Swap indicators with your partner. Check: is each one Specific? Measurable? Achievable? Relevant? Time-bound? Circle any that fail a criterion."
+
+---
+
+### 4:20–4:45 | AI + Data Literacy (25 min)
+
+**Format:** Interactive discussion + hands-on | **GRR Phase:** I Do → We Do | **Bloom's:** Evaluate
+
+#### TEACHER DOES
+
+> **SAY:** "On Day 1, you used AI to spot patterns in your data. Some of you found AI was helpful. Some found it was wrong. Today, let's talk about what AI changes about data literacy — and what it doesn't."
+
+> **SAY:** "Here's the new skill stack:"
+
+**Project:**
+```
+OLD DATA LITERACY: Clean → Analyze → Visualize → Communicate
+NEW DATA LITERACY: Ask the right question → Prompt AI → VALIDATE the answer
+                   → Communicate with context AI can't provide
+```
+
+> **SAY:** "The skills that matter MORE with AI:"
+```
+1. Knowing WHAT to ask (AI can analyze, but it can't ask the right question)
+2. Validating answers (AI will confidently give you wrong numbers)
+3. Spotting hallucinated patterns (AI finds patterns that don't exist)
+4. Providing context (AI doesn't know your organization, your customers,
+   your regional dynamics)
+```
+
+> **SAY:** "Quick exercise. Open your AI tool. Upload your dataset and ask:"
+
+**Project:**
+```
+"What are 3 actionable recommendations based on this data?
+For each, rate your confidence level 1-10 and explain what
+additional data would increase your confidence."
+```
+
+> **SAY:** "Read AI's response. Then evaluate: for each recommendation, would you actually follow it? Why or why not? What context is AI missing?"
+
+- Circulate. Push students to be critical, not accepting.
+
+> **SAY (after 10 min):** "Who found a recommendation they'd actually follow? Who found one that's dangerously wrong? Let's hear both."
+
+#### STUDENTS DO
+
+- Learn the new data literacy skill stack
+- Prompt AI with their data (5 min)
+- Evaluate AI's recommendations critically (10 min)
+- Share findings: what was useful, what was wrong, what context was missing
+
+#### Pacing
+
+| Segment | Time |
+|---------|------|
+| New skill stack + discussion | 8 min |
+| AI prompt exercise | 5 min |
+| Critical evaluation | 10 min |
+| Share findings (2–3 students) | 5 min |
+
+#### Teacher Tip
+
+> The key message: AI makes data analysis faster, but it doesn't make it correct. The human's job is validation, context, and judgment. Students who internalize this will use AI effectively; students who don't will make expensive mistakes.
+
+#### Check for Understanding
+
+**Discussion:** "Would you send AI's recommendation directly to your boss? Why or why not?" Expected answer: "No — I'd need to verify the numbers and add context about our specific situation."
+
+---
+
+### 4:45–5:15 | Capstone Kickoff (30 min)
+
+**Format:** Instructor-led + team formation | **GRR Phase:** I Do → You Do Together | **Bloom's:** Create
+
+#### TEACHER DOES
+
+> **SAY:** "Day 4 is capstone day. You'll present a complete data analysis to real guests — team leads, finance directors, NGO managers. Let's get you set up."
+
+**Present 4 capstone options:**
+
+```
+OPTION A: Business Analysis
+Analyze a real business dataset (provided or your own).
+Deliverables: Dashboard + memo + 5-minute presentation.
+
+OPTION B: NGO Impact Report
+Analyze beneficiary data from an NGO program.
+Deliverables: Impact dashboard + logframe indicators + presentation.
+
+OPTION C: Public Data Investigation
+Use publicly available data (government stats, World Bank)
+to investigate a question about Moldova/Georgia/Armenia.
+Deliverables: Dashboard + data story + presentation.
+
+OPTION D: Your Own Data
+Bring a dataset from your actual work and analyze it.
+Deliverables: Dashboard + memo + presentation.
+```
+
+> **SAY:** "Teams of 2–3. Choose your option. You have 15 minutes to form teams and start your capstone planning template."
+
+- Distribute capstone planning templates.
+- Circulate. Help teams that can't decide. Push individuals working alone to join a team: "Collaboration is a job skill. Join a team."
+
+> **SAY:** "Fill out the planning template: What data? What question? Who does what? What's your headline hypothesis?"
+
+#### STUDENTS DO
+
+- Review 4 capstone options
+- Form teams of 2–3
+- Choose a capstone option
+- Begin filling out the planning template (data source, question, roles, hypothesis)
+- **Good start:** Team chooses Option B, identifies specific NGO data they have access to, divides roles (one analyst, one dashboard builder, one writer/presenter)
+- **Needs coaching:** Team can't choose → "Which option is closest to your actual work? Pick that one."
+
+#### Pacing
+
+| Segment | Time |
+|---------|------|
+| Present 4 options | 8 min |
+| Team formation | 5 min |
+| Planning template work | 15 min |
+| Transition | 2 min |
+
+#### Teacher Tip
+
+> Teams of 2–3 work best. Solo students produce lower-quality capstones because they can't divide the workload. Strongly encourage teaming up.
+
+---
+
+### 5:15–5:30 | Revised Dashboard Sprint (15 min)
+
+**Format:** Individual/team, hands-on | **GRR Phase:** You Do Alone | **Bloom's:** Create
+
+#### TEACHER DOES
+
+> **SAY:** "Quick sprint. Open your Day 2 dashboard. Apply what you learned today: add one benchmark, fix one headline, add one contextual note. 15 minutes. This is practice for the capstone dashboard."
+
+#### STUDENTS DO
+
+- Open Day 2 dashboard in Looker Studio
+- Add context (benchmark, trend line, or segmentation)
+- Improve headlines
+- Save updated version
+
+#### Pacing
+
+| Segment | Time |
+|---------|------|
+| Sprint | 13 min |
+| Save | 2 min |
 
 ---
 
 ### 5:30–5:45 | Day 3 Wrap (15 min)
 
-**Format:** Full group | **GRR Phase:** We Do
+**Format:** Full group, reflective | **GRR Phase:** We Do | **Bloom's:** Evaluate
 
 #### TEACHER DOES
 
-> **SAY:** "Quick wrap. Today you automated a workflow, designed AI systems, analyzed your career, and started planning your capstone. Tomorrow is the finale."
+> **SAY:** "Quick self-assessment — same 4 dimensions. Compare to Days 1 and 2."
 
-> **SAY:** "Tonight is capstone build time. I'm available via our group chat for questions. Set expectations: arrive tomorrow with your capstone at least 70% done. The morning is for polishing, not starting from scratch."
+**Project:**
+```
+                Day 1:  Day 2:  Day 3:
+Reading data:    ___     ___     ___
+Cleaning data:   ___     ___     ___
+Analyzing data:  ___     ___     ___
+Communicating:   ___     ___     ___
+```
 
-#### Exit Ticket Questions
+> **SAY:** "Where did you grow the most today? For most of you, I'd guess it's communicating — after the stakeholder panel, you know what it takes to present data under pressure."
 
-1. Draw or describe a simple automation workflow with a trigger, an action, and an output.
-2. What is one task in your daily work that could be automated? Sketch the workflow.
-3. Explain MCP (Model Context Protocol) in one sentence to a non-technical colleague.
+- 2–3 students share.
+
+> **SAY:** "Tomorrow is the final day. Capstone build in the morning, showcase in the afternoon. Come ready to work — and ready to impress. Bring your data, your dashboards, and your confidence."
+
+**Data English Playbook update:**
+
+> **SAY:** "Add 10 new terms: benchmark, trend, segmentation, forecast, scenario modeling, KPI, vanity metric, SQL, SELECT/WHERE/GROUP BY, SMART indicator, logframe."
+
+#### STUDENTS DO
+
+- Complete self-assessment (compare across 3 days)
+- Share growth observations
+- Update Data English Playbook
+- Note capstone preparation steps for tonight
+
+#### Pacing
+
+| Segment | Time |
+|---------|------|
+| Self-assessment | 3 min |
+| 2–3 students share | 4 min |
+| Playbook update | 3 min |
+| Day 4 preview + logistics | 5 min |
 
 ---
 
-## DIFFERENTIATION NOTES (Session 3 Summary)
+## DIFFERENTIATION NOTES (Session-Wide)
 
-| Learner Type | Strategy |
-|-------------|----------|
-| **Struggling learners** | Provide a pre-built automation template to modify rather than build from scratch. Use step-by-step visual guide for workflow setup. Offer a simpler capstone scope. |
-| **Advanced learners** | Challenge them to add error handling or branching logic to their automation. Ask them to document their workflow for a non-technical audience. |
-| **Language support** | Provide workflow vocabulary in context. Allow screen-recording of process instead of written documentation. |
+**Struggling learners:**
+- During stakeholder panel: allow 3-minute pitches instead of 2
+- For forecasting: use the template exactly as provided, just change one assumption
+- For SQL: success = running 3 guided queries, not writing independent ones
+- For SMART indicators: provide partially completed examples to modify
+
+**Advanced learners:**
+- Challenge them to build a multi-scenario forecast with sensitivity analysis
+- SQL: try JOINs and subqueries
+- SMART indicators: write a complete logframe (all 4 levels)
+- Stakeholder panel: serve as panelists and ask tough questions
+
+**Language support:**
+- Stakeholder pitches can be rehearsed in L1 first, then delivered in English
+- SMART indicators can be drafted in L1 and translated
+- SQL keywords are English-based (advantage for English practice)
+- Data English Playbook now has 30+ terms — review together
 
 ---
 
-## POST-SESSION REFLECTION (for the instructor)
+## POST-SESSION REFLECTION (For Instructor)
 
 - [ ] What worked well today?
 - [ ] What would I adjust for next time?
-- [ ] Which students need follow-up or additional support?
-- [ ] Did the automation exercise work smoothly? Any authentication issues to fix?
-- [ ] Are capstone plans realistic? Any students who need scope reduction?
-
----
-
-## KEY RESOURCES FOR THIS SESSION
-
-| Resource | URL | Used For |
-|----------|-----|----------|
-| Make.com | https://www.make.com | Workflow automation |
-| Make.com Beginner Guide | https://help.make.com/learn-the-basics | Setup reference |
-| Zapier | https://zapier.com | Alternative automation |
-| Zapier Academy | https://learn.zapier.com/path/zapier-basics-from-a-to-zap | Self-study |
-| MCP Course (Anthropic) | https://anthropic.skilljar.com/introduction-to-model-context-protocol | MCP explainer |
-| MCP Spec | https://modelcontextprotocol.io | MCP reference |
-| MCP Beginner Guide | https://www.verdent.ai/guides/what-is-model-context-protocol | Non-technical MCP intro |
+- [ ] Which students need extra support before the capstone?
+- [ ] Did timing work? Where did I run long/short?
+- [ ] Did the stakeholder panel push students to be concise?
+- [ ] Did Round 2 presentations improve after the Autopsy?
+- [ ] Were forecasts data-driven or arbitrary?
+- [ ] Are capstone teams formed and planning started?
+- [ ] Are self-assessment scores showing consistent growth?

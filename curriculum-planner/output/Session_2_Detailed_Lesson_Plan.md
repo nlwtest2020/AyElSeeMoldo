@@ -1,7 +1,7 @@
-# SESSION 2: "Research, Write, Create"
+# SESSION 2: "Dashboard It & Tell It"
 
 **Sunday, Weekend 1 | 10:00 AM – 5:45 PM**
-**Theme:** AI for research, writing, visual/multimedia creation, and data analysis.
+**Theme:** Build interactive dashboards, present data to non-technical audiences, write memos that move decisions.
 
 ---
 
@@ -9,24 +9,28 @@
 
 By the end of this session, students will be able to:
 
-1. **Detect** hallucinations in AI-generated research and fact-check claims systematically
-2. **Use** research tools (NotebookLM, Perplexity) to interrogate sources and triangulate information
-3. **Collaborate** with AI on writing while preserving their own voice and judgment
-4. **Analyze** a dataset using AI and produce a presentable summary of insights
-5. **Generate** and iterate on visual content using AI image tools
-6. **Build** a simple functional tool by directing AI code generation
+1. **Use** VLOOKUP, INDEX-MATCH, and conditional formatting for analytical questions (Bloom's: Apply)
+2. **Build** an interactive dashboard in Looker Studio that passes the 5-second test (Bloom's: Create)
+3. **Tell** a data story using the Setup→Conflict→Resolution narrative arc (Bloom's: Apply)
+4. **Write** a 1-page data-driven memo with a recommendation that an executive can act on (Bloom's: Create)
+5. **Identify** 5 common data fallacies and distinguish correlation from causation (Bloom's: Analyze)
+6. **Explain** basic GDPR principles relevant to data they collect and analyze (Bloom's: Understand)
 
 ---
 
 ## Materials & Setup
 
-- Laptop or tablet per student (with WiFi)
-- Accounts ready: ChatGPT, Claude, Google account (for NotebookLM)
-- Pre-prepared CSV datasets (1 per student — see Data Analysis block)
-- Pre-prepared "hallucination cheat sheets" (1 per topic)
-- Printed trust rubric template (1 per student)
-- Printed comparison template for writing exercise
+- Laptops with WiFi (Google Sheets + Looker Studio access required)
+- Google accounts with Looker Studio enabled (https://lookerstudio.google.com)
+- Students' cleaned datasets from Day 1 (or the pre-prepared datasets for those who missed Day 1)
+- Pre-prepared mini-dataset for the Data Challenge (new, unfamiliar — not from Day 1)
+- 5 "data fallacy" scenario cards (printed, 1 set per table)
+- 5 spurious correlation examples (projected — funny ones from tylervigen.com)
+- 5 real business examples of correlation ≠ causation
+- Printed data-driven memo template (1 per student)
+- Printed dashboard design checklist (1 per student)
 - Slides deck (Session 2)
+- Whiteboard + markers
 - Timer (visible)
 
 ---
@@ -35,789 +39,932 @@ By the end of this session, students will be able to:
 
 | Method | Description |
 |--------|-------------|
-| **Formative** | Hallucination scorecards, trust rubrics, writing comparisons, data summaries |
-| **Self-Assessment** | Confidence rating (1–5) per learning target at close |
-| **Exit Ticket** | See closing section |
-| **Evidence** | Scorecards show students caught real fabrications. Writing comparisons show students can articulate what AI changed. Data summaries contain specific, verified findings. |
+| **Formative** | Observe VLOOKUP formula construction. Check dashboards during gallery walk (5-second test). Listen to CEO role-play presentations for clarity. |
+| **Self-Assessment** | Data confidence rating (1–5) across 4 dimensions — compare to Day 1 baseline. |
+| **Exit Ticket** | 1-page data-driven memo with actionable recommendation. |
+| **Evidence to look for** | Dashboards have "so what?" headlines (not generic labels). Memos lead with the recommendation, not the methodology. Students can name at least 3 data fallacies. CEO role-play presentations get to the point in under 2 minutes. |
 
 ---
 
-## MORNING BLOCK (10:00–12:00)
+## MORNING BLOCK (10:00–1:10)
 
 ---
 
-### 10:00–10:15 | Retrieval Sprint (15 min)
+### 10:00–10:15 | Data Challenge (Retrieval) (15 min)
 
-**Format:** Pairs, no notes | **GRR Phase:** We Do
+**Format:** Individual, timed | **GRR Phase:** You Do Alone | **Bloom's:** Apply
 
 #### TEACHER DOES
 
-> **SAY:** "Good morning! Before anything new, let's see what stuck from yesterday. Pair up with someone you DIDN'T sit with yesterday. I'm going to project 7 questions one at a time. Discuss each with your partner for 1 minute, then I'll reveal the answer. No notes, no phones — just your memory."
+> **SAY:** "Good morning. No warm-up today — we're starting with a challenge. You have 10 minutes. Here's a dataset you've never seen before."
 
-**Project questions one at a time:**
+- **Project the link** to a new mini-dataset (30–50 rows — e.g., a small café's monthly sales across 4 products and 3 locations).
 
-| # | Question | Answer |
-|---|----------|--------|
-| 1 | What does CRAFT stand for? | Context, Role, Audience, Format, Tone |
-| 2 | How do LLMs generate text? | By predicting the next token based on patterns in training data |
-| 3 | Name one difference between Claude and ChatGPT. | Different training data, different safety boundaries, different strengths (Claude = structured; ChatGPT = creative) |
-| 4 | What is chain-of-thought prompting? | Breaking a complex task into a sequence of smaller prompts where each builds on the previous output |
-| 5 | What happened when we trained Teachable Machine with biased data? | The model only worked in the conditions it was trained on (same background, same lighting) — it failed in new conditions |
-| 6 | What makes a good evaluation rubric for a prompt? | Specific, measurable checkpoints (not vague like "is it good?") — e.g., word count, tone, required info included |
-| 7 | Name one ethical concern about AI-generated text. | Bias (gender, racial, cultural stereotypes), hallucinations (made-up facts), privacy risks, replacing human judgment |
+> **SAY:** "Build a pivot table, create one chart, and write a 1-sentence insight in English. 10 minutes. No notes, no asking your neighbor. Go."
 
-> After each question, give pairs 1 minute to discuss, then reveal the answer on screen.
+- Start the timer. Circulate silently. Note who remembers pivot table mechanics vs. who's stuck.
+
+> **SAY (at 10 min):** "Stop. Hands off keyboards."
+
+> **SAY:** "Raise your hand if you finished all three — pivot table, chart, and insight." Count hands.
+
+> **SAY:** "Raise your hand if you got the pivot table but ran out of time on the chart or insight." Count.
+
+> **SAY:** "This is retrieval practice. It's supposed to be hard. The fact that some of you froze on the pivot table after building 5 yesterday? That's normal — it means the skill isn't automatic yet. It will be by Day 4."
 
 #### STUDENTS DO
 
-- Pair up with a new partner
-- Discuss each question for 1 minute without notes
-- Self-check against revealed answers
+- Open unfamiliar dataset
+- Build a pivot table answering a business question
+- Create one chart from the pivot table
+- Write a 1-sentence English insight
+- All within 10 minutes, no notes
 
 #### Pacing
 
 | Segment | Time |
 |---------|------|
-| 7 questions × (1 min discuss + 30 sec reveal) | ~11 min |
-| Buffer and transition | 4 min |
+| Instructions + distribute link | 2 min |
+| Timed challenge | 10 min |
+| Debrief (count hands, normalize struggle) | 3 min |
+
+#### Teacher Tip
+
+> This is intentionally stressful. The point is spaced retrieval — forcing recall strengthens long-term retention. Don't help during the 10 minutes. The struggle IS the learning.
 
 #### Check for Understanding
 
-**Observe:** Which questions stumped most pairs? Note these — they need reinforcement today.
-**If CRAFT is forgotten:** Quick 30-second recap before moving on.
+**Observation:** Count how many students complete all 3 tasks. Compare to Day 3's challenge for growth data.
+**If <30% finish:** The Day 1 content didn't stick. Consider a 5-minute pivot table refresher before moving on.
 
 ---
 
-### 10:15–10:55 | The Hallucination Hunt (40 min)
+### 10:15–10:50 | Advanced Spreadsheet Functions (35 min)
 
-**Format:** Pairs, research + fact-check | **GRR Phase:** You Do Together
+**Format:** Hands-on, follow-along | **GRR Phase:** I Do → We Do → You Do | **Bloom's:** Apply
 
 #### TEACHER DOES
 
-> **SAY:** "Yesterday you learned that AI predicts the next word. But what happens when the AI confidently predicts something that's completely wrong? That's called a hallucination. Today you're going to become hallucination detectives."
+**Function 1: VLOOKUP (12 min)**
 
-> **SAY:** "Each pair will get a regional topic. You'll ask AI to write a 200-word research summary on that topic, then you'll fact-check every specific claim. Here are the topics:"
+> **SAY:** "Yesterday you learned SUMIF and COUNTIF. Today we level up. VLOOKUP is the function that lets you connect two different tables — like looking up a customer's name in one table and pulling their email from another."
 
-**Project the topic assignments:**
-- **Armenian history pairs:** "Write a 200-word summary of the history of the Armenian alphabet and its cultural significance."
-- **Moldovan wine pairs:** "Write a 200-word summary of Moldova's wine industry, including key wine regions and historical milestones."
-- **Georgian architecture pairs:** "Write a 200-word summary of Georgian architectural traditions, focusing on churches and fortresses."
+> **SAY:** "Here's the analogy: VLOOKUP works like a dictionary. You look up a word in column A, and it returns what's in column D of the same row. You're searching the first column and retrieving from another."
 
-> **SAY:** "Step 1: Generate the summary in Claude or ChatGPT. Step 2: Fact-check EVERY specific claim — names, dates, places, statistics. Use Google, Wikipedia, or Perplexity (https://www.perplexity.ai). Step 3: Fill out the Hallucination Scorecard."
-
-**Project the scorecard template:**
+- **Draw on whiteboard:**
 ```
-HALLUCINATION SCORECARD
-Topic: _______________
-AI Tool Used: _______________
-
-Total specific claims found: ___
-Claims verified as TRUE: ___
-Claims FABRICATED (hallucinations): ___
-Claims AMBIGUOUS (can't verify): ___
-
-Worst hallucination found:
-_________________________________
-
-How confident was the AI when it hallucinated? (very/somewhat/not at all)
+Table 1: Orders          Table 2: Customers
+Order ID | Customer ID   Customer ID | Name | Email | Region
+1001     | C-045         C-045       | Ana  | ana@  | Chișinău
+1002     | C-112         C-112       | Giorgi| g@   | Tbilisi
 ```
 
-**Known fabrication examples to watch for (instructor cheat sheet — don't share with students):**
+> **SAY:** "I want to add the customer name to my orders table. Watch."
 
-*Armenian alphabet:*
-- AI may claim Mesrop Mashtots created the alphabet in the wrong year (correct: 405 AD)
-- AI may fabricate specific scholars or monasteries that didn't exist
-- AI may mix up details about which king commissioned the alphabet
+- **Demo live:**
+```
+=VLOOKUP(B2, Customers!A:D, 2, FALSE)
+```
 
-*Moldovan wine:*
-- AI may invent specific vineyard names or founding dates
-- AI may cite incorrect production statistics
-- AI may claim Moldova is the "Nth largest wine producer" with a wrong ranking
-- AI may confuse Moldovan regions with Romanian ones
+> **SAY:** "Four parts: what to look up (B2 — the customer ID), where to look (the Customers table), which column to return (2 — the name column), and FALSE means exact match only. Always use FALSE."
 
-*Georgian architecture:*
-- AI may assign wrong construction dates to real churches
-- AI may invent architects' names (medieval Georgian architects are mostly unknown)
-- AI may confuse Jvari Monastery details with Svetitskhoveli Cathedral
+- **Write on whiteboard:**
+```
+=VLOOKUP(what_to_find, where_to_look, which_column, FALSE)
+```
 
-- Circulate during fact-checking. Help pairs who are stuck verifying claims.
+> **SAY:** "Your turn. Add customer names to your orders using VLOOKUP. 3 minutes."
 
-> **SAY (after 30 min):** "Time's up! Who found the best hallucination? Share your worst one."
+- Circulate. Common errors: wrong table range, wrong column number, forgetting FALSE.
 
-- Have 3–4 pairs share their most egregious hallucination. Project on screen if possible.
+**Function 2: INDEX-MATCH (10 min)**
 
-> **SAY:** "Key takeaway: AI doesn't know when it's lying. It doesn't have a concept of truth — it has a concept of 'what sounds right based on patterns.' This is why you must ALWAYS fact-check AI output when accuracy matters."
+> **SAY:** "VLOOKUP has a weakness: it can only search the first column and look right. INDEX-MATCH is the upgrade — it can search any column and return from any other column."
+
+- **Demo:**
+```
+=INDEX(Customers!B:B, MATCH(B2, Customers!A:A, 0))
+```
+
+> **SAY:** "MATCH finds which row the customer ID is in. INDEX returns the value from that row in the name column. Think of MATCH as the detective (finds the row) and INDEX as the retriever (grabs the answer)."
+
+> **SAY:** "Try it. Replace one of your VLOOKUPs with INDEX-MATCH. Same result, more flexible."
+
+**Function 3: Conditional Formatting (7 min)**
+
+> **SAY:** "Last one — visual. Conditional formatting colors your cells automatically based on rules. Want to see all orders over 1,000 in green? All negative values in red?"
+
+- **Demo:** Select revenue column → Format → Conditional formatting → "Greater than 1000" → Green fill.
+
+> **SAY:** "Add 2 conditional formatting rules to your data. One for high values, one for low values. Make your spreadsheet tell the story visually."
+
+**Troubleshooting (6 min):**
+
+> **SAY:** "Who's stuck? Let's fix it together."
+
+- Address common VLOOKUP errors on screen. Show the #N/A error: "This means your lookup value doesn't exist in the other table. Check for spelling or formatting differences — remember data cleaning from yesterday?"
 
 #### STUDENTS DO
 
-- Generate a 200-word AI summary on their regional topic
-- Fact-check every specific claim using web search
-- Fill out the Hallucination Scorecard
-- Share worst hallucination with the class
-
-**Good scorecard:** Found 12 claims, verified 8, found 3 fabricated, 1 ambiguous. Worst hallucination: "AI claimed Mileștii Mici winery was founded in 1947 — the actual date is 1969."
-
-**Weak scorecard:** "Everything looked correct." (Push: "Did you check the dates? The specific names? The statistics?")
+- Follow along with VLOOKUP demo, then practice on their own data
+- Follow along with INDEX-MATCH, replace one VLOOKUP
+- Add 2 conditional formatting rules
+- Troubleshoot errors with instructor support
+- **Good work:** Student uses VLOOKUP to connect two related datasets and adds conditional formatting to highlight outliers
+- **Needs help:** #N/A errors everywhere → check that lookup values match exactly (case, spacing, special characters)
 
 #### Pacing
 
 | Segment | Time |
 |---------|------|
-| Generate AI summary | 5 min |
-| Fact-check claims using web search | 20 min |
-| Compile hallucination scorecard | 5 min |
-| 3–4 pairs share worst hallucination | 8 min |
+| VLOOKUP (teach with diagram + follow along) | 12 min |
+| INDEX-MATCH (teach as upgrade + practice) | 10 min |
+| Conditional formatting | 7 min |
+| Troubleshooting buffer | 6 min |
+
+#### Teacher Tip
+
+> VLOOKUP will confuse 40–50% of the room. Use the dictionary analogy relentlessly. Draw the arrow on the whiteboard: "You search HERE and retrieve from THERE." When students get #N/A, walk them to the data and say: "Find this value with your eyes first. Is it actually there?"
+
+#### Check for Understanding
+
+**Show Me (after VLOOKUP):** "Show me your VLOOKUP formula. Point to which part is the lookup value, which is the table, and which is the column number."
+**If >30% can't identify the parts:** Re-demo with a different example. Don't move to INDEX-MATCH until VLOOKUP is solid.
+
+#### Differentiation
+
+- **Struggling learners:** Skip INDEX-MATCH. Master VLOOKUP only — it covers 90% of use cases.
+- **Advanced learners:** Show XLOOKUP (the modern replacement in newer Google Sheets): `=XLOOKUP(B2, Customers!A:A, Customers!B:B)` — simpler syntax.
+- **Language support:** "Look up = a căuta. Column = coloană. Match = potrivire. Return = a returna."
+
+---
+
+### 10:50–11:30 | From Spreadsheet to Dashboard (40 min)
+
+**Format:** Instructor-led demo + guided follow-along | **GRR Phase:** I Do → We Do | **Bloom's:** Apply
+
+#### TEACHER DOES
+
+**Part 1: Looker Studio Orientation (12 min)**
+
+> **SAY:** "Everything you've done so far lives in a spreadsheet. That's great for analysis — but when your boss asks 'how are we doing?', you don't send them a spreadsheet. You send them a dashboard. Today you're building one."
+
+> **SAY:** "Open Looker Studio — lookerstudio.google.com. Sign in with your Google account."
+
+- Wait for everyone to get in. Troubleshoot access issues.
+
+> **SAY:** "Let me give you the tour."
+
+- **Demo on screen:** Walk through the interface:
+  - Left panel: data sources
+  - Top bar: add charts, add filters, add text
+  - Canvas: where you drag and arrange elements
+  - Share button: how to make dashboards public or share with specific people
+
+> **SAY:** "First, connect your data. Click 'Add data' → Google Sheets → select your cleaned dataset from yesterday."
+
+- Walk everyone through the connection. Wait for all students to see their data in Looker Studio.
+
+**Part 2: Guided Build (25 min)**
+
+> **SAY:** "Now we build together. Step by step."
+
+**Step 1: Add a chart**
+- Demo: Click "Add a chart" → Bar chart → drag the dimension (Region) and metric (Revenue, SUM)
+
+> **SAY:** "Your turn. Add a bar chart showing revenue by region. Or by product category — your choice."
+
+**Step 2: Add a filter**
+- Demo: Click "Add a control" → Drop-down → set to Region
+
+> **SAY:** "Now anyone viewing your dashboard can filter by region. Try it — click the dropdown and select one region."
+
+**Step 3: Add a headline**
+- Demo: Add a text box. Type: "Chișinău generates 45% of total revenue — 3x more than any other region."
+
+> **SAY:** "This is NOT a label. This is a 'so what?' headline. It tells the viewer the insight, not just the category. Not 'Revenue by Region' — but 'Chișinău dominates with 45% of revenue.'"
+
+**Step 4: Add a second chart**
+- Demo: Add a time series (line chart) showing revenue over time.
+
+> **SAY:** "Add one more chart. Any type. Then save your dashboard."
+
+#### STUDENTS DO
+
+- Open Looker Studio and connect their dataset
+- Follow along: add bar chart, add filter, add headline, add time series
+- Save their dashboard
+- **Good dashboard:** Has at least 2 charts, 1 filter, and a "so what?" headline that states an insight
+- **Needs work:** Charts are there but the text box just says "Revenue" → Coach: "What does this chart TELL us? Put that in the headline."
+
+#### Pacing
+
+| Segment | Time |
+|---------|------|
+| Interface orientation | 12 min |
+| Guided build: first chart | 7 min |
+| Guided build: filter + headline | 8 min |
+| Guided build: second chart | 7 min |
+| Save + verify | 3 min |
+| Buffer | 3 min |
+
+#### Teacher Tip
+
+> Looker Studio can be slow on weak WiFi. Have students work in pairs on one laptop if connectivity is an issue. The learning objective is dashboard thinking, not tool proficiency — if Looker Studio crashes, they can sketch their dashboard on paper and discuss the design.
+
+#### Check for Understanding
+
+**Quick scan:** "Everyone hold up your laptops. I want to see a dashboard with at least 2 charts and a headline." Walk the room.
+**If >25% are stuck on data connection:** Stop and do a group troubleshooting session. The most common issue is selecting the wrong Google Sheet or the wrong tab.
+
+---
+
+### 11:30–11:45 | Break (15 min)
+
+> ☕ **BREAK** — "After break: dashboard design principles, then you build your real dashboard."
+
+---
+
+### 11:45–12:10 | Dashboard Design Principles (25 min)
+
+**Format:** Interactive lecture | **GRR Phase:** I Do → We Do | **Bloom's:** Understand → Apply
+
+#### TEACHER DOES
+
+> **SAY:** "You've got a working dashboard. Now let's make it good. The test is simple: can someone understand the main message in 5 seconds?"
+
+> **SAY:** "This is called the 5-second test. I'm going to show you some dashboards. You get 5 seconds to look. Then I'll ask: what was the main message?"
+
+- **Show Dashboard A** (bad): Cluttered, 8 charts, no headlines, rainbow colors, no hierarchy. Show for 5 seconds.
+
+> **SAY:** "What was the main message?" Students will struggle. "Exactly. There IS no main message. That's the problem."
+
+- **Show Dashboard B** (good): Clean, 3 charts, one bold headline at top, consistent colors, clear visual hierarchy. Show for 5 seconds.
+
+> **SAY:** "What was the main message?" Students will answer quickly. "See the difference? That's design."
+
+**Project the 5 principles:**
+
+```
+1. THE 5-SECOND TEST: Main message obvious in 5 seconds
+2. "SO WHAT?" HEADLINES: Not "Sales by Region" but
+   "Region X outperforms all others by 40%"
+3. VISUAL HIERARCHY: Most important chart is biggest and top-left
+4. FILTER PLACEMENT: Filters at top, not buried
+5. LESS IS MORE: 3–4 charts max. If you need more, make a second page.
+```
+
+> **SAY:** "Two types of dashboards:"
+
+```
+OPERATIONAL: Updated frequently, used daily, answers "how are we doing right now?"
+STRATEGIC:   Updated monthly/quarterly, used by leadership, answers "where should we invest?"
+```
+
+> **SAY:** "Quick exercise: look at your dashboard from the guided build. Rewrite your headline to pass the 'so what?' test. You have 5 minutes."
+
+#### STUDENTS DO
+
+- Watch the 5-second test comparison (bad vs. good dashboard)
+- Learn the 5 design principles
+- Rewrite their dashboard headline to be a "so what?" headline
+- Identify whether their dashboard is operational or strategic
+- **Good headline rewrite:** From "Monthly Revenue" to "Revenue dropped 15% in October — the first decline in 6 months"
+- **Still generic:** "Revenue Overview" → Push: "What does the data SAY? Put the number in the headline."
+
+#### Pacing
+
+| Segment | Time |
+|---------|------|
+| 5-second test examples | 5 min |
+| 5 design principles | 5 min |
+| Operational vs. strategic distinction | 3 min |
+| Students rewrite headline | 5 min |
+| 2–3 students share rewrites | 5 min |
 | Transition | 2 min |
 
 #### Teacher Tip
 
-> Pre-test the prompts yourself and note which claims are fabricated. This lets you confirm student findings quickly and adds credibility: "Yes, that's a known hallucination — good catch!"
+> The headline rewrite is the single highest-leverage exercise in this block. A dashboard with a strong headline communicates even if the charts are mediocre. Push hard here.
 
 #### Check for Understanding
 
-**Question:** "Why does AI hallucinate? Is it trying to deceive you?"
-**Expected:** "No — AI doesn't have a concept of truth. It predicts what sounds right based on patterns. It can't tell the difference between a real fact and a plausible-sounding fiction."
-**If >25% miss:** Re-explain: "Think of autocomplete. If your phone suggests 'See you at 3pm' it's not checking your calendar — it's guessing what you'd normally type. AI does the same thing, but at a much larger scale."
+**Turn and talk:** "Read your new headline to your partner. Can they tell you the main insight without looking at the dashboard?" If yes, it passes.
+
+---
+
+### 12:10–12:50 | Build Your Dashboard (40 min)
+
+**Format:** Individual, hands-on | **GRR Phase:** You Do Alone | **Bloom's:** Create
+
+#### TEACHER DOES
+
+> **SAY:** "Now build your real dashboard. Use your cleaned dataset from Day 1 — or the data from your mid-week assignment if you brought it. Requirements:"
+
+**Project:**
+```
+MINIMUM:
+✓ 4 visualizations (mix of chart types)
+✓ 1 interactive filter
+✓ "So what?" headline for each section
+✓ Passes the 5-second test
+
+BONUS:
+✓ Consistent color scheme
+✓ Logical layout (most important top-left)
+✓ Second page for detail view
+```
+
+> **SAY:** "You have 35 minutes. I'll come around to check on each of you."
+
+- **Circulate.** For each student, check:
+  - Do headlines state insights (not labels)?
+  - Is the layout clean or cluttered?
+  - Do chart types match the data? (Bar for comparison, line for trends)
+  - Is there at least one filter?
+
+> **SAY (at 30 min):** "5 minutes left. Save your work and prepare for the gallery walk."
+
+#### STUDENTS DO
+
+- Build a complete dashboard in Looker Studio (35 min)
+- Apply design principles from the previous block
+- Save and prepare to share
+
+#### Pacing
+
+| Segment | Time |
+|---------|------|
+| Build dashboard | 35 min |
+| Save + prepare for gallery walk | 5 min |
+
+#### Teacher Tip
+
+> Resist the urge to build it for them. If a student is stuck on chart selection, ask: "What are you trying to show — a comparison, a trend, or a relationship?" Let them choose the chart type from that.
+
+#### Check for Understanding
+
+**Individual check-ins:** Visit every student at least once during the 35 minutes. Give one specific piece of feedback: "This chart is great — now add a headline that tells me the insight."
 
 #### Differentiation
 
-- **Struggling learners:** Provide a fact-checking checklist: (1) Google the name/date/statistic, (2) Check if the Wikipedia article exists, (3) Look for the claim in at least 2 sources.
-- **Advanced learners:** Ask them to find a subtle hallucination — one that sounds plausible and would be easy to miss.
-- **Language support:** Allow students to fact-check in their native language using local search engines and local Wikipedia.
+- **Struggling learners:** Reduce to 2 charts + 1 filter + 1 headline. Quality over quantity.
+- **Advanced learners:** Add a calculated field (e.g., revenue per order) or a blended data source.
+- **Language support:** Headlines can be drafted in L1 first, then translated to English.
 
 ---
 
-### 10:55–11:40 | Research Tools Deep-Dive (45 min)
+### 12:50–1:10 | Dashboard Gallery Walk + 5-Second Test (20 min)
 
-**Format:** Instructor demo → Guided hands-on | **GRR Phase:** I Do → We Do
+**Format:** Rotating stations | **GRR Phase:** You Do Together | **Bloom's:** Evaluate
 
 #### TEACHER DOES
 
-**Part 1: NotebookLM (20 min)**
+> **SAY:** "Leave your dashboard open on your laptop. Stand up. You're going to walk around the room and visit 5 other dashboards. At each one, you have 5 seconds to look — then write on a sticky note: 'The main message is ___.' Leave the sticky note on their desk."
 
-> **SAY:** "You just saw that AI can get facts wrong. What if you could point AI at YOUR documents — sources you trust — and have it answer questions based only on those? That's what NotebookLM does."
+> **SAY:** "After you've visited 5, go back to your own desk and read what people wrote. Did they get your main message? If not, your dashboard needs work."
 
-> **SAY:** "Open https://notebooklm.google.com — you'll need your Google account."
+- Set a timer: 3.5 minutes per station. Ring a bell to rotate.
 
-**Step-by-step demo (project your screen):**
-
-1. "Click 'New Notebook'"
-2. "Click 'Add Source' — you can upload a PDF, paste a URL, or paste text"
-3. "I'm going to upload a sample document. [Upload a 2-3 page article about AI in education — have this pre-prepared.]"
-4. "Now watch — I'll ask it a question about the document."
-5. Type: `What are the 3 main arguments in this article?`
-6. "See how it gives me an answer WITH citations? It points to the exact paragraph where it found each point. This is how you can trust the output — it shows its sources."
-7. "Now try: `What does this article NOT address? What are the gaps?`"
-8. "This is powerful — it's not just summarizing, it's analyzing."
-
-> **SAY:** "Now you try. Upload your own source — or use this one I've provided. [Share a Google Drive link to a pre-loaded document for anyone who doesn't have their own.] Ask it 3 questions about the document."
-
-- Give students 8 minutes to explore.
-
-**Part 2: Perplexity (15 min)**
-
-> **SAY:** "NotebookLM works with your documents. Perplexity works with the entire internet. Open https://www.perplexity.ai"
-
-**Demo:**
-
-1. "Watch what happens when I ask Perplexity a research question."
-2. Type: `What are the current trends in AI adoption among small businesses in Eastern Europe?`
-3. "See the difference from ChatGPT? Perplexity cites its sources with numbered references. You can click each one to verify."
-
-> **SAY:** "Now try the same research question you used in the Hallucination Hunt — ask Perplexity about your topic. Compare its output and sources to what ChatGPT gave you."
-
-- Give students 8 minutes.
-
-> **SAY:** "Quick mention — for audio transcription, two tools worth knowing: Otter.ai (https://otter.ai) for meeting transcription, and Whisper by OpenAI for local, private transcription. We won't demo these today, but add them to your toolkit."
-
-**Closing comparison (5 min):**
-
-> **SAY:** "Take 3 minutes to write down: When would you use NotebookLM vs. Perplexity vs. ChatGPT/Claude?"
-
-**Expected student answers:**
-- **NotebookLM:** When I have specific documents I want to analyze — reports, articles, research papers
-- **Perplexity:** When I need up-to-date information from the web with cited sources
-- **ChatGPT/Claude:** When I need to generate, write, brainstorm, or work with general knowledge
+> **SAY (after all rotations):** "Raise your hand if every person got your main message right." (Some hands.) "Raise your hand if at least one person got it wrong." (More hands.) "That's the 5-second test in action. If one person misread it, imagine what happens when your CEO looks at it between meetings."
 
 #### STUDENTS DO
 
-- Follow along with NotebookLM demo, then explore independently (upload a source, ask 3 questions)
-- Follow along with Perplexity demo, then try their own research question
-- Document which tool is better for what (3 min comparison)
+- Walk to 5 different dashboards
+- At each: look for 5 seconds, then write the main message on a sticky note
+- Return to own desk and read feedback
+- Identify whether their message was clear
 
 #### Pacing
 
 | Segment | Time |
 |---------|------|
-| NotebookLM demo + follow-along | 20 min |
-| Perplexity demo + student try | 15 min |
-| Whisper/Otter mention | 2 min |
-| Documentation + comparison | 5 min |
-| Transition | 3 min |
-
-#### Check for Understanding
-
-**Question:** "What's the key difference between NotebookLM and Perplexity?"
-**Expected:** "NotebookLM analyzes your uploaded documents; Perplexity searches the live internet."
-**If >25% miss:** Draw it on the board — two circles: "Your docs → NotebookLM" and "The internet → Perplexity"
-
----
-
-### 11:40–12:00 | Source Triangulation + Trust Rubric (20 min)
-
-**Format:** Individual work | **GRR Phase:** You Do
-
-#### TEACHER DOES
-
-> **SAY:** "You now have 3 research tools — Claude/ChatGPT, NotebookLM, and Perplexity. How do you know when to trust AI output? You build a personal trust rubric."
-
-**Project the starter template:**
-```
-MY AI TRUST RUBRIC
-
-Score each criterion 1–5 for any AI research output:
-
-1. Does the AI cite sources?                    [ ] / 5
-2. Can I verify those sources exist?             [ ] / 5
-3. Does the answer hold up across tools?         [ ] / 5
-   (Same question in Claude, Perplexity, NotebookLM)
-4. Does the answer change when I rephrase?       [ ] / 5
-5. Are statistics specific or vague?             [ ] / 5
-
-MY ADDITIONAL CRITERIA:
-6. ________________________________              [ ] / 5
-7. ________________________________              [ ] / 5
-8. ________________________________              [ ] / 5
-```
-
-> **SAY:** "Customize this template — keep the first 5 criteria and add 2–3 of your own. Then test it: run one research question through Claude, Perplexity, and NotebookLM. Score each tool using your rubric."
-
-#### STUDENTS DO
-
-- Customize the trust rubric (add 2–3 personal criteria) — 5 min
-- Run one research question through 3 tools — 10 min
-- Score each tool using the rubric — 5 min
-
-**Good custom criteria examples:**
-- "Does the AI acknowledge uncertainty or say 'I'm not sure'?"
-- "Does the output include dates that I can cross-reference?"
-- "Does the AI give a balanced view or only one perspective?"
-
-#### Pacing
-
-| Segment | Time |
-|---------|------|
-| Customize rubric template | 5 min |
-| Test one question across 3 tools | 10 min |
-| Score and compare | 5 min |
-
-#### Check for Understanding
-
-**Question:** "Which tool scored highest on your trust rubric, and why?"
-**Expected:** Students give a specific answer with reasoning — e.g., "Perplexity scored highest because it cited real sources I could verify."
-
----
-
-### 12:00–12:15 | BREAK (15 min)
-
----
-
-### 12:15–1:00 | Writing with AI (Combined Block) (45 min)
-
-**Format:** Individual writing → AI interaction → Pair comparison → Group debrief | **GRR Phase:** You Do → You Do Together → We Do
-
-#### TEACHER DOES
-
-> **SAY:** "This next block is about writing. Not AI writing FOR you — AI writing WITH you. There's a huge difference, and by the end of this block, you'll know exactly where AI helps your writing and where it hurts it."
-
-**Phase 1 — Write Without AI (15 min)**
-
-> **SAY:** "Step 1: Write 150–200 words on a topic of your choice. A professional email, a blog intro, a LinkedIn post, a cover letter paragraph — anything you'd actually write at work. Write it yourself. No AI. You have 15 minutes."
-
-- Let students write. Circulate silently.
-
-**Phase 2 — AI Interaction (10 min)**
-
-> **SAY:** "Step 2: Now take your writing and do two things:"
-> 1. "Ask AI to 'improve' your writing. Paste your text and prompt: 'Improve this writing. Make it clearer and more professional.'"
-> 2. "Then ask AI to help at only ONE stage — brainstorm, outline, OR edit. You pick which stage."
-
-> **SAY:** "When you're done, you should have 3 versions:"
-> - "Version A: Your original writing (no AI)"
-> - "Version B: AI-'improved' version"
-> - "Version C: Your writing with AI help at one specific stage"
-
-**Phase 3 — Pair Comparison (10 min)**
-
-> **SAY:** "Pair up. Read each other's 3 versions. Then answer these questions together:"
-> - "Which version is 'most you' — which one sounds like the real person?"
-> - "Which version is the best writing?"
-> - "Are those the same version? If not, what does that tell you?"
-
-**Phase 4 — Group Debrief (10 min)**
-
-- Ask 3–4 students to share insights.
-
-> **SAY:** "Here's the key takeaway: AI is most useful as a collaborator at specific stages, not as a replacement for your voice. When you ask AI to 'improve' your writing, it often strips out your personality and makes everything sound the same. But when you use AI at one specific stage — brainstorming ideas, organizing an outline, or polishing grammar — you keep your voice and get the AI's strengths."
-
-**Worked Example (show on screen):**
-
-```
-VERSION A (Original — human only):
-"I've been thinking about how our team handles client feedback.
-Right now it's a mess — emails, Slack messages, sticky notes.
-Nobody knows what's been addressed and what hasn't. I think we
-need a simple system. Nothing fancy. Just one place where
-feedback goes and someone is responsible for each item."
-
-VERSION B (AI "improved"):
-"I would like to propose an enhancement to our current client
-feedback management workflow. At present, client feedback is
-dispersed across multiple communication channels, leading to
-potential oversight and inefficiency. I recommend implementing
-a centralized feedback tracking system that would consolidate
-all client communications and assign clear ownership for each
-action item."
-
-VERSION C (Human + AI for editing only):
-"I've been thinking about how our team handles client feedback.
-Right now, it's scattered across emails, Slack, and sticky notes,
-and nobody knows what's been addressed. I think we need one simple
-place where all feedback goes, with someone responsible for each
-item. Nothing fancy — just clarity and accountability."
-```
-
-> **SAY:** "Version A is authentic but rough. Version B is polished but sounds like a corporate robot — it lost the person's voice. Version C is the sweet spot — the human's ideas and voice, cleaned up by AI."
-
-#### STUDENTS DO
-
-- Write 150–200 words on their own topic (15 min)
-- Create 3 versions using AI (10 min)
-- Pair up and compare versions (10 min)
-- Share insights with the group (10 min)
-
-#### Pacing
-
-| Segment | Time |
-|---------|------|
-| Phase 1: Write without AI | 15 min |
-| Phase 2: Create AI versions | 10 min |
-| Phase 3: Pair comparison | 10 min |
-| Phase 4: Group debrief | 10 min |
-
-#### Check for Understanding
-
-**Question:** "When does AI hurt your writing?"
-**Expected:** "When you ask it to fully rewrite — it removes your voice, personality, and authentic tone."
-**Better question:** "What's the most effective way to use AI for writing?"
-**Expected:** "Use it at a specific stage — brainstorming, outlining, or editing — rather than asking it to do everything."
-
----
-
-### 1:00–2:00 | LUNCH (60 min)
-
----
-
-## AFTERNOON BLOCK (2:00–5:45)
-
----
-
-### 2:00–2:40 | Data Analysis with AI (40 min)
-
-**Format:** Individual, instructor-guided | **GRR Phase:** I Do → You Do
-
-#### TEACHER DOES
-
-> **SAY:** "This afternoon we start with data. You're going to upload a real dataset to AI and make it tell you something useful."
-
-**Distribute pre-prepared CSV files** (1 per student, relevant to their country):
-
-*Sample CSV structure for all datasets (50-100 rows):*
-
-**Armenian dataset — "Yerevan Small Business Survey":**
-```
-business_name, sector, employees, monthly_revenue_usd, years_operating,
-uses_social_media, customer_rating, neighborhood
-```
-Includes 60 fictional but realistic small businesses.
-
-**Moldovan dataset — "Chișinău University Graduate Employment":**
-```
-graduate_name, degree_field, graduation_year, months_to_first_job,
-current_salary_mdl, company_type, uses_ai_at_work, satisfaction_1to10
-```
-Includes 75 fictional but realistic graduate records.
-
-**Georgian dataset — "Tbilisi Tourism Survey Q4 2025":**
-```
-visitor_id, origin_country, visit_duration_days, spending_usd,
-main_attraction, accommodation_type, would_return, rating_1to5
-```
-Includes 80 fictional but realistic survey responses.
-
-> **SAY:** "Upload your CSV to Claude or ChatGPT. Then try this prompt:"
-
-**Project the prompt:**
-```
-Analyze this data. What are the 3 most interesting findings?
-Create a summary I could present to my boss in 2 minutes.
-```
-
-> **SAY:** "After you get the first analysis, iterate. Try these follow-up prompts:"
-
-**Project follow-up prompts:**
-```
-- "Create a comparison between [column A] and [column B]"
-- "What trends do you see over time?"
-- "Which segment is performing best and why?"
-- "Summarize this in 5 bullet points for a non-technical audience"
-```
-
-> **SAY:** "Your final output: a 1-paragraph summary of your 3 key insights with supporting data points. This is a portfolio artifact."
-
-#### STUDENTS DO
-
-- Upload CSV to Claude or ChatGPT (5 min)
-- Run initial analysis prompt (5 min)
-- Iterate with 2–3 follow-up prompts (10 min)
-- Write a 1-paragraph summary of insights (10 min)
-- 2–3 students share findings (5 min)
-
-#### Pacing
-
-| Segment | Time |
-|---------|------|
-| Distribute CSV + explain exercise | 5 min |
-| Upload and first analysis prompt | 5 min |
-| Iterate with follow-up prompts | 10 min |
-| Write summary paragraph | 10 min |
-| 2–3 students share findings | 5 min |
-| Buffer | 5 min |
+| Setup + explain rotation | 2 min |
+| 5 stations × 3.5 min | 17.5 min |
+| Transition to lunch | 0.5 min |
 
 #### Teacher Tip
 
-> Pre-test all CSVs with both Claude and ChatGPT. Ensure they produce interesting results. Have a backup CSV ready in case a student's file doesn't upload correctly. Claude's Artifacts feature is particularly good for creating interactive charts.
-
-#### Check for Understanding
-
-**Question:** "What did AI find in your data that you wouldn't have spotted manually?"
-**Expected:** Students cite a specific finding — a correlation, a trend, an outlier.
+> This is one of the most powerful exercises in the entire bootcamp. The feedback is peer-generated and honest. Students who thought their dashboard was clear will discover it wasn't — and that's the lesson.
 
 ---
 
-### 2:40–3:30 | Image Generation + Client Brief (50 min)
+### 1:10–2:10 | Lunch (60 min)
 
-**Format:** Instructor demo → Guided practice → Individual production | **GRR Phase:** I Do → We Do → You Do
+> 🍽 **LUNCH** — "This afternoon: data storytelling, the CEO role-play, memo writing, and critical thinking. The communication half of data literacy."
+
+---
+
+## AFTERNOON BLOCK (2:10–5:45)
+
+---
+
+### 2:10–2:40 | Data Storytelling: The Narrative Arc (30 min)
+
+**Format:** Interactive lecture + individual outlining | **GRR Phase:** I Do → We Do → You Do | **Bloom's:** Apply
 
 #### TEACHER DOES
 
-**Part 1 — Demo (15 min)**
+> **SAY:** "Data doesn't speak for itself. You have to tell its story. And every good story — whether it's a movie, a book, or a data presentation — has the same structure."
 
-> **SAY:** "Now let's work with visual AI. ChatGPT can generate images using its built-in image generator. Let me show you how specificity changes everything."
-
-**3 prompts showing progression of specificity:**
+**Project the narrative arc:**
 
 ```
-Prompt 1 (vague):
-"A coffee shop"
-
-Prompt 2 (better):
-"A cozy specialty coffee shop with exposed brick walls,
-warm lighting, and plants"
-
-Prompt 3 (CRAFT-style, specific):
-"A photograph-style interior of a modern Georgian coffee shop
-in Tbilisi's Vera district. Exposed brick walls, wooden tables,
-hanging Edison bulbs, lush green plants on shelves, a marble
-counter with an espresso machine, morning light through tall
-windows, 2-3 customers working on laptops. Style: warm,
-inviting, Instagram-worthy."
+1. SETUP      → What's the context? What were we expecting?
+2. CONFLICT   → What did the data reveal? What's the surprise or problem?
+3. RESOLUTION → What should we do about it? What's the recommendation?
 ```
 
-- Generate all 3 live in ChatGPT. Show the dramatic difference.
+> **SAY:** "Let me show you."
 
-> **SAY:** "See how Prompt 3 gives you exactly what you want? The same CRAFT thinking applies to images — the more specific you are about context, audience, format, and tone, the better the output."
+**Worked example:**
 
-> **SAY:** "Now you try. Generate your first image — anything you want. Use what you just learned about specificity."
+> "SETUP: Our NGO runs youth employment programs in 3 regions. We expected similar completion rates across all of them."
 
-- Give students 7 minutes to generate their first image.
+> "CONFLICT: But the data shows that Region C has a 25% completion rate — half the rate of Regions A and B. And Region C is where we spend the most money."
 
-**Part 2 — Client Brief (35 min)**
+> "RESOLUTION: We need to investigate why Region C is underperforming. I recommend site visits, exit interviews with dropouts, and a comparison of program delivery methods across regions."
 
-> **SAY:** "Now let's get professional. You're a freelance designer. Here's your client brief:"
+> **SAY:** "See how that's a story, not a data dump? The setup creates expectations. The conflict breaks them. The resolution gives the audience something to do."
 
-**Project the brief:**
-```
-CLIENT BRIEF: Café Soare
-————————————————————————
-Client: A local coffee shop in Chișinău launching a delivery service
-Target audience: Young professionals, 22–35, who work from home
-Deliverable: 3 social media image options for the launch announcement
-Requirements:
-- Must include coffee imagery
-- Must feel modern and warm (not corporate)
-- Must work as an Instagram square post
-- Text "Now Delivering! ☕" should be integrated naturally
+> **SAY:** "Now outline YOUR data story. Use the data from your dashboard. Setup → Conflict → Resolution. You have 12 minutes."
 
-Your deliverable:
-1. Three image options (generated with AI)
-2. A 1-sentence rationale for each option explaining your creative choice
-3. Present your best option to a partner for feedback
-```
+- Circulate. Watch for:
+  - Students who skip the setup and jump to data → "Set the scene first. What was expected?"
+  - Students whose conflict is weak ("the data was interesting") → "What was the SURPRISE? What broke expectations?"
+  - Students whose resolution is vague ("we should look into it") → "Look into WHAT, specifically? What's the first action?"
 
-> **SAY:** "You have 20 minutes to generate your 3 options. Iterate — your first attempt won't be your best. Write the rationale for each."
-
-- Circulate. Help students with prompting specificity.
-
-> **SAY (after 20 min):** "Pair up. Show your partner your 3 options. They pick the best one and tell you why."
+> **SAY (after 12 min):** "Two volunteers — read your story arc to the class."
 
 #### STUDENTS DO
 
-- Generate first image with specific prompt (7 min)
-- Read the client brief (2 min)
-- Generate 3 image options with iteration (20 min)
-- Write 1-sentence rationale for each option (5 min)
-- Partner feedback on best option (5 min)
+- Learn the Setup → Conflict → Resolution framework
+- Outline their own data story using their dashboard data (12 min)
+- 2 students share outlines with the class (4 min)
+- Give feedback on whether the conflict was surprising and the resolution was actionable
 
 #### Pacing
 
 | Segment | Time |
 |---------|------|
-| Demo: 3 prompts showing specificity | 8 min |
-| First student-generated image | 7 min |
-| Client brief: read + plan | 5 min |
-| Generate 3 options with iteration | 20 min |
-| Write rationales + partner feedback | 10 min |
+| Teach framework + worked example | 12 min |
+| Students outline data story | 12 min |
+| 2 students share outlines | 4 min |
+| Transition | 2 min |
 
 #### Teacher Tip
 
-> **Free alternatives if ChatGPT image generation is limited:** Microsoft Copilot (https://copilot.microsoft.com) uses DALL-E 3 for free. Craiyon (https://www.craiyon.com) works without an account. Leonardo AI (https://leonardo.ai) has a generous free tier.
+> The narrative arc is the bridge between data analysis and data communication. Students who can do Setup → Conflict → Resolution will nail the CEO role-play, the memo, and the Day 4 capstone. Spend time here.
 
 #### Check for Understanding
 
-**Question:** "Why did your third image attempt look better than your first?"
-**Expected:** "Because I added more specific details — style, lighting, composition, mood."
+**Cold call:** "Levan, what's your conflict — what surprised you in the data?" The answer should be specific and data-backed.
+**If the answer is vague:** "Give me a number. What did you expect vs. what did you find?"
 
 ---
 
-### 3:30–3:45 | BREAK (15 min)
+### 2:40–3:10 | "Explain It Like I'm the CEO" (30 min)
 
----
-
-### 3:45–4:15 | Presentation Builder (30 min)
-
-**Format:** Hands-on, individual | **GRR Phase:** You Do
+**Format:** Pairs, role-play | **GRR Phase:** You Do Together | **Bloom's:** Apply → Evaluate
 
 #### TEACHER DOES
 
-> **SAY:** "You've written with AI, analyzed data with AI, and created images with AI. Now let's build a presentation with AI. Open https://gamma.app"
+> **SAY:** "You have a data story. Now you need to present it to someone who doesn't care about your process — they care about the answer. Let's role-play."
 
-**Step-by-step Gamma orientation (5 min):**
-1. "Create a free account (or sign in with Google)"
-2. "Click 'Create New' → 'Presentation'"
-3. "Type your topic or paste a description"
+> **SAY:** "Partner A: you're the analyst. Present your findings in 2 minutes. Partner B: you're the CEO. Your job is to interrupt with these questions:"
 
-> **SAY:** "Your task: build a 10-slide presentation in 30 minutes. Topic: pitch your current employer or school on adopting one AI tool you learned about this weekend. Use CRAFT thinking for the prompt you give Gamma."
-
-**Example Gamma prompt:**
+**Project the CEO interruptions:**
 ```
-Create a 10-slide presentation pitching the adoption of Perplexity AI
-for the marketing department at a mid-size company in Tbilisi.
-Audience: department head who is skeptical about AI but values efficiency.
-Include: problem (current research is slow), solution (Perplexity),
-3 use cases, cost comparison, and a recommended pilot plan.
-Style: modern, professional, minimal text per slide.
+"So what?"
+"What do you want me to do?"
+"I have 2 minutes. Get to the point."
+"How confident are you in this number?"
+"What are you NOT telling me?"
 ```
 
-> **SAY:** "Gamma will generate a first draft in about 30 seconds. But the first draft is never final. Spend at least 10 minutes customizing and improving the slides — edit the text, change the layout, replace images."
+> **SAY:** "CEO — be tough. Don't let them ramble. If they start with 'First I cleaned the data, then I built a pivot table...' — interrupt immediately with 'I don't care about your process. What did you find?'"
+
+> **SAY:** "Partner A presents. Partner B interrupts. 5 minutes. Then switch. Go."
+
+- Circulate. Listen for:
+  - Analysts who lead with findings (good)
+  - Analysts who lead with methodology (redirect)
+  - CEOs who are too polite (push them to be tougher)
+
+> **SAY (after first round):** "Switch roles. Partner B presents, Partner A is the CEO."
+
+- After second round, switch to a NEW partner for a faster round (3 min each).
+
+> **SAY:** "Debrief. What changed between Round 1 and the faster round? What did you cut? That's what you should cut in every presentation."
 
 #### STUDENTS DO
 
-- Open Gamma.app and create an account (2 min)
-- Generate initial deck with AI (5 min)
-- Customize, edit, and improve slides (15 min)
-- Save and note what worked (3 min)
+- Round 1: Present to "CEO" partner (5 min) + feedback (2 min)
+- Round 2: Switch roles (5 min) + feedback (2 min)
+- Round 3: New partner, faster (3 min each + 2 min feedback)
+- Debrief: what they learned to cut (5 min)
+- **Good presentation:** "Revenue in Region C dropped 15% last quarter. This is unusual because the other regions grew. I recommend reallocating 20% of Region C's marketing budget to digital channels, which are performing better in A and B."
+- **Needs coaching:** "So I opened the spreadsheet and sorted by region, then I built a pivot table..." → CEO interrupts: "So what?"
 
 #### Pacing
 
 | Segment | Time |
 |---------|------|
-| Gamma orientation (new users) | 5 min |
-| Generate initial deck with AI | 5 min |
-| Customize, edit, and improve | 15 min |
-| Save and note what worked | 5 min |
+| Setup + rules | 3 min |
+| Round 1: Partner A presents + interruptions | 5 min |
+| Feedback | 2 min |
+| Round 2: Switch roles | 5 min |
+| Feedback | 2 min |
+| Round 3: New partner, faster | 6 min |
+| Debrief | 5 min |
+| Transition | 2 min |
 
 #### Teacher Tip
 
-> **Gamma free tier:** ~10 presentations with AI, exports to PPTX. Sufficient for the bootcamp. If students hit the limit, they can use Google Slides + Gemini as a backup. Resource: https://gamma.app
+> The CEO role-play is terrifying for most students — and that's the point. In real life, executives will interrupt. Getting practice now, in a safe environment, builds confidence for Day 3's stakeholder panel and Day 4's capstone showcase.
 
 #### Check for Understanding
 
-**Question:** "What did you have to change in Gamma's AI-generated slides?"
-**Expected:** Specifics like "The text was too wordy," "The images didn't match my topic," "I had to reorganize the flow."
+**Debrief question:** "What's the one thing you'll never do again when presenting data?" Expected answers: "Start with the process," "Use too many numbers," "Not have a recommendation ready."
 
 ---
 
-### 4:15–5:10 | Build Something in 50 Minutes (55 min)
+### 3:10–3:25 | Break (15 min)
 
-**Format:** Individual, self-directed | **GRR Phase:** You Do Alone
+> ☕ **BREAK** — "After break: memo writing, data fallacies, correlation vs. causation, and GDPR. The critical thinking block."
+
+---
+
+### 3:25–4:05 | The Data-Driven Memo (40 min)
+
+**Format:** Mini-lecture + individual writing | **GRR Phase:** I Do → You Do Alone | **Bloom's:** Create
 
 #### TEACHER DOES
 
-> **SAY:** "This is the most open-ended block of the bootcamp. You're going to use AI to build a working mini-tool. Not write code yourself — direct AI to write it for you."
+> **SAY:** "The data story you just told verbally — now write it down. A data-driven memo is a 1-page decision document. Not a report. Not an analysis. A document that tells the reader what to DO."
 
-> **SAY:** "Here are 5 project ideas if you don't know what to build:"
-
-**Project on screen:**
+**Project the memo structure:**
 
 ```
-1. TIP CALCULATOR
-   Prompt: "Build me an HTML page with a tip calculator. Input: bill
-   amount, number of people, tip percentage (15/18/20/custom). Output:
-   tip amount and per-person total. Make it look modern with CSS."
+RECOMMENDATION (1 sentence — the reader knows what to do immediately)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CONTEXT (2–3 sentences: what was the question? what data did you analyze?)
 
-2. QUIZ APP
-   Prompt: "Build a 10-question quiz about [your topic]. Multiple choice,
-   4 options each. Show the score at the end with correct answers.
-   HTML + JavaScript, mobile-friendly."
+KEY FINDINGS (3–4 bullet points, each with a number)
+• Finding 1: [specific data point]
+• Finding 2: [specific data point]
+• Finding 3: [specific data point]
 
-3. PERSONAL WEBSITE
-   Prompt: "Build a simple personal portfolio website. Include: my name,
-   a short bio, 3 skills, contact info, and a professional photo
-   placeholder. Modern design, responsive, single page."
+SUPPORTING VISUALIZATION (1 chart — the most important one)
 
-4. UNIT CONVERTER
-   Prompt: "Build a unit converter that handles: temperature (C/F/K),
-   weight (kg/lbs), distance (km/miles), currency (USD/EUR/GEL/AMD/MDL).
-   Clean UI, instant conversion as you type."
+RISKS & LIMITATIONS (what could be wrong? what don't you know?)
 
-5. FLASHCARD STUDY TOOL
-   Prompt: "Build a flashcard app for studying [topic]. 20 cards with
-   front and back. Click to flip. Track how many you got right.
-   Shuffle option."
+NEXT STEPS (2–3 concrete actions with owners and timelines)
 ```
 
-> **SAY:** "Choose one — or come up with your own idea. Use Claude or ChatGPT to generate the code. Then test it. If it doesn't work, paste the error back to AI and say 'Fix this.' You have 50 minutes."
+**Before/after example:**
 
-- Circulate for troubleshooting. Help students who are stuck.
+> **SAY:** "Here's a bad memo."
 
-> **SAY:** "Students who finish early — help a neighbor! Peer teaching is one of the best ways to solidify your own understanding."
+**Project BAD memo:**
+```
+Data Analysis Report
+We analyzed the Q3 sales data using pivot tables and VLOOKUP
+to examine regional performance. The data was cleaned and
+28 duplicates were removed. We found several interesting patterns
+in the data that suggest further investigation may be warranted...
+```
+
+> **SAY:** "What's wrong with this? It takes 4 sentences to say nothing. Now here's the same information as a good memo."
+
+**Project GOOD memo:**
+```
+RECOMMENDATION: Shift 60% of Q4 marketing budget from Region C
+to Regions A and B.
+
+CONTEXT: Analyzed Q3 sales across 3 regions (500 transactions, Jul–Sep).
+
+KEY FINDINGS:
+• Region C revenue dropped 15% QoQ while A (+8%) and B (+12%) grew
+• Region C's customer acquisition cost is 3x higher than other regions
+• Digital campaigns in A and B convert at 2x the rate of C's print campaigns
+
+[Bar chart: Revenue by Region, Q2 vs Q3]
+
+RISKS: Region C drop may be seasonal (need Q3 from prior year to confirm).
+
+NEXT STEPS:
+1. Marketing team to draft Q4 budget reallocation by Oct 15
+2. Region C manager to investigate local market conditions by Oct 10
+3. Review results at November quarterly review
+```
+
+> **SAY:** "See the difference? The reader knows what to do from the first line. Everything else supports that one recommendation."
+
+> **SAY:** "Write yours. Use your data, your dashboard, your story. 25 minutes."
 
 #### STUDENTS DO
 
-- Choose a project (or create their own)
-- Use AI to generate code (HTML/CSS/JavaScript)
-- Test in the browser (open the HTML file)
-- Debug with AI's help (paste errors back)
-- Document what they built
+- Watch the structure breakdown and before/after comparison (10 min)
+- Write their own 1-page data-driven memo (25 min)
+- Quick pair check at the end: "Can your partner act on this memo?" (5 min)
 
 #### Pacing
 
 | Segment | Time |
 |---------|------|
-| Choose project + initial prompt | 5 min |
-| Iterative building | 40 min |
-| Test and document | 10 min |
+| Teach structure + before/after example | 10 min |
+| Students write memo | 25 min |
+| Pair check ("Can you act on this?") | 5 min |
 
 #### Teacher Tip
 
-> The skill being practiced is DIRECTING AI to build something — not writing code. If a student says "I don't know how to code," respond: "Perfect. That's the point. You don't need to. Just describe what you want in plain English, and let AI write the code."
+> The 25 minutes for writing includes a dual-skill buffer — students are writing analytical content in English, which takes longer for L2 speakers. Don't rush this. Quality of thinking matters more than speed.
 
-> This is a stretch exercise, not a required artifact. Students who are fatigued (this is hour 6 of day 2) should build something simple. A working tip calculator is better than an ambitious, broken app.
+#### Check for Understanding
+
+**Partner check:** "Read the first sentence of your partner's memo. Can you tell exactly what they're recommending? Yes or no?" If no, the memo needs revision.
+**Circulate and read opening lines.** The #1 fix: students who bury the recommendation in paragraph 3 → move it to sentence 1.
 
 #### Differentiation
 
-- **Struggling learners:** Start with the tip calculator — it's the simplest. Provide the exact prompt to copy-paste.
-- **Advanced learners:** Challenge them to add features: "Can you add a dark mode toggle? Can you save results to local storage?"
-- **Language support:** The prompts work in any language. Students can describe their project in their first language.
+- **Struggling learners:** Provide the memo template with fill-in-the-blank sections: "RECOMMENDATION: I recommend _____ because _____."
+- **Advanced learners:** Add a "counter-argument" section: "Someone might argue _____, but the data shows _____."
+- **Language support:** Allow first draft in L1, then translate the key sentences (recommendation, findings) to English.
 
 ---
 
-### 5:10–5:30 | Show & Tell (20 min)
+### 4:05–4:20 | Data Fallacy Spotter (15 min)
 
-**Format:** Presentations, full group | **GRR Phase:** We Do
+**Format:** Full group, rapid exercise | **GRR Phase:** We Do | **Bloom's:** Analyze
 
 #### TEACHER DOES
 
-> **SAY:** "Who wants to show what they made today? This isn't just the mini-tool — it can be any artifact from today: your data analysis, your image generation, your presentation, or your tool."
+> **SAY:** "Before we go further, you need to know the 5 most common ways data lies — even when the numbers are technically correct."
 
-- Ask for 5–6 volunteers. 2–3 minutes per person.
-- **Prioritize variety** — one data analysis, one visual, one presentation, one mini-tool.
-- After each presentation, ask the group: "What surprised you about this?"
+**Project each fallacy with an example. Students vote on what's wrong.**
+
+**Fallacy 1: Survivorship Bias**
+> "We studied successful startups and found they all had X in common. Therefore, X causes success."
+> **SAY:** "What's wrong? We only looked at the winners. What about the hundreds of startups that ALSO had X but failed?"
+
+**Fallacy 2: Simpson's Paradox**
+> "University A admits 40% of women vs. 50% of men — gender bias? But department by department, women are admitted at higher rates. The overall number is misleading because women apply more to competitive departments."
+
+**Fallacy 3: Base Rate Neglect**
+> "A medical test is 99% accurate. You test positive. Are you probably sick?"
+> **SAY:** "Not necessarily. If only 1 in 10,000 people have the disease, most positives are false positives."
+
+**Fallacy 4: Anchoring**
+> "This product was $200, now $99!" — "Is that a good deal? You have no idea. The $200 anchor makes $99 feel cheap regardless of actual value."
+
+**Fallacy 5: Cherry-Picking**
+> Revenue is down this quarter. But zoom out to the full year — it's up 20%. The quarterly dip is normal seasonal variation.
+
+> **SAY:** "Remember these. They'll protect you from being fooled — and from accidentally fooling others with your own data."
 
 #### STUDENTS DO
 
-- 5–6 volunteers demo their work
-- Group discusses what surprised them
+- Vote on each fallacy example: what's wrong?
+- Discuss as a group
+- Take notes on the 5 fallacies
 
 #### Pacing
 
 | Segment | Time |
 |---------|------|
-| 5–6 presentations × 3 min each | 15–18 min |
-| Buffer | 2–5 min |
+| 5 fallacies × 2.5 min each | 12.5 min |
+| Wrap-up | 2.5 min |
+
+#### Check for Understanding
+
+**Quick quiz:** "I tell you that ice cream sales and drowning deaths both increase in summer. Therefore, ice cream causes drowning. What fallacy is this?" (Correlation ≠ causation — sets up next block.)
 
 ---
 
-### 5:30–5:45 | Day 2 Wrap + Mid-Week Assignment Briefing (15 min)
+### 4:20–4:50 | Correlation vs. Causation Workshop (30 min)
 
-**Format:** Full group | **GRR Phase:** I Do
+**Format:** Group exercise | **GRR Phase:** I Do → We Do → You Do Together | **Bloom's:** Analyze
 
 #### TEACHER DOES
 
-**Quick reflection (5 min):**
-> **SAY:** "1-2-1 before we go: 1 highlight from today, 2 tools you'll actually use this week, 1 thing that confused you. Write it down. 3 minutes."
+> **SAY:** "The biggest fallacy of all deserves its own block. Correlation vs. causation. Just because two things happen together doesn't mean one causes the other."
 
-- 2–3 volunteers share.
+**Part 1: Spurious Correlations (5 min — fun)**
 
-**Mid-week assignment (8 min):**
+- Project 5 hilarious correlations from tylervigen.com:
+  - "Nicholas Cage movies correlate with pool drownings"
+  - "Per capita cheese consumption correlates with deaths by bedsheet tangling"
 
-> **SAY:** "Between now and next Saturday, you have a structured assignment. This is NOT optional — it's how you'll stay sharp across the week gap. Let me walk through it on screen."
+> **SAY:** "Obviously cheese doesn't kill people. But in business data, the correlations are subtler — and people fall for them."
 
-- **Project the assignment template on screen.**
-- **Show one completed example** so students know exactly what's expected.
-- Walk through every section.
-- Answer questions.
+**Part 2: Real Business Examples (8 min)**
 
-> **SAY:** "If this runs a few minutes over, that's fine. It's more important that you understand the assignment than that we finish exactly at 5:45."
+- Project 5 real cases where correlation was mistaken for causation:
+  1. "Stores that play classical music have higher sales" — (wealthier neighborhoods, not the music)
+  2. "Employees who take training courses get promoted more" — (ambitious employees seek training AND promotions)
+  3. "Countries with more internet access have lower birth rates" — (economic development drives both)
+  4. "Students who eat breakfast score higher on tests" — (family stability, not breakfast)
+  5. "Companies that advertise more have higher revenue" — (they advertise more BECAUSE they have more revenue)
 
-#### Exit Ticket Questions
+> **SAY:** "Now look at YOUR data. Find 3 things that correlate. Then ask: is this causation, or is something else driving both?"
 
-1. Describe your process for fact-checking an AI-generated claim. What steps do you take?
-2. What is source triangulation, and why does using multiple AI tools matter?
-3. Rate your confidence (1–5) in distinguishing AI-generated text that needs human editing.
+**Part 3: Student Analysis (10 min)**
+
+- Students work in pairs to identify 3 correlations in their data and evaluate each.
+
+> **SAY:** "For each correlation, answer: Could there be a third variable causing both? Could the direction be reversed? Would an experiment prove it?"
+
+- Debrief: 2–3 pairs share their most interesting finding.
+
+#### STUDENTS DO
+
+- Laugh at spurious correlations (engagement hook)
+- Analyze 5 real business examples
+- Find 3 correlations in their own data (pairs)
+- Evaluate: correlation or causation?
+- Share findings
+
+#### Pacing
+
+| Segment | Time |
+|---------|------|
+| Spurious correlations (fun) | 5 min |
+| Real business examples | 8 min |
+| Students analyze 3 own-data correlations | 10 min |
+| Discussion (2–3 pairs share) | 5 min |
+| Transition | 2 min |
+
+#### Teacher Tip
+
+> Start with the funny examples to lower the stakes. By the time students analyze their own data, they'll be primed to be skeptical — which is exactly the mindset you want.
+
+#### Check for Understanding
+
+**Cold call:** "Nara, you found a correlation. Tell us — is it causation? How do you know?"
+**Expected:** Student should be able to propose a third variable or explain why the direction might be reversed.
 
 ---
 
-## DIFFERENTIATION NOTES (Session 2 Summary)
+### 4:50–5:10 | GDPR & Data Privacy Basics (20 min)
 
-| Learner Type | Strategy |
-|-------------|----------|
-| **Struggling learners** | Provide fact-checking checklist. Pre-select simpler research topics. Pair with a partner for source triangulation exercise. Start with the tip calculator for the build exercise. |
-| **Advanced learners** | Find a subtle hallucination that's hard to detect. Create their own trust rubric criteria. Add features to their mini-tool. |
-| **Language support** | Allow use of translation tools alongside AI research tools. Provide sentence frames for analysis writing. Allow fact-checking in native language. |
+**Format:** Interactive lecture | **GRR Phase:** I Do → We Do | **Bloom's:** Understand
+
+#### TEACHER DOES
+
+> **SAY:** "One more critical topic. If you work with data — especially in Moldova, which is aligning with EU standards — you need to know GDPR."
+
+> **SAY:** "GDPR stands for General Data Protection Regulation. Here's what it means for you in 5 rules:"
+
+**Project:**
+```
+1. CONSENT: You need permission to collect personal data
+2. PURPOSE: You can only use data for the purpose you stated
+3. MINIMIZATION: Only collect what you actually need
+4. ACCESS: People have the right to see their data and ask you to delete it
+5. SECURITY: You must protect data from breaches
+```
+
+> **SAY:** "Let's make this practical."
+
+**Scenario-based exercise:**
+
+> "Scenario 1: You built a dashboard showing individual employee performance scores. Can you share this dashboard with the whole company?"
+> (No — personal performance data requires consent and purpose limitation.)
+
+> "Scenario 2: Your NGO collects beneficiary names, ages, and health conditions. A donor asks to see the raw data. Can you share it?"
+> (No — you must anonymize personal data before sharing externally.)
+
+> "Scenario 3: You scraped publicly available data from social media for your analysis. Is this GDPR-compliant?"
+> (It depends — public data still has privacy implications under GDPR.)
+
+- Discuss each scenario. Let students debate.
+
+> **SAY:** "The key principle: when in doubt, anonymize. Remove names, IDs, and anything that could identify a person. Your analysis doesn't need to know WHO — it needs to know WHAT and HOW MANY."
+
+#### STUDENTS DO
+
+- Learn the 5 GDPR principles
+- Discuss 3 practical scenarios: can you share this data?
+- Apply to their own dashboards: "Is there anything in your dashboard that should be anonymized?"
+
+#### Pacing
+
+| Segment | Time |
+|---------|------|
+| Core GDPR principles | 8 min |
+| 3 practical scenarios | 7 min |
+| Apply to own dashboard + Q&A | 5 min |
+
+#### Teacher Tip
+
+> GDPR is especially relevant for Moldova (EU accession process) and for anyone working on EU-funded projects. Frame it as a professional advantage: "Knowing GDPR sets you apart from everyone who just throws data around without thinking about privacy."
+
+#### Check for Understanding
+
+**Quick poll:** "Raise your hand if your current dashboard contains any personal data that should be anonymized." Discuss what should be changed.
 
 ---
 
-## POST-SESSION REFLECTION (for the instructor)
+### 5:10–5:45 | Day 2 Wrap + Mid-Week Assignment (35 min)
+
+**Format:** Full group, reflective | **GRR Phase:** We Do | **Bloom's:** Evaluate (metacognition)
+
+#### TEACHER DOES
+
+**Data Confidence Self-Assessment:**
+
+> **SAY:** "Same 4 questions as yesterday. Rate yourself 1–5. Then compare to your Day 1 scores."
+
+**Project:**
+```
+1. Reading data:        Day 1: ___  Day 2: ___
+2. Cleaning data:       Day 1: ___  Day 2: ___
+3. Analyzing data:      Day 1: ___  Day 2: ___
+4. Communicating data:  Day 1: ___  Day 2: ___
+```
+
+> **SAY:** "Who went up? By how much? What specifically made the difference?"
+
+- Call on 2–3 students. Celebrate growth.
+
+**Mid-week assignment:**
+
+> **SAY:** "Between now and Day 3, here's what I want you to do:"
+
+**Project:**
+```
+1. Find a NEW dataset from your actual work or community
+   (not the bootcamp datasets)
+2. Apply the full pipeline: clean → analyze → visualize → write a brief
+3. Build a simple dashboard in Looker Studio
+4. Write a 1-paragraph "data story" using Setup → Conflict → Resolution
+5. Bring everything to Day 3 — you'll present to the class AND
+   to a mock stakeholder panel
+```
+
+> **SAY:** "Day 3 is presentation day. You'll present your findings under adversarial questioning — just like the CEO role-play, but harder. Start preparing now."
+
+- Walk through the assignment. Answer questions.
+
+**Data English Playbook update:**
+
+> **SAY:** "Add 10 new terms to your Data English Playbook. Today's terms: VLOOKUP, dashboard, 5-second test, narrative arc, data-driven memo, correlation, causation, GDPR, fallacy, conditional formatting."
+
+#### STUDENTS DO
+
+- Complete self-assessment and compare to Day 1
+- Share growth observations
+- Write down mid-week assignment steps
+- Update Data English Playbook with 10 new terms
+- Ask clarifying questions
+
+#### Pacing
+
+| Segment | Time |
+|---------|------|
+| Self-assessment + Day 1 comparison | 5 min |
+| 2–3 students share growth | 5 min |
+| Mid-week assignment walkthrough | 15 min |
+| Data English Playbook update | 5 min |
+| Questions + logistics | 5 min |
+
+#### Teacher Tip
+
+> The Day 1 → Day 2 comparison is motivating. Most students will see gains of 1–2 points on each dimension. Point this out explicitly: "You went from a 2 to a 4 on analyzing data in TWO DAYS. Imagine where you'll be in two more."
+
+---
+
+## DIFFERENTIATION NOTES (Session-Wide)
+
+**Struggling learners:**
+- Skip INDEX-MATCH — VLOOKUP is sufficient for all bootcamp tasks
+- Reduce dashboard to 2 charts + 1 headline instead of 4 charts
+- Provide memo template with fill-in-the-blank structure
+- Pair with stronger partner during role-play and correlation analysis
+
+**Advanced learners:**
+- Introduce XLOOKUP and array formulas
+- Challenge them to build a multi-page dashboard with drill-down
+- Add counter-arguments to their memo
+- Ask them to find a real-world example of each data fallacy from their industry
+
+**Language support:**
+- Memo can be drafted in L1 first, key sections translated to English
+- Data English Playbook is the running glossary — reinforce it every session
+- Dashboard headlines in English (practice professional communication)
+- Pair bilingual students during role-play for peer translation support
+
+---
+
+## POST-SESSION REFLECTION (For Instructor)
 
 - [ ] What worked well today?
 - [ ] What would I adjust for next time?
-- [ ] Which students need follow-up or additional support?
-- [ ] Did timing work? Where did I run long or short?
-- [ ] Is the mid-week assignment clear? Did students ask enough questions?
-
----
-
-## KEY RESOURCES FOR THIS SESSION
-
-| Resource | URL | Used For |
-|----------|-----|----------|
-| Perplexity AI | https://www.perplexity.ai | Research + fact-checking |
-| Google NotebookLM | https://notebooklm.google.com | Document analysis |
-| Gamma.app | https://gamma.app | AI presentations |
-| ChatGPT (image gen) | https://chat.openai.com | Image generation |
-| Microsoft Copilot | https://copilot.microsoft.com | Free image gen backup |
-| Craiyon | https://www.craiyon.com | Free image gen (no account) |
-| Otter.ai | https://otter.ai | Meeting transcription |
-| Grammarly | https://www.grammarly.com | Writing assistance |
+- [ ] Which students need follow-up before Day 3?
+- [ ] Did timing work? Where did I run long/short?
+- [ ] Did the VLOOKUP block take too long? Should I simplify for next cohort?
+- [ ] Were dashboards functional by the gallery walk, or did technical issues eat into build time?
+- [ ] Did the CEO role-play push students to be concise, or did they still ramble?
+- [ ] Are memos leading with recommendations or burying them?
+- [ ] Are self-assessment scores showing growth from Day 1?
