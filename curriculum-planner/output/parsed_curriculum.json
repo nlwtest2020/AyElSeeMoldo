@@ -5,57 +5,46 @@
   "sessions": [
     {
       "session_num": 1,
-      "title": "\u201cGet Your Hands Dirty\u201d",
-      "header": "Session 1: \u201cGet Your Hands Dirty\u201d",
-      "subtitle": "Saturday, Weekend 1  |  10:00 AM \u2013 5:45 PM  |  Theme: Build something immediately, then understand why it worked.",
+      "title": "\u201cSee It & Question It\u201d",
+      "header": "Session 1: \u201cSee It & Question It\u201d",
+      "subtitle": "Saturday, Weekend 1  |  10:00 AM \u2013 5:45 PM  |  Theme: Learn to read data, ask the right questions, and stop being intimidated by numbers.",
       "schedule": [
         {
           "start_time": "10:00",
-          "end_time": "10:15",
-          "activity": "Welcome + Norms",
-          "duration": "15 min",
-          "format": "Full group. Instructor-led.",
+          "end_time": "10:20",
+          "activity": "Welcome + \u201cYou Already Use Data\u201d",
+          "duration": "20 min",
+          "format": "Full group, interactive.",
           "blooms": "",
-          "delivery": "No slides. The instructor opens their laptop and demos one real task they automated with AI this week\u2014live, not a recording. Students see the \u201cMonday Morning\u201d promise in the first 5 minutes. Then: introduce yourself (name, what you do, one thing you want AI to help with). With 15\u201320 students, this means each intro must be 20\u201330 seconds. Set that expectation explicitly: \u201cName, what you do, one sentence about what you want AI to help with.\u201d",
-          "pacing": "Demo = 3\u20134 min. Norms (phones, breaks, questions policy) = 2 min. Student intros = 7\u20138 min. Buffer = 1 min.",
+          "delivery": "Exchange rates, price comparisons, Instagram analytics, sports stats\u2014prove students are already data-literate. Poll: \u201cWho\u2019s been asked to \u2018look at the data\u2019 at work and had no idea where to start?\u201d Most hands go up. Reframe: \u201cThis bootcamp formalizes something you already do.\u201d The goal is to disarm anxiety before it activates.",
+          "pacing": "Examples + discussion = 8 min. Poll + responses = 4 min. Reframe + bootcamp overview = 5 min. Logistics = 3 min.",
           "instructor_note": ""
         },
         {
-          "start_time": "10:15",
-          "end_time": "10:45",
-          "activity": "First Prompt, No Instructions",
+          "start_time": "10:20",
+          "end_time": "10:50",
+          "activity": "\u201cWhat\u2019s Wrong with This Chart?\u201d",
           "duration": "30 min",
-          "format": "Individual work \u2192 pair comparison \u2192 full-group debrief.",
+          "format": "Full group, interactive voting.",
           "blooms": "",
-          "delivery": "Students open Claude. One prompt, projected on screen: \u201cWrite me a professional email declining a meeting politely.\u201d No other instructions. Let them struggle. This is intentional\u2014students need to feel the gap between what they get and what they want before the CRAFT framework will land.",
-          "pacing": "Prompt + generate = 5 min. Read own output = 2 min. Pair up and compare = 5 min. 3\u20134 pairs share what they noticed (instructor cold-calls if no volunteers) = 8 min. Instructor highlights patterns (\u201cNotice how some of you got formal, some got casual? That\u2019s because you didn\u2019t specify...\u201d) = 5 min. Buffer/transition = 5 min.",
-          "instructor_note": "Resist the urge to teach during this block. The point is to let students discover the problem. Teaching happens next."
+          "delivery": "8 real-world visualizations\u2014half honest, half misleading (truncated axes, cherry-picked timeframes, missing context, correlation presented as causation). Students vote: trustworthy or misleading? Deconstruct each. This teaches the critical eye before any tools. Key message: the ability to spot a bad chart is more valuable than the ability to make a good one.",
+          "pacing": "8 charts \u00d7 3 min each (show, vote, deconstruct) = 24 min. Setup + intro = 3 min. Wrap-up key principles = 3 min.",
+          "instructor_note": "Pre-prepare the 8 charts with regional examples where possible (Armenian GDP charts from news, Moldovan election data, Georgian tourism stats). Familiar data makes the exercise feel relevant, not academic."
         },
         {
-          "start_time": "10:45",
-          "end_time": "11:20",
-          "activity": "The CRAFT Framework",
-          "duration": "35 min",
-          "format": "Interactive lecture \u2192 worked examples \u2192 individual practice.",
-          "blooms": "",
-          "delivery": "Introduce CRAFT: Context, Role, Audience, Format, Tone. Teach each element with a before/after example projected on screen. Then, two full worked examples (not just the email\u2014use a second scenario like writing a LinkedIn post or summarizing meeting notes). Students then re-do their original email using CRAFT. Compare the before and after. Ask 2\u20133 students to share their before/after on screen.",
-          "pacing": "Teach CRAFT framework = 8 min. Worked example 1 (email, live) = 5 min. Worked example 2 (different scenario) = 5 min. Students redo their email = 10 min. 2\u20133 students share before/after = 5 min. Transition = 2 min.",
-          "instructor_note": ""
-        },
-        {
-          "start_time": "11:20",
-          "end_time": "11:45",
-          "activity": "Tool Comparison",
+          "start_time": "10:50",
+          "end_time": "11:15",
+          "activity": "Data Literacy Framework + Five Questions",
           "duration": "25 min",
-          "format": "Hands-on, pairs.",
+          "format": "Interactive lecture + exercise.",
           "blooms": "",
-          "delivery": "Same CRAFT prompt in Claude and ChatGPT. Each pair documents: which tool produced better output for this task, and why. Provide a simple comparison template (projected): Clarity (1\u20135), Tone Match (1\u20135), Completeness (1\u20135), Overall Pick.",
-          "pacing": "Run same prompt in both tools = 5 min. Evaluate and fill comparison template = 10 min. 3\u20134 pairs share findings = 8 min. Transition to break = 2 min.",
+          "delivery": "Four levels: Read \u2192 Work \u2192 Analyze \u2192 Communicate. Five questions every analysis starts with: What happened? Why? What will happen? What should we do? How will we know? Practice: given a business scenario, which question are you answering? Self-assessment: where are you on the four levels right now?",
+          "pacing": "Teach framework = 8 min. Five questions = 5 min. Practice exercise = 7 min. Self-assessment = 3 min. Transition = 2 min.",
           "instructor_note": ""
         },
         {
-          "start_time": "11:45",
-          "end_time": "12:00",
+          "start_time": "11:15",
+          "end_time": "11:30",
           "activity": "Break",
           "duration": "15 min",
           "format": "",
@@ -66,15 +55,26 @@
           "is_break": true
         },
         {
-          "start_time": "12:00",
-          "end_time": "12:45",
-          "activity": "How AI Actually Works",
-          "duration": "45 min",
-          "format": "Interactive lecture with embedded activities.",
+          "start_time": "11:30",
+          "end_time": "12:05",
+          "activity": "Real Data, Real Questions",
+          "duration": "35 min",
+          "format": "Small groups (4\u20135 students).",
           "blooms": "",
-          "delivery": "This is the only sustained lecture block in Session 1. It works because students spent the morning generating questions organically. Key content: what tokens are (demo: tokenize a sentence from their language), next-token prediction (the \u201cauto-complete on steroids\u201d analogy), training data and RLHF (why the same prompt gives different results in different tools), temperature and randomness. Critical: break the 45 minutes into 3 chunks of ~12\u201315 min each, with a 2\u20133 min interaction between each chunk.",
-          "pacing": "Chunk 1 \u2014 Tokens + prediction (12 min lecture, 3 min activity: students guess the next token in a sentence). Chunk 2 \u2014 Training data + RLHF (12 min lecture, 3 min activity: \u201cWhy did Claude refuse this prompt but ChatGPT didn\u2019t?\u201d example). Chunk 3 \u2014 Temperature + practical implications (10 min lecture, 3 min Q&A: students ask their unanswered questions from the morning). Buffer = 2 min.",
+          "delivery": "Distribute 3 region-specific datasets (local e-commerce sales, NGO beneficiary tracking, university enrollment). Groups spend 20 minutes with raw data. Don\u2019t analyze yet\u2014just look. What do you notice? What questions does it raise? What\u2019s confusing? What\u2019s missing? Report back to the full group. This is the first time students interact with real data as curious investigators, not anxious students.",
+          "pacing": "Distribute datasets + orient = 5 min. Exploration = 20 min. Report-back: 3\u20134 groups \u00d7 2 min = 6\u20138 min. Transition = 2 min.",
           "instructor_note": ""
+        },
+        {
+          "start_time": "12:05",
+          "end_time": "12:45",
+          "activity": "Spreadsheet Power-Up (4 Functions)",
+          "duration": "40 min",
+          "format": "Hands-on, follow-along.",
+          "blooms": "",
+          "delivery": "SORT, FILTER, SUMIF/COUNTIF. Each taught by answering a real question from the dataset: \u201cHow much revenue came from repeat customers?\u201d \u201cWhich region had the highest dropout rate?\u201d Follow along in Google Sheets. VLOOKUP is deliberately saved for Session 2 to reduce cognitive load.",
+          "pacing": "SORT (teach + follow along) = 8 min. FILTER = 8 min. SUMIF/COUNTIF = 10 min (slightly more complex). Free practice with own questions = 8 min. Troubleshooting buffer = 6 min.",
+          "instructor_note": "Budget for 3\u20135 students getting stuck at each step. Have the formula projected on screen AND written on a physical whiteboard. Walk the room during follow-along. If possible, assign a TA for groups >15."
         },
         {
           "start_time": "12:45",
@@ -90,29 +90,29 @@
         },
         {
           "start_time": "1:45",
-          "end_time": "2:30",
-          "activity": "Prompt Olympics",
-          "duration": "45 min",
-          "format": "Teams of 3, timed challenges, peer-judged.",
+          "end_time": "2:15",
+          "activity": "Data Cleaning \u2014 The Ugly Truth",
+          "duration": "30 min",
+          "format": "Hands-on, guided.",
           "blooms": "",
-          "delivery": "4 rounds. Each round: instructor presents a challenge (best cover letter, best meeting summary, best product description, best email to a difficult client). Teams have 7 minutes to produce the best output. Then 2\u20133 minutes for peer judging (each team rates others 1\u20135 on a single criterion you define per round). This is high-energy retrieval practice disguised as competition.",
-          "pacing": "Round setup + rules = 3 min. 4 rounds \u00d7 (7 min work + 3 min judging) = 40 min. Winner announcement = 2 min.",
-          "instructor_note": "Pre-prepare judging criteria for each round on slides. If teams finish early, they iterate. No dead time."
+          "delivery": "Duplicates, blanks, inconsistent formatting, outliers, typos. Students clean a deliberately messy version of their dataset. Teach each cleaning technique by encountering the problem: \u201cWhy does this SUMIF return the wrong number? Because \u2018Tbilisi\u2019 and \u2018 Tbilisi\u2019 (with a space) are different values.\u201d This is the work nobody talks about but everyone has to do.",
+          "pacing": "Intro to common problems = 5 min. Guided cleaning walkthrough = 10 min. Students clean their own dataset = 12 min. Verification check = 3 min.",
+          "instructor_note": ""
         },
         {
-          "start_time": "2:30",
+          "start_time": "2:15",
+          "end_time": "3:00",
+          "activity": "Pivot Table Mastery",
+          "duration": "45 min",
+          "format": "Hands-on, instructor-led + independent.",
+          "blooms": "",
+          "delivery": "The single most powerful non-technical analysis tool. 5 pivot tables, each answering a different business question. First 3: instructor-led, students follow along. Last 2: students build independently. By the end, students should build a pivot table in under 2 minutes.",
+          "pacing": "Pivot table intro + first guided build = 10 min. Guided pivot 2 = 7 min. Guided pivot 3 = 6 min. Independent pivot 4 = 6 min. Independent pivot 5 = 6 min. Troubleshooting buffer = 5 min. Cross-check with partner = 5 min.",
+          "instructor_note": ""
+        },
+        {
+          "start_time": "3:00",
           "end_time": "3:15",
-          "activity": "Chain-of-Thought & Iteration Lab",
-          "duration": "45 min",
-          "format": "Instructor demo \u2192 individual practice.",
-          "blooms": "",
-          "delivery": "Teach chain-of-thought prompting: \u201cThink step by step,\u201d breaking complex tasks into subtasks, using AI output as input for the next step. One live demo (e.g., \u201cwrite a marketing plan\u201d broken into audience \u2192 messaging \u2192 channels \u2192 timeline). Then students pick a complex task from their own work and iterate a prompt 5 times, documenting each version and what changed.",
-          "pacing": "Teach CoT concept = 5 min. Live demo with 3 iterations = 8 min. Students choose their task = 2 min. 5 iteration cycles (~5 min each, including documentation) = 25 min. 2\u20133 students share their iteration journey = 5 min. This is tight but achievable because students already have prompting fluency from the morning.",
-          "instructor_note": "Provide a simple iteration log template (projected or printed): Version #, Prompt Text, What I Changed, Output Quality (1\u20135), Why. Students who finish early should attempt a 6th and 7th iteration."
-        },
-        {
-          "start_time": "3:15",
-          "end_time": "3:30",
           "activity": "Break",
           "duration": "15 min",
           "format": "",
@@ -123,281 +123,108 @@
           "is_break": true
         },
         {
-          "start_time": "3:30",
-          "end_time": "4:15",
-          "activity": "Train a Classifier (Teachable Machine)",
-          "duration": "45 min",
-          "format": "Instructor-guided hands-on.",
+          "start_time": "3:15",
+          "end_time": "3:55",
+          "activity": "Visualization Fundamentals",
+          "duration": "40 min",
+          "format": "Hands-on + peer review.",
           "blooms": "",
-          "delivery": "Open Teachable Machine together. Train a simple image classifier (e.g., hand gestures). The power moment: intentionally break the classifier by training with biased data (all one background, one skin tone, one lighting condition). Students see why training data matters\u2014this is the conceptual bridge to the bias discussion next.",
-          "pacing": "Tool orientation + first guided model = 15 min. Students train their own classifier = 10 min. Intentionally break it (biased data exercise) = 10 min. Group discussion: what happened and why = 8 min. Transition = 2 min.",
+          "delivery": "When to use bar vs. line vs. scatter (rule: almost never use a pie chart). Design principles: label axes, no 3D, intentional colors, most important number in the title. Students create 3 charts from their pivot table data. Peer comparison: which tells the story best?",
+          "pacing": "Teach principles + chart type selection = 12 min. Students create 3 charts = 18 min. Peer comparison (swap screens, rate 1\u20135 on clarity) = 8 min. Transition = 2 min.",
           "instructor_note": ""
         },
         {
-          "start_time": "4:15",
-          "end_time": "4:45",
-          "activity": "Bias Detective (Text-Based)",
+          "start_time": "3:55",
+          "end_time": "4:25",
+          "activity": "AI-Assisted Pattern Spotting",
           "duration": "30 min",
-          "format": "Individual prompting \u2192 group analysis.",
+          "format": "Hands-on, individual.",
           "blooms": "",
-          "delivery": "Each student prompts Claude and ChatGPT: \u201cDescribe a successful professional in [their country].\u201d Then \u201cDescribe a doctor,\u201d \u201cDescribe a teacher,\u201d \u201cDescribe a CEO.\u201d Collect outputs. Project 5\u20136 on screen. Discuss: What gender was assumed? What ethnicity? What age? Whose world does the training data reflect? This naturally extends the Teachable Machine lesson from biased data to biased output.",
-          "pacing": "Generate 3\u20134 prompts across 2 tools = 10 min. Compare and annotate = 5 min. Full-group discussion with projected examples = 12 min. Bridge to ethics theme = 3 min.",
+          "delivery": "Upload cleaned data to Claude or ChatGPT. Ask: \u201cWhat are the 3 most interesting patterns in this data?\u201d Compare AI insights to your own pivot table findings. Where was AI helpful? Where was it wrong or superficial? Document discrepancies. Critical skill: knowing when to trust AI\u2019s analysis and when to verify manually.",
+          "pacing": "Upload + first prompt = 5 min. Compare AI vs. own findings = 12 min. Document discrepancies = 8 min. 2\u20133 students share a discrepancy = 5 min.",
+          "instructor_note": ""
+        },
+        {
+          "start_time": "4:25",
+          "end_time": "4:45",
+          "activity": "Day 1 Data Brief",
+          "duration": "20 min",
+          "format": "Individual writing + pair delivery.",
+          "blooms": "",
+          "delivery": "3-sentence summary of one finding in English: \u201cThe data shows [what happened]. This matters because [why]. I recommend [what to do next].\u201d Read aloud to partner. Start the Data English Playbook with Session 1 vocabulary.",
+          "pacing": "Write 3-sentence brief = 7 min. Read aloud to partner + feedback = 5 min. Start Playbook (10 terms) = 5 min. Transition = 3 min.",
           "instructor_note": ""
         },
         {
           "start_time": "4:45",
-          "end_time": "5:30",
-          "activity": "Build Your Prompt Playbook",
-          "duration": "45 min",
-          "format": "Individual production.",
+          "end_time": "5:15",
+          "activity": "Day 1 Wrap",
+          "duration": "30 min",
+          "format": "",
           "blooms": "",
-          "delivery": "Students build their personal Prompt Playbook: 5\u20137 tested prompts for their own work or school tasks. Each prompt must include a self-evaluation rubric they create. Provide a template: Task, CRAFT Prompt, Expected Output Quality, Evaluation Criteria (3 checkpoints). The rubric requirement is what pushes this to Evaluate on Bloom\u2019s.",
-          "pacing": "This is 45 minutes for 5\u20137 prompts with rubrics. That is ~6\u20137 minutes per prompt. This is tight for students doing this for the first time. Set the expectation: minimum 5 prompts, stretch goal of 7. Students who work faster will hit 7; most will land on 5\u20136. That is sufficient. The key is quality (tested, iterated, with evaluation criteria), not quantity.",
-          "instructor_note": "Circulate during this block. Students often stall choosing tasks. Have 10 pre-written task ideas projected as a fallback: email drafting, meeting summaries, research outlines, social media posts, cover letters, lesson plans, project briefs, client updates, study guides, presentation outlines."
+          "delivery": "Data confidence self-assessment (1\u20135 across 4 dimensions: reading data, cleaning data, analyzing data, communicating data). This is the baseline. Mid-week assignment preview: walk through the 5-step structured assignment on screen. Emphasize: you must use real professional data, not public samples. Show the documentation template.",
+          "pacing": "Self-assessment = 5 min. 2\u20133 students share reflections = 5 min. Mid-week assignment walkthrough = 12 min. Questions + logistics = 8 min.",
+          "instructor_note": ""
         },
         {
-          "start_time": "5:30",
+          "start_time": "5:15",
           "end_time": "5:45",
-          "activity": "Day 1 Wrap",
-          "duration": "15 min",
-          "format": "Full group, written + spoken reflection.",
+          "activity": "Buffer / Overflow",
+          "duration": "30 min",
+          "format": "",
           "blooms": "",
-          "delivery": "3-2-1 exercise: each student writes down 3 things they learned, 2 things they\u2019ll try this week, 1 question they still have. Collect the questions (digital form or sticky notes)\u2014these fuel Session 2\u2019s retrieval sprint and inform what to emphasize in the \u201cHow AI Actually Works\u201d content next time.",
-          "pacing": "Individual writing = 5 min. 4\u20135 volunteers share one item from each category = 8 min. Logistics for tomorrow = 2 min.",
+          "delivery": "",
+          "pacing": "",
           "instructor_note": ""
         }
       ],
       "swbats": [
-        "Explain in plain language how LLMs generate text (LO #1: Understand how AI works conceptually)",
-        "Write a structured prompt using the CRAFT framework and iterate to improve output (LO #2: Prompt effectively)",
-        "Identify at least 2 differences between LLM tools and articulate when to choose which (LO #2)",
-        "Detect bias in AI-generated text and explain its source in training data (LO #3: Spot AI failures; LO #8: Think critically about ethics)",
-        "Produce a personal Prompt Playbook with self-evaluation criteria (LO #6: Create portfolio-quality work)"
+        "Identify misleading charts and explain what makes a visualization trustworthy vs. deceptive (LO #1, #5)",
+        "Use 4 spreadsheet functions (SORT, FILTER, SUMIF/COUNTIF) to answer business questions (LO #2)",
+        "Clean a messy dataset by removing duplicates, fixing formatting, and handling blanks (LO #2)",
+        "Build 5 pivot tables answering different analytical questions (LO #4)",
+        "Create 3 appropriate chart types and evaluate which tells the story best (LO #1, #3)",
+        "Write a 3-sentence data brief in English: finding + significance + recommendation (LO #6, #7)"
       ],
-      "evidence": "Students\u2019 before/after emails show measurable improvement. Prompt Playbooks contain specific, tested prompts (not generic templates). 3-2-1 reflections reference concrete experiences, not vague impressions."
+      "evidence": "Students build pivot tables without step-by-step guidance by the 4th and 5th tables. Chart peer reviews identify specific design issues (not just \u201clooks good\u201d). Data briefs lead with the finding, not the methodology. AI comparison documents identify at least one AI error or oversimplification."
     },
     {
       "session_num": 2,
-      "title": "\u201cResearch, Write, Create\u201d",
-      "header": "Session 2: \u201cResearch, Write, Create\u201d",
-      "subtitle": "Sunday, Weekend 1  |  10:00 AM \u2013 5:45 PM  |  Theme: AI for research, writing, visual/multimedia creation, and data analysis.",
+      "title": "\u201cDashboard It & Tell It\u201d",
+      "header": "Session 2: \u201cDashboard It & Tell It\u201d",
+      "subtitle": "Sunday, Weekend 1  |  10:00 AM \u2013 5:45 PM  |  Theme: Build interactive dashboards, present data to non-technical audiences, write memos that move decisions.",
       "schedule": [
         {
           "start_time": "10:00",
           "end_time": "10:15",
-          "activity": "Retrieval Sprint",
+          "activity": "Data Challenge (Retrieval)",
           "duration": "15 min",
-          "format": "Pairs, no notes.",
+          "format": "",
           "blooms": "",
-          "delivery": "7 questions projected one at a time. Pairs discuss each for 1 minute, then instructor reveals the answer. Cover: What does CRAFT stand for? How do LLMs generate text? Name one difference between Claude and ChatGPT. What is chain-of-thought prompting? What happened when we trained Teachable Machine with biased data? What makes a good evaluation rubric for a prompt? Name one ethical concern about AI-generated text.",
-          "pacing": "7 questions \u00d7 (1 min discuss + 30 sec reveal) = ~11 min. Buffer and transition = 4 min.",
+          "delivery": "Unfamiliar mini-dataset. Build a pivot table + chart + 1-sentence English insight in 10 minutes. No notes. This is the hardest retrieval exercise in any ALC bootcamp because it tests tool mechanics, analytical reasoning, and English communication simultaneously.",
+          "pacing": "",
           "instructor_note": ""
         },
         {
           "start_time": "10:15",
-          "end_time": "10:55",
-          "activity": "The Hallucination Hunt",
-          "duration": "40 min",
-          "format": "Pairs, research + fact-check.",
+          "end_time": "10:50",
+          "activity": "Advanced Spreadsheet Functions",
+          "duration": "35 min",
+          "format": "Hands-on, follow-along.",
           "blooms": "",
-          "delivery": "Ask AI to write a 200-word research summary on a regional topic (Armenian history, Moldovan wine industry, Georgian architecture\u2014assign by student\u2019s country). Students fact-check every specific claim. Pre-prepare a cheat sheet of common fabrications for each topic so the instructor can confirm findings quickly.",
-          "pacing": "Generate AI summary = 5 min. Fact-check claims using web search = 20 min. Pairs compile a \u201challucination scorecard\u201d (# of claims, # verified, # fabricated, # ambiguous) = 5 min. 3\u20134 pairs share their worst hallucination = 8 min. Transition = 2 min.",
-          "instructor_note": ""
+          "delivery": "VLOOKUP, INDEX-MATCH, conditional formatting. Each taught by answering a business question. VLOOKUP is notoriously confusing\u2014teach it slowly with a visual diagram of how it searches. INDEX-MATCH presented as the \u201cupgrade\u201d for when VLOOKUP breaks. Conditional formatting: highlight cells that meet criteria (e.g., all sales below target in red).",
+          "pacing": "VLOOKUP (teach with diagram + follow along) = 12 min. INDEX-MATCH (teach as upgrade + practice) = 10 min. Conditional formatting = 7 min. Troubleshooting buffer = 6 min.",
+          "instructor_note": "VLOOKUP will confuse 40\u201350% of the room. Use a physical analogy: \u201cIt\u2019s like looking up a word in a dictionary\u2014you search column A and return what\u2019s in column B.\u201d Have the syntax projected: =VLOOKUP(what you\u2019re looking for, where to look, which column to return, FALSE). Walk the room during practice."
         },
         {
-          "start_time": "10:55",
-          "end_time": "11:40",
-          "activity": "Research Tools Deep-Dive",
-          "duration": "45 min",
-          "format": "Instructor demo \u2192 guided hands-on.",
-          "blooms": "",
-          "delivery": "Part 1: NotebookLM (20 min). Instructor demos uploading a source document, asking questions, getting cited answers. Students follow along with their own source (provide a pre-loaded document for anyone who doesn\u2019t have one). Key skill: interrogating a source (summarize, extract key arguments, identify gaps). Part 2: Perplexity (15 min). Demo the difference: Perplexity searches the web, NotebookLM interrogates your documents. Students try the same research question in both. Mention Whisper/Otter.ai for audio transcription (no demo\u2014just name and describe). Close: 5 min for students to document which tool is better for what.",
-          "pacing": "NotebookLM demo + follow-along = 20 min. Perplexity demo + student try = 15 min. Whisper/Otter mention = 2 min. Documentation + comparison = 5 min. Transition = 3 min.",
-          "instructor_note": ""
-        },
-        {
-          "start_time": "11:40",
-          "end_time": "12:00",
-          "activity": "Source Triangulation + Trust Rubric",
-          "duration": "20 min",
-          "format": "Individual work.",
-          "blooms": "",
-          "delivery": "Students build a personal trust rubric: Does the AI cite sources? Can I verify them? Does the answer hold up across tools? Does it change when I rephrase the question? Provide a starter template with 5 criteria; students add 2\u20133 of their own. Then practice: run one research question through Claude, Perplexity, and NotebookLM. Score each using their rubric.",
-          "pacing": "Customize rubric template = 5 min. Test one question across 3 tools = 10 min. Score and compare = 5 min. This is tight but achievable because students are now familiar with all three tools.",
-          "instructor_note": ""
-        },
-        {
-          "start_time": "12:00",
-          "end_time": "12:15",
-          "activity": "Break",
-          "duration": "15 min",
-          "format": "",
-          "blooms": "",
-          "delivery": "",
-          "pacing": "",
-          "instructor_note": "",
-          "is_break": true
-        },
-        {
-          "start_time": "12:15",
-          "end_time": "1:00",
-          "activity": "Writing with AI (Combined Block)",
-          "duration": "45 min",
-          "format": "Individual writing \u2192 AI interaction \u2192 pair comparison \u2192 group debrief.",
-          "blooms": "",
-          "delivery": "Phase 1 (15 min): Students write 150\u2013200 words on a topic of their choice (professional email, blog intro, LinkedIn post, cover letter paragraph\u2014anything they\u2019d actually write at work). No AI. Phase 2 (10 min): Ask AI to \u201cimprove\u201d their writing. Then ask AI to help at only one stage (brainstorm, outline, or edit\u2014student picks). Compare three versions: original, AI-improved, and stage-specific collaboration. Phase 3 (10 min): Pair up. Each person reads their partner\u2019s three versions. Which is \u201cmost them\u201d? Which is best? Are those the same version? Phase 4 (10 min): 3\u20134 students share insights with the group. Instructor frames the key takeaway: AI is most useful as a collaborator at specific stages, not as a replacement for your voice.",
-          "pacing": "",
-          "instructor_note": ""
-        },
-        {
-          "start_time": "1:00",
-          "end_time": "2:00",
-          "activity": "Lunch",
-          "duration": "60 min",
-          "format": "",
-          "blooms": "",
-          "delivery": "",
-          "pacing": "",
-          "instructor_note": "",
-          "is_break": true
-        },
-        {
-          "start_time": "2:00",
-          "end_time": "2:40",
-          "activity": "Data Analysis with AI",
-          "duration": "40 min",
-          "format": "Individual, instructor-guided.",
-          "blooms": "",
-          "delivery": "Each student receives a small CSV relevant to their country (pre-prepared: local business data, survey results, or economic indicators). Upload to Claude or ChatGPT. Prompt: \u201cAnalyze this data. What are the 3 most interesting findings? Create a summary I could present to my boss.\u201d Then iterate: ask for a specific chart description, a comparison, or a trend analysis. Final output: a 1-paragraph summary of insights with supporting data points.",
-          "pacing": "Distribute CSV + explain exercise = 5 min. Upload and first analysis prompt = 10 min. Iterate with 2\u20133 follow-up prompts = 10 min. Write summary paragraph = 10 min. 2\u20133 students share findings = 5 min.",
-          "instructor_note": "Pre-test all CSVs with both Claude and ChatGPT. Ensure they produce interesting results. Have a backup CSV ready in case a student\u2019s file doesn\u2019t upload correctly."
-        },
-        {
-          "start_time": "2:40",
-          "end_time": "3:30",
-          "activity": "Image Generation + Client Brief",
-          "duration": "50 min",
-          "format": "Instructor demo \u2192 guided practice \u2192 individual production.",
-          "blooms": "",
-          "delivery": "Part 1 \u2014 DALL-E Introduction (15 min): Instructor demos prompting with precision: style keywords, composition instructions, iteration. Show 2\u20133 examples of how specificity changes output. Students generate their first image. Part 2 \u2014 Client Brief (35 min): \u201cYou\u2019re a freelancer. Brief: Create social media visuals for a local coffee shop launching delivery.\u201d Produce 3 options with a 1-sentence rationale for each. Students present their best option to a partner for feedback.",
-          "pacing": "DALL-E demo = 8 min. First student-generated image = 7 min. Client brief: read + plan = 5 min. Generate 3 options with iteration = 20 min. Write rationales + partner feedback = 10 min.",
-          "instructor_note": ""
-        },
-        {
-          "start_time": "3:30",
-          "end_time": "3:45",
-          "activity": "Break",
-          "duration": "15 min",
-          "format": "",
-          "blooms": "",
-          "delivery": "",
-          "pacing": "",
-          "instructor_note": "",
-          "is_break": true
-        },
-        {
-          "start_time": "3:45",
-          "end_time": "4:15",
-          "activity": "Presentation Builder",
-          "duration": "30 min",
-          "format": "Hands-on, individual.",
-          "blooms": "",
-          "delivery": "Build a 10-slide presentation in 30 minutes using Gamma. Topic: pitch your current employer or school on adopting one AI tool. Gamma\u2019s AI-assisted generation makes 10 slides in 30 minutes feasible, but set expectations: the first draft is AI-generated, and students should spend at least 10 minutes customizing and improving it.",
-          "pacing": "Gamma orientation (for new users) = 5 min. Generate initial deck with AI = 5 min. Customize, edit, and improve = 15 min. Save and note what worked = 5 min.",
-          "instructor_note": ""
-        },
-        {
-          "start_time": "4:15",
-          "end_time": "5:10",
-          "activity": "Build Something in 50 Minutes",
-          "duration": "55 min",
-          "format": "Individual, self-directed.",
-          "blooms": "",
-          "delivery": "Use Claude or ChatGPT to build a working mini-tool: tip calculator, quiz, personal website, unit converter, or anything the student chooses. Provide 5 example project prompts for students who don\u2019t know what to build. Instructor circulates for troubleshooting. The skill being practiced: directing AI to build something functional, not writing code yourself.",
-          "pacing": "Choose project + initial prompt = 5 min. Iterative building = 40 min. Test and document = 10 min. Students who finish early can help peers\u2014this creates natural peer teaching.",
-          "instructor_note": ""
-        },
-        {
-          "start_time": "5:10",
-          "end_time": "5:30",
-          "activity": "Show & Tell",
-          "duration": "20 min",
-          "format": "Presentations, full group.",
-          "blooms": "",
-          "delivery": "5\u20136 volunteers demo what they built (any artifact from today, not just the mini-tool). 2\u20133 minutes per person. Group discusses what surprised them. Prioritize variety\u2014one data analysis, one visual, one presentation, one mini-tool.",
-          "pacing": "5\u20136 presentations \u00d7 3 min each = 15\u201318 min. Buffer = 2\u20135 min.",
-          "instructor_note": ""
-        },
-        {
-          "start_time": "5:30",
-          "end_time": "5:45",
-          "activity": "Day 2 Wrap + Mid-Week Assignment Briefing",
-          "duration": "15 min",
-          "format": "",
-          "blooms": "",
-          "delivery": "Do NOT rush the mid-week assignment briefing. This is a structured, multi-part assignment and students need to understand it clearly. Walk through the template on screen. Show one completed example. Answer questions. If this runs to 5:50, that\u2019s acceptable.",
-          "pacing": "Day 2 reflection (quick 1-2-1: 1 highlight, 2 tools you\u2019ll use this week, 1 thing that confused you) = 5 min. Mid-week assignment walkthrough = 8 min. Questions = 2 min.",
-          "instructor_note": ""
-        }
-      ],
-      "swbats": [
-        "Detect hallucinations in AI-generated research and fact-check claims systematically (LO #3: Spot AI failures)",
-        "Use research tools (NotebookLM, Perplexity) to interrogate sources and triangulate information (LO #4: Build real workflows)",
-        "Collaborate with AI on writing while preserving their own voice and judgment (LO #6: Create portfolio-quality work)",
-        "Analyze a dataset using AI and produce a presentable summary of insights (LO #5: Analyze data using AI)",
-        "Generate and iterate on visual content using AI image tools (LO #6)",
-        "Build a simple functional tool by directing AI code generation (LO #4)"
-      ],
-      "evidence": "Hallucination scorecards show students caught real fabrications. Writing comparisons demonstrate students can articulate what AI changed and whether the change was an improvement. Data analysis summaries contain specific, verified findings."
-    },
-    {
-      "session_num": 3,
-      "title": "\u201cAutomate & Strategize\u201d",
-      "header": "Session 3: \u201cAutomate & Strategize\u201d",
-      "subtitle": "Saturday, Weekend 2  |  10:00 AM \u2013 5:45 PM  |  Theme: Workflow automation, agentic AI concepts, and career positioning.",
-      "schedule": [
-        {
-          "start_time": "10:00",
-          "end_time": "10:15",
-          "activity": "Retrieval Sprint",
-          "duration": "15 min",
-          "format": "",
-          "blooms": "",
-          "delivery": "7 questions covering both Sessions 1 and 2. Include at least 2 questions that bridge weekends (e.g., \u201cYou used Claude for data analysis last week. What prompt structure gets the best analytical results?\u201d). The 1-week gap makes this retrieval sprint especially important\u2014it reactivates knowledge that has started to decay.",
-          "pacing": "Same as Session 2 format. 7 \u00d7 1.5 min = ~11 min. Transition = 4 min.",
-          "instructor_note": ""
-        },
-        {
-          "start_time": "10:15",
-          "end_time": "10:40",
-          "activity": "Teach-Back Round",
-          "duration": "25 min",
-          "format": "Pairs, structured teaching exercise.",
-          "blooms": "",
-          "delivery": "Each student draws a concept card (pre-prepared): CRAFT framework, chain-of-thought prompting, hallucination detection, how LLMs work, prompt iteration, source triangulation. Partner A teaches their concept to Partner B (who \u201cpretends\u201d not to know it) for 7\u20138 minutes. Then switch. This rehearses the exact skill the bootcamp promises: explaining AI to a non-expert.",
-          "pacing": "Setup + distribute concept cards = 3 min. Round 1 (Partner A teaches) = 8 min. Round 2 (Partner B teaches) = 8 min. Quick debrief: \u201cWhat was hardest to explain?\u201d = 4 min. Transition = 2 min.",
-          "instructor_note": ""
-        },
-        {
-          "start_time": "10:40",
-          "end_time": "11:05",
-          "activity": "\u201cIn the Wild\u201d Share",
-          "duration": "25 min",
-          "format": "",
-          "blooms": "",
-          "delivery": "",
-          "pacing": "Breakout groups share (each person = 3\u20134 min) = 15 min. 2\u20133 highlights to full group = 8 min. Transition = 2 min.",
-          "instructor_note": ""
-        },
-        {
-          "start_time": "11:05",
+          "start_time": "10:50",
           "end_time": "11:30",
-          "activity": "Personal Workflow Audit",
-          "duration": "25 min",
-          "format": "Individual, structured template.",
+          "activity": "From Spreadsheet to Dashboard",
+          "duration": "40 min",
+          "format": "Instructor-led demo + guided follow-along.",
           "blooms": "",
-          "delivery": "Students map their weekly tasks using a provided template: list 10\u201315 recurring tasks, categorize each as (a) repetitive/automatable, (b) information bottleneck, (c) communication overhead, or (d) procrastination target. Then rank the top 3 candidates for AI automation. This becomes the foundation for the automation build and the capstone project selection.",
-          "pacing": "List tasks = 8 min. Categorize = 7 min. Rank top 3 = 5 min. Pair share (tell your partner your #1 automation candidate) = 5 min.",
+          "delivery": "Part 1 (12 min): Looker Studio orientation. Everyone opens Looker Studio. Tour the interface: data sources panel, chart types, filter controls, sharing settings. This is pure orientation\u2014no building yet. Part 2 (25 min): Build a dashboard together from scratch. Connect the cleaned dataset from Session 1. Add one bar chart, one line chart, one scorecard, and one filter. Instructor does each step, students follow. Part 3 (3 min): Save and verify everyone has a working dashboard.",
+          "pacing": "Interface orientation = 12 min. Guided build = 25 min. Save + verify = 3 min.",
           "instructor_note": ""
         },
         {
@@ -414,29 +241,40 @@
         },
         {
           "start_time": "11:45",
-          "end_time": "12:25",
-          "activity": "Workflow Automation 101 + Guided Build",
-          "duration": "40 min",
-          "format": "Interactive lecture interwoven with guided hands-on.",
+          "end_time": "12:10",
+          "activity": "Dashboard Design Principles",
+          "duration": "25 min",
+          "format": "Interactive lecture.",
           "blooms": "",
-          "delivery": "Do NOT lecture for 30 minutes then ask students to build. Instead, teach the concept while building. Minute 1\u20135: What is a trigger? Students open Make/Zapier, create account, find the trigger menu. Minute 6\u201310: What is an action? Set up the first action together. Minute 11\u201315: What is a condition? Add a condition to the automation. Minute 16\u201330: Everyone builds the same automation together: \u201cWhen I receive an email with \u2018invoice\u2019 in the subject, use AI to extract the amount and due date, and add a row to a Google Sheet.\u201d Walk through each step. Minute 31\u201340: Students test and troubleshoot. Instructor circulates.",
-          "pacing": "",
-          "instructor_note": "Pre-create test emails and a template Google Sheet. Have screenshots of each step projected. Expect 3\u20135 students to hit authentication issues with integrations\u2014have a TA or prepared fallback (instructor\u2019s screen share as backup)."
+          "delivery": "The \u201c5-second test\u201d: can someone understand the main message in 5 seconds? Visual hierarchy, \u201cso what?\u201d headlines (not \u201cSales by Region\u201d but \u201cRegion X outperforms all others by 40%\u201d), filter placement, color coding. Operational dashboards (daily monitoring) vs. strategic dashboards (quarterly insight). Insert interaction at midpoint: students look at their own dashboard and identify one headline they should rewrite.",
+          "pacing": "Design principles = 10 min. Examples (good vs. bad dashboards) = 5 min. Interaction: rewrite one headline on own dashboard = 5 min. Operational vs. strategic = 3 min. Transition = 2 min.",
+          "instructor_note": ""
         },
         {
-          "start_time": "12:25",
+          "start_time": "12:10",
           "end_time": "12:50",
-          "activity": "Independent Automation Build",
-          "duration": "25 min",
-          "format": "",
+          "activity": "Build Your Dashboard",
+          "duration": "40 min",
+          "format": "Individual, hands-on.",
           "blooms": "",
-          "delivery": "",
-          "pacing": "Choose automation from workflow audit = 3 min. Build = 17 min. Test = 5 min. Students who finish early: iterate or start a second one.",
+          "delivery": "Complete dashboard from your dataset. Minimum 4 visualizations, 1 filter, clear \u201cso what?\u201d headline per section. Focus: clarity over complexity. A simple dashboard answering a real question beats a complex one impressing nobody.",
+          "pacing": "Build = 35 min. Save + prepare for gallery walk = 5 min.",
           "instructor_note": ""
         },
         {
           "start_time": "12:50",
-          "end_time": "1:50",
+          "end_time": "1:10",
+          "activity": "Dashboard Gallery Walk + 5-Second Test",
+          "duration": "20 min",
+          "format": "",
+          "blooms": "",
+          "delivery": "",
+          "pacing": "Setup + explain rotation = 2 min. 5 stations \u00d7 3.5 min = 17.5 min. Transition to lunch = 0.5 min.",
+          "instructor_note": ""
+        },
+        {
+          "start_time": "1:10",
+          "end_time": "2:10",
           "activity": "Lunch",
           "duration": "60 min",
           "format": "",
@@ -447,25 +285,25 @@
           "is_break": true
         },
         {
-          "start_time": "1:50",
-          "end_time": "2:20",
-          "activity": "Agentic AI & MCP: What\u2019s Next",
+          "start_time": "2:10",
+          "end_time": "2:40",
+          "activity": "Data Storytelling: The Narrative Arc",
           "duration": "30 min",
-          "format": "Interactive lecture.",
+          "format": "Interactive lecture + individual outlining.",
           "blooms": "",
-          "delivery": "Conceptual overview only\u2014no hands-on. What are AI agents (programs that plan, execute, and iterate autonomously)? What is MCP (a protocol that lets AI tools talk to other software)? What does this mean for their work in the next 6\u201312 months? Use 2\u20133 concrete examples: an AI agent that plans a trip by searching flights, booking hotels, and creating an itinerary; an AI agent that reads your email, drafts replies, and schedules follow-ups. Break at the 15-minute mark for a 3-minute pair discussion: \u201cWhat task in your workflow audit would benefit most from an AI agent?\u201d",
-          "pacing": "AI agents concept + examples = 12 min. Pair discussion = 3 min. MCP + implications = 10 min. Q&A = 5 min.",
+          "delivery": "Data doesn\u2019t speak for itself. Framework: Setup (context), Conflict (problem or surprise the data reveals), Resolution (what to do). Same structure as any story\u2014but built from evidence. Students outline a data story from their dashboard using the framework.",
+          "pacing": "Teach framework + example = 12 min. Students outline data story = 12 min. 2 students share outlines = 4 min. Transition = 2 min.",
           "instructor_note": ""
         },
         {
-          "start_time": "2:20",
+          "start_time": "2:40",
           "end_time": "3:10",
-          "activity": "Workflow Design Challenge",
-          "duration": "50 min",
-          "format": "Teams of 3.",
+          "activity": "\u201cExplain It Like I\u2019m the CEO\u201d",
+          "duration": "30 min",
+          "format": "Pairs, role-play.",
           "blooms": "",
-          "delivery": "Teams receive a scenario: (1) a startup founder managing 5 people, (2) a university department processing applications, (3) a nonprofit running a fundraising campaign. Design a complete AI workflow on paper (whiteboard or large sticky notes): what triggers what, which AI tools handle which steps, where humans stay in the loop. Then build the key piece\u2014one critical automation or prompt chain from the workflow.",
-          "pacing": "Read scenario + discuss approach = 5 min. Design workflow on paper = 15 min. Build key piece = 20 min. Prepare 2-minute presentation = 5 min. Each team presents = 5 min (3 teams \u00d7 ~2 min with questions).",
+          "delivery": "Present findings to a \u201cbusy executive\u201d who interrupts: \u201cSo what?\u201d / \u201cWhat do you want me to do?\u201d / \u201cI have 2 minutes.\u201d Adapt: cut detail, lead with insight, end with the ask. Switch roles. Debrief: What got cut? What survived? That\u2019s what matters.",
+          "pacing": "Setup + rules = 3 min. Partner A presents + CEO interruptions = 5 min. Feedback = 2 min. Switch roles = 5 min + 2 min feedback. New partner, faster round = 8 min. Debrief = 5 min.",
           "instructor_note": ""
         },
         {
@@ -482,101 +320,123 @@
         },
         {
           "start_time": "3:25",
-          "end_time": "4:00",
-          "activity": "Job Posting Autopsy",
-          "duration": "35 min",
-          "format": "Individual research + analysis.",
+          "end_time": "4:05",
+          "activity": "The Data-Driven Memo",
+          "duration": "40 min",
+          "format": "Mini-lecture + individual writing.",
           "blooms": "",
-          "delivery": "Find 5 real job postings in your field (use job sites for your country). For each posting, categorize every listed responsibility: AI can do this today, human-only, hybrid (human + AI). Then predict: what does this job look like in 3 years? Which tasks disappear? Which new tasks appear? Provide a structured template for the analysis.",
-          "pacing": "Find 5 job postings = 10 min. Analyze and categorize = 15 min. Write 3-year prediction for 1 posting = 5 min. Pair share = 5 min.",
-          "instructor_note": "Have 5 pre-selected job postings per market as a fallback for students who can\u2019t find relevant ones quickly. Focus on roles in tech, marketing, education, finance, and administration\u2014common across all three markets."
-        },
-        {
-          "start_time": "4:00",
-          "end_time": "4:30",
-          "activity": "\u201cBe the AI Expert\u201d Strategy Session",
-          "duration": "30 min",
-          "format": "Interactive lecture + group discussion.",
-          "blooms": "",
-          "delivery": "Practical playbook for becoming the AI person on your team: how to build an internal AI toolkit, run a lunch-and-learn, handle the skeptics and the over-enthusiastic. Instructor shares 3\u20134 real examples of early-career people who positioned themselves as the AI expert. Weave in ethics throughout: confidentiality risks (don\u2019t paste sensitive company data into AI), the sycophancy problem (AI agrees with you when it shouldn\u2019t), and access inequality.",
-          "pacing": "Playbook framework = 12 min. Real examples = 8 min. Ethics integration (confidentiality, sycophancy, access) = 5 min. Group Q&A = 5 min.",
+          "delivery": "One-line recommendation at top. 3\u20134 supporting data points with charts. Risks and limitations. Next steps. Not a report\u2014a decision document. The reader knows what to do from the first paragraph. Students write a 1-page memo in English.",
+          "pacing": "Teach structure + before/after example = 10 min. Students write memo = 25 min (dual-skill buffer for English writing). Quick pair check (\u201cCan you act on this from the first paragraph?\u201d) = 5 min.",
           "instructor_note": ""
         },
         {
-          "start_time": "4:30",
-          "end_time": "5:00",
-          "activity": "Career AI Strategy",
-          "duration": "30 min",
-          "format": "Individual production.",
-          "blooms": "",
-          "delivery": "Draft a \u201cfuture-proof\u201d professional profile. Provide a template with three sections: (1) AI-complementary skills I have (what I do that AI can\u2019t), (2) AI tool proficiency (what I can do with AI), (3) Specific value I offer my organization starting next week (3 concrete actions). This becomes a portfolio artifact.",
-          "pacing": "Section 1 = 8 min. Section 2 = 8 min. Section 3 = 8 min. Pair review = 6 min.",
-          "instructor_note": ""
-        },
-        {
-          "start_time": "5:00",
-          "end_time": "5:30",
-          "activity": "Capstone Kickoff",
-          "duration": "30 min",
-          "format": "Instructor presentation \u2192 individual/team planning.",
-          "blooms": "",
-          "delivery": "Present the 4 capstone options. Show 1\u20132 example capstones from prior cohorts (or mock examples for the pilot). Students choose, form teams if doing a collaborative project, and begin planning. Provide a capstone planning template: project description, tools you\u2019ll use, what you\u2019ll build tonight, what you\u2019ll present tomorrow.",
-          "pacing": "Present options + show examples = 10 min. Students choose + form teams = 5 min. Begin planning with template = 12 min. Logistics for tomorrow = 3 min.",
-          "instructor_note": ""
-        },
-        {
-          "start_time": "5:30",
-          "end_time": "5:45",
-          "activity": "Day 3 Wrap",
+          "start_time": "4:05",
+          "end_time": "4:20",
+          "activity": "Data Fallacy Spotter",
           "duration": "15 min",
+          "format": "Full group, rapid exercise.",
+          "blooms": "",
+          "delivery": "Beyond correlation/causation: survivorship bias, Simpson\u2019s paradox, base rate neglect, anchoring. 5 examples, students identify the fallacy. Fast-paced. The critical thinking that separates data literacy from data naivety.",
+          "pacing": "5 examples \u00d7 2.5 min each (present + vote + explain) = 12.5 min. Wrap-up = 2.5 min.",
+          "instructor_note": ""
+        },
+        {
+          "start_time": "4:20",
+          "end_time": "4:50",
+          "activity": "Correlation vs. Causation Workshop",
+          "duration": "30 min",
+          "format": "Group exercise.",
+          "blooms": "",
+          "delivery": "5 spurious correlations (funny) + 5 real business examples where correlation was mistaken for causation (and it cost money). Students analyze 3 claims from their own data: correlation or causation? How would you test it?",
+          "pacing": "Spurious correlations (fun, fast) = 5 min. Real business examples = 8 min. Students analyze 3 own-data claims = 10 min. Discussion = 5 min. Transition = 2 min.",
+          "instructor_note": ""
+        },
+        {
+          "start_time": "4:50",
+          "end_time": "5:10",
+          "activity": "GDPR & Data Privacy Basics",
+          "duration": "20 min",
+          "format": "Interactive lecture.",
+          "blooms": "",
+          "delivery": "What GDPR means for data you collect and analyze. What can you share? What must you anonymize? When do you need consent? Essential for Moldova (EU accession) and anyone working with EU-funded projects.",
+          "pacing": "Core GDPR principles = 10 min. Practical scenarios (\u201cCan you put this in your dashboard?\u201d) = 7 min. Q&A = 3 min.",
+          "instructor_note": ""
+        },
+        {
+          "start_time": "5:10",
+          "end_time": "5:45",
+          "activity": "Day 2 Wrap + Mid-Week Assignment",
+          "duration": "35 min",
           "format": "",
           "blooms": "",
-          "delivery": "Brief wrap. Remind students: tonight is capstone build time. Instructor available via group chat for questions. Set expectations for tomorrow: arrive with your capstone at least 70% complete. The morning is for polish, not starting from scratch.",
-          "pacing": "",
+          "delivery": "",
+          "pacing": "Data confidence self-assessment (compare to Day 1) = 5 min. 2\u20133 students share growth observations = 5 min. Mid-week assignment walkthrough (5 steps, with template on screen) = 15 min. Questions + logistics = 10 min.",
           "instructor_note": ""
         }
       ],
       "swbats": [
-        "Map their personal workflow and identify automation opportunities (LO #4: Build real workflows)",
-        "Build a working automation using Make or Zapier (LO #4)",
-        "Explain agentic AI and MCP at a conceptual level to a non-technical person (LO #1; LO #7: Position themselves professionally)",
-        "Analyze job postings for AI-replaceable vs. human-essential tasks (LO #7)",
-        "Articulate their unique value proposition as an AI-skilled professional (LO #7)",
-        "Teach an AI concept to a partner clearly and accurately (LO #7: be the AI expert)"
+        "Use VLOOKUP, INDEX-MATCH, and conditional formatting for analytical questions (LO #2)",
+        "Build an interactive dashboard in Looker Studio that passes the 5-second test (LO #3)",
+        "Tell a data story using the Setup\u2192Conflict\u2192Resolution narrative arc (LO #7)",
+        "Write a 1-page data-driven memo with a recommendation that an executive can act on (LO #6)",
+        "Identify 5 common data fallacies and distinguish correlation from causation (LO #5)",
+        "Explain basic GDPR principles relevant to data they collect and analyze (LO #9)"
       ],
-      "evidence": "Working automations that trigger and complete correctly. Career strategy profiles contain specific, actionable commitments (not vague aspirations). Teach-back partners can answer a follow-up question about the concept they were taught."
+      "evidence": ""
     },
     {
-      "session_num": 4,
-      "title": "\u201cShip It & Own It\u201d",
-      "header": "Session 4: \u201cShip It & Own It\u201d",
-      "subtitle": "Sunday, Weekend 2  |  10:00 AM \u2013 5:45 PM  |  Theme: Capstone build, portfolio assembly, showcase, and next steps.",
+      "session_num": 3,
+      "title": "\u201cAdvanced Analysis & Persuasive Presentation\u201d",
+      "header": "Session 3: \u201cAdvanced Analysis & Persuasive Presentation\u201d",
+      "subtitle": "Saturday, Weekend 2  |  10:00 AM \u2013 5:45 PM  |  Theme: Advanced techniques, real-world complexity, and presenting data under adversarial questioning.",
       "schedule": [
         {
           "start_time": "10:00",
           "end_time": "10:15",
-          "activity": "Retrieval Sprint",
+          "activity": "Data Challenge (Retrieval)",
           "duration": "15 min",
           "format": "",
           "blooms": "",
-          "delivery": "7 questions spanning all 3 prior sessions. Critical: include at least 2 questions from Session 1 to test long-term retention across the full week gap. This is the most important retrieval sprint because it measures whether the spacing effect is working. Sample cross-session question: \u201cExplain the CRAFT framework to your partner, then describe how you would use it to write an automation trigger description.\u201d This forces integration, not just recall.",
+          "delivery": "New unfamiliar dataset. Pivot table + chart + English insight in 10 min. Compare to Session 2 challenge: speed and quality should both be visibly higher. The week gap makes this retrieval sprint especially important.",
           "pacing": "",
           "instructor_note": ""
         },
         {
           "start_time": "10:15",
-          "end_time": "11:30",
-          "activity": "Capstone Build Sprint",
-          "duration": "75 min",
-          "format": "Individual or teams, focused build time.",
+          "end_time": "10:50",
+          "activity": "\u201cIn the Wild\u201d Debrief",
+          "duration": "35 min",
+          "format": "Full group, 2 min each.",
           "blooms": "",
-          "delivery": "This is the longest unbroken production block in the bootcamp. Protect it. No announcements, no mini-lessons, no interruptions. Instructor does 1-on-1 coaching rotations: spend 3\u20135 minutes with each student/team, ask what they\u2019re stuck on, give one specific suggestion, move on. With 15\u201320 students and 75 minutes, the instructor can visit each student/team twice.",
-          "pacing": "Rotation 1 (visit each team once) = 35\u201340 min. Rotation 2 (revisit teams that were struggling) = 25\u201330 min. 5-minute warning before break.",
-          "instructor_note": "Students who arrived with their capstone 70%+ complete (as instructed yesterday) will use this time for polish and iteration. Students who didn\u2019t will be scrambling. Triage: help the scramblers scope down to something achievable. A simple, complete project is better than an ambitious, unfinished one."
+          "delivery": "Students share mid-week projects. What data did you find? What story did it tell? What was hardest? With 15\u201318 students at 2 min each = 30\u201336 min. 35 min WORKS for this cohort size but requires strict time enforcement.",
+          "pacing": "15\u201318 students \u00d7 2 min = 30\u201336 min. Instructor commentary on patterns = 2\u20135 min. Keep a visible timer. Students who go over 2 min are cut.",
+          "instructor_note": ""
         },
         {
-          "start_time": "11:30",
-          "end_time": "11:45",
+          "start_time": "10:50",
+          "end_time": "11:20",
+          "activity": "Benchmarking & Context",
+          "duration": "30 min",
+          "format": "",
+          "blooms": "",
+          "delivery": "A number means nothing without context. Benchmarking (vs. industry/historical averages), trending (getting better or worse?), segmentation (does the average hide important differences?). Students add context to their mid-week data: is this number good or bad? Compared to what?",
+          "pacing": "",
+          "instructor_note": ""
+        },
+        {
+          "start_time": "11:20",
+          "end_time": "11:50",
+          "activity": "Forecasting for Non-Statisticians",
+          "duration": "30 min",
+          "format": "Hands-on.",
+          "blooms": "",
+          "delivery": "3 accessible methods: trend extrapolation, scenario modeling (best/worst/most likely), unit economics projection. Students build a 6-month forecast in Google Sheets. Provide a template with formulas pre-built for the first method; students adjust inputs for their data and build the second method independently.",
+          "pacing": "Teach 3 methods = 10 min. Guided build using template (trend extrapolation) = 10 min. Independent build (scenario modeling) = 8 min. Transition = 2 min.",
+          "instructor_note": "The template is essential. Do not expect students to build forecast formulas from scratch. Provide a pre-built spreadsheet where they change the assumptions and see the projections update automatically."
+        },
+        {
+          "start_time": "11:50",
+          "end_time": "12:05",
           "activity": "Break",
           "duration": "15 min",
           "format": "",
@@ -587,25 +447,221 @@
           "is_break": true
         },
         {
-          "start_time": "11:45",
-          "end_time": "12:15",
-          "activity": "Structured Peer Review",
+          "start_time": "12:05",
+          "end_time": "12:35",
+          "activity": "KPI Workshop",
           "duration": "30 min",
-          "format": "Pairs, structured rubric.",
+          "format": "",
           "blooms": "",
-          "delivery": "Swap projects with another team. Use the structured rubric (projected and printed): Does the project solve a real problem? (1\u20135). Is AI usage transparent and intentional? (1\u20135). Could someone replicate this workflow from the documentation? (1\u20135). What is the single strongest element? (written). What is the single weakest element? (written). One specific, actionable improvement suggestion (written). Each pair reviews the other\u2019s project, fills out the rubric, then discusses face-to-face.",
-          "pacing": "Review partner\u2019s project + fill rubric = 12 min. Receive review of your own project = (simultaneous). Face-to-face discussion of feedback = 10 min. Note top 2 changes to make = 3 min. Transition = 5 min.",
+          "delivery": "Vanity metrics vs. actionable metrics. A good KPI: specific, measurable, matters for the decision, can be influenced by the team. Students define 3 KPIs for a real project in their context.",
+          "pacing": "",
           "instructor_note": ""
         },
         {
-          "start_time": "12:15",
+          "start_time": "12:35",
+          "end_time": "1:05",
+          "activity": "Mock Stakeholder Panel \u2014 Round 1",
+          "duration": "30 min",
+          "format": "Presentations + adversarial Q&A.",
+          "blooms": "",
+          "delivery": "2-minute \u201cexecutive version\u201d of data story: headline, 1 chart, recommendation. Panel challenges: \u201cWhere did you get this data?\u201d \u201cWhat are you not showing me?\u201d \u201cHow confident are you?\u201d 8\u20139 students present.",
+          "pacing": "8\u20139 students \u00d7 3.5 min (2 min pitch + 1 min Q&A + 30 sec transition) = 28\u201331.5 min.",
+          "instructor_note": ""
+        },
+        {
+          "start_time": "1:05",
+          "end_time": "2:00",
+          "activity": "Lunch",
+          "duration": "55 min",
+          "format": "",
+          "blooms": "",
+          "delivery": "",
+          "pacing": "",
+          "instructor_note": "",
+          "is_break": true
+        },
+        {
+          "start_time": "2:00",
+          "end_time": "2:25",
+          "activity": "Presentation Autopsy",
+          "duration": "25 min",
+          "format": "",
+          "blooms": "",
+          "delivery": "Group analyzes Round 1. Common mistakes: too much data, not enough context, reading the chart aloud, the deadly \u201cas you can see\u2026\u201d Concrete fixes for each.",
+          "pacing": "",
+          "instructor_note": ""
+        },
+        {
+          "start_time": "2:25",
+          "end_time": "3:05",
+          "activity": "Mock Stakeholder Panel \u2014 Round 2",
+          "duration": "40 min",
+          "format": "Same format. Remaining 9\u201310 students.",
+          "blooms": "",
+          "delivery": "Same format. Every student has now presented and defended data under adversarial questioning at least once. Round 2 benefits from the Presentation Autopsy\u2014students who watched Round 1 and learned from the analysis have a significant advantage.",
+          "pacing": "9\u201310 students \u00d7 3.5 min = 31.5\u201335 min. Buffer = 5\u20138 min.",
+          "instructor_note": ""
+        },
+        {
+          "start_time": "3:05",
+          "end_time": "3:20",
+          "activity": "Break",
+          "duration": "15 min",
+          "format": "",
+          "blooms": "",
+          "delivery": "",
+          "pacing": "",
+          "instructor_note": "",
+          "is_break": true
+        },
+        {
+          "start_time": "3:20",
+          "end_time": "3:50",
+          "activity": "SQL Taster",
+          "duration": "30 min",
+          "format": "",
+          "blooms": "",
+          "delivery": "30 minutes in a browser-based SQL playground. Not proficiency\u2014demystification. Students run 3 basic queries: SELECT, WHERE, GROUP BY. They now understand what SQL does, where it lives, and why their data team speaks it. They can communicate with technical colleagues about data.",
+          "pacing": "",
+          "instructor_note": ""
+        },
+        {
+          "start_time": "3:50",
+          "end_time": "4:20",
+          "activity": "EU/International Reporting Frameworks",
+          "duration": "30 min",
+          "format": "",
+          "blooms": "",
+          "delivery": "How EU-funded projects report impact data. Logical framework matrix. Writing SMART indicators that international evaluators accept. Students write 3 indicators for a project scenario. Differentiator no other data bootcamp offers.",
+          "pacing": "",
+          "instructor_note": ""
+        },
+        {
+          "start_time": "4:20",
+          "end_time": "4:45",
+          "activity": "AI + Data Literacy",
+          "duration": "25 min",
+          "format": "",
+          "blooms": "",
+          "delivery": "How AI changes what \u201cdata literacy\u201d means. Students who can prompt AI to analyze data need different skills: knowing what questions to ask, validating answers, spotting when AI hallucinates patterns. Quick exercise: same dataset, AI analysis vs. manual. Where do they diverge?",
+          "pacing": "",
+          "instructor_note": ""
+        },
+        {
+          "start_time": "4:45",
+          "end_time": "5:15",
+          "activity": "Capstone Kickoff",
+          "duration": "30 min",
+          "format": "",
+          "blooms": "",
+          "delivery": "Present 4 capstone options. Students choose, form teams of 2\u20133 (recommended for collaborative dashboard work), begin planning. Provide a capstone planning template.",
+          "pacing": "",
+          "instructor_note": ""
+        },
+        {
+          "start_time": "5:15",
+          "end_time": "5:30",
+          "activity": "Revised Dashboard Sprint",
+          "duration": "15 min",
+          "format": "",
+          "blooms": "",
+          "delivery": "",
+          "pacing": "",
+          "instructor_note": ""
+        },
+        {
+          "start_time": "5:30",
+          "end_time": "5:45",
+          "activity": "Day 3 Wrap",
+          "duration": "15 min",
+          "format": "",
+          "blooms": "",
+          "delivery": "",
+          "pacing": "",
+          "instructor_note": ""
+        }
+      ],
+      "swbats": [
+        "Add context to data using benchmarking, trending, and segmentation (LO #4)",
+        "Build a 6-month forecast using accessible methods (LO #4)",
+        "Define actionable KPIs that distinguish vanity from value (LO #4)",
+        "Present data findings under adversarial stakeholder questioning (LO #7)",
+        "Read and write basic SQL queries (LO #2 stretch)",
+        "Write SMART indicators for EU-style reporting (LO #6)"
+      ],
+      "evidence": ""
+    },
+    {
+      "session_num": 4,
+      "title": "\u201cShip It & Own It\u201d",
+      "header": "Session 4: \u201cShip It & Own It\u201d",
+      "subtitle": "Sunday, Weekend 2  |  10:00 AM \u2013 5:45 PM  |  Theme: Final build, professional showcase, and launching a data-literate career.",
+      "schedule": [
+        {
+          "start_time": "10:00",
+          "end_time": "10:15",
+          "activity": "Data Challenge (Final)",
+          "duration": "15 min",
+          "format": "",
+          "blooms": "",
+          "delivery": "Final retrieval challenge. Full analysis: pivot table, chart, 3-sentence English brief in 10 minutes. Compare to Days 2 and 3. Growth should be visible.",
+          "pacing": "",
+          "instructor_note": ""
+        },
+        {
+          "start_time": "10:15",
+          "end_time": "11:15",
+          "activity": "Capstone Build Sprint",
+          "duration": "60 min",
+          "format": "",
+          "blooms": "",
+          "delivery": "Protected build time. Instructor rotates 1-on-1: analysis quality, dashboard clarity, memo recommendation strength, English presentation delivery. Triage students who are behind: help them scope down to something complete.",
+          "pacing": "",
+          "instructor_note": ""
+        },
+        {
+          "start_time": "11:15",
+          "end_time": "11:45",
+          "activity": "\u201cData for Your LinkedIn\u201d",
+          "duration": "30 min",
+          "format": "",
+          "blooms": "",
+          "delivery": "How to position data literacy professionally: profile language, describing data projects in interview-friendly terms, building a public portfolio of dashboards. Students rewrite LinkedIn summary to include data skills in English.",
+          "pacing": "",
+          "instructor_note": ""
+        },
+        {
+          "start_time": "11:45",
+          "end_time": "12:00",
+          "activity": "Break",
+          "duration": "15 min",
+          "format": "",
+          "blooms": "",
+          "delivery": "",
+          "pacing": "",
+          "instructor_note": "",
+          "is_break": true
+        },
+        {
+          "start_time": "12:00",
+          "end_time": "12:30",
+          "activity": "Structured Peer Review",
+          "duration": "30 min",
+          "format": "",
+          "blooms": "",
+          "delivery": "Rubric separates 3 dimensions: analytical quality (methodology sound? conclusions supported?), visualization quality (5-second test?), English narrative (memo clear enough for executive to act on?).",
+          "pacing": "",
+          "instructor_note": ""
+        },
+        {
+          "start_time": "12:30",
           "end_time": "1:00",
           "activity": "Final Polish",
-          "duration": "45 min",
-          "format": "Individual/teams, focused work.",
+          "duration": "30 min",
+          "format": "",
           "blooms": "",
-          "delivery": "Incorporate peer review feedback. Prepare a 5-minute presentation. Provide a presentation template: (1) What problem does your project solve? (2) Demo or walkthrough. (3) How did you use AI? (4) What would you do differently? Remind students: 5 minutes is short. Practice once before lunch.",
-          "pacing": "Incorporate feedback = 20 min. Build presentation = 15 min. Practice run-through = 10 min.",
+          "delivery": "Incorporate feedback. Rehearse team presentation. 5 min max per team, timer enforced.",
+          "pacing": "",
           "instructor_note": ""
         },
         {
@@ -625,26 +681,26 @@
           "end_time": "2:30",
           "activity": "Portfolio Assembly",
           "duration": "30 min",
-          "format": "Individual, self-directed.",
+          "format": "",
           "blooms": "",
-          "delivery": "Compile all bootcamp artifacts into a shareable digital portfolio (Google Drive folder, Notion page, or simple website built with AI in Session 2). Checklist projected on screen: Prompt Playbook, writing piece with before/after, data analysis summary, image generation work, presentation, automation documentation, career strategy profile, capstone project. Students check off each item and add any missing pieces.",
+          "delivery": "",
           "pacing": "",
           "instructor_note": ""
         },
         {
           "start_time": "2:30",
-          "end_time": "3:15",
-          "activity": "\u201cMaking Of\u201d Documentation",
-          "duration": "45 min",
-          "format": "Individual, structured writing.",
+          "end_time": "3:10",
+          "activity": "Before & After Documentation",
+          "duration": "40 min",
+          "format": "",
           "blooms": "",
-          "delivery": "Students write \u201cMaking Of\u201d documentation for their 3 strongest artifacts. Template for each: What did you build? How was AI involved (which tools, which prompts, how many iterations)? What did AI do well? What did you have to fix or override? What would you do differently? For remaining artifacts, write a single sentence each: \u201cThis artifact demonstrates [skill] using [tool].\u201d",
-          "pacing": "Choose 3 key artifacts = 3 min. Write full \u201cMaking Of\u201d for artifact 1 = 12 min. Artifact 2 = 10 min. Artifact 3 = 10 min. One-sentence descriptions for remaining artifacts = 5 min. Final review of complete portfolio = 5 min.",
+          "delivery": "300-word reflection in English: what dataset you used, what questions you asked, what the data told you, what you recommended, what tools you used, what you\u2019d do differently. Compare Day 1 Data Brief (3 sentences) to today\u2019s analysis\u2014the growth in analytical depth and English fluency should be visible.",
+          "pacing": "",
           "instructor_note": ""
         },
         {
-          "start_time": "3:15",
-          "end_time": "3:30",
+          "start_time": "3:10",
+          "end_time": "3:25",
           "activity": "Break",
           "duration": "15 min",
           "format": "",
@@ -655,36 +711,36 @@
           "is_break": true
         },
         {
-          "start_time": "3:30",
+          "start_time": "3:25",
           "end_time": "5:00",
           "activity": "Capstone Showcase",
-          "duration": "90 min",
-          "format": "Presentations + Q&A.",
+          "duration": "95 min",
+          "format": "Team presentations + Q&A to real audience.",
           "blooms": "",
-          "delivery": "Each team presents their capstone (5 min presentation + 2\u20133 min Q&A). With teams of 2\u20133, expect 7\u201310 presentations. At 8 minutes each, that\u2019s 56\u201380 minutes. The remaining 10\u201330 minutes provide buffer for transitions, technical issues, and longer Q&A on standout projects. If guests are invited (employers, professors, community members), reserve 5 minutes at the start for welcome and context-setting.",
-          "pacing": "Welcome/context for guests (if present) = 5 min. Presentations: 8\u201310 teams \u00d7 8 min = 64\u201380 min. Buffer = 5\u201320 min. If running long, reduce Q&A to 1 min per team. If running short, extend Q&A on the strongest projects.",
-          "instructor_note": "Assign a timekeeper. Use a visible timer. The 5-minute mark is firm\u2014students will always try to go longer. Cutting presentations short feels harsh but respects everyone\u2019s time and teaches a professional skill."
+          "delivery": "Each team presents (5 min + 3 min Q&A + 2 min transition = 10 min per team). Invite real guests: team leads, finance directors, NGO program managers, data professionals, EU project coordinators. Real questions about methodology, conclusions, recommendations. In English. With 6\u20139 teams, this is 60\u201390 min, leaving 5\u201335 min buffer.",
+          "pacing": "",
+          "instructor_note": "The guest Q&A is where the bootcamp\u2019s value becomes tangible. A finance director asking \u201cHow did you calculate this forecast?\u201d and a student answering confidently in English\u2014that\u2019s the outcome the bootcamp promised."
         },
         {
           "start_time": "5:00",
           "end_time": "5:15",
-          "activity": "\u201cWhat\u2019s Next\u201d Action Plan",
+          "activity": "\u201cWhat\u2019s Next\u201d",
           "duration": "15 min",
-          "format": "Individual, written.",
+          "format": "",
           "blooms": "",
-          "delivery": "Students write 3 specific, time-bound commitments: (1) One thing I\u2019ll do at work or school in the next 2 weeks using AI. (2) One person I\u2019ll teach something I learned. (3) One tool or skill I\u2019ll master in the next month. These commitments are shared with a partner for accountability.",
-          "pacing": "Individual writing = 7 min. Share with partner = 5 min. Exchange contact info for follow-up = 3 min.",
+          "delivery": "3 commitments: one data question you\u2019ll answer at work this month, one dashboard you\u2019ll build for your team, one data skill you\u2019ll learn next (SQL? Python? Advanced visualization?). Share with accountability partner.",
+          "pacing": "",
           "instructor_note": ""
         },
         {
           "start_time": "5:15",
           "end_time": "5:35",
-          "activity": "Retrospective",
+          "activity": "Final Self-Assessment + Retrospective",
           "duration": "20 min",
-          "format": "Group discussion + anonymous feedback.",
+          "format": "",
           "blooms": "",
-          "delivery": "Guided group discussion: What surprised you? What changed your mind about AI? What do you wish we\u2019d covered? Then anonymous written feedback (digital form): rate each session 1\u20135, describe the most valuable activity, describe the least valuable activity, and one thing you\u2019d change. This feedback is gold for iterating the curriculum.",
-          "pacing": "Group discussion (instructor facilitates, 5\u20136 students share) = 10 min. Anonymous feedback form = 8 min. Transition = 2 min.",
+          "delivery": "Data confidence rating (1\u20135 across 4 dimensions). Compare Day 1 \u2192 Day 4. Retrospective: what changed about how you see numbers? Anonymous feedback form.",
+          "pacing": "",
           "instructor_note": ""
         },
         {
@@ -694,35 +750,43 @@
           "duration": "10 min",
           "format": "",
           "blooms": "",
-          "delivery": "Hand out completion certificates (physical or digital). Group photo. Introduce the alumni community channel (Telegram or Discord). Briefly explain the 90-day retention plan: \u201cYou\u2019ll hear from us at weeks 1, 2, 4, 8, and 12 with challenges and retrieval exercises. Stay in the community.\u201d End on a high: instructor shares one thing each student did that impressed them (if group is small enough) or highlights 3\u20134 standout moments from the bootcamp.",
+          "delivery": "Certificates. Group photo. Alumni community setup\u2014cross-country network for monthly data challenges and shared datasets. Introduce 90-day retention plan with monthly data jams.",
           "pacing": "",
           "instructor_note": ""
         }
       ],
       "swbats": [
-        "Complete a capstone project that demonstrates integrated AI skills (LO #4, #5, #6)",
-        "Assemble and present a professional portfolio of AI-produced work (LO #6: Create portfolio-quality work)",
-        "Give and receive structured feedback using an evaluation rubric (LO #3: Spot AI failures, applied to peer work)",
-        "Articulate their AI learning journey and the process behind their work (metacognition)",
-        "Commit to specific next steps for continued AI skill development (LO #7: Position themselves professionally)"
+        "Present a complete data analysis to a real audience with confidence in English (LO #7)",
+        "Defend methodology and conclusions under live questioning (LO #7)",
+        "Assemble a professional data portfolio demonstrating the full analysis pipeline (LO #3, #6)",
+        "Articulate their data literacy growth from Day 1 to Day 4 (metacognition)",
+        "Position data skills professionally on LinkedIn (career readiness)",
+        "Cumulative SWBAT Progression",
+        "Summary of All Timing Adjustments",
+        "Total bootcamp duration standardized to 28 contact hours across 4 sessions. Sessions 1\u20132 extended from 5:30 to 5:45. Session 1 gains a 30-minute buffer block for tool troubleshooting. All other adjustments are internal rebalancing."
       ],
-      "evidence": "Capstone projects solve real problems (not toy examples). \u201cMaking Of\u201d documentation is specific about AI\u2019s role and limitations. Peer review rubrics contain actionable feedback, not just compliments. Action plans name specific tools, people, and deadlines."
+      "evidence": ""
     }
   ],
   "tables": [
     [
       [
-        "CRITICAL: Session 2 Is Overloaded\nSession 2 currently asks students to produce 8 distinct artifacts in a single day: a fact-checked research piece, a trust rubric, a writing piece with before/after analysis, a data analysis summary, 3 image variations with a client brief, a 10-slide presentation, and a mini-tool prototype. This is roughly double what an intermediate learner can produce at quality in 5.5 hours of instruction time. The roadmap identifies specific cuts and combinations below."
+        "CRITICAL: Session 2 Looker Studio Introduction Is Too Compressed\nLooker Studio is introduced in a 30-minute block that must cover: account access, interface orientation, connecting a data source, choosing visualizations, adding filters, and building a basic dashboard. For a brand-new tool with non-technical learners, orientation alone takes 10\u201312 minutes. The roadmap expands this block to 40 minutes by recovering time from the over-allocated Data Brief block in Session 1 (carried forward as a day-length standardization) and merging the Gallery Walk into a more efficient format."
       ]
     ],
     [
       [
-        "WARNING: Session 3 Automation Block Is Unrealistic\nBuilding 2 working automations in 35 minutes using Make or Zapier for the first time is not achievable. Account setup, interface orientation, and integration authentication alone consume 10\u201315 minutes. The roadmap recommends reducing to 1 guided automation with a structured walkthrough, and repositioning the second as a stretch goal or capstone component."
+        "CRITICAL: Session 4 Showcase Cannot Fit Individual Presentations\n15\u201318 students at 8 min each = 120\u2013144 min. Only 95 are allocated. For a data bootcamp, team presentations of 2\u20133 students are natural (shared datasets, collaborative dashboards). The roadmap recommends teams, yielding 6\u20139 presentations at 10 min each = 60\u201390 min, which fits comfortably in 95 min with buffer for guest welcome and transitions."
       ]
     ],
     [
       [
-        "NOTE: Session 1 Bias Detective Contradicts Tool Ceiling\nThe Bias Detective activity at 4:15 PM asks students to prompt image generators, but the curriculum explicitly states image generation tools are not introduced until Session 2. The roadmap provides an alternative that preserves the learning objective without breaking the tool sequence."
+        "WARNING: Sessions 1\u20132 End at 5:30, Not 5:45\nThe format section promises 10am\u20135:45pm, but the schedules for Sessions 1\u20132 end at 5:30. This wastes 30 minutes of instruction time across Weekend 1. The roadmap standardizes all sessions to 5:45, recovering 15 min per day. In Session 1, this time extends \u201cReal Data, Real Questions\u201d (+5 min) and tightens the over-allocated Data Brief and Wrap. In Session 2, it expands the Looker Studio introduction (+10 min) and the Gallery Walk (+5 min)."
+      ]
+    ],
+    [
+      [
+        "WARNING: Session 3 Mock Panel Round 1 Only Fits ~7 Students\n25 minutes at ~3.5 min per student = 7 students maximum. With an 18-student cohort, that leaves 11 for Round 2 (40 min), which barely fits. The roadmap expands Round 1 to 30 min (fitting 8\u20139 students) by tightening the Revised Dashboard Sprint and Day 3 Wrap."
       ]
     ],
     [
@@ -732,139 +796,86 @@
       ],
       [
         "Lecture-to-Activity Ratio",
-        "No block should exceed 60% lecture / 40% activity. Target: 40% lecture / 60% activity or better. Full-day sessions should average 30/70."
+        "Target: 25/75 for a tool-heavy bootcamp. Students learn spreadsheet skills by doing, not watching."
       ],
       [
-        "Maximum Unbroken Lecture",
-        "20 minutes. After 20 minutes of passive input, insert an interaction point: pair discussion, quick prompt, show of hands, or worked example attempt."
+        "\u25b6 New Tool Introduction Budget",
+        "Any brand-new platform (Looker Studio, SQL playground) needs minimum 15 min of orientation before productive use: account access, interface tour, first guided action. This is non-negotiable and must be budgeted separately from activity time."
       ],
       [
-        "Tool Introduction Time",
-        "A brand-new tool requires minimum 15 minutes for orientation before productive use: account access, interface tour, first guided action. Do not count orientation time as \u201cactivity\u201d time."
+        "\u25b6 Follow-Along Troubleshooting Tax",
+        "Hands-on spreadsheet exercises generate 3\u20135 students who get stuck at every step (wrong cell, missing filter, formula error). Budget 5\u201310 min of troubleshooting buffer per 30 min of follow-along. Instructor + TA essential for groups >15."
       ],
       [
-        "Artifact Production Time",
-        "A meaningful artifact (not a throwaway exercise) requires minimum 20 minutes of focused production time. Artifacts requiring evaluation rubrics need 25\u201330 minutes."
+        "\u25b6 Math Anxiety Protection",
+        "Session 1 morning (first 2 hours): no formulas, no tool mechanics, no vocabulary that triggers math anxiety (\u201cstatistics,\u201d \u201cregression,\u201d \u201cstandard deviation\u201d). Build identity as \u201cdata people\u201d through critical thinking first."
       ],
       [
-        "Transition Tax",
-        "Every context switch (new tool, new topic, new group configuration) costs 2\u20133 minutes. A session with 10 activities loses 20\u201330 minutes to transitions. Plan for this."
+        "Dual-Skill Production Buffer",
+        "Written English production by non-native speakers needs 50\u2013100% more time. A 1-page data memo in English = 25\u201330 min, not 15."
       ],
       [
-        "Cognitive Load Ceiling",
-        "Maximum 3 new major concepts per half-day. Maximum 2 new tools per half-day. More than this triggers information overload regardless of pacing."
+        "Panel/Presentation Math",
+        "Per-student time = pitch + Q&A + transition. For data presentations: 2 min pitch + 1\u20132 min Q&A + 30 sec transition = 3.5\u20134.5 min. Multiply by students. If total exceeds block, use teams."
       ],
       [
         "Break Non-Negotiables",
-        "15-minute break every 90 minutes of instruction. Lunch must be 45\u201360 minutes. Breaks cannot be shortened to recover lost time."
+        "15-min break every 90 min. Screen-intensive work causes faster fatigue than discussion-based bootcamps. Enforce breaks even when students want to keep building."
       ]
     ],
     [
       [
-        "Category",
-        "Minutes",
-        "% of Instruction",
-        "Target"
-      ],
-      [
-        "Lecture / Demo",
-        "~85 min",
-        "~25%",
-        "\u226430%"
-      ],
-      [
-        "Guided Practice",
-        "~75 min",
-        "~22%",
-        "\u226520%"
-      ],
-      [
-        "Independent Production",
-        "~130 min",
-        "~38%",
-        "\u226530%"
-      ],
-      [
-        "Reflection / Sharing",
-        "~50 min",
-        "~15%",
-        "10\u201315%"
-      ],
-      [
-        "Total Instruction",
-        "~340 min",
-        "100%",
-        "\u2713 On Target"
+        "DAY LENGTH STANDARDIZED: Extended from 5:30 to 5:45\nOriginal schedule ended at 5:30 (Data Brief at 4:25 + Wrap at 5:00). Extended to 5:45 to match the format specification and recover 15 minutes. Allocated to: \u201cReal Data, Real Questions\u201d (+5 min) and tightening the over-allocated Data Brief (\u221215 min) and Wrap (\u22125 min) to redistribute to where time is needed."
       ]
     ],
     [
       [
-        "\u2713 SESSION 1 VERDICT: Well-Paced With Minor Adjustments\nThis is the strongest session in the bootcamp. The flipped structure works. Students produce within 15 minutes. The 30/70 passive-to-active ratio holds. Two issues need fixing: the CRAFT block needs 5 more minutes, and the Bias Detective activity needs to be reworked to avoid using image generators (which aren\u2019t introduced until Session 2)."
+        "TIMING ADJUSTMENT: Expanded from 30 to 35 min\n30 min was too tight for dataset distribution + orientation (5 min), small-group exploration (20 min), AND report-back from 3\u20134 groups (8\u201312 min). The report-back\u2014where students articulate what they noticed in English\u2014is the first data communication exercise and should not be squeezed. Source: 5 min from day length standardization."
       ]
     ],
     [
       [
-        "TIMING ADJUSTMENT: Expanded from 30 to 35 min\nThe original 30 minutes is too tight for: teaching a 5-part framework (~8 min), showing 2 worked examples (~10 min), having students redo their email with CRAFT (~10 min), and comparing before/after (~5 min). This block needs 35 minutes. Absorb the 5 minutes by tightening the Tool Comparison block to 25 minutes (see below)."
+        "TIMING ADJUSTMENT: Reduced from 35 to 20 min\nThe described activity (3-sentence summary + read aloud + start Playbook) takes ~20 min. 35 min left 15 min of dead time. Reduced to match actual activity. Freed time redistributed to \u201cReal Data, Real Questions\u201d (+5) and to the day-length standardization pool."
       ]
     ],
     [
       [
-        "ACTIVITY REWORKED: No Image Generators\nThe original activity asks students to prompt image generators, but the curriculum states image generation is introduced in Session 2. This creates a tool-ceiling violation. Reworked version: use the same bias-detection learning objective, but with text-based LLM prompts instead. Students prompt Claude/ChatGPT for \u201cdescribe a successful businessperson in [Armenia/Moldova/Georgia]\u201d and analyze the text outputs for patterns in gender, age, ethnicity, and occupation. Same learning, no new tool."
+        "DAY LENGTH STANDARDIZED: Extended from 5:30 to 5:45\nRecovers 15 min. Allocated to: Looker Studio introduction (+10 min) and Dashboard Gallery Walk (+5 min)\u2014the two most under-allocated blocks in the session."
       ]
     ],
     [
       [
-        "CRITICAL ISSUE: This Session Is Overloaded\nThe current schedule contains 12 distinct activities producing 8 artifacts. After applying transition tax (~30 min lost to context switches) and tool orientation time (~25 min for 3 new tools), real production time drops to about 4 hours. That is not enough for 8 artifacts at quality. The roadmap makes three specific adjustments: (1) Merge the two writing exercises into one deeper block; (2) Combine the image generation workshop and client brief into a single production exercise; (3) Rename \u201cBuild Something in an Hour\u201d to \u201cBuild Something in 50 Minutes\u201d and explicitly scope it as a stretch exercise, not a required artifact."
+        "TIMING ADJUSTMENT: Expanded from 30 to 40 min\nLooker Studio is the most important new tool in the bootcamp. For non-technical learners, account setup + interface orientation = 10\u201312 min. Connecting a data source + choosing first visualization + adding a filter = another 15\u201320 min. The original 30 min forced students to rush through orientation, causing confusion that cascaded into the dashboard build block. 40 min ensures a solid foundation. Source: 10 min from day length standardization."
       ]
     ],
     [
       [
-        "TIMING ADJUSTMENT: Expanded from 35 to 45 min\nIntroducing 2 new tools (NotebookLM + Perplexity) with real hands-on use in 35 minutes is not feasible. Tool orientation alone requires ~10 minutes. The expansion comes from merging the two writing blocks later in the morning (see below), which frees 15 minutes."
+        "FORMAT ADJUSTED: Structured Rotation Instead of Free Walk\nWith 15\u201318 dashboards, a free gallery walk in 20 min means each dashboard gets ~1 min of attention. Restructured: students rotate in pairs through 5 stations (3\u20134 dashboards per station, 4 min per station = 20 min). At each station, apply the 5-second test and leave one sticky note: \u201cI understood [X]\u201d or \u201cI was confused by [Y].\u201d Every dashboard gets at least 2 pieces of feedback."
       ]
     ],
     [
       [
-        "BLOCKS MERGED: Two Writing Exercises Combined Into One\nThe original schedule had two separate writing blocks: \u201cWriting with AI (Without Losing Your Voice)\u201d (30 min) and \u201cAI Writing Stages\u201d (25 min). Both are conceptually similar and splitting them creates redundant setup time. The merged version covers both objectives\u2014voice preservation and stage-specific AI use\u2014in a single, deeper 45-minute block. This also frees 10 minutes for the Research Tools expansion above."
+        "TIMING ADJUSTMENT: Expanded from 30 to 35 min\nThe mid-week assignment for this bootcamp is the most demanding of any ALC theme: find real data, clean it, analyze it, build a dashboard, write a memo, AND document the process. A thorough walkthrough is essential to prevent students from feeling overwhelmed during the week. 35 min allows 15 min for the assignment walkthrough + 10 min for self-assessment + 10 min for questions and logistics."
       ]
     ],
     [
       [
-        "BLOCKS MERGED: Workshop + Client Brief Combined\nThe original schedule had Image Generation Workshop (30 min) followed by Client Brief Challenge (30 min). These share the same tool (DALL-E) and the client brief is the natural application of the workshop skills. Merging them into one 50-minute block eliminates redundant tool setup and gives students more production time for the client brief, which is the real artifact."
+        "TIMING ADJUSTMENT: Expanded from 25 to 30 min\n25 min at ~3.5 min per student = only 7 students. With 18-student cohort, that leaves 11 for Round 2. Expanding to 30 min fits 8\u20139 students, leaving 9\u201310 for Round 2 (40 min). Source: 5 min from tightening Revised Dashboard Sprint and Day 3 Wrap."
       ]
     ],
     [
       [
-        "RENAMED AND RESCOPED\nThe original label was \u201cBuild Something in an Hour\u201d but only 50 minutes were allocated. Renamed to match reality. Also: this is now explicitly a stretch exercise. Students who are energized will build something impressive. Students who are fatigued (this is hour 6 of day 2) should be told it\u2019s OK to build something simple. The artifact is optional for the portfolio\u2014it\u2019s a bonus, not a requirement."
+        "CRITICAL: Showcase Format \u2014 Team Presentations\nWith 15\u201318 students, individual 8-min presentations need 120\u2013144 min but only 95 are allocated. For a data bootcamp, team presentations are natural: collaborative dashboards, shared datasets, complementary analyses. Teams of 2\u20133 yield 6\u20139 presentations at 10 min each (5 min present + 3 min Q&A + 2 min transition) = 60\u201390 min, fitting comfortably within 95 min."
       ]
     ],
     [
       [
-        "WARNING: Automation Build Block Needs Restructuring\nThe current schedule allocates 35 minutes for students to build 2 working automations using Make/Zapier for the first time. Account creation, interface orientation, and authentication for integrations consume 10\u201315 minutes alone. Realistic output: 1 guided automation (instructor-led, everyone builds the same one), with the second automation repositioned as either a homework extension or a capstone component."
+        "TIMING ADJUSTMENT: Reduced from 40 to 30 min with ongoing prep\nAdd 2-min instruction at every prior session: \u201cSave artifacts to your portfolio folder.\u201d With ongoing organization, 30 min is sufficient. 10 min freed goes to Before & After Documentation."
       ]
     ],
     [
       [
-        "TIMING ADJUSTMENT: Expanded from 20 to 25 min\nThe teach-back requires setup (assign concepts, pair students, explain the exercise), plus two rounds of teaching (each partner teaches one concept). At ~8 minutes per round plus 5 minutes of setup and debrief, 25 minutes is the realistic minimum. Absorbed by slightly tightening the \u201cIn the Wild\u201d share below."
-      ]
-    ],
-    [
-      [
-        "BLOCKS MERGED: Lecture + First Automation Combined\nThe original schedule separated Workflow Automation 101 (30 min lecture) and Build 2 Automations (35 min). This created an unrealistic expectation. Merged into one 40-minute block: 15 minutes of concept introduction woven into a single instructor-led guided build. Students build 1 automation together with the instructor, step by step. This ensures everyone has a working automation by the end."
-      ]
-    ],
-    [
-      [
-        "NOTE: Showcase Timing Requires Team Presentations\nWith 15\u201320 students and 90 minutes for the showcase, individual presentations (7 min each) would require 105\u2013140 minutes. The math only works if students present in teams of 2\u20133 (yielding 7\u201310 presentations at ~8\u201310 min each = 60\u201390 min). Make team formation explicit in Session 3\u2019s capstone kickoff. Solo capstones are allowed but should be the exception."
-      ]
-    ],
-    [
-      [
-        "TIMING ADJUSTMENT: Reduced from 45 to 30 min, with prep moved earlier\nThe original 45-minute portfolio assembly assumed students would gather all artifacts from scratch on the final day. Instead, add a 2-minute end-of-session instruction on Days 1\u20133: \u201cSave today\u2019s artifacts to your portfolio folder.\u201d If students have been organizing as they go, 30 minutes is sufficient for final assembly and packaging. The 15 minutes freed are reallocated to the \u201cMaking Of\u201d block below."
-      ]
-    ],
-    [
-      [
-        "TIMING ADJUSTMENT: Expanded from 30 to 45 min\nWriting thoughtful \u201cMaking Of\u201d documentation for 6+ artifacts in 30 minutes means ~5 min per artifact\u2014barely enough time to write a sentence. Expanded to 45 minutes. Focus on 3 key artifacts (students choose their strongest), not all of them. For the remaining artifacts, a one-sentence reflection is sufficient."
+        "TIMING ADJUSTMENT: Expanded from 30 to 40 min\n300-word reflection in English at ~15 words/min for intermediate speakers = 20 min for writing alone. Plus reviewing Day 1 work for comparison = 5\u201310 min. 30 min was too tight. 40 min provides the dual-skill buffer needed."
       ]
     ],
     [
@@ -876,60 +887,67 @@
         "Session 4"
       ],
       [
-        "LO1: Understand how AI works",
-        "Introduce",
-        "Reinforce",
-        "Extend (agents)",
+        "LO1: Read visualizations",
+        "Introduce (charts)",
+        "Design principles",
+        "Benchmarking",
         "Retrieve"
       ],
       [
-        "LO2: Prompt effectively",
-        "Introduce + Practice",
-        "Apply to research/writing",
-        "Apply to automation",
+        "LO2: Clean + prepare data",
+        "Introduce (4 func)",
+        "Advanced (VLOOKUP)",
+        "SQL taster",
+        "Capstone"
+      ],
+      [
+        "LO3: Build dashboards",
+        "Charts only",
+        "Looker Studio",
+        "Revise + improve",
         "Assess (capstone)"
       ],
       [
-        "LO3: Spot AI failures",
-        "Introduce (bias)",
-        "Deep practice",
-        "Apply (ethics)",
-        "Assess (peer review)"
-      ],
-      [
-        "LO4: Build real workflows",
-        "\u2014",
-        "Introduce",
-        "Deep practice",
+        "LO4: Identify patterns",
+        "Pivot tables",
+        "Story framework",
+        "Forecast + KPI",
         "Assess (capstone)"
       ],
       [
-        "LO5: Analyze data using AI",
-        "\u2014",
-        "Introduce + Practice",
-        "Apply",
-        "Assess (capstone)"
+        "LO5: Critical thinking",
+        "Bad charts",
+        "Fallacies + corr/caus",
+        "AI validation",
+        "Peer review"
       ],
       [
-        "LO6: Create portfolio work",
-        "First artifact",
-        "Multiple artifacts",
-        "Career profile",
-        "Full portfolio"
+        "LO6: Write data memos",
+        "3-sentence brief",
+        "1-page memo",
+        "SMART indicators",
+        "Portfolio"
       ],
       [
-        "LO7: Position as AI expert",
-        "\u2014",
-        "\u2014",
-        "Deep practice",
-        "Assess (action plan)"
+        "LO7: Present to audiences",
+        "Read aloud",
+        "CEO exercise",
+        "Panel (peak)",
+        "Showcase (assess)"
       ],
       [
-        "LO8: Think critically (ethics)",
-        "Introduce",
-        "Reinforce",
-        "Expand",
-        "Integrate"
+        "LO8: Use AI for analysis",
+        "Pattern spotting",
+        "\u2014",
+        "AI vs. manual",
+        "Integrated"
+      ],
+      [
+        "LO9: Data ethics",
+        "Consent + bias",
+        "GDPR + fallacies",
+        "Data-justified",
+        "Responsibility"
       ]
     ],
     [
@@ -940,76 +958,88 @@
         "Adjusted"
       ],
       [
+        "1\u20132",
+        "Day length",
+        "End at 5:30",
+        "End at 5:45 (+15 min/day)"
+      ],
+      [
         "1",
-        "CRAFT Framework",
+        "Real Data, Real Questions",
         "30 min",
         "35 min (+5)"
       ],
       [
         "1",
-        "Tool Comparison",
-        "30 min",
-        "25 min (\u22125)"
+        "Pivot Table Mastery",
+        "50 min",
+        "45 min (\u22125)"
       ],
       [
         "1",
-        "Bias Detective",
-        "Image generators",
-        "Text-based (no new tool)"
-      ],
-      [
-        "2",
-        "Research Tools Deep-Dive",
+        "Day 1 Data Brief",
         "35 min",
-        "45 min (+10)"
+        "20 min (\u221215)"
+      ],
+      [
+        "1",
+        "Session 1 end",
+        "5:30 (no buffer)",
+        "5:45 (30-min buffer block)"
       ],
       [
         "2",
-        "Writing with AI (2 blocks)",
-        "30 + 25 = 55 min",
-        "45 min (merged, \u221210)"
+        "Looker Studio Introduction",
+        "30 min",
+        "40 min (+10)"
       ],
       [
         "2",
-        "Image Gen + Client Brief",
-        "30 + 30 = 60 min",
-        "50 min (merged, \u221210)"
+        "Dashboard Gallery Walk",
+        "20 min (free walk)",
+        "20 min (structured rotation)"
       ],
       [
         "2",
-        "Build Something",
-        "50 min (\u201cHour\u201d)",
-        "55 min (renamed, stretch)"
+        "Day 2 Wrap",
+        "30 min",
+        "35 min (+5)"
       ],
       [
         "3",
-        "Teach-Back Round",
+        "Mock Panel Round 1",
+        "25 min (~7 students)",
+        "30 min (8\u20139 students)"
+      ],
+      [
+        "3",
+        "Revised Dashboard Sprint",
         "20 min",
-        "25 min (+5)"
+        "15 min (\u22125)"
       ],
       [
         "3",
-        "In the Wild Share",
-        "30 min (full group)",
-        "25 min (breakout groups)"
-      ],
-      [
-        "3",
-        "Automation 101 + Build",
-        "30 + 35 = 65 min",
-        "40 + 25 = 65 min (restructured)"
+        "Day 3 Wrap",
+        "10 min",
+        "15 min (+5)"
       ],
       [
         "4",
         "Portfolio Assembly",
-        "45 min",
-        "30 min (\u221215, with prep)"
+        "40 min",
+        "30 min (with ongoing prep)"
       ],
       [
         "4",
-        "\u201cMaking Of\u201d Documentation",
-        "30 min (all artifacts)",
-        "45 min (3 key artifacts)"
+        "Before & After Documentation",
+        "30 min",
+        "40 min (+10, dual-skill)"
+      ],
+      [
+        "4",
+        "Capstone Showcase",
+        "95 min (individual)",
+        "95 min (teams of 2\u20133)"
       ]
     ]
   ]
