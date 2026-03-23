@@ -1,0 +1,136 @@
+---
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = '/' } = Astro.props;
+---
+
+<header class="header">
+  <div class="container header__inner">
+    <a href="/" class="header__logo">
+      <span class="header__logo-mark">ALC</span>
+      <span class="header__logo-text">American Learning Centers</span>
+    </a>
+    <nav class="header__nav" aria-label="Main navigation">
+      <a href="/" class:list={['header__link', { active: currentPath === '/' }]}>Home</a>
+      <a href="/branches" class:list={['header__link', { active: currentPath.startsWith('/branches') }]}>Branches</a>
+      <a href="/programs" class:list={['header__link', { active: currentPath === '/programs' }]}>Programs</a>
+      <a href="/about" class:list={['header__link', { active: currentPath === '/about' }]}>About</a>
+      <a href="/contact" class="btn btn--primary btn--sm">Get Involved</a>
+    </nav>
+    <button class="header__menu-btn" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    height: var(--header-height);
+  }
+
+  .header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .header__logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: var(--color-slate);
+  }
+
+  .header__logo-mark {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, var(--color-electric-blue), var(--color-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .header__logo-text {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .header__logo-text {
+      display: block;
+    }
+  }
+
+  .header__nav {
+    display: none;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .header__nav {
+      display: flex;
+    }
+  }
+
+  .header__link {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-text-muted);
+    transition: color 0.2s;
+    text-decoration: none;
+  }
+
+  .header__link:hover,
+  .header__link.active {
+    color: var(--color-electric-blue);
+  }
+
+  .btn--sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .header__menu-btn {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .header__menu-btn span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--color-charcoal);
+    border-radius: 1px;
+    transition: transform 0.2s;
+  }
+
+  @media (min-width: 768px) {
+    .header__menu-btn {
+      display: none;
+    }
+  }
+</style>

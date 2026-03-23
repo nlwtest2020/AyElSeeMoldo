@@ -1,0 +1,294 @@
+/* ============================================
+   ALC Hub — Design System
+   Keywords: Modular Grid, Clean White Space,
+   Dynamic Cards, Asymmetrical Balance
+   ============================================ */
+
+/* --- CSS Custom Properties (Design Tokens) --- */
+:root {
+  /* Base */
+  --color-white: #FFFFFF;
+  --color-charcoal: #2F2F2F;
+  --color-slate: #1A1A1A;
+
+  /* Heritage */
+  --color-terracotta: #C0392B;
+  --color-steel: #7F8C8D;
+
+  /* Digital Accents */
+  --color-electric-blue: #2D7FF9;
+  --color-cyan: #00BCD4;
+  --color-purple: #7C3AED;
+
+  /* Surfaces */
+  --color-bg: var(--color-white);
+  --color-card-bg: #F8F9FA;
+  --color-text: var(--color-charcoal);
+  --color-text-muted: #6B7280;
+
+  /* Typography */
+  --font-body: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Montserrat', 'Inter', system-ui, sans-serif;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 4rem;
+  --space-2xl: 6rem;
+
+  /* Radii */
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+
+  /* Shadows */
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.04);
+  --shadow-card-hover: 0 4px 12px rgba(0, 0, 0, 0.1), 0 8px 24px rgba(0, 0, 0, 0.06);
+
+  /* Layout */
+  --max-width: 1200px;
+  --header-height: 4rem;
+}
+
+/* --- Reset & Base --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--color-electric-blue);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-purple);
+}
+
+/* --- Typography --- */
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-slate);
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+}
+
+p {
+  max-width: 65ch;
+}
+
+/* --- Layout Utilities --- */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+.section {
+  padding: var(--space-2xl) 0;
+}
+
+/* --- Modular Card Grid --- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-lg);
+}
+
+/* --- Dynamic Card --- */
+.card {
+  background: var(--color-card-bg);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.card__accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-electric-blue), var(--color-cyan));
+}
+
+.card__accent--terracotta {
+  background: linear-gradient(90deg, var(--color-terracotta), #E74C3C);
+}
+
+.card__accent--purple {
+  background: linear-gradient(90deg, var(--color-purple), #A855F7);
+}
+
+.card__tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  background: rgba(45, 127, 249, 0.1);
+  color: var(--color-electric-blue);
+  margin-bottom: var(--space-md);
+}
+
+.card__title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-bottom: var(--space-sm);
+}
+
+.card__description {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* --- Buttons / CTAs --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn--primary {
+  background: var(--color-electric-blue);
+  color: var(--color-white);
+}
+
+.btn--primary:hover {
+  background: #1A6FE8;
+  color: var(--color-white);
+  transform: translateY(-1px);
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--color-electric-blue);
+  border: 2px solid var(--color-electric-blue);
+}
+
+.btn--outline:hover {
+  background: var(--color-electric-blue);
+  color: var(--color-white);
+}
+
+/* --- Geometric Overlay Shapes --- */
+.geo-shape {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.geo-shape--triangle {
+  width: 0;
+  height: 0;
+  border-left: 60px solid transparent;
+  border-right: 60px solid transparent;
+  border-bottom: 100px solid rgba(45, 127, 249, 0.08);
+}
+
+.geo-shape--circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: rgba(124, 58, 237, 0.06);
+}
+
+.geo-shape--rect {
+  width: 120px;
+  height: 120px;
+  background: rgba(0, 188, 212, 0.06);
+  transform: rotate(15deg);
+}
+
+/* --- Semi-transparent Overlay --- */
+.overlay {
+  position: relative;
+}
+
+.overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.7), rgba(45, 127, 249, 0.3));
+  z-index: 1;
+}
+
+.overlay > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding: var(--space-xl) 0;
+  }
+}
