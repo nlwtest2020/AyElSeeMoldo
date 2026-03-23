@@ -1,0 +1,155 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import BranchCard from '../components/BranchCard.astro';
+import ProgramCard from '../components/ProgramCard.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="American Learning Centers — Education, Technology, Culture">
+  <Header currentPath="/" />
+
+  <Hero
+    headline="Where Education Meets Innovation"
+    subheadline="American Learning Centers empower communities across the globe through English education, cutting-edge technology programs, and vibrant cultural exchange."
+    ctaText="Explore Branches"
+    ctaHref="/branches"
+    secondaryCtaText="Our Programs"
+    secondaryCtaHref="/programs"
+  />
+
+  <!-- Branch Highlights -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Branches</h2>
+        <p class="section-header__sub">Each ALC adapts to its local community while sharing a common mission of openness and learning.</p>
+      </div>
+      <div class="card-grid">
+        <BranchCard
+          name="ALC Moldova"
+          country="Moldova"
+          description="Located in Chișinău, ALC Moldova is a hub for English learning, maker culture, and community engagement in Southeast Europe."
+          href="/branches/moldova"
+          accent="blue"
+          programs={['English', 'Maker Space', 'Coding', 'Film Club']}
+        />
+        <BranchCard
+          name="ALC Georgia"
+          country="Georgia"
+          description="Based in Tbilisi, ALC Georgia connects young Georgians with American culture, technology skills, and English language programs."
+          href="/branches/georgia"
+          accent="purple"
+          programs={['English', 'STEM', 'Debate', 'Music']}
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Program Highlights -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-header">
+        <h2>Programs</h2>
+        <p class="section-header__sub">From language to technology, our programs are designed to unlock potential.</p>
+      </div>
+      <div class="card-grid">
+        <ProgramCard
+          title="English Language"
+          description="Conversation clubs, tutoring, and certified courses for all levels — from beginner to advanced."
+          icon="🗣️"
+          accent="blue"
+        />
+        <ProgramCard
+          title="Technology & Coding"
+          description="Hands-on workshops in web development, robotics, game design, and digital literacy."
+          icon="💻"
+          accent="purple"
+        />
+        <ProgramCard
+          title="Maker Space"
+          description="3D printing, electronics, and creative prototyping in our open workshop environment."
+          icon="🔧"
+          accent="terracotta"
+        />
+        <ProgramCard
+          title="Cultural Exchange"
+          description="Film screenings, book clubs, speaker events, and collaborative projects bridging cultures."
+          icon="🌍"
+          accent="blue"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="section cta-banner overlay">
+    <div class="container cta-banner__inner">
+      <h2 class="cta-banner__heading">Ready to Learn, Create, and Connect?</h2>
+      <p class="cta-banner__sub">Visit your nearest ALC branch or get in touch to learn more about our programs.</p>
+      <div class="cta-banner__actions">
+        <a href="/contact" class="btn btn--primary">Get Involved</a>
+        <a href="/branches" class="btn btn--outline btn--outline-white">Find a Branch</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .section-header {
+    margin-bottom: var(--space-xl);
+  }
+
+  .section-header__sub {
+    color: var(--color-text-muted);
+    margin-top: var(--space-sm);
+    font-size: 1.05rem;
+  }
+
+  .section--alt {
+    background: var(--color-card-bg);
+  }
+
+  .cta-banner {
+    background: linear-gradient(135deg, var(--color-slate), #1e3a5f);
+    text-align: center;
+  }
+
+  .cta-banner__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-banner__heading {
+    color: var(--color-white);
+    margin-bottom: var(--space-md);
+  }
+
+  .cta-banner__sub {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+    margin-bottom: var(--space-lg);
+  }
+
+  .cta-banner__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    justify-content: center;
+  }
+
+  .btn--outline-white {
+    color: var(--color-white);
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+
+  .btn--outline-white:hover {
+    background: var(--color-white);
+    color: var(--color-slate);
+    border-color: var(--color-white);
+  }
+</style>

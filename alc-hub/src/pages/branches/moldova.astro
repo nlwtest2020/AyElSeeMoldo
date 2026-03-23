@@ -1,0 +1,229 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Hero from '../../components/Hero.astro';
+import ProgramCard from '../../components/ProgramCard.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<BaseLayout
+  title="ALC Moldova — American Learning Center Chișinău"
+  description="American Learning Center Moldova — English courses, maker space, coding workshops, and cultural exchange programs in Chișinău."
+  canonicalPath="/branches/moldova"
+>
+  <Header currentPath="/branches/moldova" />
+
+  <Hero
+    headline="ALC Moldova"
+    subheadline="A creative and educational hub in the heart of Chișinău — where Moldovan youth learn English, build with technology, and connect with American culture."
+    ctaText="View Programs"
+    ctaHref="#programs"
+    secondaryCtaText="Visit Us"
+    secondaryCtaHref="#visit"
+  />
+
+  <!-- About Section -->
+  <section class="section">
+    <div class="container about-grid">
+      <div class="about-grid__text">
+        <h2>About ALC Moldova</h2>
+        <p>
+          The American Learning Center in Chișinău is a welcoming space where curious minds come together
+          to learn, create, and exchange ideas. We offer free and low-cost programs in English language,
+          technology, and cultural engagement — designed for learners of all ages.
+        </p>
+        <p>
+          From our maker space equipped with 3D printers and electronics kits to our conversation clubs
+          and film screenings, ALC Moldova is a bridge between communities — fostering understanding
+          and building skills for the future.
+        </p>
+      </div>
+      <div class="about-grid__stats">
+        <div class="stat-card">
+          <span class="stat-card__number">2,000+</span>
+          <span class="stat-card__label">Learners per year</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-card__number">50+</span>
+          <span class="stat-card__label">Programs & events</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-card__number">10+</span>
+          <span class="stat-card__label">Years serving Chișinău</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs -->
+  <section class="section section--alt" id="programs">
+    <div class="container">
+      <div class="section-header">
+        <h2>Programs</h2>
+        <p class="section-header__sub">Explore what ALC Moldova has to offer.</p>
+      </div>
+      <div class="card-grid">
+        <ProgramCard
+          title="English Language"
+          description="Conversation clubs, one-on-one tutoring, and group courses from beginner to advanced. Certified instructors and native speakers."
+          icon="🗣️"
+          accent="blue"
+        />
+        <ProgramCard
+          title="Coding & Web Dev"
+          description="Learn HTML, CSS, JavaScript, and Python through project-based workshops. From first code to full-stack."
+          icon="💻"
+          accent="purple"
+        />
+        <ProgramCard
+          title="Maker Space"
+          description="3D printing, laser cutting, Arduino, and electronics. Bring your ideas to life in our open workshop."
+          icon="🔧"
+          accent="terracotta"
+        />
+        <ProgramCard
+          title="Film Club"
+          description="Weekly American and international film screenings followed by guided discussion in English."
+          icon="🎬"
+          accent="blue"
+        />
+        <ProgramCard
+          title="Debate & Public Speaking"
+          description="Build confidence and critical thinking through structured debate practice and presentation skills training."
+          icon="🎤"
+          accent="purple"
+        />
+        <ProgramCard
+          title="Cultural Events"
+          description="Author talks, holiday celebrations, art exhibitions, and collaborative projects that bridge Moldovan and American cultures."
+          icon="🌍"
+          accent="terracotta"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Visit Section -->
+  <section class="section" id="visit">
+    <div class="container visit-grid">
+      <div>
+        <h2>Visit Us</h2>
+        <div class="visit-info">
+          <div class="visit-info__item">
+            <strong>Address</strong>
+            <p>American Learning Center<br />Chișinău, Moldova</p>
+          </div>
+          <div class="visit-info__item">
+            <strong>Hours</strong>
+            <p>Monday – Friday: 9:00 AM – 6:00 PM<br />Saturday: 10:00 AM – 3:00 PM</p>
+          </div>
+          <div class="visit-info__item">
+            <strong>Contact</strong>
+            <p>Follow us on social media or email for the latest schedule and events.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    align-items: start;
+  }
+
+  @media (min-width: 768px) {
+    .about-grid {
+      grid-template-columns: 2fr 1fr;
+    }
+  }
+
+  .about-grid__text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .about-grid__text p {
+    color: var(--color-text-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  .about-grid__stats {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .stat-card {
+    background: var(--color-card-bg);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    text-align: center;
+    box-shadow: var(--shadow-card);
+  }
+
+  .stat-card__number {
+    display: block;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 2rem;
+    color: var(--color-electric-blue);
+  }
+
+  .stat-card__label {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .section-header {
+    margin-bottom: var(--space-xl);
+  }
+
+  .section-header__sub {
+    color: var(--color-text-muted);
+    margin-top: var(--space-sm);
+    font-size: 1.05rem;
+  }
+
+  .section--alt {
+    background: var(--color-card-bg);
+  }
+
+  .visit-grid {
+    display: grid;
+    gap: var(--space-xl);
+  }
+
+  .visit-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-lg);
+    margin-top: var(--space-lg);
+  }
+
+  .visit-info__item strong {
+    display: block;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-electric-blue);
+    margin-bottom: var(--space-xs);
+  }
+
+  .visit-info__item p {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+</style>

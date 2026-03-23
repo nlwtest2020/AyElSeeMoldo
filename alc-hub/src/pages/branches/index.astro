@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Hero from '../../components/Hero.astro';
+import BranchCard from '../../components/BranchCard.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<BaseLayout title="Branches — American Learning Centers">
+  <Header currentPath="/branches" />
+
+  <Hero
+    headline="Our Global Branches"
+    subheadline="Each American Learning Center is uniquely shaped by its community, united by a shared mission of education and exchange."
+    ctaText="Contact Us"
+    ctaHref="/contact"
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class="card-grid">
+        <BranchCard
+          name="ALC Moldova"
+          country="Moldova"
+          description="Located in the heart of Chișinău, ALC Moldova serves as a creative and educational hub — offering English courses, maker workshops, coding bootcamps, and cultural programming for the Moldovan community."
+          href="/branches/moldova"
+          accent="blue"
+          programs={['English', 'Maker Space', 'Coding', 'Film Club', 'Debate']}
+        />
+        <BranchCard
+          name="ALC Georgia"
+          country="Georgia"
+          description="In Tbilisi, ALC Georgia brings together learners of all ages for English language development, STEM education, creative arts, and intercultural dialogue."
+          href="/branches/georgia"
+          accent="purple"
+          programs={['English', 'STEM', 'Debate', 'Music', 'Art']}
+        />
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

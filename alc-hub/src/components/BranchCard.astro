@@ -1,0 +1,72 @@
+---
+interface Props {
+  name: string;
+  country: string;
+  description: string;
+  href: string;
+  accent?: 'blue' | 'terracotta' | 'purple';
+  programs?: string[];
+}
+
+const { name, country, description, href, accent = 'blue', programs = [] } = Astro.props;
+
+const accentClass = {
+  blue: '',
+  terracotta: 'card__accent--terracotta',
+  purple: 'card__accent--purple',
+}[accent];
+---
+
+<a href={href} class="card branch-card">
+  <div class={`card__accent ${accentClass}`}></div>
+  <span class="card__tag">{country}</span>
+  <h3 class="card__title">{name}</h3>
+  <p class="card__description">{description}</p>
+  {programs.length > 0 && (
+    <div class="branch-card__programs">
+      {programs.map((p) => (
+        <span class="branch-card__pill">{p}</span>
+      ))}
+    </div>
+  )}
+  <span class="branch-card__arrow">→</span>
+</a>
+
+<style>
+  .branch-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  }
+
+  .branch-card__programs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-top: var(--space-md);
+  }
+
+  .branch-card__pill {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    background: rgba(0, 188, 212, 0.1);
+    color: var(--color-cyan);
+  }
+
+  .branch-card__arrow {
+    display: inline-block;
+    margin-top: var(--space-md);
+    font-size: 1.25rem;
+    color: var(--color-electric-blue);
+    transition: transform 0.2s ease;
+  }
+
+  .branch-card:hover .branch-card__arrow {
+    transform: translateX(6px);
+  }
+</style>

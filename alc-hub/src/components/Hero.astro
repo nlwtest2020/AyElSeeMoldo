@@ -1,0 +1,111 @@
+---
+interface Props {
+  headline: string;
+  subheadline?: string;
+  ctaText?: string;
+  ctaHref?: string;
+  secondaryCtaText?: string;
+  secondaryCtaHref?: string;
+  /** Background image URL or path */
+  bgImage?: string;
+}
+
+const {
+  headline,
+  subheadline,
+  ctaText = 'Explore Programs',
+  ctaHref = '/programs',
+  secondaryCtaText,
+  secondaryCtaHref,
+  bgImage,
+} = Astro.props;
+---
+
+<section class="hero overlay" style={bgImage ? `background: url(${bgImage}) center/cover no-repeat` : undefined}>
+  <div class="container hero__inner">
+    <div class="hero__content">
+      <h1 class="hero__headline">{headline}</h1>
+      {subheadline && <p class="hero__sub">{subheadline}</p>}
+      <div class="hero__actions">
+        <a href={ctaHref} class="btn btn--primary">{ctaText}</a>
+        {secondaryCtaText && secondaryCtaHref && (
+          <a href={secondaryCtaHref} class="btn btn--outline btn--outline-white">{secondaryCtaText}</a>
+        )}
+      </div>
+    </div>
+    <!-- Geometric shapes for layered visual -->
+    <div class="geo-shape geo-shape--circle hero__geo1" aria-hidden="true"></div>
+    <div class="geo-shape geo-shape--rect hero__geo2" aria-hidden="true"></div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, var(--color-slate), #1e3a5f);
+    overflow: hidden;
+  }
+
+  .hero__inner {
+    position: relative;
+    z-index: 2;
+    padding: var(--space-2xl) 0;
+  }
+
+  .hero__content {
+    max-width: 640px;
+  }
+
+  .hero__headline {
+    color: var(--color-white);
+    margin-bottom: var(--space-md);
+    line-height: 1.1;
+  }
+
+  .hero__sub {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.15rem;
+    max-width: 50ch;
+    margin-bottom: var(--space-lg);
+    line-height: 1.7;
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+  }
+
+  .btn--outline-white {
+    color: var(--color-white);
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+
+  .btn--outline-white:hover {
+    background: var(--color-white);
+    color: var(--color-slate);
+    border-color: var(--color-white);
+  }
+
+  .hero__geo1 {
+    position: absolute;
+    top: -60px;
+    right: -40px;
+    width: 320px;
+    height: 320px;
+    background: rgba(45, 127, 249, 0.12);
+  }
+
+  .hero__geo2 {
+    position: absolute;
+    bottom: 40px;
+    right: 200px;
+    width: 160px;
+    height: 160px;
+    background: rgba(124, 58, 237, 0.1);
+    transform: rotate(25deg);
+  }
+</style>

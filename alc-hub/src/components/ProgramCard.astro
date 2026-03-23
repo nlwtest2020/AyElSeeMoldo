@@ -1,0 +1,37 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  icon: string;
+  accent?: 'blue' | 'terracotta' | 'purple';
+}
+
+const { title, description, icon, accent = 'blue' } = Astro.props;
+
+const accentClass = {
+  blue: '',
+  terracotta: 'card__accent--terracotta',
+  purple: 'card__accent--purple',
+}[accent];
+---
+
+<div class="card program-card">
+  <div class={`card__accent ${accentClass}`}></div>
+  <div class="program-card__icon">{icon}</div>
+  <h3 class="card__title">{title}</h3>
+  <p class="card__description">{description}</p>
+</div>
+
+<style>
+  .program-card__icon {
+    font-size: 2rem;
+    margin-bottom: var(--space-md);
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    background: rgba(45, 127, 249, 0.08);
+  }
+</style>

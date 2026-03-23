@@ -1,0 +1,107 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <span class="footer__logo">ALC</span>
+      <p class="footer__tagline">Empowering communities worldwide through education, technology, and cultural exchange.</p>
+    </div>
+    <div class="footer__links">
+      <div class="footer__col">
+        <h4 class="footer__heading">Branches</h4>
+        <a href="/branches/moldova">Moldova</a>
+        <a href="/branches/georgia">Georgia</a>
+      </div>
+      <div class="footer__col">
+        <h4 class="footer__heading">Programs</h4>
+        <a href="/programs">All Programs</a>
+        <a href="/programs#english">English</a>
+        <a href="/programs#tech">Technology</a>
+      </div>
+      <div class="footer__col">
+        <h4 class="footer__heading">Connect</h4>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; {year} American Learning Centers. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--color-slate);
+    color: rgba(255, 255, 255, 0.7);
+    padding: var(--space-2xl) 0 var(--space-lg);
+  }
+
+  .footer__inner {
+    display: grid;
+    gap: var(--space-xl);
+  }
+
+  .footer__brand {
+    max-width: 320px;
+  }
+
+  .footer__logo {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1.75rem;
+    background: linear-gradient(135deg, var(--color-electric-blue), var(--color-cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+    margin-bottom: var(--space-sm);
+  }
+
+  .footer__tagline {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .footer__links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .footer__col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .footer__heading {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-white);
+    margin-bottom: var(--space-xs);
+  }
+
+  .footer__col a {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer__col a:hover {
+    color: var(--color-cyan);
+  }
+
+  .footer__bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: var(--space-lg);
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.4);
+  }
+</style>
